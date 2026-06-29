@@ -1,0 +1,19 @@
+{
+  "name": "mlb-f5-predictor-live",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Advanced MLB First 5 predictor with live data, odds, ML model training, weather, park factors, bullpen usage, splits, EV, saves, and backtesting.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "train:ml": "node scripts/train-ml.js",
+    "backtest": "node scripts/train-ml.js"
+  },
+  "dependencies": {
+    "next": "^14.2.30",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {}
+}

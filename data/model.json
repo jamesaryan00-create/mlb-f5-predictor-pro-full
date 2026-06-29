@@ -1,0 +1,22 @@
+{
+  "version": "sample-v1",
+  "trainedAt": null,
+  "trainingSeasons": [2024, 2025],
+  "type": "logistic-regression",
+  "target": "home team leads/ties after first 5 innings",
+  "weights": {
+    "bias": 0.02,
+    "homeWinPctDiff": 0.62,
+    "homeF5RunDiff": 0.11,
+    "homeRecentRunDiff": 0.08,
+    "homePitchingRunDiff": 0.09,
+    "homeParkFactor": 0.04,
+    "homeRestDiff": 0.03
+  },
+  "metrics": {
+    "games": 0,
+    "accuracy": null,
+    "logLoss": null,
+    "note": "Default seed weights. Run npm run train:ml to train on the last two completed MLB seasons and overwrite this file."
+  }
+}
