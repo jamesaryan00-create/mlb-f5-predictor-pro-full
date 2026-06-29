@@ -1,22 +1,24 @@
 {
-  "version": "sample-v1",
-  "trainedAt": null,
-  "trainingSeasons": [2024, 2025],
+  "version": "trained-2024-2025",
+  "trainedAt": "2026-06-29T02:15:53.559Z",
+  "trainingSeasons": [
+    2024,
+    2025
+  ],
   "type": "logistic-regression",
   "target": "home team leads/ties after first 5 innings",
   "weights": {
-    "bias": 0.02,
-    "homeWinPctDiff": 0.62,
-    "homeF5RunDiff": 0.11,
-    "homeRecentRunDiff": 0.08,
-    "homePitchingRunDiff": 0.09,
-    "homeParkFactor": 0.04,
-    "homeRestDiff": 0.03
+    "bias": 0.302646,
+    "homeWinPctDiff": 0.337001,
+    "homeF5RunDiff": 0.671054,
+    "homeRecentRunDiff": 0.207745,
+    "homePitchingRunDiff": 0.238399,
+    "homeParkFactor": 0,
+    "homeRestDiff": 0
   },
   "metrics": {
-    "games": 0,
-    "accuracy": null,
-    "logLoss": null,
-    "note": "Default seed weights. Run npm run train:ml to train on the last two completed MLB seasons and overwrite this file."
+    "games": 4933,
+    "accuracy": 0.584,
+    "logLoss": 0.6764
   }
 }
