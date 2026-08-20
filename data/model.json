@@ -1,24 +1,53 @@
 {
-  "version": "trained-2024-2025",
-  "trainedAt": "2026-06-29T02:15:53.559Z",
+  "version": "trained-history-2010-2026",
+  "trainedAt": "2026-08-20T01:35:32.736Z",
   "trainingSeasons": [
-    2024,
-    2025
+    2010,
+    2026
   ],
-  "type": "logistic-regression",
-  "target": "home team leads/ties after first 5 innings",
-  "weights": {
-    "bias": 0.302646,
-    "homeWinPctDiff": 0.337001,
-    "homeF5RunDiff": 0.671054,
-    "homeRecentRunDiff": 0.207745,
-    "homePitchingRunDiff": 0.238399,
-    "homeParkFactor": 0,
-    "homeRestDiff": 0
+  "throughDate": "2026-08-19",
+  "type": "logistic-regression-standardized",
+  "target": "F5 moneyline winner; ties are pushes and excluded from binary training",
+  "featureNames": [
+    "homeWinPctDiff",
+    "homeF5RunDiff",
+    "homeRecentRunDiff",
+    "homePitchingRunDiff",
+    "homeParkFactor",
+    "homeRestDiff"
+  ],
+  "featureMeans": {
+    "homeWinPctDiff": -0.00016495821886857852,
+    "homeF5RunDiff": -0.002985515529554181,
+    "homeRecentRunDiff": -0.05500963212332193,
+    "homePitchingRunDiff": -0.004041677126842165,
+    "homeParkFactor": -0.00008334832403909307,
+    "homeRestDiff": 0.0018588475145409845
   },
+  "featureScales": {
+    "homeWinPctDiff": 0.1230103347797608,
+    "homeF5RunDiff": 0.8438719707325152,
+    "homeRecentRunDiff": 1.8994921614795017,
+    "homePitchingRunDiff": 0.5554113107252444,
+    "homeParkFactor": 0.03413234153075045,
+    "homeRestDiff": 0.29889990135490996
+  },
+  "weights": {
+    "bias": 0.1436511150376307,
+    "homeWinPctDiff": 0.11477647108576672,
+    "homeF5RunDiff": 0.08012360356240843,
+    "homeRecentRunDiff": 0.0032342046214049896,
+    "homePitchingRunDiff": 0.05504437997702586,
+    "homeParkFactor": 0.01273997039284644,
+    "homeRestDiff": 0.02472519334514194
+  },
+  "overlayHomeF5RunWeight": 0.671054,
   "metrics": {
-    "games": 4933,
-    "accuracy": 0.584,
-    "logLoss": 0.6764
+    "games": 33354,
+    "trainingLogLoss": 0.6842,
+    "walkForwardWins": 15014,
+    "walkForwardLosses": 12146,
+    "walkForwardPushes": 4840,
+    "walkForwardWinPct": 55.28
   }
 }

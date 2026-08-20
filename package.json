@@ -7,8 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "train:ml": "node scripts/train-ml.js",
-    "backtest": "node scripts/train-ml.js"
+    "train:ml": "node scripts/train-history.js",
+    "backtest": "node scripts/train-ml.js",
+    "train:history": "node scripts/train-history.js"
   },
   "dependencies": {
     "next": "^14.2.30",
