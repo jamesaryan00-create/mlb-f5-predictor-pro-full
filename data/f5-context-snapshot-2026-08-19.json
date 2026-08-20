@@ -1,0 +1,1123 @@
+{
+  "asOf": "2026-08-19",
+  "teamRankingsSource": "https://www.teamrankings.com/mlb/stat/first-5-innings-runs-per-game",
+  "teamRankings": {
+    "WSH": {
+      "teamName": "Washington",
+      "season": 3.02,
+      "last3": 1.0,
+      "last1": 0.0,
+      "home": 3.4,
+      "away": 2.64,
+      "priorSeason": 2.28
+    },
+    "MIN": {
+      "teamName": "Minnesota",
+      "season": 2.89,
+      "last3": 3.67,
+      "last1": 2.0,
+      "home": 2.91,
+      "away": 2.87,
+      "priorSeason": 2.32
+    },
+    "CWS": {
+      "teamName": "Chi Sox",
+      "season": 2.82,
+      "last3": 3.0,
+      "last1": 3.0,
+      "home": 2.56,
+      "away": 3.08,
+      "priorSeason": 2.25
+    },
+    "PIT": {
+      "teamName": "Pittsburgh",
+      "season": 2.82,
+      "last3": 3.67,
+      "last1": 3.0,
+      "home": 3.37,
+      "away": 2.25,
+      "priorSeason": 2.09
+    },
+    "LAD": {
+      "teamName": "LA Dodgers",
+      "season": 2.8,
+      "last3": 4.67,
+      "last1": 6.0,
+      "home": 2.57,
+      "away": 3.02,
+      "priorSeason": 2.69
+    },
+    "CHC": {
+      "teamName": "Chi Cubs",
+      "season": 2.72,
+      "last3": 2.67,
+      "last1": 2.0,
+      "home": 3.02,
+      "away": 2.43,
+      "priorSeason": 2.85
+    },
+    "COL": {
+      "teamName": "Colorado",
+      "season": 2.71,
+      "last3": 3.67,
+      "last1": 4.0,
+      "home": 3.11,
+      "away": 2.32,
+      "priorSeason": 1.97
+    },
+    "MIL": {
+      "teamName": "Milwaukee",
+      "season": 2.65,
+      "last3": 4.0,
+      "last1": 6.0,
+      "home": 2.92,
+      "away": 2.37,
+      "priorSeason": 2.82
+    },
+    "DET": {
+      "teamName": "Detroit",
+      "season": 2.64,
+      "last3": 3.33,
+      "last1": 1.0,
+      "home": 2.73,
+      "away": 2.56,
+      "priorSeason": 2.67
+    },
+    "HOU": {
+      "teamName": "Houston",
+      "season": 2.63,
+      "last3": 1.0,
+      "last1": 0.0,
+      "home": 2.81,
+      "away": 2.46,
+      "priorSeason": 2.38
+    },
+    "ATL": {
+      "teamName": "Atlanta",
+      "season": 2.56,
+      "last3": 1.33,
+      "last1": 0.0,
+      "home": 2.68,
+      "away": 2.44,
+      "priorSeason": 2.31
+    },
+    "MIA": {
+      "teamName": "Miami",
+      "season": 2.54,
+      "last3": 0.67,
+      "last1": 2.0,
+      "home": 2.84,
+      "away": 2.25,
+      "priorSeason": 2.3
+    },
+    "BOS": {
+      "teamName": "Boston",
+      "season": 2.51,
+      "last3": 5.33,
+      "last1": 6.0,
+      "home": 2.71,
+      "away": 2.31,
+      "priorSeason": 2.59
+    },
+    "TB": {
+      "teamName": "Tampa Bay",
+      "season": 2.5,
+      "last3": 2.67,
+      "last1": 3.0,
+      "home": 2.5,
+      "away": 2.49,
+      "priorSeason": 2.64
+    },
+    "LAA": {
+      "teamName": "LA Angels",
+      "season": 2.49,
+      "last3": 1.0,
+      "last1": 3.0,
+      "home": 2.57,
+      "away": 2.41,
+      "priorSeason": 2.41
+    },
+    "CIN": {
+      "teamName": "Cincinnati",
+      "season": 2.47,
+      "last3": 0.67,
+      "last1": 0.0,
+      "home": 2.52,
+      "away": 2.42,
+      "priorSeason": 2.52
+    },
+    "BAL": {
+      "teamName": "Baltimore",
+      "season": 2.45,
+      "last3": 3.33,
+      "last1": 1.0,
+      "home": 2.46,
+      "away": 2.44,
+      "priorSeason": 2.3
+    },
+    "PHI": {
+      "teamName": "Philadelphia",
+      "season": 2.44,
+      "last3": 1.0,
+      "last1": 1.0,
+      "home": 2.77,
+      "away": 2.11,
+      "priorSeason": 2.48
+    },
+    "STL": {
+      "teamName": "St. Louis",
+      "season": 2.43,
+      "last3": 1.67,
+      "last1": 1.0,
+      "home": 1.97,
+      "away": 2.93,
+      "priorSeason": 2.3
+    },
+    "AZ": {
+      "teamName": "Arizona",
+      "season": 2.43,
+      "last3": 1.67,
+      "last1": 4.0,
+      "home": 2.74,
+      "away": 2.15,
+      "priorSeason": 2.86
+    },
+    "TEX": {
+      "teamName": "Texas",
+      "season": 2.4,
+      "last3": 2.67,
+      "last1": 5.0,
+      "home": 2.72,
+      "away": 2.12,
+      "priorSeason": 2.48
+    },
+    "ATH": {
+      "teamName": "Sacramento",
+      "season": 2.39,
+      "last3": 2.33,
+      "last1": 1.0,
+      "home": 2.53,
+      "away": 2.28,
+      "priorSeason": 2.61
+    },
+    "NYY": {
+      "teamName": "NY Yankees",
+      "season": 2.34,
+      "last3": 1.0,
+      "last1": 1.0,
+      "home": 2.45,
+      "away": 2.25,
+      "priorSeason": 3.15
+    },
+    "CLE": {
+      "teamName": "Cleveland",
+      "season": 2.28,
+      "last3": 3.67,
+      "last1": 7.0,
+      "home": 2.52,
+      "away": 2.03,
+      "priorSeason": 2.15
+    },
+    "NYM": {
+      "teamName": "NY Mets",
+      "season": 2.25,
+      "last3": 2.33,
+      "last1": 1.0,
+      "home": 2.27,
+      "away": 2.24,
+      "priorSeason": 2.73
+    },
+    "SD": {
+      "teamName": "San Diego",
+      "season": 2.24,
+      "last3": 2.33,
+      "last1": 3.0,
+      "home": 2.29,
+      "away": 2.2,
+      "priorSeason": 2.61
+    },
+    "KC": {
+      "teamName": "Kansas City",
+      "season": 2.23,
+      "last3": 2.67,
+      "last1": 0.0,
+      "home": 2.62,
+      "away": 1.86,
+      "priorSeason": 2.28
+    },
+    "SF": {
+      "teamName": "SF Giants",
+      "season": 2.22,
+      "last3": 5.0,
+      "last1": 1.0,
+      "home": 2.18,
+      "away": 2.25,
+      "priorSeason": 2.47
+    },
+    "SEA": {
+      "teamName": "Seattle",
+      "season": 2.14,
+      "last3": 2.33,
+      "last1": 0.0,
+      "home": 2.02,
+      "away": 2.27,
+      "priorSeason": 2.53
+    },
+    "TOR": {
+      "teamName": "Toronto",
+      "season": 1.89,
+      "last3": 3.33,
+      "last1": 8.0,
+      "home": 1.79,
+      "away": 2.0,
+      "priorSeason": 2.66
+    }
+  },
+  "sportsReference": {
+    "AZ": {
+      "fielding": {
+        "RAperG": 4.48,
+        "DefEff": 0.711,
+        "FldPct": 0.989,
+        "Rtot": 39.0,
+        "Rdrs": 28.0,
+        "Rgood": 3.0
+      },
+      "standings": {
+        "W": 66.0,
+        "L": 61.0,
+        "winPct": 0.52,
+        "runsPerGame": 4.5,
+        "runsAllowedPerGame": 4.5,
+        "runDiffPerGame": 0.0,
+        "SOS": 0.1,
+        "SRS": 0.1,
+        "Luck": 2.0,
+        "homePct": 0.5714,
+        "roadPct": 0.4688,
+        "vsRHPPct": 0.4792,
+        "vsLHPPct": 0.6452,
+        "last10Pct": 0.4,
+        "last20Pct": 0.55,
+        "last30Pct": 0.5667
+      }
+    },
+    "ATH": {
+      "fielding": {
+        "RAperG": 5.77,
+        "DefEff": 0.678,
+        "FldPct": 0.986,
+        "Rtot": -54.0,
+        "Rdrs": -21.0,
+        "Rgood": 1.0
+      },
+      "standings": {
+        "W": 49.0,
+        "L": 77.0,
+        "winPct": 0.389,
+        "runsPerGame": 4.3,
+        "runsAllowedPerGame": 5.8,
+        "runDiffPerGame": -1.4,
+        "SOS": 0.0,
+        "SRS": -1.5,
+        "Luck": 2.0,
+        "homePct": 0.3651,
+        "roadPct": 0.4127,
+        "vsRHPPct": 0.4211,
+        "vsLHPPct": 0.34,
+        "last10Pct": 0.4,
+        "last20Pct": 0.25,
+        "last30Pct": 0.2667
+      }
+    },
+    "ATL": {
+      "fielding": {
+        "RAperG": 3.89,
+        "DefEff": 0.715,
+        "FldPct": 0.987,
+        "Rtot": 57.0,
+        "Rdrs": 43.0,
+        "Rgood": 4.0
+      },
+      "standings": {
+        "W": 74.0,
+        "L": 52.0,
+        "winPct": 0.587,
+        "runsPerGame": 4.8,
+        "runsAllowedPerGame": 3.9,
+        "runDiffPerGame": 0.9,
+        "SOS": 0.0,
+        "SRS": 0.9,
+        "Luck": -1.0,
+        "homePct": 0.6462,
+        "roadPct": 0.5246,
+        "vsRHPPct": 0.5974,
+        "vsLHPPct": 0.5714,
+        "last10Pct": 0.4,
+        "last20Pct": 0.6,
+        "last30Pct": 0.6
+      }
+    },
+    "BAL": {
+      "fielding": {
+        "RAperG": 4.75,
+        "DefEff": 0.688,
+        "FldPct": 0.982,
+        "Rtot": -33.0,
+        "Rdrs": -14.0,
+        "Rgood": 4.0
+      },
+      "standings": {
+        "W": 61.0,
+        "L": 65.0,
+        "winPct": 0.484,
+        "runsPerGame": 4.5,
+        "runsAllowedPerGame": 4.8,
+        "runDiffPerGame": -0.2,
+        "SOS": 0.0,
+        "SRS": -0.2,
+        "Luck": 1.0,
+        "homePct": 0.5079,
+        "roadPct": 0.4603,
+        "vsRHPPct": 0.5057,
+        "vsLHPPct": 0.4359,
+        "last10Pct": 0.5,
+        "last20Pct": 0.5,
+        "last30Pct": 0.5333
+      }
+    },
+    "BOS": {
+      "fielding": {
+        "RAperG": 3.75,
+        "DefEff": 0.698,
+        "FldPct": 0.986,
+        "Rtot": 42.0,
+        "Rdrs": 40.0,
+        "Rgood": -1.0
+      },
+      "standings": {
+        "W": 68.0,
+        "L": 58.0,
+        "winPct": 0.54,
+        "runsPerGame": 4.5,
+        "runsAllowedPerGame": 3.8,
+        "runDiffPerGame": 0.8,
+        "SOS": 0.0,
+        "SRS": 0.7,
+        "Luck": -6.0,
+        "homePct": 0.5,
+        "roadPct": 0.5781,
+        "vsRHPPct": 0.5158,
+        "vsLHPPct": 0.6129,
+        "last10Pct": 0.4,
+        "last20Pct": 0.65,
+        "last30Pct": 0.6667
+      }
+    },
+    "CHC": {
+      "fielding": {
+        "RAperG": 4.35,
+        "DefEff": 0.72,
+        "FldPct": 0.99,
+        "Rtot": 61.0,
+        "Rdrs": 65.0,
+        "Rgood": 3.0
+      },
+      "standings": {
+        "W": 74.0,
+        "L": 53.0,
+        "winPct": 0.583,
+        "runsPerGame": 5.2,
+        "runsAllowedPerGame": 4.4,
+        "runDiffPerGame": 0.8,
+        "SOS": 0.0,
+        "SRS": 0.8,
+        "Luck": 1.0,
+        "homePct": 0.5938,
+        "roadPct": 0.5714,
+        "vsRHPPct": 0.5495,
+        "vsLHPPct": 0.6667,
+        "last10Pct": 0.6,
+        "last20Pct": 0.65,
+        "last30Pct": 0.6667
+      }
+    },
+    "CWS": {
+      "fielding": {
+        "RAperG": 4.46,
+        "DefEff": 0.705,
+        "FldPct": 0.985,
+        "Rtot": -11.0,
+        "Rdrs": -13.0,
+        "Rgood": -4.0
+      },
+      "standings": {
+        "W": 65.0,
+        "L": 60.0,
+        "winPct": 0.52,
+        "runsPerGame": 4.8,
+        "runsAllowedPerGame": 4.5,
+        "runDiffPerGame": 0.4,
+        "SOS": -0.1,
+        "SRS": 0.3,
+        "Luck": -2.0,
+        "homePct": 0.6066,
+        "roadPct": 0.4375,
+        "vsRHPPct": 0.5529,
+        "vsLHPPct": 0.45,
+        "last10Pct": 0.6,
+        "last20Pct": 0.5,
+        "last30Pct": 0.5
+      }
+    },
+    "CIN": {
+      "fielding": {
+        "RAperG": 4.75,
+        "DefEff": 0.703,
+        "FldPct": 0.984,
+        "Rtot": 10.0,
+        "Rdrs": -47.0,
+        "Rgood": 2.0
+      },
+      "standings": {
+        "W": 60.0,
+        "L": 66.0,
+        "winPct": 0.476,
+        "runsPerGame": 4.0,
+        "runsAllowedPerGame": 4.7,
+        "runDiffPerGame": -0.7,
+        "SOS": 0.1,
+        "SRS": -0.6,
+        "Luck": 6.0,
+        "homePct": 0.4697,
+        "roadPct": 0.4833,
+        "vsRHPPct": 0.4848,
+        "vsLHPPct": 0.4444,
+        "last10Pct": 0.4,
+        "last20Pct": 0.5,
+        "last30Pct": 0.5333
+      }
+    },
+    "CLE": {
+      "fielding": {
+        "RAperG": 4.18,
+        "DefEff": 0.694,
+        "FldPct": 0.985,
+        "Rtot": -4.0,
+        "Rdrs": 21.0,
+        "Rgood": 1.0
+      },
+      "standings": {
+        "W": 61.0,
+        "L": 65.0,
+        "winPct": 0.484,
+        "runsPerGame": 4.0,
+        "runsAllowedPerGame": 4.2,
+        "runDiffPerGame": -0.2,
+        "SOS": 0.0,
+        "SRS": -0.2,
+        "Luck": 1.0,
+        "homePct": 0.4762,
+        "roadPct": 0.4921,
+        "vsRHPPct": 0.4321,
+        "vsLHPPct": 0.5778,
+        "last10Pct": 0.4,
+        "last20Pct": 0.35,
+        "last30Pct": 0.3667
+      }
+    },
+    "COL": {
+      "fielding": {
+        "RAperG": 5.77,
+        "DefEff": 0.668,
+        "FldPct": 0.982,
+        "Rtot": -51.0,
+        "Rdrs": -42.0,
+        "Rgood": 4.0
+      },
+      "standings": {
+        "W": 50.0,
+        "L": 76.0,
+        "winPct": 0.397,
+        "runsPerGame": 4.8,
+        "runsAllowedPerGame": 5.8,
+        "runDiffPerGame": -1.0,
+        "SOS": 0.1,
+        "SRS": -0.9,
+        "Luck": -3.0,
+        "homePct": 0.4426,
+        "roadPct": 0.3538,
+        "vsRHPPct": 0.4091,
+        "vsLHPPct": 0.3684,
+        "last10Pct": 0.5,
+        "last20Pct": 0.4,
+        "last30Pct": 0.3667
+      }
+    },
+    "DET": {
+      "fielding": {
+        "RAperG": 3.9,
+        "DefEff": 0.714,
+        "FldPct": 0.987,
+        "Rtot": 19.0,
+        "Rdrs": -20.0,
+        "Rgood": 1.0
+      },
+      "standings": {
+        "W": 61.0,
+        "L": 65.0,
+        "winPct": 0.484,
+        "runsPerGame": 4.6,
+        "runsAllowedPerGame": 3.9,
+        "runDiffPerGame": 0.7,
+        "SOS": -0.1,
+        "SRS": 0.5,
+        "Luck": -11.0,
+        "homePct": 0.5079,
+        "roadPct": 0.4603,
+        "vsRHPPct": 0.5172,
+        "vsLHPPct": 0.4103,
+        "last10Pct": 0.5,
+        "last20Pct": 0.55,
+        "last30Pct": 0.5667
+      }
+    },
+    "HOU": {
+      "fielding": {
+        "RAperG": 4.83,
+        "DefEff": 0.709,
+        "FldPct": 0.987,
+        "Rtot": 7.0,
+        "Rdrs": -27.0,
+        "Rgood": 1.0
+      },
+      "standings": {
+        "W": 63.0,
+        "L": 63.0,
+        "winPct": 0.5,
+        "runsPerGame": 4.6,
+        "runsAllowedPerGame": 4.8,
+        "runDiffPerGame": -0.3,
+        "SOS": -0.2,
+        "SRS": -0.4,
+        "Luck": 3.0,
+        "homePct": 0.4921,
+        "roadPct": 0.5079,
+        "vsRHPPct": 0.5158,
+        "vsLHPPct": 0.4516,
+        "last10Pct": 0.4,
+        "last20Pct": 0.55,
+        "last30Pct": 0.5667
+      }
+    },
+    "KC": {
+      "fielding": {
+        "RAperG": 4.98,
+        "DefEff": 0.696,
+        "FldPct": 0.988,
+        "Rtot": 27.0,
+        "Rdrs": 15.0,
+        "Rgood": -2.0
+      },
+      "standings": {
+        "W": 53.0,
+        "L": 74.0,
+        "winPct": 0.417,
+        "runsPerGame": 4.1,
+        "runsAllowedPerGame": 5.0,
+        "runDiffPerGame": -0.8,
+        "SOS": 0.0,
+        "SRS": -0.9,
+        "Luck": 0.0,
+        "homePct": 0.5082,
+        "roadPct": 0.3333,
+        "vsRHPPct": 0.4831,
+        "vsLHPPct": 0.2632,
+        "last10Pct": 0.5,
+        "last20Pct": 0.4,
+        "last30Pct": 0.5
+      }
+    },
+    "LAA": {
+      "fielding": {
+        "RAperG": 4.71,
+        "DefEff": 0.701,
+        "FldPct": 0.983,
+        "Rtot": -26.0,
+        "Rdrs": -30.0,
+        "Rgood": -7.0
+      },
+      "standings": {
+        "W": 50.0,
+        "L": 76.0,
+        "winPct": 0.397,
+        "runsPerGame": 4.0,
+        "runsAllowedPerGame": 4.7,
+        "runDiffPerGame": -0.7,
+        "SOS": -0.1,
+        "SRS": -0.8,
+        "Luck": -4.0,
+        "homePct": 0.4462,
+        "roadPct": 0.3443,
+        "vsRHPPct": 0.427,
+        "vsLHPPct": 0.3243,
+        "last10Pct": 0.5,
+        "last20Pct": 0.4,
+        "last30Pct": 0.4
+      }
+    },
+    "LAD": {
+      "fielding": {
+        "RAperG": 3.87,
+        "DefEff": 0.726,
+        "FldPct": 0.988,
+        "Rtot": 26.0,
+        "Rdrs": 27.0,
+        "Rgood": -3.0
+      },
+      "standings": {
+        "W": 76.0,
+        "L": 51.0,
+        "winPct": 0.598,
+        "runsPerGame": 5.0,
+        "runsAllowedPerGame": 3.9,
+        "runDiffPerGame": 1.1,
+        "SOS": 0.0,
+        "SRS": 1.1,
+        "Luck": -2.0,
+        "homePct": 0.5873,
+        "roadPct": 0.6094,
+        "vsRHPPct": 0.6279,
+        "vsLHPPct": 0.5366,
+        "last10Pct": 0.6,
+        "last20Pct": 0.45,
+        "last30Pct": 0.5
+      }
+    },
+    "MIA": {
+      "fielding": {
+        "RAperG": 4.27,
+        "DefEff": 0.705,
+        "FldPct": 0.982,
+        "Rtot": -7.0,
+        "Rdrs": -27.0,
+        "Rgood": -7.0
+      },
+      "standings": {
+        "W": 64.0,
+        "L": 63.0,
+        "winPct": 0.504,
+        "runsPerGame": 4.4,
+        "runsAllowedPerGame": 4.3,
+        "runDiffPerGame": 0.1,
+        "SOS": 0.0,
+        "SRS": 0.2,
+        "Luck": -1.0,
+        "homePct": 0.6032,
+        "roadPct": 0.4062,
+        "vsRHPPct": 0.5368,
+        "vsLHPPct": 0.4062,
+        "last10Pct": 0.6,
+        "last20Pct": 0.55,
+        "last30Pct": 0.4
+      }
+    },
+    "MIL": {
+      "fielding": {
+        "RAperG": 3.75,
+        "DefEff": 0.713,
+        "FldPct": 0.987,
+        "Rtot": 39.0,
+        "Rdrs": 32.0,
+        "Rgood": -3.0
+      },
+      "standings": {
+        "W": 78.0,
+        "L": 48.0,
+        "winPct": 0.619,
+        "runsPerGame": 5.0,
+        "runsAllowedPerGame": 3.7,
+        "runDiffPerGame": 1.3,
+        "SOS": 0.0,
+        "SRS": 1.3,
+        "Luck": -1.0,
+        "homePct": 0.6562,
+        "roadPct": 0.5806,
+        "vsRHPPct": 0.6,
+        "vsLHPPct": 0.6667,
+        "last10Pct": 0.6,
+        "last20Pct": 0.6,
+        "last30Pct": 0.6333
+      }
+    },
+    "MIN": {
+      "fielding": {
+        "RAperG": 4.95,
+        "DefEff": 0.693,
+        "FldPct": 0.987,
+        "Rtot": -42.0,
+        "Rdrs": -39.0,
+        "Rgood": 3.0
+      },
+      "standings": {
+        "W": 62.0,
+        "L": 65.0,
+        "winPct": 0.488,
+        "runsPerGame": 4.6,
+        "runsAllowedPerGame": 5.0,
+        "runDiffPerGame": -0.3,
+        "SOS": 0.0,
+        "SRS": -0.4,
+        "Luck": 3.0,
+        "homePct": 0.5231,
+        "roadPct": 0.4516,
+        "vsRHPPct": 0.5,
+        "vsLHPPct": 0.4634,
+        "last10Pct": 0.4,
+        "last20Pct": 0.45,
+        "last30Pct": 0.4667
+      }
+    },
+    "NYM": {
+      "fielding": {
+        "RAperG": 4.5,
+        "DefEff": 0.694,
+        "FldPct": 0.982,
+        "Rtot": -11.0,
+        "Rdrs": 17.0,
+        "Rgood": -4.0
+      },
+      "standings": {
+        "W": 57.0,
+        "L": 70.0,
+        "winPct": 0.449,
+        "runsPerGame": 4.1,
+        "runsAllowedPerGame": 4.5,
+        "runDiffPerGame": -0.3,
+        "SOS": 0.1,
+        "SRS": -0.2,
+        "Luck": -2.0,
+        "homePct": 0.4531,
+        "roadPct": 0.4444,
+        "vsRHPPct": 0.4891,
+        "vsLHPPct": 0.3429,
+        "last10Pct": 0.6,
+        "last20Pct": 0.6,
+        "last30Pct": 0.5667
+      }
+    },
+    "NYY": {
+      "fielding": {
+        "RAperG": 3.74,
+        "DefEff": 0.712,
+        "FldPct": 0.985,
+        "Rtot": 18.0,
+        "Rdrs": 22.0,
+        "Rgood": 1.0
+      },
+      "standings": {
+        "W": 70.0,
+        "L": 55.0,
+        "winPct": 0.56,
+        "runsPerGame": 4.4,
+        "runsAllowedPerGame": 3.7,
+        "runDiffPerGame": 0.7,
+        "SOS": 0.0,
+        "SRS": 0.7,
+        "Luck": -2.0,
+        "homePct": 0.5345,
+        "roadPct": 0.5821,
+        "vsRHPPct": 0.5309,
+        "vsLHPPct": 0.6136,
+        "last10Pct": 0.6,
+        "last20Pct": 0.55,
+        "last30Pct": 0.5667
+      }
+    },
+    "PHI": {
+      "fielding": {
+        "RAperG": 4.39,
+        "DefEff": 0.673,
+        "FldPct": 0.986,
+        "Rtot": -49.0,
+        "Rdrs": -26.0,
+        "Rgood": 1.0
+      },
+      "standings": {
+        "W": 69.0,
+        "L": 58.0,
+        "winPct": 0.543,
+        "runsPerGame": 4.5,
+        "runsAllowedPerGame": 4.4,
+        "runDiffPerGame": 0.1,
+        "SOS": 0.1,
+        "SRS": 0.2,
+        "Luck": 4.0,
+        "homePct": 0.5312,
+        "roadPct": 0.5556,
+        "vsRHPPct": 0.561,
+        "vsLHPPct": 0.5111,
+        "last10Pct": 0.7,
+        "last20Pct": 0.6,
+        "last30Pct": 0.5
+      }
+    },
+    "PIT": {
+      "fielding": {
+        "RAperG": 4.78,
+        "DefEff": 0.686,
+        "FldPct": 0.982,
+        "Rtot": -26.0,
+        "Rdrs": -20.0,
+        "Rgood": -1.0
+      },
+      "standings": {
+        "W": 62.0,
+        "L": 66.0,
+        "winPct": 0.484,
+        "runsPerGame": 5.0,
+        "runsAllowedPerGame": 4.8,
+        "runDiffPerGame": 0.2,
+        "SOS": 0.1,
+        "SRS": 0.3,
+        "Luck": -5.0,
+        "homePct": 0.5077,
+        "roadPct": 0.4603,
+        "vsRHPPct": 0.5618,
+        "vsLHPPct": 0.3077,
+        "last10Pct": 0.5,
+        "last20Pct": 0.35,
+        "last30Pct": 0.3667
+      }
+    },
+    "SD": {
+      "fielding": {
+        "RAperG": 4.22,
+        "DefEff": 0.703,
+        "FldPct": 0.988,
+        "Rtot": -3.0,
+        "Rdrs": 4.0,
+        "Rgood": 4.0
+      },
+      "standings": {
+        "W": 68.0,
+        "L": 59.0,
+        "winPct": 0.535,
+        "runsPerGame": 4.3,
+        "runsAllowedPerGame": 4.2,
+        "runDiffPerGame": 0.0,
+        "SOS": 0.1,
+        "SRS": 0.1,
+        "Luck": 4.0,
+        "homePct": 0.5873,
+        "roadPct": 0.4844,
+        "vsRHPPct": 0.5426,
+        "vsLHPPct": 0.5152,
+        "last10Pct": 0.8,
+        "last20Pct": 0.7,
+        "last30Pct": 0.6667
+      }
+    },
+    "SEA": {
+      "fielding": {
+        "RAperG": 4.24,
+        "DefEff": 0.693,
+        "FldPct": 0.986,
+        "Rtot": -12.0,
+        "Rdrs": -30.0,
+        "Rgood": -1.0
+      },
+      "standings": {
+        "W": 59.0,
+        "L": 67.0,
+        "winPct": 0.468,
+        "runsPerGame": 3.9,
+        "runsAllowedPerGame": 4.2,
+        "runDiffPerGame": -0.4,
+        "SOS": -0.1,
+        "SRS": -0.5,
+        "Luck": 1.0,
+        "homePct": 0.5323,
+        "roadPct": 0.4062,
+        "vsRHPPct": 0.4607,
+        "vsLHPPct": 0.4865,
+        "last10Pct": 0.3,
+        "last20Pct": 0.35,
+        "last30Pct": 0.4
+      }
+    },
+    "SF": {
+      "fielding": {
+        "RAperG": 4.67,
+        "DefEff": 0.696,
+        "FldPct": 0.982,
+        "Rtot": -16.0,
+        "Rdrs": 6.0,
+        "Rgood": -1.0
+      },
+      "standings": {
+        "W": 51.0,
+        "L": 74.0,
+        "winPct": 0.408,
+        "runsPerGame": 4.1,
+        "runsAllowedPerGame": 4.7,
+        "runDiffPerGame": -0.6,
+        "SOS": 0.0,
+        "SRS": -0.6,
+        "Luck": -4.0,
+        "homePct": 0.4677,
+        "roadPct": 0.3492,
+        "vsRHPPct": 0.4111,
+        "vsLHPPct": 0.4,
+        "last10Pct": 0.3,
+        "last20Pct": 0.35,
+        "last30Pct": 0.3667
+      }
+    },
+    "STL": {
+      "fielding": {
+        "RAperG": 4.31,
+        "DefEff": 0.696,
+        "FldPct": 0.988,
+        "Rtot": -12.0,
+        "Rdrs": 9.0,
+        "Rgood": -5.0
+      },
+      "standings": {
+        "W": 65.0,
+        "L": 62.0,
+        "winPct": 0.512,
+        "runsPerGame": 4.4,
+        "runsAllowedPerGame": 4.3,
+        "runDiffPerGame": 0.1,
+        "SOS": 0.1,
+        "SRS": 0.2,
+        "Luck": 0.0,
+        "homePct": 0.4848,
+        "roadPct": 0.541,
+        "vsRHPPct": 0.4773,
+        "vsLHPPct": 0.5897,
+        "last10Pct": 0.7,
+        "last20Pct": 0.6,
+        "last30Pct": 0.4667
+      }
+    },
+    "TB": {
+      "fielding": {
+        "RAperG": 4.18,
+        "DefEff": 0.718,
+        "FldPct": 0.983,
+        "Rtot": 25.0,
+        "Rdrs": 19.0,
+        "Rgood": -5.0
+      },
+      "standings": {
+        "W": 75.0,
+        "L": 50.0,
+        "winPct": 0.6,
+        "runsPerGame": 4.6,
+        "runsAllowedPerGame": 4.2,
+        "runDiffPerGame": 0.4,
+        "SOS": -0.1,
+        "SRS": 0.3,
+        "Luck": 7.0,
+        "homePct": 0.6562,
+        "roadPct": 0.541,
+        "vsRHPPct": 0.5778,
+        "vsLHPPct": 0.6571,
+        "last10Pct": 0.6,
+        "last20Pct": 0.65,
+        "last30Pct": 0.6333
+      }
+    },
+    "TEX": {
+      "fielding": {
+        "RAperG": 4.4,
+        "DefEff": 0.696,
+        "FldPct": 0.988,
+        "Rtot": -5.0,
+        "Rdrs": -32.0,
+        "Rgood": -5.0
+      },
+      "standings": {
+        "W": 62.0,
+        "L": 64.0,
+        "winPct": 0.492,
+        "runsPerGame": 4.1,
+        "runsAllowedPerGame": 4.4,
+        "runDiffPerGame": -0.3,
+        "SOS": -0.2,
+        "SRS": -0.5,
+        "Luck": 4.0,
+        "homePct": 0.55,
+        "roadPct": 0.4394,
+        "vsRHPPct": 0.4787,
+        "vsLHPPct": 0.5312,
+        "last10Pct": 0.4,
+        "last20Pct": 0.4,
+        "last30Pct": 0.4333
+      }
+    },
+    "TOR": {
+      "fielding": {
+        "RAperG": 4.36,
+        "DefEff": 0.696,
+        "FldPct": 0.983,
+        "Rtot": -1.0,
+        "Rdrs": 27.0,
+        "Rgood": 8.0
+      },
+      "standings": {
+        "W": 62.0,
+        "L": 65.0,
+        "winPct": 0.488,
+        "runsPerGame": 4.0,
+        "runsAllowedPerGame": 4.4,
+        "runDiffPerGame": -0.4,
+        "SOS": 0.1,
+        "SRS": -0.3,
+        "Luck": 4.0,
+        "homePct": 0.5,
+        "roadPct": 0.4754,
+        "vsRHPPct": 0.4839,
+        "vsLHPPct": 0.5,
+        "last10Pct": 0.7,
+        "last20Pct": 0.65,
+        "last30Pct": 0.5667
+      }
+    },
+    "WSH": {
+      "fielding": {
+        "RAperG": 5.17,
+        "DefEff": 0.692,
+        "FldPct": 0.981,
+        "Rtot": -25.0,
+        "Rdrs": 3.0,
+        "Rgood": -3.0
+      },
+      "standings": {
+        "W": 60.0,
+        "L": 67.0,
+        "winPct": 0.472,
+        "runsPerGame": 5.3,
+        "runsAllowedPerGame": 5.2,
+        "runDiffPerGame": 0.1,
+        "SOS": 0.1,
+        "SRS": 0.2,
+        "Luck": -5.0,
+        "homePct": 0.4286,
+        "roadPct": 0.5156,
+        "vsRHPPct": 0.4353,
+        "vsLHPPct": 0.5476,
+        "last10Pct": 0.4,
+        "last20Pct": 0.3,
+        "last30Pct": 0.4
+      }
+    }
+  },
+  "notes": [
+    "Sports Reference fielding and expanded standings came from the user-uploaded HTML-as-XLS exports.",
+    "Sports Reference values are a snapshot and should not be treated as a continuously updating live feed.",
+    "TeamRankings overlay should use venue/recent deviation from season baseline to avoid duplicating the existing homeF5RunDiff feature."
+  ]
+}
