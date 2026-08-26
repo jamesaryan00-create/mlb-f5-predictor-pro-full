@@ -65,7 +65,7 @@ function GameCard({ game, onSave, saved }) {
           <p className="muted">Edge {game.prediction.edge > 0 ? '+' : ''}{game.prediction.edge} · Confidence {game.prediction.confidence}% · Blended win probability {game.prediction.modelProbability}%</p>
         </div>
         <div className="evBox">
-          <span>Total</span><strong>{game.market.total?.point || 'N/A'}</strong>
+          <span>Total</span><strong>{game.market.f5Total?.point ?? 'N/A'}</strong>
           <span>Best ML</span><strong>{moneyline(game.prediction.bestMoneyline)}</strong>
           <span>Est. EV</span><strong>{game.prediction.estimatedEV === null ? 'N/A' : `${game.prediction.estimatedEV > 0 ? '+' : ''}${game.prediction.estimatedEV}%`}</strong>
         </div>
