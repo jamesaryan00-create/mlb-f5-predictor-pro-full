@@ -1,0 +1,15 @@
+{
+  "calibrationSeasons": [
+    2023,
+    2024,
+    2025
+  ],
+  "throughDate": "2026-09-21",
+  "games": 2341,
+  "logisticWins": 1284,
+  "monteCarloV1Wins": 1256,
+  "monteCarloV2Wins": 1256,
+  "completeBullpenGames": 2269,
+  "completeBullpenV2Wins": 1212,
+  "simulationsPerGame": 1200
+}

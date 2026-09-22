@@ -1,0 +1,165 @@
+{
+  "generatedAt": "2026-09-22T18:22:47.734Z",
+  "simulationsPerGame": 1200,
+  "coverage": "Same full-game walk-forward matchups; no confidence filtering.",
+  "games": 32348,
+  "wins": 18206,
+  "losses": 14142,
+  "accuracy": 0.5628168665759862,
+  "baselineMonteCarlo": {
+    "games": 32348,
+    "wins": 18179,
+    "losses": 14169,
+    "accuracy": 0.5619821936441202
+  },
+  "baselineLogistic": {
+    "games": 32348,
+    "wins": 18222,
+    "losses": 14126,
+    "accuracy": 0.5633114875726475
+  },
+  "bullpenSnapshotsAvailable": 32059,
+  "byStrength": {
+    "0.25": {
+      "games": 32348,
+      "wins": 18206,
+      "losses": 14142,
+      "accuracy": 0.5628168665759862
+    }
+  },
+  "bestRetrospectiveStrength": {
+    "strength": 0.25,
+    "games": 32348,
+    "wins": 18206,
+    "losses": 14142,
+    "accuracy": 0.5628168665759862
+  },
+  "bySeason": [
+    {
+      "season": 2013,
+      "strength0.25": {
+        "games": 2429,
+        "wins": 1367,
+        "losses": 1062,
+        "accuracy": 0.5627830382873611
+      }
+    },
+    {
+      "season": 2014,
+      "strength0.25": {
+        "games": 2425,
+        "wins": 1321,
+        "losses": 1104,
+        "accuracy": 0.5447422680412372
+      }
+    },
+    {
+      "season": 2015,
+      "strength0.25": {
+        "games": 2425,
+        "wins": 1353,
+        "losses": 1072,
+        "accuracy": 0.5579381443298969
+      }
+    },
+    {
+      "season": 2016,
+      "strength0.25": {
+        "games": 2426,
+        "wins": 1374,
+        "losses": 1052,
+        "accuracy": 0.5663643858202803
+      }
+    },
+    {
+      "season": 2017,
+      "strength0.25": {
+        "games": 2430,
+        "wins": 1355,
+        "losses": 1075,
+        "accuracy": 0.5576131687242798
+      }
+    },
+    {
+      "season": 2018,
+      "strength0.25": {
+        "games": 2429,
+        "wins": 1426,
+        "losses": 1003,
+        "accuracy": 0.5870728694936188
+      }
+    },
+    {
+      "season": 2019,
+      "strength0.25": {
+        "games": 2424,
+        "wins": 1400,
+        "losses": 1024,
+        "accuracy": 0.5775577557755776
+      }
+    },
+    {
+      "season": 2020,
+      "strength0.25": {
+        "games": 896,
+        "wins": 493,
+        "losses": 403,
+        "accuracy": 0.5502232142857143
+      }
+    },
+    {
+      "season": 2021,
+      "strength0.25": {
+        "games": 2421,
+        "wins": 1378,
+        "losses": 1043,
+        "accuracy": 0.5691862866584056
+      }
+    },
+    {
+      "season": 2022,
+      "strength0.25": {
+        "games": 2429,
+        "wins": 1429,
+        "losses": 1000,
+        "accuracy": 0.5883079456566488
+      }
+    },
+    {
+      "season": 2023,
+      "strength0.25": {
+        "games": 2423,
+        "wins": 1359,
+        "losses": 1064,
+        "accuracy": 0.5608749484110607
+      }
+    },
+    {
+      "season": 2024,
+      "strength0.25": {
+        "games": 2424,
+        "wins": 1368,
+        "losses": 1056,
+        "accuracy": 0.5643564356435643
+      }
+    },
+    {
+      "season": 2025,
+      "strength0.25": {
+        "games": 2426,
+        "wins": 1314,
+        "losses": 1112,
+        "accuracy": 0.5416323165704864
+      }
+    },
+    {
+      "season": 2026,
+      "strength0.25": {
+        "games": 2341,
+        "wins": 1269,
+        "losses": 1072,
+        "accuracy": 0.5420760358821016
+      }
+    }
+  ]
+}

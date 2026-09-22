@@ -1,11 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const { fetchSeasonGames, buildFeatureRows, clamp } = require('../lib/historical-f5');
+const { PIPELINE_VERSION } = require('../lib/mlb');
 
-const FEATURE_NAMES = ['homeWinPctDiff','homeF5RunDiff','homeRecentRunDiff','homePitchingRunDiff','homeParkFactor','homeRestDiff'];
+const FEATURE_NAMES = ['homeWinPctDiff','homeF5RunDiff','homeRecentRunDiff','homePitchingRunDiff','homeParkFactor','homeRestDiff','homePitcherWhipDiff','homePitcherFipDiff'];
 const START_SEASON = Number(process.env.HISTORY_START_SEASON || 2010);
 const CURRENT_SEASON = Number(process.env.HISTORY_END_SEASON || new Date().getFullYear());
-const TODAY = process.env.HISTORY_THROUGH_DATE || new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+const TODAY = process.env.HISTORY_THROUGH_DATE || new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(Date.now() - 86400000));
 const EPOCHS = Number(process.env.HISTORY_EPOCHS || 650);
 const LR = Number(process.env.HISTORY_LEARNING_RATE || 0.05);
 const L2 = Number(process.env.HISTORY_L2 || 0.0025);
@@ -32,11 +33,12 @@ function train(rows, opts={}) {
   let bias = 0;
   const w = new Array(FEATURE_NAMES.length).fill(0);
   if (!decided.length) return { weights: Object.fromEntries(FEATURE_NAMES.map((f)=>[f,0])), bias: 0, means, scales, games: 0 };
+  const prepared = decided.map((row) => ({ x: xrow(row, means, scales), target: row.target }));
   for (let epoch=0; epoch<epochs; epoch++) {
     let gb = 0;
     const gw = new Array(w.length).fill(0);
-    for (const row of decided) {
-      const x = xrow(row, means, scales);
+    for (const row of prepared) {
+      const x = row.x;
       let z = bias;
       for (let j=0;j<w.length;j++) z += w[j]*x[j];
       const err = sigmoid(z) - row.target;
@@ -69,7 +71,7 @@ function confidenceBucket(pickProb) {
   return '50–54.9%';
 }
 function emptyStat(label) { return { label, picks:0, wins:0, losses:0, pushes:0, winPct:null }; }
-function finalizeStat(s) { const decided=s.wins+s.losses; s.winPct=decided?Number((100*s.wins/decided).toFixed(2)):null; return s; }
+function finalizeStat(s) { const decided=s.wins+s.losses; s.winPctDecided=decided?Number((100*s.wins/decided).toFixed(2)):null; s.winPct=s.picks?Number((100*s.wins/s.picks).toFixed(2)):null; return s; }
 function scoreRows(model, rows, sourceLabel) {
   const stat = emptyStat(sourceLabel);
   const buckets = new Map();
@@ -84,7 +86,7 @@ function scoreRows(model, rows, sourceLabel) {
     const bucketName = confidenceBucket(pickProb);
     if (!buckets.has(bucketName)) buckets.set(bucketName, emptyStat(bucketName));
     const b=buckets.get(bucketName); b.picks++; b[result==='win'?'wins':result==='loss'?'losses':'pushes']++;
-    picks.push({ date:row.date, season:row.season, gamePk:row.gamePk, pick:pickSide==='home'?row.homeTeam:row.awayTeam, opponent:pickSide==='home'?row.awayTeam:row.homeTeam, side:pickSide, probability:Number((pickProb*100).toFixed(1)), result, homeF5:row.homeF5, awayF5:row.awayF5 });
+    picks.push({ date:row.date, season:row.season, gamePk:row.gamePk, pick:pickSide==='home'?row.homeTeam:row.awayTeam, opponent:pickSide==='home'?row.awayTeam:row.homeTeam, side:pickSide, probability:Number((pickProb*100).toFixed(1)), homeProbability:pHome, result, homeF5:row.homeF5, awayF5:row.awayF5 });
   }
   return { stat:finalizeStat(stat), buckets:[...buckets.values()].map(finalizeStat), picks };
 }
@@ -126,10 +128,16 @@ async function main() {
 
   console.log(`Training final model on ${allRows.length} historical games...`);
   const finalModel=train(allRows);
+  if (new Set(allRows.map((r) => r.gamePk)).size !== allRows.length) throw new Error('Duplicate training game IDs');
+  if (new Set(allBacktestPicks.map((r) => r.gamePk)).size !== allBacktestPicks.length) throw new Error('Duplicate evaluation game IDs');
+  const decidedPicks = allBacktestPicks.filter((r) => r.result !== 'push');
+  const evaluationLogLoss = -mean(decidedPicks.map((r) => { const y = r.homeF5 > r.awayF5 ? 1 : 0, p = clamp(r.homeProbability, 1e-9, 1-1e-9); return y*Math.log(p)+(1-y)*Math.log(1-p); }));
+  const brier = mean(decidedPicks.map((r) => (r.homeProbability - (r.homeF5 > r.awayF5 ? 1 : 0)) ** 2));
   const modelJson={
-    version:`trained-history-${START_SEASON}-${CURRENT_SEASON}`,
+    pipelineVersion: PIPELINE_VERSION,
+    version:`trained-history-v3-pitcher-quality-${START_SEASON}-${CURRENT_SEASON}`,
     trainedAt:new Date().toISOString(),
-    trainingSeasons:[START_SEASON,CURRENT_SEASON],
+    trainingSeasons:Array.from({length:CURRENT_SEASON-START_SEASON+1},(_,i)=>START_SEASON+i),
     throughDate:TODAY,
     type:'logistic-regression-standardized',
     target:'F5 moneyline winner; ties are pushes and excluded from binary training',
@@ -138,15 +146,17 @@ async function main() {
     featureScales:finalModel.scales,
     weights:{ bias:finalModel.bias, ...finalModel.weights },
     overlayHomeF5RunWeight:0.671054,
-    metrics:{ games:finalModel.games, trainingLogLoss:Number(logLoss(finalModel,allRows).toFixed(4)), walkForwardWins:overall.wins, walkForwardLosses:overall.losses, walkForwardPushes:overall.pushes, walkForwardWinPct:overall.winPct }
+    metrics:{ walkForwardLogLoss:evaluationLogLoss, walkForwardBrier:brier, games:finalModel.games, trainingLogLoss:Number(logLoss(finalModel,allRows).toFixed(4)), walkForwardWins:overall.wins, walkForwardLosses:overall.losses, walkForwardPushes:overall.pushes, walkForwardWinPct:overall.winPct }
   };
   const backtest={
     generatedAt:new Date().toISOString(),
     historyStartSeason:START_SEASON,
     historyEndSeason:CURRENT_SEASON,
     throughDate:TODAY,
-    methodology:'Season-by-season expanding-window walk-forward. Each season is predicted by a model trained only on earlier seasons. F5 ties are pushes and excluded from win percentage.',
-    scopeNote:'Backtest percentage covers the leakage-safe historical ML component. The live TeamRankings overlay and today-specific pitcher/split rule inputs are not replayed historically because date-stamped snapshots are not available.',
+    pipelineVersion: modelJson.pipelineVersion,
+    integrity: { uniqueTrainingGames: allRows.length, uniqueEvaluationGames: allBacktestPicks.length, duplicateRows: 0, sameDayResultsExcluded: true, resumedGamesExcluded: true },
+    methodology:'Unique-game, prior-calendar-day features; season-by-season expanding-window evaluation. Resumed games excluded. Each season is predicted by a model trained only on earlier seasons. F5 ties are non-wins in the primary win percentage; binary loss metrics exclude ties. Missing pitcher differences use the same explicit neutral zero imputation as live inference.',
+    scopeNote:'Backtest percentage covers the historical ML component under the stated exclusions. The live TeamRankings overlay and today-specific pitcher/split rule inputs are not replayed historically because date-stamped snapshots are not available.',
     oddsNote:'This W/L backtest scores F5 direction only. Historical true F5 odds are not used; historical additional-market odds from The Odds API require separate historical-odds access.',
     overall,
     bySeason:yearly,
@@ -154,7 +164,8 @@ async function main() {
     model:{ version:modelJson.version, trainingGames:finalModel.games, trainingLogLoss:modelJson.metrics.trainingLogLoss },
     picksFile:'data/backtest-picks.json'
   };
-  const dataDir=path.join(process.cwd(),'data'); fs.mkdirSync(dataDir,{recursive:true});
+  require('../lib/backtest-integrity').validateBacktest(backtest, allBacktestPicks);
+  const dataDir=process.env.HISTORY_OUTPUT_DIR || path.join(process.cwd(),'data'); fs.mkdirSync(dataDir,{recursive:true});
   fs.writeFileSync(path.join(dataDir,'model.json'),JSON.stringify(modelJson,null,2));
   fs.writeFileSync(path.join(dataDir,'backtest-results.json'),JSON.stringify(backtest,null,2));
   fs.writeFileSync(path.join(dataDir,'backtest-picks.json'),JSON.stringify(allBacktestPicks));

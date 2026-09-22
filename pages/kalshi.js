@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import MatchupLogic from '../components/MatchupLogic';
+import { useEffect, useRef, useState } from 'react';
 
 function pct(x) {
   const n = Number(x);
@@ -33,10 +34,13 @@ function tierColor(tier) {
 
 export default function KalshiF5Page() {
   const [data, setData] = useState(null);
+  const [clock, setClock] = useState(Date.now());
+  const requestId = useRef(0);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
   async function load() {
+    const id = ++requestId.current;
     setLoading(true);
     setError('');
 
@@ -54,19 +58,22 @@ export default function KalshiF5Page() {
         );
       }
 
-      setData(j);
+      if (id === requestId.current) setData(j);
     } catch (e) {
-      setError(e.message);
+      if (id === requestId.current) { setData(null); setError(e.message); }
     } finally {
-      setLoading(false);
+      if (id === requestId.current) setLoading(false);
     }
   }
 
   useEffect(() => {
     load();
+    const timer = setInterval(load, 60000);
+    const tick = setInterval(() => setClock(Date.now()), 1000);
+    return () => { clearInterval(timer); clearInterval(tick); requestId.current++; };
   }, []);
 
-  const board = data?.board || [];
+  const board = (data?.board || []).filter((g) => Date.parse(g.firstPitchUtc) > clock && (clock - Date.parse(g.quoteTime)) / 60000 <= (data?.thresholds?.maxQuoteAgeMinutes ?? 5));
 
   return (
     <main style={{
@@ -93,6 +100,7 @@ export default function KalshiF5Page() {
             MLB FIRST 5 · KALSHI KXMLBF5
           </div>
 
+          <a href="/kalshi-results" style={{ color: "#93c5fd" }}>Forward win-rate results →</a>
           <h1 style={{ margin: '6px 0' }}>
             Kalshi F5 V5 Selector
           </h1>
@@ -101,8 +109,7 @@ export default function KalshiF5Page() {
             margin: 0,
             color: '#6b7280'
           }}>
-            PASS &lt; 58% · PLAY ≥ 58% ·
-            STRONG ≥ 62%
+            PLAY/STRONG retain all V5 58%+ selections. Model agreement is diagnostic only; it does not filter selections or establish an improved win rate.
           </p>
         </div>
 
@@ -157,6 +164,20 @@ export default function KalshiF5Page() {
         </div>
       )}
 
+      {data?.methodologyNote && (
+        <div style={{
+          padding: 14,
+          background: '#fffbeb',
+          border: '1px solid #fde68a',
+          borderRadius: 8,
+          marginBottom: 22,
+          fontSize: 13,
+          color: '#92400e'
+        }}>
+          {data.methodologyNote}
+        </div>
+      )}
+
       {!loading && data && board.length === 0 && (
         <div style={{
           padding: 22,
@@ -199,7 +220,7 @@ export default function KalshiF5Page() {
                 }}>
                   First pitch {time(g.firstPitchUtc)}
                   {' · '}
-                  {num(g.minutesToPitch, 0)} min away
+                  {num((Date.parse(g.firstPitchUtc) - clock) / 60000, 0)} min away
                 </div>
               </div>
 
@@ -252,8 +273,16 @@ export default function KalshiF5Page() {
                 value={pct(g.kalshiHomeProbNoTie)}
               />
               <Stat
-                label="Quote age"
-                value={`${num(g.quoteAgeMinutes)} min`}
+                label="Oldest quote age"
+                value={`${num((clock - Date.parse(g.quoteTime)) / 60000)} min`}
+              />
+              <Stat
+                label="Model pick"
+                value={g.modelAvailable ? `${g.modelPickSide} ${pct(g.modelConfidence)}` : 'Unavailable'}
+              />
+              <Stat
+                label="Model agrees with Kalshi"
+                value={g.modelAvailable ? (g.modelAgreesWithKalshi ? 'Yes' : 'No') : '—'}
               />
             </div>
 
@@ -268,10 +297,11 @@ export default function KalshiF5Page() {
               {' · '}
               Tie {num(g.tieSpread, 3)}
             </div>
-          </article>
+          <MatchupLogic key={`${g.gamePk}-${g.officialDate}`} gamePk={g.gamePk} date={g.officialDate}/></article>
         ))}
       </div>
 
+      {data?.rejected?.length > 0 && <details><summary>Excluded markets ({data.rejected.length})</summary><ul>{data.rejected.map((r, i) => <li key={`${r.eventTicker}-${i}`}>{r.eventTicker}: {r.reason}</li>)}</ul></details>}
       {data && (
         <div style={{
           marginTop: 24,

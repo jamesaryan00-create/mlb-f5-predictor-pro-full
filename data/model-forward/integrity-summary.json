@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-09-20T03:09:14.433Z",
+  "metric": "Wins / (wins + losses + ties)",
+  "verified": {
+    "cohort": "verified",
+    "picks": 0,
+    "decided": 0,
+    "winPct": null,
+    "wins": 0,
+    "losses": 0,
+    "ties": 0,
+    "winPctDecided": null
+  },
+  "legacyUnverified": {
+    "cohort": "legacy-unverified",
+    "picks": 42,
+    "decided": 37,
+    "winPct": 45.2,
+    "wins": 19,
+    "losses": 18,
+    "ties": 5,
+    "winPctDecided": 51.4
+  },
+  "retrospective": {
+    "cohort": "retrospective",
+    "picks": 15,
+    "decided": 13,
+    "winPct": 73.3,
+    "wins": 11,
+    "losses": 2,
+    "ties": 2,
+    "winPctDecided": 84.6
+  }
+}

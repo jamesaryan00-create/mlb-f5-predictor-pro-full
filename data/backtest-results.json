@@ -1,179 +1,208 @@
 {
-  "generatedAt": "2026-08-20T01:35:32.760Z",
+  "generatedAt": "2026-09-17T19:54:12.662Z",
   "historyStartSeason": 2010,
   "historyEndSeason": 2026,
-  "throughDate": "2026-08-19",
-  "methodology": "Season-by-season expanding-window walk-forward. Each season is predicted by a model trained only on earlier seasons. F5 ties are pushes and excluded from win percentage.",
-  "scopeNote": "Backtest percentage covers the leakage-safe historical ML component. The live TeamRankings overlay and today-specific pitcher/split rule inputs are not replayed historically because date-stamped snapshots are not available.",
+  "throughDate": "2026-09-16",
+  "pipelineVersion": "f5-history-v3-pitcher-quality",
+  "integrity": {
+    "uniqueTrainingGames": 39577,
+    "uniqueEvaluationGames": 32291,
+    "duplicateRows": 0,
+    "sameDayResultsExcluded": true,
+    "resumedGamesExcluded": true
+  },
+  "methodology": "Unique-game, prior-calendar-day features; season-by-season expanding-window evaluation. Resumed games excluded. Each season is predicted by a model trained only on earlier seasons. F5 ties count as non-wins in the primary win percentage; decided-only metrics are separately labeled.",
+  "scopeNote": "Backtest percentage covers the historical ML component under the stated exclusions. The live TeamRankings overlay and today-specific pitcher/split rule inputs are not replayed historically because date-stamped snapshots are not available.",
   "oddsNote": "This W/L backtest scores F5 direction only. Historical true F5 odds are not used; historical additional-market odds from The Odds API require separate historical-odds access.",
   "overall": {
     "label": "Overall walk-forward",
-    "picks": 32000,
-    "wins": 15014,
-    "losses": 12146,
-    "pushes": 4840,
-    "winPct": 55.28
+    "picks": 32291,
+    "wins": 15399,
+    "losses": 12034,
+    "pushes": 4858,
+    "winPct": 47.69,
+    "winPctDecided": 56.13
   },
   "bySeason": [
     {
       "label": "2013",
-      "picks": 2433,
-      "wins": 1133,
-      "losses": 922,
-      "pushes": 378,
-      "winPct": 55.13
+      "picks": 2429,
+      "wins": 1111,
+      "losses": 942,
+      "pushes": 376,
+      "winPct": 45.74,
+      "winPctDecided": 54.12
     },
     {
       "label": "2014",
-      "picks": 2436,
-      "wins": 1098,
-      "losses": 951,
-      "pushes": 387,
-      "winPct": 53.59
+      "picks": 2425,
+      "wins": 1134,
+      "losses": 908,
+      "pushes": 383,
+      "winPct": 46.76,
+      "winPctDecided": 55.53
     },
     {
       "label": "2015",
-      "picks": 2433,
-      "wins": 1127,
-      "losses": 905,
-      "pushes": 401,
-      "winPct": 55.46
+      "picks": 2425,
+      "wins": 1145,
+      "losses": 883,
+      "pushes": 397,
+      "winPct": 47.22,
+      "winPctDecided": 56.46
     },
     {
       "label": "2016",
-      "picks": 2429,
-      "wins": 1148,
-      "losses": 950,
-      "pushes": 331,
-      "winPct": 54.72
+      "picks": 2426,
+      "wins": 1161,
+      "losses": 935,
+      "pushes": 330,
+      "winPct": 47.86,
+      "winPctDecided": 55.39
     },
     {
       "label": "2017",
       "picks": 2430,
-      "wins": 1139,
-      "losses": 988,
+      "wins": 1178,
+      "losses": 949,
       "pushes": 303,
-      "winPct": 53.55
+      "winPct": 48.48,
+      "winPctDecided": 55.38
     },
     {
       "label": "2018",
-      "picks": 2433,
-      "wins": 1134,
-      "losses": 909,
-      "pushes": 390,
-      "winPct": 55.51
+      "picks": 2429,
+      "wins": 1155,
+      "losses": 888,
+      "pushes": 386,
+      "winPct": 47.55,
+      "winPctDecided": 56.53
     },
     {
       "label": "2019",
-      "picks": 2433,
-      "wins": 1253,
-      "losses": 838,
-      "pushes": 342,
-      "winPct": 59.92
+      "picks": 2424,
+      "wins": 1249,
+      "losses": 837,
+      "pushes": 338,
+      "winPct": 51.53,
+      "winPctDecided": 59.88
     },
     {
       "label": "2020",
-      "picks": 900,
-      "wins": 421,
-      "losses": 347,
-      "pushes": 132,
-      "winPct": 54.82
+      "picks": 896,
+      "wins": 426,
+      "losses": 340,
+      "pushes": 130,
+      "winPct": 47.54,
+      "winPctDecided": 55.61
     },
     {
       "label": "2021",
-      "picks": 2437,
-      "wins": 1189,
-      "losses": 894,
-      "pushes": 354,
-      "winPct": 57.08
+      "picks": 2421,
+      "wins": 1199,
+      "losses": 870,
+      "pushes": 352,
+      "winPct": 49.52,
+      "winPctDecided": 57.95
     },
     {
       "label": "2022",
-      "picks": 2431,
-      "wins": 1139,
-      "losses": 865,
+      "picks": 2429,
+      "wins": 1184,
+      "losses": 818,
       "pushes": 427,
-      "winPct": 56.84
+      "winPct": 48.74,
+      "winPctDecided": 59.14
     },
     {
       "label": "2023",
-      "picks": 2437,
-      "wins": 1118,
-      "losses": 950,
-      "pushes": 369,
-      "winPct": 54.06
+      "picks": 2423,
+      "wins": 1134,
+      "losses": 926,
+      "pushes": 363,
+      "winPct": 46.8,
+      "winPctDecided": 55.05
     },
     {
       "label": "2024",
-      "picks": 2430,
-      "wins": 1135,
-      "losses": 953,
-      "pushes": 342,
-      "winPct": 54.36
+      "picks": 2424,
+      "wins": 1151,
+      "losses": 937,
+      "pushes": 336,
+      "winPct": 47.48,
+      "winPctDecided": 55.12
     },
     {
       "label": "2025",
-      "picks": 2434,
-      "wins": 1127,
-      "losses": 921,
+      "picks": 2426,
+      "wins": 1123,
+      "losses": 917,
       "pushes": 386,
-      "winPct": 55.03
+      "winPct": 46.29,
+      "winPctDecided": 55.05
     },
     {
       "label": "2026",
-      "picks": 1904,
-      "wins": 853,
-      "losses": 753,
-      "pushes": 298,
-      "winPct": 53.11
+      "picks": 2284,
+      "wins": 1049,
+      "losses": 884,
+      "pushes": 351,
+      "winPct": 45.93,
+      "winPctDecided": 54.27
     }
   ],
   "byConfidence": [
     {
-      "label": "50–54.9%",
-      "picks": 17445,
-      "wins": 7654,
-      "losses": 7123,
-      "pushes": 2668,
-      "winPct": 51.8
+      "label": "50\u201354.9%",
+      "picks": 15827,
+      "wins": 6973,
+      "losses": 6426,
+      "pushes": 2428,
+      "winPct": 44.06,
+      "winPctDecided": 52.04
     },
     {
-      "label": "55–59.9%",
-      "picks": 10534,
-      "wins": 5224,
-      "losses": 3725,
-      "pushes": 1585,
-      "winPct": 58.38
+      "label": "55\u201359.9%",
+      "picks": 10572,
+      "wins": 5207,
+      "losses": 3778,
+      "pushes": 1587,
+      "winPct": 49.25,
+      "winPctDecided": 57.95
     },
     {
-      "label": "60–64.9%",
-      "picks": 3307,
-      "wins": 1729,
-      "losses": 1100,
-      "pushes": 478,
-      "winPct": 61.12
+      "label": "60\u201364.9%",
+      "picks": 4414,
+      "wins": 2356,
+      "losses": 1425,
+      "pushes": 633,
+      "winPct": 53.38,
+      "winPctDecided": 62.31
     },
     {
-      "label": "65–69.9%",
-      "picks": 640,
-      "wins": 360,
-      "losses": 177,
-      "pushes": 103,
-      "winPct": 67.04
+      "label": "65\u201369.9%",
+      "picks": 1191,
+      "wins": 688,
+      "losses": 321,
+      "pushes": 182,
+      "winPct": 57.77,
+      "winPctDecided": 68.19
     },
     {
       "label": "70%+",
-      "picks": 74,
-      "wins": 47,
-      "losses": 21,
-      "pushes": 6,
-      "winPct": 69.12
+      "picks": 287,
+      "wins": 175,
+      "losses": 84,
+      "pushes": 28,
+      "winPct": 60.98,
+      "winPctDecided": 67.57
     }
   ],
   "model": {
-    "version": "trained-history-2010-2026",
-    "trainingGames": 33354,
-    "trainingLogLoss": 0.6842
+    "version": "trained-history-v3-pitcher-quality-2010-2026",
+    "trainingGames": 33625,
+    "trainingLogLoss": 0.6816
   },
-  "picksFile": "data/backtest-picks.json"
+  "picksFile": "data/backtest-picks.json",
+  "inputPolicy": "Missing pitcher differences are explicitly imputed to neutral zero in training and live inference; this is not an observed pitcher statistic."
 }

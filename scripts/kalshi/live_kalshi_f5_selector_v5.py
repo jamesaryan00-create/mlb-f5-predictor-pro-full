@@ -1,3 +1,4 @@
+from kalshi_quote_quality import select_latest_quote, quote_set_valid, MAX_QUOTE_AGE_MINUTES
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
@@ -23,7 +24,6 @@ PLAY_THRESHOLD = 0.58
 STRONG_THRESHOLD = 0.62
 
 MAX_SPREAD = 0.15
-MAX_QUOTE_AGE_MINUTES = 180
 
 # Optional live V3C predictions.
 #
@@ -385,111 +385,7 @@ def get_latest_quote(
         )
     )
 
-    usable = []
-
-    for c in candles:
-
-        ts = c.get(
-            "end_period_ts"
-        )
-
-        if ts is None:
-            continue
-
-        dt = pd.to_datetime(
-            ts,
-            unit="s",
-            utc=True
-        )
-
-        if dt >= first_pitch:
-            continue
-
-        bid_raw = (
-            c.get(
-                "yes_bid",
-                {}
-            )
-            or {}
-        ).get(
-            "close_dollars"
-        )
-
-        ask_raw = (
-            c.get(
-                "yes_ask",
-                {}
-            )
-            or {}
-        ).get(
-            "close_dollars"
-        )
-
-        try:
-            bid = float(
-                bid_raw
-            )
-
-            ask = float(
-                ask_raw
-            )
-
-        except:
-            continue
-
-        if (
-            bid < 0
-            or ask > 1
-            or ask <= bid
-        ):
-            continue
-
-        spread = ask - bid
-
-        if spread > MAX_SPREAD:
-            continue
-
-        mid = (
-            bid + ask
-        ) / 2
-
-        age_min = (
-            now_utc - dt
-        ).total_seconds() / 60
-
-        usable.append({
-            "time": dt,
-            "bid": bid,
-            "ask": ask,
-            "mid": mid,
-            "spread": spread,
-            "age_min": age_min,
-
-            "trade":
-                (
-                    c.get(
-                        "price",
-                        {}
-                    )
-                    or {}
-                ).get(
-                    "close_dollars"
-                ),
-
-            "volume":
-                c.get(
-                    "volume_fp"
-                ),
-        })
-
-    if not usable:
-        return None
-
-    usable.sort(
-        key=lambda x: x["time"]
-    )
-
-    return usable[-1]
+    return select_latest_quote(candles, first_pitch, now_utc, MAX_SPREAD)
 
 
 # ============================================================
@@ -507,7 +403,7 @@ now_local = now_utc.tz_convert(
 today = now_local.date()
 
 print("=" * 108)
-print("LIVE MLB F5 SELECTOR — KALSHI V5")
+print("MLB F5 SELECTOR — MARKET-DERIVED NO-TIE PROBABILITY")
 print("=" * 108)
 
 print(
@@ -594,10 +490,25 @@ for event, ms in by_event.items():
         parsed["home_team"]
     )
 
+    # Match teams AND local game date.
+    # Consecutive games in the same series can otherwise
+    # create multiple schedule matches.
+    schedule_dates = (
+        pd.to_datetime(
+            schedule["first_pitch_utc"],
+            utc=True,
+            errors="coerce"
+        )
+        .dt.tz_convert(LOCAL_TZ)
+        .dt.date
+    )
+
     matches = schedule[
         (schedule["away_norm"] == away_norm)
         &
         (schedule["home_norm"] == home_norm)
+        &
+        (schedule_dates == parsed["date"])
     ]
 
     if len(matches) != 1:
@@ -618,6 +529,10 @@ for event, ms in by_event.items():
     if now_utc >= first_pitch:
         continue
 
+    if str(game["status"]).lower() not in {"scheduled", "pre-game"}:
+        continue
+    if any(m.get("status") != "active" for m in ms):
+        continue
     outcomes = {}
 
     for m in ms:
@@ -672,6 +587,11 @@ for event, ms in by_event.items():
     ):
         continue
 
+
+    if not quote_set_valid(list(outcomes.values()), pd.Timestamp.now(tz="UTC")):
+        continue
+    if pd.Timestamp.now(tz="UTC") >= first_pitch:
+        continue
 
     away = outcomes[
         "AWAY"
@@ -753,7 +673,7 @@ for event, ms in by_event.items():
         tier = "PASS"
 
 
-    quote_time = max(
+    quote_time = min(
         outcomes["AWAY"]["time"],
         outcomes["HOME"]["time"],
         outcomes["TIE"]["time"],

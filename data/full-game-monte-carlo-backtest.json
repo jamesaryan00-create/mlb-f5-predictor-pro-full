@@ -1,0 +1,406 @@
+{
+  "generatedAt": "2026-09-22T17:50:34.358Z",
+  "throughDate": "2026-09-22",
+  "simulationsPerGame": 1200,
+  "coverage": "Every game shared with the full-game logistic walk-forward evaluation; no confidence filtering.",
+  "logistic": {
+    "games": 32348,
+    "wins": 18222,
+    "losses": 14126,
+    "accuracy": 0.5633114875726475
+  },
+  "monteCarlo": {
+    "games": 32348,
+    "wins": 18179,
+    "losses": 14169,
+    "accuracy": 0.5619821936441202
+  },
+  "fixedHalfBlend": {
+    "games": 32348,
+    "wins": 18214,
+    "losses": 14134,
+    "accuracy": 0.5630641770743168
+  },
+  "chronologicalAdaptiveBlend": {
+    "games": 29919,
+    "wins": 16814,
+    "losses": 13105,
+    "accuracy": 0.5619840235301982
+  },
+  "adaptiveWeights": [
+    {
+      "season": 2014,
+      "logisticWeight": 0.55,
+      "monteCarloWeight": 0.44999999999999996,
+      "priorGames": 2429
+    },
+    {
+      "season": 2015,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 4854
+    },
+    {
+      "season": 2016,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 7279
+    },
+    {
+      "season": 2017,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 9705
+    },
+    {
+      "season": 2018,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 12135
+    },
+    {
+      "season": 2019,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 14564
+    },
+    {
+      "season": 2020,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 16988
+    },
+    {
+      "season": 2021,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 17884
+    },
+    {
+      "season": 2022,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 20305
+    },
+    {
+      "season": 2023,
+      "logisticWeight": 1,
+      "monteCarloWeight": 0,
+      "priorGames": 22734
+    },
+    {
+      "season": 2024,
+      "logisticWeight": 0.5,
+      "monteCarloWeight": 0.5,
+      "priorGames": 25157
+    },
+    {
+      "season": 2025,
+      "logisticWeight": 0.5,
+      "monteCarloWeight": 0.5,
+      "priorGames": 27581
+    },
+    {
+      "season": 2026,
+      "logisticWeight": 0.8,
+      "monteCarloWeight": 0.19999999999999996,
+      "priorGames": 30007
+    }
+  ],
+  "bySeason": [
+    {
+      "season": 2013,
+      "logistic": {
+        "games": 2429,
+        "wins": 1368,
+        "losses": 1061,
+        "accuracy": 0.5631947303417044
+      },
+      "monteCarlo": {
+        "games": 2429,
+        "wins": 1368,
+        "losses": 1061,
+        "accuracy": 0.5631947303417044
+      },
+      "fixedHalfBlend": {
+        "games": 2429,
+        "wins": 1370,
+        "losses": 1059,
+        "accuracy": 0.5640181144503911
+      }
+    },
+    {
+      "season": 2014,
+      "logistic": {
+        "games": 2425,
+        "wins": 1368,
+        "losses": 1057,
+        "accuracy": 0.5641237113402062
+      },
+      "monteCarlo": {
+        "games": 2425,
+        "wins": 1311,
+        "losses": 1114,
+        "accuracy": 0.5406185567010309
+      },
+      "fixedHalfBlend": {
+        "games": 2425,
+        "wins": 1335,
+        "losses": 1090,
+        "accuracy": 0.5505154639175258
+      }
+    },
+    {
+      "season": 2015,
+      "logistic": {
+        "games": 2425,
+        "wins": 1355,
+        "losses": 1070,
+        "accuracy": 0.5587628865979382
+      },
+      "monteCarlo": {
+        "games": 2425,
+        "wins": 1342,
+        "losses": 1083,
+        "accuracy": 0.5534020618556701
+      },
+      "fixedHalfBlend": {
+        "games": 2425,
+        "wins": 1361,
+        "losses": 1064,
+        "accuracy": 0.5612371134020618
+      }
+    },
+    {
+      "season": 2016,
+      "logistic": {
+        "games": 2426,
+        "wins": 1357,
+        "losses": 1069,
+        "accuracy": 0.5593569661995054
+      },
+      "monteCarlo": {
+        "games": 2426,
+        "wins": 1359,
+        "losses": 1067,
+        "accuracy": 0.5601813685078318
+      },
+      "fixedHalfBlend": {
+        "games": 2426,
+        "wins": 1365,
+        "losses": 1061,
+        "accuracy": 0.5626545754328112
+      }
+    },
+    {
+      "season": 2017,
+      "logistic": {
+        "games": 2430,
+        "wins": 1375,
+        "losses": 1055,
+        "accuracy": 0.565843621399177
+      },
+      "monteCarlo": {
+        "games": 2430,
+        "wins": 1359,
+        "losses": 1071,
+        "accuracy": 0.5592592592592592
+      },
+      "fixedHalfBlend": {
+        "games": 2430,
+        "wins": 1378,
+        "losses": 1052,
+        "accuracy": 0.5670781893004115
+      }
+    },
+    {
+      "season": 2018,
+      "logistic": {
+        "games": 2429,
+        "wins": 1423,
+        "losses": 1006,
+        "accuracy": 0.5858377933305887
+      },
+      "monteCarlo": {
+        "games": 2429,
+        "wins": 1422,
+        "losses": 1007,
+        "accuracy": 0.5854261012762454
+      },
+      "fixedHalfBlend": {
+        "games": 2429,
+        "wins": 1426,
+        "losses": 1003,
+        "accuracy": 0.5870728694936188
+      }
+    },
+    {
+      "season": 2019,
+      "logistic": {
+        "games": 2424,
+        "wins": 1408,
+        "losses": 1016,
+        "accuracy": 0.5808580858085809
+      },
+      "monteCarlo": {
+        "games": 2424,
+        "wins": 1416,
+        "losses": 1008,
+        "accuracy": 0.5841584158415841
+      },
+      "fixedHalfBlend": {
+        "games": 2424,
+        "wins": 1408,
+        "losses": 1016,
+        "accuracy": 0.5808580858085809
+      }
+    },
+    {
+      "season": 2020,
+      "logistic": {
+        "games": 896,
+        "wins": 504,
+        "losses": 392,
+        "accuracy": 0.5625
+      },
+      "monteCarlo": {
+        "games": 896,
+        "wins": 501,
+        "losses": 395,
+        "accuracy": 0.5591517857142857
+      },
+      "fixedHalfBlend": {
+        "games": 896,
+        "wins": 504,
+        "losses": 392,
+        "accuracy": 0.5625
+      }
+    },
+    {
+      "season": 2021,
+      "logistic": {
+        "games": 2421,
+        "wins": 1368,
+        "losses": 1053,
+        "accuracy": 0.5650557620817844
+      },
+      "monteCarlo": {
+        "games": 2421,
+        "wins": 1387,
+        "losses": 1034,
+        "accuracy": 0.5729037587773648
+      },
+      "fixedHalfBlend": {
+        "games": 2421,
+        "wins": 1374,
+        "losses": 1047,
+        "accuracy": 0.5675340768277571
+      }
+    },
+    {
+      "season": 2022,
+      "logistic": {
+        "games": 2429,
+        "wins": 1422,
+        "losses": 1007,
+        "accuracy": 0.5854261012762454
+      },
+      "monteCarlo": {
+        "games": 2429,
+        "wins": 1420,
+        "losses": 1009,
+        "accuracy": 0.5846027171675586
+      },
+      "fixedHalfBlend": {
+        "games": 2429,
+        "wins": 1425,
+        "losses": 1004,
+        "accuracy": 0.5866611774392754
+      }
+    },
+    {
+      "season": 2023,
+      "logistic": {
+        "games": 2423,
+        "wins": 1336,
+        "losses": 1087,
+        "accuracy": 0.5513825835740818
+      },
+      "monteCarlo": {
+        "games": 2423,
+        "wins": 1348,
+        "losses": 1075,
+        "accuracy": 0.5563351217498969
+      },
+      "fixedHalfBlend": {
+        "games": 2423,
+        "wins": 1342,
+        "losses": 1081,
+        "accuracy": 0.5538588526619893
+      }
+    },
+    {
+      "season": 2024,
+      "logistic": {
+        "games": 2424,
+        "wins": 1335,
+        "losses": 1089,
+        "accuracy": 0.5507425742574258
+      },
+      "monteCarlo": {
+        "games": 2424,
+        "wins": 1345,
+        "losses": 1079,
+        "accuracy": 0.5548679867986799
+      },
+      "fixedHalfBlend": {
+        "games": 2424,
+        "wins": 1340,
+        "losses": 1084,
+        "accuracy": 0.5528052805280528
+      }
+    },
+    {
+      "season": 2025,
+      "logistic": {
+        "games": 2426,
+        "wins": 1319,
+        "losses": 1107,
+        "accuracy": 0.5436933223413025
+      },
+      "monteCarlo": {
+        "games": 2426,
+        "wins": 1312,
+        "losses": 1114,
+        "accuracy": 0.5408079142621599
+      },
+      "fixedHalfBlend": {
+        "games": 2426,
+        "wins": 1303,
+        "losses": 1123,
+        "accuracy": 0.5370981038746908
+      }
+    },
+    {
+      "season": 2026,
+      "logistic": {
+        "games": 2341,
+        "wins": 1284,
+        "losses": 1057,
+        "accuracy": 0.5484835540367364
+      },
+      "monteCarlo": {
+        "games": 2341,
+        "wins": 1289,
+        "losses": 1052,
+        "accuracy": 0.5506193934216147
+      },
+      "fixedHalfBlend": {
+        "games": 2341,
+        "wins": 1283,
+        "losses": 1058,
+        "accuracy": 0.5480563861597608
+      }
+    }
+  ]
+}

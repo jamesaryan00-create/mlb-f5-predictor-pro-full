@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "start": "2026-09-22T20:00:00.441Z",
+  "end": "2026-10-22T20:00:00.441Z",
+  "rule": "marketTrust",
+  "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+  "metric": "Wins / (wins + losses)",
+  "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+  "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+}

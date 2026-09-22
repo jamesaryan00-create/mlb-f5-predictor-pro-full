@@ -13,7 +13,7 @@ export default function Performance(){
     <div style={{maxWidth:1100,margin:'0 auto'}}>
       <a href="/" style={{color:'#93c5fd',textDecoration:'none'}}>← Back to predictor</a>
       <h1 style={{fontSize:32,margin:'14px 0 6px'}}>F5 Historical Backtest</h1>
-      <p style={{color:'#94a3b8',marginTop:0}}>Leakage-safe walk-forward results. F5 ties are pushes and are not counted as wins or losses.</p>
+      <p style={{color:'#94a3b8',marginTop:0}}>Historical model evaluation. Win rate = wins ÷ (wins + losses + ties). Ties count as non-wins. Missing pitcher differences use a neutral model input, not an observed statistic.</p>
       {error && <div style={{...card,borderColor:'#7f1d1d',color:'#fecaca'}}>{error}</div>}
       {o && <>
         <section style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))',gap:12,margin:'22px 0'}}>

@@ -1,3 +1,4 @@
+const { validateBacktest } = require('../../lib/backtest-integrity');
 const fs = require('fs');
 const path = require('path');
 
@@ -7,6 +8,14 @@ export default function handler(req, res) {
     const picksPath = path.join(process.cwd(), 'data', 'backtest-picks.json');
     if (!fs.existsSync(resultsPath)) return res.status(404).json({ error: 'Backtest not generated. Run npm run train:history locally and push the generated data files.' });
     const data = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+    if (!fs.existsSync(picksPath)) return res.status(409).json({ error: 'Backtest unavailable: supporting picks are missing.' });
+    const allPicks = JSON.parse(fs.readFileSync(picksPath, 'utf8'));
+    const unique = new Set(allPicks.map((pick) => String(pick.gamePk)));
+    if (unique.size !== allPicks.length) return res.status(409).json({
+      error: 'Historical backtest withdrawn: duplicate games were found. Corrected training and evaluation are required.',
+      integrity: { rows: allPicks.length, uniqueGames: unique.size, duplicateRows: allPicks.length - unique.size }
+    });
+    try { validateBacktest(data, allPicks); } catch (error) { return res.status(409).json({ error: error.message }); }
     const season = req.query.season ? Number(req.query.season) : null;
     const includePicks = String(req.query.includePicks || '') === '1';
     const limit = Math.min(Math.max(Number(req.query.limit || 100), 1), 1000);

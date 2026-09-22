@@ -1,3 +1,4 @@
+import MatchupLogic from '../components/MatchupLogic';
 import { useEffect, useMemo, useState } from 'react';
 
 function todayPacific() {
@@ -11,19 +12,20 @@ function ResultBadge({ label }) { return <span className={`badge ${String(label 
 
 function FactorGrid({ game }) {
   const w = game.factors?.weather || {};
-  const indoor = w.indoor ? 'Indoor/roof' : w.available ? `${stat(w.temperature)}°F · wind ${stat(w.windMph)} mph · rain ${stat(w.precipitationProbability)}%` : 'N/A';
+  const indoor = w.indoor ? 'Indoor/roof' : w.available ? `${stat(w.temperature)}°F · wind ${stat(w.windMph)} mph · rain ${stat(w.precipitationProbability)}%` : (w.reason || 'N/A');
   return (
     <div className="factorGrid">
-      <div><span>Park factor</span><strong>{game.factors?.parkFactor || 'N/A'}</strong></div>
-      <div><span>Weather</span><strong>{indoor}</strong></div>
-      <div><span>ML probability</span><strong>{pct(game.prediction.mlProbability)}</strong></div>
-      <div><span>Best book</span><strong>{game.prediction.bestBook || 'N/A'}</strong></div>
+      <div><span>Fixed park input</span><strong>{game.factors?.parkFactor || 'N/A'}</strong></div>
+      <div><span>Weather forecast</span><strong>{indoor}</strong></div>
+      <div><span>F5 identifier (no tie)</span><strong>{pct(game.f5Prediction?.modelProbability)}</strong></div>
+      <div><span>Best book</span><strong>{game.f5Prediction?.bestBook || 'N/A'}</strong></div>
     </div>
   );
 }
 
 function GameCard({ game, onSave, saved }) {
-  const pickHome = game.prediction.pick === game.home.name;
+  const primary = game.fullGamePrediction || {};
+  const pickHome = primary.pick === game.home.name;
   return (
     <article className="card">
       <div className="cardTop">
@@ -34,13 +36,13 @@ function GameCard({ game, onSave, saved }) {
         </div>
         <div className="badgeStack">
           <ResultBadge label={game.prediction.label} />
-          <button className="ghost" onClick={() => onSave(game)}>{saved ? 'Saved' : 'Save pick'}</button>
+          <button className="ghost" disabled={!primary.pick} onClick={() => onSave(game)}>{saved ? 'Saved' : 'Save pick'}</button>
         </div>
       </div>
 
       <div className="teamGrid">
-        <div className={`teamBox ${!pickHome ? 'picked' : ''}`}>
-          <div className="teamHeader"><strong>{game.away.abbreviation}</strong><span>{game.away.rating}</span></div>
+        <div className={`teamBox ${primary.pick && !pickHome ? 'picked' : ''}`}>
+          <div className="teamHeader"><strong>{game.away.abbreviation}</strong><span>{pct(primary.awayProbability)}</span></div>
           <p>{game.away.name}</p>
           <small>SP: {game.away.probablePitcher?.fullName || 'TBD'} {game.away.pitcherBio?.throws ? `(${game.away.pitcherBio.throws})` : ''}</small>
           <small>ERA {stat(game.away.pitcherStats?.era)} · WHIP {stat(game.away.pitcherStats?.whip)} · K/9 {stat(game.away.pitcherStats?.strikeoutsPer9Inn)}</small>
@@ -49,7 +51,7 @@ function GameCard({ game, onSave, saved }) {
         </div>
 
         <div className={`teamBox ${pickHome ? 'picked' : ''}`}>
-          <div className="teamHeader"><strong>{game.home.abbreviation}</strong><span>{game.home.rating}</span></div>
+          <div className="teamHeader"><strong>{game.home.abbreviation}</strong><span>{pct(primary.homeProbability)}</span></div>
           <p>{game.home.name}</p>
           <small>SP: {game.home.probablePitcher?.fullName || 'TBD'} {game.home.pitcherBio?.throws ? `(${game.home.pitcherBio.throws})` : ''}</small>
           <small>ERA {stat(game.home.pitcherStats?.era)} · WHIP {stat(game.home.pitcherStats?.whip)} · K/9 {stat(game.home.pitcherStats?.strikeoutsPer9Inn)}</small>
@@ -60,18 +62,29 @@ function GameCard({ game, onSave, saved }) {
 
       <div className="prediction">
         <div>
-          <p className="eyebrow">F5 model pick</p>
-          <h3>{game.prediction.pick}</h3>
-          <p className="muted">Edge {game.prediction.edge > 0 ? '+' : ''}{game.prediction.edge} · Confidence {game.prediction.confidence}% · Blended win probability {game.prediction.modelProbability}%</p>
+          <p className="eyebrow">Primary pick (full-game model)</p>
+          <h3>{game.prediction.pick || 'Unavailable'}</h3>
+          <p className="muted">Model probability {pct(game.prediction.confidence)} · Historical walk-forward accuracy {pct(primary.historicalAccuracy)}</p>
+          {game.flaggedF5Alternative && <p className="muted">F5 flagged: {game.flaggedF5Alternative.pick} {pct(game.flaggedF5Alternative.confidence)} (edge +{game.flaggedF5Alternative.edge}pp vs full-game +{game.flaggedF5Alternative.fullGameEdge}pp)</p>}
         </div>
         <div className="evBox">
-          <span>Total</span><strong>{game.market.f5Total?.point ?? 'N/A'}</strong>
-          <span>Best ML</span><strong>{moneyline(game.prediction.bestMoneyline)}</strong>
-          <span>Est. EV</span><strong>{game.prediction.estimatedEV === null ? 'N/A' : `${game.prediction.estimatedEV > 0 ? '+' : ''}${game.prediction.estimatedEV}%`}</strong>
+          <span>Monte Carlo agrees</span><strong>{primary.pick && game.fullGameMonteCarlo?.pick ? (primary.pick === game.fullGameMonteCarlo.pick ? 'Yes' : 'No') : 'N/A'}</strong>
+          <span>F5 agrees</span><strong>{primary.pick && game.f5Prediction?.pick ? (primary.pick === game.f5Prediction.pick ? 'Yes' : 'No') : 'N/A'}</strong>
         </div>
       </div>
+      <div className="prediction">
+        <div><p className="eyebrow">Full-game Monte Carlo diagnostic</p><h3>{game.fullGameMonteCarlo?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.fullGameMonteCarlo?.confidence)} · projected score {game.fullGameMonteCarlo?.projectedAwayRuns?.toFixed(1) ?? '—'}–{game.fullGameMonteCarlo?.projectedHomeRuns?.toFixed(1) ?? '—'} · 10,000 simulations</p></div>
+        <div className="evBox"><span>2026 holdout</span><strong>53.65%</strong><span>Primary model</span><strong>54.85%</strong></div>
+      </div>
+      <div className="prediction">
+        <div><p className="eyebrow">Bullpen Monte Carlo V2 diagnostic</p><h3>{game.fullGameMonteCarloV2?.pick || 'Unavailable'}</h3><p className="muted">{game.fullGameMonteCarloV2?.available ? `${pct(game.fullGameMonteCarloV2.confidence)} · bullpen through ${game.fullGameMonteCarloV2.bullpenThroughDate} · likely arms from prior appearances; roster unverified` : game.fullGameMonteCarloV2?.reason || 'Current bullpen data unavailable'}</p></div>
+      </div>
+      <div className="prediction">
+        <div><p className="eyebrow">F5 identifier</p><h3>{game.f5Prediction?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.f5Prediction?.modelProbability)} conditional on a decided F5 result · identifies the early-game lean</p></div>
+        <div className="evBox"><span>F5 total</span><strong>{game.market.f5Total?.point ?? 'N/A'}</strong><span>F5 ML</span><strong>{moneyline(game.f5Prediction?.bestMoneyline)}</strong></div>
+      </div>
       <FactorGrid game={game} />
-      <p className="note">{game.prediction.note}</p>
+      <p className="note">{game.prediction.note}</p><MatchupLogic key={`${game.gamePk}-${game.officialDate}`} gamePk={game.gamePk} date={game.officialDate}/>
     </article>
   );
 }
@@ -89,9 +102,10 @@ export default function Home() {
   useEffect(() => { setSaved(JSON.parse(localStorage.getItem('saved-picks') || '[]')); }, []);
   function persist(items) { setSaved(items); localStorage.setItem('saved-picks', JSON.stringify(items)); }
   function savePick(game) {
-    const id = `${game.gamePk}-${game.prediction.pick}`;
+    const primary = game.fullGamePrediction || {};
+    const id = `${game.gamePk}-full-${primary.pick}`;
     const exists = saved.some((x) => x.id === id);
-    persist(exists ? saved.filter((x) => x.id !== id) : [{ id, date, pick: game.prediction.pick, opponent: game.prediction.opponent, confidence: game.prediction.confidence, ev: game.prediction.estimatedEV, line: game.prediction.bestMoneyline }, ...saved]);
+    persist(exists ? saved.filter((x) => x.id !== id) : [{ id, date, schemaVersion: 3, capturedAt: new Date().toISOString(), modelVersion: primary.modelVersion, probabilityBasis: primary.probabilityBasis, pick: primary.pick, opponent: primary.opponent, confidence: primary.confidence, f5Identifier: game.f5Prediction?.pick, f5Confidence: game.f5Prediction?.confidence, flaggedF5Alternative: game.flaggedF5Alternative, ev: null, line: game[primary.side]?.moneyline ?? null }, ...saved]);
   }
 
   async function load(selectedDate = date) {
@@ -121,9 +135,9 @@ export default function Home() {
     <main className="shell">
       <section className="hero">
         <div>
-          <p className="eyebrow">Live MLB data · First 5 model · ML + EV</p>
-          <h1>MLB F5 Predictor Pro</h1>
-          <p className="heroText">Official MLB schedule, probable pitchers, team/pitcher stats, batter handedness splits, bullpen usage, park/weather factors, optional injuries/umpires, live moneylines, EV, saved picks, backtesting, and a trainable model using the last two MLB seasons.</p>
+          <p className="eyebrow">MLB data · Full game plus F5 identifier</p>
+          <h1>MLB Winner Predictor</h1>
+          <p className="heroText">The primary model forecasts the full-game winner. A separate F5 identifier isolates starting-pitcher and early-lineup strength so you can see whether the two time horizons agree.</p>
         </div>
         <div className="controls">
           <label>Date<input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></label>
@@ -138,20 +152,20 @@ export default function Home() {
         <section className="summary">
           <div><span>Games</span><strong>{games.length}</strong></div>
           <div><span>Odds feed</span><strong>{data.odds.available ? 'Connected' : 'Not connected'}</strong></div>
-          <div><span>Strongest edge</span><strong>{strongest ? strongest.prediction.pick : 'None'}</strong></div>
-          <div><span>ML model</span><strong>{data.model?.version || 'Missing'}</strong></div>
+          <div><span>Top full-game pick</span><strong>{strongest?.fullGamePrediction?.pick || 'None'}</strong></div>
+          <div><span>Full-game model</span><strong>{data.fullGameModel?.version || 'Missing'}</strong></div>
         </section>
         <section className="panel">
           <h2>Model summary</h2>
           <pre>{summary || 'No summary available.'}</pre>
-          <p className="note">Training seasons: {data.model?.trainingSeasons?.join(', ') || 'N/A'} · Accuracy: {data.model?.metrics?.accuracy ? `${(data.model.metrics.accuracy * 100).toFixed(1)}%` : 'Run npm run train:ml'} · Odds markets: {data.odds.markets || 'N/A'}</p>
+          <p className="note">Full-game model trained through {data.fullGameModel?.throughDate || 'N/A'} · Walk-forward accuracy: {data.fullGameModel?.metrics?.walkForwardAccuracy == null ? 'Unavailable' : `${(100 * data.fullGameModel.metrics.walkForwardAccuracy).toFixed(2)}%`} across {data.fullGameModel?.metrics?.walkForwardGames || 0} games. This does not establish betting profitability.</p>
         </section>
-        {!data.odds.available && <div className="info">Add <code>ODDS_API_KEY</code> to enable live moneylines, totals, spreads, and EV. Historical odds usually require a paid odds-data plan.</div>}
+        {!data.odds.available && <div className="info">Add <code>SGO_API_KEY</code> to enable sportsbook moneyline, total and spread snapshots. Historical odds usually require a paid odds-data plan.</div>}
         <section className="tools">
           <div className="panel"><h2>Backtest</h2><div className="inline"><input type="number" value={season} onChange={(e) => setSeason(e.target.value)} /><button onClick={loadBacktest}>Run</button></div>{backtest?.loading ? <p>Loading...</p> : backtest ? <pre>{JSON.stringify(backtest, null, 2)}</pre> : <p className="muted">Run a quick historical F5 result check by season.</p>}</div>
-          <div className="panel"><h2>Saved picks</h2>{saved.length ? <ul>{saved.map((p) => <li key={p.id}>{p.date}: {p.pick} vs {p.opponent} · {p.confidence}% · EV {p.ev ?? 'N/A'} · ML {moneyline(p.line)}</li>)}</ul> : <p className="muted">No saved picks yet.</p>}</div>
+          <div className="panel"><h2>Saved picks</h2>{saved.length ? <ul>{saved.map((p) => <li key={p.id}>{p.date}: {p.pick} vs {p.opponent} · {p.schemaVersion === 3 ? `${p.confidence}% full game · F5 ${p.f5Identifier} ${p.f5Confidence}%` : 'Legacy forecast'} · ML {moneyline(p.line)}</li>)}</ul> : <p className="muted">No saved picks yet.</p>}</div>
         </section>
-        {games.length === 0 ? <div className="empty">No MLB games found for {date}.</div> : <section className="cards">{games.map((game) => <GameCard key={game.gamePk} game={game} onSave={savePick} saved={saved.some((x) => x.id === `${game.gamePk}-${game.prediction.pick}`)} />)}</section>}
+        {games.length === 0 ? <div className="empty">No MLB games found for {date}.</div> : <section className="cards">{games.map((game) => <GameCard key={game.gamePk} game={game} onSave={savePick} saved={saved.some((x) => x.id === `${game.gamePk}-full-${game.fullGamePrediction?.pick}`)} />)}</section>}
       </>}
     </main>
   );

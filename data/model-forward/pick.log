@@ -1,0 +1,32 @@
+{"skipped":true,"reason":"Picks already recorded for this date","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-17.json"}
+{"skipped":true,"reason":"Picks already recorded for this date","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-17.json"}
+{"skipped":false,"file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-18.json","picks":15}
+{"skipped":true,"reason":"Picks already recorded for this date","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-18.json"}
+{"skipped":true,"reason":"Picks already recorded for this date","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-18.json"}
+{"skipped":true,"reason":"Picks already recorded for this date","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-18.json"}
+{"skipped":false,"file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-19.json","picks":15}
+{"skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-19.json"}
+{"skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-19.json"}
+{"at":"2026-09-20T03:00:02.644Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-19.json"}
+{"at":"2026-09-20T07:00:02.461Z","skipped":false,"file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-20.json","picks":15}
+{"at":"2026-09-20T22:00:03.545Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-20.json"}
+{"at":"2026-09-20T22:30:01.256Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-20.json"}
+{"at":"2026-09-21T04:00:00.934Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-20.json"}
+{"at":"2026-09-21T05:00:00.540Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-20.json"}
+{"at":"2026-09-21T08:00:02.641Z","skipped":false,"file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-21.json","picks":3}
+{"at":"2026-09-21T16:00:04.518Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-21.json"}
+{"at":"2026-09-21T16:30:02.109Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-21.json"}
+{"at":"2026-09-21T17:00:01.995Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-21.json"}
+{"at":"2026-09-21T17:30:02.849Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-21.json"}
+{"at":"2026-09-21T18:00:01.851Z","skipped":true,"reason":"Picks recorded; nothing left to fill in","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-21.json"}
+{"at":"2026-09-22T15:30:02.616Z","skipped":false,"file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json","picks":16}
+{"at":"2026-09-22T16:00:01.743Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T16:30:00.727Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T17:00:01.285Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T17:30:01.063Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T18:00:01.163Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T18:30:02.342Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T19:00:00.554Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T19:30:01.960Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T20:00:00.553Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}
+{"at":"2026-09-22T20:30:01.277Z","skipped":true,"reason":"Still no usable prediction for the unfilled games","file":"/Users/james/mlb-f5-kalshi-project/web-app/data/model-forward/picks-2026-09-22.json"}

@@ -8,8 +8,18 @@
     "build": "next build",
     "start": "next start",
     "train:ml": "node scripts/train-history.js",
-    "backtest": "node scripts/train-ml.js",
-    "train:history": "node scripts/train-history.js"
+    "backtest": "node scripts/check-backtest.js",
+    "train:history": "node scripts/train-history.js",
+    "train:full-game": "node scripts/train-full-game.js",
+    "backtest:full-game-mc": "node scripts/backtest-full-game-monte-carlo.js",
+    "backtest:full-game-mc-v2": "node scripts/backtest-full-game-monte-carlo-v2.js",
+    "check:full-game-mc-2026": "node scripts/check-full-game-mc-2026.js",
+    "test": "node --test tests/*.test.js",
+    "prospective:capture": "node scripts/kalshi-forward.js capture",
+    "prospective:grade": "node scripts/kalshi-forward.js grade",
+    "combined:update": "node scripts/combined-forward.js",
+    "model:pick": "node scripts/model-forward.js pick",
+    "model:grade": "node scripts/model-forward.js grade"
   },
   "dependencies": {
     "next": "^14.2.30",

@@ -1,0 +1,26 @@
+{
+  "seasons": [
+    2023,
+    2024,
+    2025
+  ],
+  "counts": {
+    "games": 7262,
+    "homeEarly": 19089,
+    "awayEarly": 17651,
+    "homeLate": 12822,
+    "awayLate": 13953,
+    "tiedAfterNine": 623,
+    "homeExtraWins": 312
+  },
+  "earlyFactors": {
+    "home": 1.0391399020141534,
+    "away": 0.9608600979858465
+  },
+  "lateFactors": {
+    "home": 0.9577591036414566,
+    "away": 1.0422408963585434
+  },
+  "extraInningHomeWinProbability": 0.5008025682182986,
+  "source": "MLB Stats API completed regular-season game linescores"
+}

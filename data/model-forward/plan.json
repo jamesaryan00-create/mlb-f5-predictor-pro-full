@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "start": "2026-09-16T15:21:38.374Z",
+  "rule": "modelOnly",
+  "definition": "Trained historical model (web-app/lib/mlb.js) pick, no Kalshi market dependency.",
+  "metric": "Wins / (wins + losses + ties), overall and by confidence tier",
+  "policy": "Picks for a date are generated and saved every morning before that day's games start (one file per date, never overwritten) -- so grading later carries no look-ahead risk. Grading runs daily against all outstanding picks files. No manual edits to a picks file after it is written. No early conclusions before a meaningful sample size; a single day (e.g. the 2026-09-15 manual check) is noise, not signal.",
+  "amendments": [
+    {
+      "date": "2026-09-18",
+      "change": "Picks files are no longer strictly write-once. After the first run of a day, later runs may FILL IN a game that had no usable prediction (available:false, e.g. starter not yet listed or a transient API failure) provided the game is still Scheduled/Pre-Game and its first pitch is in the future. Existing available picks are never modified. Filled entries carry a filledAt timestamp and the file an updatedAt.",
+      "reason": "First run at 8am locked out 2 of 15 games on 2026-09-18 whose starters resolved later in the day."
+    }
+  ]
+}

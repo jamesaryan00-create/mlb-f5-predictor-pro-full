@@ -1,0 +1,139 @@
+{
+  "generatedAt": "2026-09-22T17:39:40.823Z",
+  "methodology": "Season-by-season expanding-window evaluation. Features use only games completed before the prediction date; same-day results are excluded.",
+  "overall": {
+    "trainingGames": 39634,
+    "walkForwardGames": 32348,
+    "walkForwardWins": 18222,
+    "walkForwardLosses": 14126,
+    "walkForwardAccuracy": 0.5633114875726475
+  },
+  "bySeason": [
+    {
+      "season": 2013,
+      "games": 2429,
+      "wins": 1368,
+      "losses": 1061,
+      "accuracy": 0.5631947303417044,
+      "brier": 0.2452158423279651,
+      "logLoss": 0.6835390079706806
+    },
+    {
+      "season": 2014,
+      "games": 2425,
+      "wins": 1368,
+      "losses": 1057,
+      "accuracy": 0.5641237113402062,
+      "brier": 0.2468367777206511,
+      "logLoss": 0.6868573577491353
+    },
+    {
+      "season": 2015,
+      "games": 2425,
+      "wins": 1355,
+      "losses": 1070,
+      "accuracy": 0.5587628865979382,
+      "brier": 0.24596368843138613,
+      "logLoss": 0.6853675607807074
+    },
+    {
+      "season": 2016,
+      "games": 2426,
+      "wins": 1357,
+      "losses": 1069,
+      "accuracy": 0.5593569661995054,
+      "brier": 0.24490212658228053,
+      "logLoss": 0.6828893382893786
+    },
+    {
+      "season": 2017,
+      "games": 2430,
+      "wins": 1375,
+      "losses": 1055,
+      "accuracy": 0.565843621399177,
+      "brier": 0.24465021328365483,
+      "logLoss": 0.6825035990238699
+    },
+    {
+      "season": 2018,
+      "games": 2429,
+      "wins": 1423,
+      "losses": 1006,
+      "accuracy": 0.5858377933305887,
+      "brier": 0.24101875478598045,
+      "logLoss": 0.6749938936713412
+    },
+    {
+      "season": 2019,
+      "games": 2424,
+      "wins": 1408,
+      "losses": 1016,
+      "accuracy": 0.5808580858085809,
+      "brier": 0.2413382890480852,
+      "logLoss": 0.6761013037565522
+    },
+    {
+      "season": 2020,
+      "games": 896,
+      "wins": 504,
+      "losses": 392,
+      "accuracy": 0.5625,
+      "brier": 0.24569333017447786,
+      "logLoss": 0.6849586388222889
+    },
+    {
+      "season": 2021,
+      "games": 2421,
+      "wins": 1368,
+      "losses": 1053,
+      "accuracy": 0.5650557620817844,
+      "brier": 0.2426866549518732,
+      "logLoss": 0.6785042473561512
+    },
+    {
+      "season": 2022,
+      "games": 2429,
+      "wins": 1422,
+      "losses": 1007,
+      "accuracy": 0.5854261012762454,
+      "brier": 0.24011793619758617,
+      "logLoss": 0.6731488469572708
+    },
+    {
+      "season": 2023,
+      "games": 2423,
+      "wins": 1336,
+      "losses": 1087,
+      "accuracy": 0.5513825835740818,
+      "brier": 0.24492393670999713,
+      "logLoss": 0.683204154610278
+    },
+    {
+      "season": 2024,
+      "games": 2424,
+      "wins": 1335,
+      "losses": 1089,
+      "accuracy": 0.5507425742574258,
+      "brier": 0.24459679656807012,
+      "logLoss": 0.6823355050014034
+    },
+    {
+      "season": 2025,
+      "games": 2426,
+      "wins": 1319,
+      "losses": 1107,
+      "accuracy": 0.5436933223413025,
+      "brier": 0.2455659067827052,
+      "logLoss": 0.6840455335648783
+    },
+    {
+      "season": 2026,
+      "games": 2341,
+      "wins": 1284,
+      "losses": 1057,
+      "accuracy": 0.5484835540367364,
+      "brier": 0.24653893759997886,
+      "logLoss": 0.6861781974679013
+    }
+  ]
+}

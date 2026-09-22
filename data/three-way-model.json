@@ -1,0 +1,79 @@
+{
+  "version": "three-way-v33-2010-2026",
+  "type": "multinomial-logistic-standardized",
+  "throughDate": "2026-09-16",
+  "features": [
+    "homeWinPctDiff",
+    "homeF5RunDiff",
+    "homeRecentRunDiff",
+    "homePitchingRunDiff",
+    "homeParkFactor",
+    "homeRestDiff",
+    "homePitcherWhipDiff",
+    "homePitcherFipDiff"
+  ],
+  "classes": [
+    "AWAY",
+    "TIE",
+    "HOME"
+  ],
+  "means": {
+    "homeWinPctDiff": -0.00021647605123603674,
+    "homeF5RunDiff": -0.003891912749018167,
+    "homeRecentRunDiff": -0.05927455661076181,
+    "homePitchingRunDiff": -0.003165827879023153,
+    "homeParkFactor": -0.0004386386032291276,
+    "homeRestDiff": 0.001970841650453546,
+    "homePitcherWhipDiff": -0.004034383232430488,
+    "homePitcherFipDiff": -0.014966171673171207
+  },
+  "scales": {
+    "homeWinPctDiff": 0.1224826013935186,
+    "homeF5RunDiff": 0.8413160080249766,
+    "homeRecentRunDiff": 1.8938766597192553,
+    "homePitchingRunDiff": 0.554209757539501,
+    "homeParkFactor": 0.03387804287090048,
+    "homeRestDiff": 0.3016762710474181,
+    "homePitcherWhipDiff": 0.41899332979204496,
+    "homePitcherFipDiff": 1.6497662888960505
+  },
+  "intercepts": [
+    0.2705280471302218,
+    -0.6855648737626798,
+    0.4150368266320357
+  ],
+  "coefficients": [
+    [
+      -0.050081985758970084,
+      -0.04073034339555472,
+      0.0026549843746315354,
+      -0.018130370250166145,
+      0.014831512327202659,
+      -0.01305009644168055,
+      -0.02561799987176361,
+      -0.059872226647941555
+    ],
+    [
+      -0.006790127687167221,
+      0.001638312108054606,
+      -0.008470010286058642,
+      0.017010877001441688,
+      -0.04603410077343005,
+      0.0035696495013453748,
+      -0.004414681225568795,
+      0.002888199216613578
+    ],
+    [
+      0.05687211344613743,
+      0.0390920312875,
+      0.005815025911427165,
+      0.001119493248724534,
+      0.031202588446227527,
+      0.009480446940334975,
+      0.030032681097332318,
+      0.056984027431328056
+    ]
+  ],
+  "trainingGames": 39577,
+  "target": "AWAY lead, TIE, or HOME lead after five innings; tie is not removed"
+}
