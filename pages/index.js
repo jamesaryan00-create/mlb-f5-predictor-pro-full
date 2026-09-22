@@ -10,6 +10,22 @@ function stat(value, fallback = 'N/A') { if (value === undefined || value === nu
 function pct(value) { return value === null || value === undefined ? 'N/A' : `${value}%`; }
 function ResultBadge({ label }) { return <span className={`badge ${String(label || 'Pass').replace(/\s+/g, '-').toLowerCase()}`}>{label}</span>; }
 
+function TeamLogo({ teamId, abbreviation }) {
+  const [failed, setFailed] = useState(false);
+  if (!teamId || failed) return <span className="teamLogoFallback">{abbreviation || '—'}</span>;
+  return (
+    <img
+      className="teamLogo"
+      src={`https://www.mlbstatic.com/team-logos/${teamId}.svg`}
+      alt={abbreviation || 'Team logo'}
+      width={32}
+      height={32}
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 function FactorGrid({ game }) {
   const w = game.factors?.weather || {};
   const indoor = w.indoor ? 'Indoor/roof' : w.available ? `${stat(w.temperature)}°F · wind ${stat(w.windMph)} mph · rain ${stat(w.precipitationProbability)}%` : (w.reason || 'N/A');
@@ -24,68 +40,119 @@ function FactorGrid({ game }) {
 }
 
 function GameCard({ game, onSave, saved }) {
+  const [expanded, setExpanded] = useState(false);
   const primary = game.fullGamePrediction || {};
   const pickHome = primary.pick === game.home.name;
+
   return (
-    <article className="card">
-      <div className="cardTop">
-        <div>
-          <p className="eyebrow">{fmtTime(game.gameDate)} · {game.status}</p>
-          <h2>{game.away.name} @ {game.home.name}</h2>
-          <p className="muted">{game.venue}</p>
+    <article className={`card ${expanded ? 'card--expanded' : ''}`}>
+      <button
+        type="button"
+        className="tileHead"
+        onClick={() => setExpanded((v) => !v)}
+        aria-expanded={expanded}
+      >
+        <div className="tileMatchup">
+          <TeamLogo teamId={game.away.id} abbreviation={game.away.abbreviation} />
+          <span className="tileTeam">{game.away.abbreviation}</span>
+          <span className="tileAt">@</span>
+          <TeamLogo teamId={game.home.id} abbreviation={game.home.abbreviation} />
+          <span className="tileTeam">{game.home.abbreviation}</span>
         </div>
-        <div className="badgeStack">
+        <div className="tilePickRow">
+          <span className="tilePick">{game.prediction.pick || 'Unavailable'}</span>
+          <span className="tileConfidence">{pct(game.prediction.confidence)}</span>
+        </div>
+        <div className="tileMetaRow">
           <ResultBadge label={game.prediction.label} />
-          <button className="ghost" disabled={!primary.pick} onClick={() => onSave(game)}>{saved ? 'Saved' : 'Save pick'}</button>
+          {game.flaggedF5Alternative && <span className="badge f5-flag">F5 flag: {game.flaggedF5Alternative.pick}</span>}
+          <span className="chevron">{expanded ? '▲' : '▼'}</span>
         </div>
-      </div>
+      </button>
 
-      <div className="teamGrid">
-        <div className={`teamBox ${primary.pick && !pickHome ? 'picked' : ''}`}>
-          <div className="teamHeader"><strong>{game.away.abbreviation}</strong><span>{pct(primary.awayProbability)}</span></div>
-          <p>{game.away.name}</p>
-          <small>SP: {game.away.probablePitcher?.fullName || 'TBD'} {game.away.pitcherBio?.throws ? `(${game.away.pitcherBio.throws})` : ''}</small>
-          <small>ERA {stat(game.away.pitcherStats?.era)} · WHIP {stat(game.away.pitcherStats?.whip)} · K/9 {stat(game.away.pitcherStats?.strikeoutsPer9Inn)}</small>
-          <small>ML: {moneyline(game.away.moneyline)} {game.away.bestBook ? `at ${game.away.bestBook}` : ''}</small>
-          <small>BP last 3 days: {stat(game.away.bullpen?.relieverInnings3d)} IP</small>
-        </div>
+      {expanded && (
+        <div className="tileBody">
+          <div className="cardTop">
+            <div>
+              <p className="eyebrow">{fmtTime(game.gameDate)} · {game.status}</p>
+              <h2>{game.away.name} @ {game.home.name}</h2>
+              <p className="muted">{game.venue}</p>
+            </div>
+            <div className="badgeStack">
+              <button className="ghost" disabled={!primary.pick} onClick={() => onSave(game)}>{saved ? 'Saved' : 'Save pick'}</button>
+            </div>
+          </div>
 
-        <div className={`teamBox ${pickHome ? 'picked' : ''}`}>
-          <div className="teamHeader"><strong>{game.home.abbreviation}</strong><span>{pct(primary.homeProbability)}</span></div>
-          <p>{game.home.name}</p>
-          <small>SP: {game.home.probablePitcher?.fullName || 'TBD'} {game.home.pitcherBio?.throws ? `(${game.home.pitcherBio.throws})` : ''}</small>
-          <small>ERA {stat(game.home.pitcherStats?.era)} · WHIP {stat(game.home.pitcherStats?.whip)} · K/9 {stat(game.home.pitcherStats?.strikeoutsPer9Inn)}</small>
-          <small>ML: {moneyline(game.home.moneyline)} {game.home.bestBook ? `at ${game.home.bestBook}` : ''}</small>
-          <small>BP last 3 days: {stat(game.home.bullpen?.relieverInnings3d)} IP</small>
-        </div>
-      </div>
+          <div className="teamGrid">
+            <div className={`teamBox ${primary.pick && !pickHome ? 'picked' : ''}`}>
+              <div className="teamHeader"><strong>{game.away.abbreviation}</strong><span>{pct(primary.awayProbability)}</span></div>
+              <p>{game.away.name}</p>
+              <small>SP: {game.away.probablePitcher?.fullName || 'TBD'} {game.away.pitcherBio?.throws ? `(${game.away.pitcherBio.throws})` : ''}</small>
+              <small>ERA {stat(game.away.pitcherStats?.era)} · WHIP {stat(game.away.pitcherStats?.whip)} · K/9 {stat(game.away.pitcherStats?.strikeoutsPer9Inn)}</small>
+              <small>ML: {moneyline(game.away.moneyline)} {game.away.bestBook ? `at ${game.away.bestBook}` : ''}</small>
+              <small>BP last 3 days: {stat(game.away.bullpen?.relieverInnings3d)} IP</small>
+            </div>
 
-      <div className="prediction">
-        <div>
-          <p className="eyebrow">Primary pick (full-game model)</p>
-          <h3>{game.prediction.pick || 'Unavailable'}</h3>
-          <p className="muted">Model probability {pct(game.prediction.confidence)} · Historical walk-forward accuracy {pct(primary.historicalAccuracy)}</p>
-          {game.flaggedF5Alternative && <p className="muted">F5 flagged: {game.flaggedF5Alternative.pick} {pct(game.flaggedF5Alternative.confidence)} (edge +{game.flaggedF5Alternative.edge}pp vs full-game +{game.flaggedF5Alternative.fullGameEdge}pp)</p>}
+            <div className={`teamBox ${pickHome ? 'picked' : ''}`}>
+              <div className="teamHeader"><strong>{game.home.abbreviation}</strong><span>{pct(primary.homeProbability)}</span></div>
+              <p>{game.home.name}</p>
+              <small>SP: {game.home.probablePitcher?.fullName || 'TBD'} {game.home.pitcherBio?.throws ? `(${game.home.pitcherBio.throws})` : ''}</small>
+              <small>ERA {stat(game.home.pitcherStats?.era)} · WHIP {stat(game.home.pitcherStats?.whip)} · K/9 {stat(game.home.pitcherStats?.strikeoutsPer9Inn)}</small>
+              <small>ML: {moneyline(game.home.moneyline)} {game.home.bestBook ? `at ${game.home.bestBook}` : ''}</small>
+              <small>BP last 3 days: {stat(game.home.bullpen?.relieverInnings3d)} IP</small>
+            </div>
+          </div>
+
+          <div className="prediction">
+            <div>
+              <p className="eyebrow">Primary pick (full-game model)</p>
+              <h3>{game.prediction.pick || 'Unavailable'}</h3>
+              <p className="muted">Model probability {pct(game.prediction.confidence)} · Historical walk-forward accuracy {pct(primary.historicalAccuracy)}</p>
+              {game.flaggedF5Alternative && <p className="muted">F5 flagged: {game.flaggedF5Alternative.pick} {pct(game.flaggedF5Alternative.confidence)} (edge +{game.flaggedF5Alternative.edge}pp vs full-game +{game.flaggedF5Alternative.fullGameEdge}pp)</p>}
+            </div>
+            <div className="evBox">
+              <span>Monte Carlo agrees</span><strong>{primary.pick && game.fullGameMonteCarlo?.pick ? (primary.pick === game.fullGameMonteCarlo.pick ? 'Yes' : 'No') : 'N/A'}</strong>
+              <span>F5 agrees</span><strong>{primary.pick && game.f5Prediction?.pick ? (primary.pick === game.f5Prediction.pick ? 'Yes' : 'No') : 'N/A'}</strong>
+            </div>
+          </div>
+          <div className="prediction">
+            <div><p className="eyebrow">Full-game Monte Carlo diagnostic</p><h3>{game.fullGameMonteCarlo?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.fullGameMonteCarlo?.confidence)} · projected score {game.fullGameMonteCarlo?.projectedAwayRuns?.toFixed(1) ?? '—'}–{game.fullGameMonteCarlo?.projectedHomeRuns?.toFixed(1) ?? '—'} · 10,000 simulations</p></div>
+            <div className="evBox"><span>2026 holdout</span><strong>53.65%</strong><span>Primary model</span><strong>54.85%</strong></div>
+          </div>
+          <div className="prediction">
+            <div><p className="eyebrow">Bullpen Monte Carlo V2 diagnostic</p><h3>{game.fullGameMonteCarloV2?.pick || 'Unavailable'}</h3><p className="muted">{game.fullGameMonteCarloV2?.available ? `${pct(game.fullGameMonteCarloV2.confidence)} · bullpen through ${game.fullGameMonteCarloV2.bullpenThroughDate} · likely arms from prior appearances; roster unverified` : game.fullGameMonteCarloV2?.reason || 'Current bullpen data unavailable'}</p></div>
+          </div>
+          <div className="prediction">
+            <div><p className="eyebrow">F5 identifier</p><h3>{game.f5Prediction?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.f5Prediction?.modelProbability)} conditional on a decided F5 result · identifies the early-game lean</p></div>
+            <div className="evBox"><span>F5 total</span><strong>{game.market.f5Total?.point ?? 'N/A'}</strong><span>F5 ML</span><strong>{moneyline(game.f5Prediction?.bestMoneyline)}</strong></div>
+          </div>
+          <FactorGrid game={game} />
+          <p className="note">{game.prediction.note}</p><MatchupLogic key={`${game.gamePk}-${game.officialDate}`} gamePk={game.gamePk} date={game.officialDate}/>
         </div>
-        <div className="evBox">
-          <span>Monte Carlo agrees</span><strong>{primary.pick && game.fullGameMonteCarlo?.pick ? (primary.pick === game.fullGameMonteCarlo.pick ? 'Yes' : 'No') : 'N/A'}</strong>
-          <span>F5 agrees</span><strong>{primary.pick && game.f5Prediction?.pick ? (primary.pick === game.f5Prediction.pick ? 'Yes' : 'No') : 'N/A'}</strong>
-        </div>
-      </div>
-      <div className="prediction">
-        <div><p className="eyebrow">Full-game Monte Carlo diagnostic</p><h3>{game.fullGameMonteCarlo?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.fullGameMonteCarlo?.confidence)} · projected score {game.fullGameMonteCarlo?.projectedAwayRuns?.toFixed(1) ?? '—'}–{game.fullGameMonteCarlo?.projectedHomeRuns?.toFixed(1) ?? '—'} · 10,000 simulations</p></div>
-        <div className="evBox"><span>2026 holdout</span><strong>53.65%</strong><span>Primary model</span><strong>54.85%</strong></div>
-      </div>
-      <div className="prediction">
-        <div><p className="eyebrow">Bullpen Monte Carlo V2 diagnostic</p><h3>{game.fullGameMonteCarloV2?.pick || 'Unavailable'}</h3><p className="muted">{game.fullGameMonteCarloV2?.available ? `${pct(game.fullGameMonteCarloV2.confidence)} · bullpen through ${game.fullGameMonteCarloV2.bullpenThroughDate} · likely arms from prior appearances; roster unverified` : game.fullGameMonteCarloV2?.reason || 'Current bullpen data unavailable'}</p></div>
-      </div>
-      <div className="prediction">
-        <div><p className="eyebrow">F5 identifier</p><h3>{game.f5Prediction?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.f5Prediction?.modelProbability)} conditional on a decided F5 result · identifies the early-game lean</p></div>
-        <div className="evBox"><span>F5 total</span><strong>{game.market.f5Total?.point ?? 'N/A'}</strong><span>F5 ML</span><strong>{moneyline(game.f5Prediction?.bestMoneyline)}</strong></div>
-      </div>
-      <FactorGrid game={game} />
-      <p className="note">{game.prediction.note}</p><MatchupLogic key={`${game.gamePk}-${game.officialDate}`} gamePk={game.gamePk} date={game.officialDate}/>
+      )}
     </article>
+  );
+}
+
+function RecordTile({ label, cohort }) {
+  if (!cohort) return <div className="statTile"><span>{label}</span><strong>N/A</strong><p className="tileSub">No tracking data available.</p></div>;
+  return (
+    <div className="statTile">
+      <span>{label}</span>
+      <strong>{cohort.winPct == null ? '—' : `${cohort.winPct}%`}</strong>
+      <p className="tileSub">{cohort.wins}W–{cohort.losses}L{cohort.ties ? `–${cohort.ties}T` : ''} · {cohort.winPctDecided == null ? 'N/A excl. ties' : `${cohort.winPctDecided}% excl. ties`}</p>
+    </div>
+  );
+}
+
+function RecordTiles({ record }) {
+  if (!record) return null;
+  return (
+    <section className="statTiles">
+      <RecordTile label="Model-forward record (live)" cohort={record.modelForward} />
+      <RecordTile label="F5 marketTrust record (live)" cohort={record.f5MarketTrust} />
+      <RecordTile label="Full-game marketTrust record (live)" cohort={record.fullGameMarketTrust} />
+    </section>
   );
 }
 
@@ -98,6 +165,7 @@ export default function Home() {
   const [saved, setSaved] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [record, setRecord] = useState(null);
 
   useEffect(() => { setSaved(JSON.parse(localStorage.getItem('saved-picks') || '[]')); }, []);
   function persist(items) { setSaved(items); localStorage.setItem('saved-picks', JSON.stringify(items)); }
@@ -128,6 +196,18 @@ export default function Home() {
     setBacktest(res.ok ? json : { error: json.error || 'Failed to backtest' });
   }
   useEffect(() => { load(date); /* eslint-disable-next-line */ }, []);
+  useEffect(() => {
+    let active = true;
+    async function loadRecord() {
+      try {
+        const res = await fetch('/api/record', { cache: 'no-store' });
+        const json = await res.json();
+        if (active && res.ok) setRecord(json);
+      } catch { /* non-fatal: leave record tiles as N/A */ }
+    }
+    loadRecord();
+    return () => { active = false; };
+  }, []);
 
   const games = useMemo(() => data?.games || [], [data]);
   const strongest = games[0];
@@ -144,6 +224,8 @@ export default function Home() {
           <button onClick={() => load(date)} disabled={loading}>{loading ? 'Loading...' : 'Refresh'}</button>
         </div>
       </section>
+
+      <RecordTiles record={record} />
 
       {error && <div className="alert">{error}</div>}
       {loading && <div className="loading"><div className="spinner" /><p>Loading live MLB data, odds, weather, splits, and bullpen usage...</p></div>}

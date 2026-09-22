@@ -1,0 +1,385 @@
+{
+  "version": "combined-evidence-v1",
+  "gamePk": 822762,
+  "officialDate": "2026-09-15",
+  "firstPitchUtc": "2026-09-15T23:07:00Z",
+  "homeId": 141,
+  "awayId": 116,
+  "homeTeam": "Toronto Blue Jays",
+  "awayTeam": "Detroit Tigers",
+  "pick": "Detroit Tigers",
+  "kalshiPickSide": "AWAY",
+  "capturedAt": "2026-09-15T07:30:16.038Z",
+  "assessment": {
+    "version": "pitching-batting-evidence-v1",
+    "available": true,
+    "side": "away",
+    "score": -0.6666666666666666,
+    "signals": [
+      {
+        "group": "Pitching",
+        "label": "Season FIP",
+        "home": 4.239227708428669,
+        "away": 4.231046492122985,
+        "available": true,
+        "vote": -1
+      },
+      {
+        "group": "Pitching",
+        "label": "Season WHIP",
+        "home": 1.2247706422018347,
+        "away": 1.309278350515464,
+        "available": true,
+        "vote": 1
+      },
+      {
+        "group": "Pitching",
+        "label": "Season K/BB",
+        "home": 1.894736842105263,
+        "away": 2.625,
+        "available": true,
+        "vote": -1
+      },
+      {
+        "group": "Pitching",
+        "label": "Last-five FIP",
+        "home": 5.551571328111738,
+        "away": 5.084038860579271,
+        "available": true,
+        "vote": -1
+      },
+      {
+        "group": "Pitching",
+        "label": "First-inning ERA (complete innings)",
+        "home": 0,
+        "away": 1,
+        "available": true,
+        "vote": 1
+      },
+      {
+        "group": "Pitching",
+        "label": "First-inning run frequency",
+        "home": 0,
+        "away": 11.11111111111111,
+        "available": true,
+        "vote": 1
+      },
+      {
+        "group": "Pitching",
+        "label": "Innings 2–5 ERA (complete innings)",
+        "home": null,
+        "away": 2.25,
+        "available": false,
+        "vote": null
+      },
+      {
+        "group": "Batting",
+        "label": "OPS",
+        "home": 0.697,
+        "away": 0.715,
+        "available": true,
+        "vote": -1
+      },
+      {
+        "group": "Batting",
+        "label": "OBP",
+        "home": 0.311,
+        "away": 0.316,
+        "available": true,
+        "vote": -1
+      },
+      {
+        "group": "Batting",
+        "label": "SLG",
+        "home": 0.386,
+        "away": 0.399,
+        "available": true,
+        "vote": -1
+      },
+      {
+        "group": "F5 history",
+        "label": "Season F5 runs/game",
+        "home": 2.013245033112583,
+        "away": 2.6133333333333333,
+        "available": true,
+        "vote": -1
+      },
+      {
+        "group": "F5 history",
+        "label": "Recent-ten F5 run differential",
+        "home": -0.3,
+        "away": 1.7,
+        "available": true,
+        "vote": -1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Pitching",
+        "available": 6,
+        "total": 7,
+        "score": 0
+      },
+      {
+        "name": "Batting",
+        "available": 3,
+        "total": 3,
+        "score": -1
+      },
+      {
+        "name": "F5 history",
+        "available": 2,
+        "total": 2,
+        "score": -1
+      }
+    ],
+    "probability": null,
+    "method": "Experimental rule: average directional comparisons within each group, then equally weight pitching, batting and F5 history. Weights are assumptions, not trained. A zero score means conflicting evidence, not a predicted tie. No confidence threshold filters games.",
+    "limitations": [
+      "Correlated statistics are not independent votes or calibrated probabilities.",
+      "Team batting rates are not confirmed-lineup projections or pitcher-handedness splits.",
+      "Complete-inning samples exclude early exits and may be biased.",
+      "Weather, injuries and pitch velocity are not included.",
+      "No validated improvement in win rate; evaluate wins / (wins + losses + ties) on the same games."
+    ],
+    "teams": {
+      "home": {
+        "name": "Toronto Blue Jays",
+        "pitching": {
+          "pitcherId": 680755,
+          "beforeDate": "2026-09-15",
+          "throughDate": "2026-09-14",
+          "source": "MLB Stats API; current official historical records, not archived pregame snapshots",
+          "fipConstant": 3.0970258735662837,
+          "constantReason": null,
+          "season": {
+            "outs": 218,
+            "earnedRuns": 26,
+            "hits": 51,
+            "baseOnBalls": 38,
+            "strikeOuts": 72,
+            "homeRuns": 8,
+            "hitBatsmen": 3,
+            "innings": "72.2",
+            "era": 3.2201834862385317,
+            "whip": 1.2247706422018347,
+            "kbb": 1.894736842105263,
+            "fip": 4.239227708428669
+          },
+          "last5": {
+            "outs": 11,
+            "earnedRuns": 1,
+            "hits": 2,
+            "baseOnBalls": 2,
+            "strikeOuts": 5,
+            "homeRuns": 1,
+            "hitBatsmen": 0,
+            "innings": "3.2",
+            "era": 2.4545454545454546,
+            "whip": 1.090909090909091,
+            "kbb": 2.5,
+            "fip": 5.551571328111738
+          },
+          "appearances": 72,
+          "starts": 9,
+          "firstInning": {
+            "innings": 9,
+            "earnedRuns": 0,
+            "era": 0,
+            "runAllowedPct": 0
+          },
+          "innings2to5": {
+            "innings": 0,
+            "earnedRuns": 0,
+            "era": null,
+            "runAllowedPct": null
+          },
+          "unavailableGames": 0,
+          "coverageNote": "Inning metrics cover only complete innings thrown entirely by this starter. Early exits and incomplete data are excluded; innings 2–5 use available complete innings. This can bias the sample. Run frequency includes earned and unearned runs.",
+          "recent": [
+            {
+              "date": "2026-09-04",
+              "innings": "1.0",
+              "earnedRuns": 0,
+              "strikeouts": 0,
+              "walks": 1,
+              "pitches": 14,
+              "started": false
+            },
+            {
+              "date": "2026-09-06",
+              "innings": "0.1",
+              "earnedRuns": 0,
+              "strikeouts": 1,
+              "walks": 1,
+              "pitches": 10,
+              "started": false
+            },
+            {
+              "date": "2026-09-09",
+              "innings": "1.0",
+              "earnedRuns": 0,
+              "strikeouts": 1,
+              "walks": 0,
+              "pitches": 18,
+              "started": true
+            },
+            {
+              "date": "2026-09-11",
+              "innings": "1.0",
+              "earnedRuns": 1,
+              "strikeouts": 2,
+              "walks": 0,
+              "pitches": 24,
+              "started": false
+            },
+            {
+              "date": "2026-09-13",
+              "innings": "0.1",
+              "earnedRuns": 0,
+              "strikeouts": 1,
+              "walks": 0,
+              "pitches": 7,
+              "started": false
+            }
+          ]
+        },
+        "batting": {
+          "games": 151,
+          "plateAppearances": 5649,
+          "ops": 0.697,
+          "obp": 0.311,
+          "slg": 0.386
+        },
+        "battingSource": "https://statsapi.mlb.com/api/v1/teams/141/stats?stats=byDateRange&group=hitting&gameType=R&startDate=2026-01-01&endDate=2026-09-14",
+        "f5": {
+          "games": 151,
+          "runs": 2.013245033112583,
+          "recent": -0.3
+        },
+        "errors": []
+      },
+      "away": {
+        "name": "Detroit Tigers",
+        "pitching": {
+          "pitcherId": 623454,
+          "beforeDate": "2026-09-15",
+          "throughDate": "2026-09-14",
+          "source": "MLB Stats API; current official historical records, not archived pregame snapshots",
+          "fipConstant": 3.0970258735662837,
+          "constantReason": null,
+          "season": {
+            "outs": 291,
+            "earnedRuns": 41,
+            "hits": 87,
+            "baseOnBalls": 40,
+            "strikeOuts": 105,
+            "homeRuns": 14,
+            "hitBatsmen": 6,
+            "innings": "97.0",
+            "era": 3.804123711340206,
+            "whip": 1.309278350515464,
+            "kbb": 2.625,
+            "fip": 4.231046492122985
+          },
+          "last5": {
+            "outs": 77,
+            "earnedRuns": 10,
+            "hits": 21,
+            "baseOnBalls": 13,
+            "strikeOuts": 23,
+            "homeRuns": 4,
+            "hitBatsmen": 2,
+            "innings": "25.2",
+            "era": 3.5064935064935066,
+            "whip": 1.3246753246753247,
+            "kbb": 1.7692307692307692,
+            "fip": 5.084038860579271
+          },
+          "appearances": 47,
+          "starts": 9,
+          "firstInning": {
+            "innings": 9,
+            "earnedRuns": 1,
+            "era": 1,
+            "runAllowedPct": 11.11111111111111
+          },
+          "innings2to5": {
+            "innings": 28,
+            "earnedRuns": 7,
+            "era": 2.25,
+            "runAllowedPct": 21.428571428571427
+          },
+          "unavailableGames": 0,
+          "coverageNote": "Inning metrics cover only complete innings thrown entirely by this starter. Early exits and incomplete data are excluded; innings 2–5 use available complete innings. This can bias the sample. Run frequency includes earned and unearned runs.",
+          "recent": [
+            {
+              "date": "2026-08-16",
+              "innings": "5.0",
+              "earnedRuns": 3,
+              "strikeouts": 5,
+              "walks": 2,
+              "pitches": 74,
+              "started": true
+            },
+            {
+              "date": "2026-08-22",
+              "innings": "5.0",
+              "earnedRuns": 3,
+              "strikeouts": 4,
+              "walks": 1,
+              "pitches": 75,
+              "started": true
+            },
+            {
+              "date": "2026-08-28",
+              "innings": "4.2",
+              "earnedRuns": 0,
+              "strikeouts": 5,
+              "walks": 5,
+              "pitches": 89,
+              "started": true
+            },
+            {
+              "date": "2026-09-02",
+              "innings": "5.2",
+              "earnedRuns": 1,
+              "strikeouts": 5,
+              "walks": 2,
+              "pitches": 90,
+              "started": true
+            },
+            {
+              "date": "2026-09-08",
+              "innings": "5.1",
+              "earnedRuns": 3,
+              "strikeouts": 4,
+              "walks": 3,
+              "pitches": 86,
+              "started": true
+            }
+          ]
+        },
+        "batting": {
+          "games": 150,
+          "plateAppearances": 5699,
+          "ops": 0.715,
+          "obp": 0.316,
+          "slg": 0.399
+        },
+        "battingSource": "https://statsapi.mlb.com/api/v1/teams/116/stats?stats=byDateRange&group=hitting&gameType=R&startDate=2026-01-01&endDate=2026-09-14",
+        "f5": {
+          "games": 150,
+          "runs": 2.6133333333333333,
+          "recent": 1.7
+        },
+        "errors": []
+      }
+    },
+    "gamePk": 822762,
+    "throughDate": "2026-09-14",
+    "observedAt": "2026-09-15T07:30:16.038Z",
+    "historical": false,
+    "source": "Current MLB historical records through the preceding day; not an archived pregame observation."
+  }
+}

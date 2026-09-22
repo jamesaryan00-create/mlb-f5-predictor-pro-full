@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-09-17T19:54:12.662Z",
+  "historyStartSeason": 2010,
+  "historyEndSeason": 2026,
+  "throughDate": "2026-09-16",
+  "pipelineVersion": "f5-history-v3-pitcher-quality",
+  "integrity": {
+    "uniqueTrainingGames": 39577,
+    "uniqueEvaluationGames": 32291,
+    "duplicateRows": 0,
+    "sameDayResultsExcluded": true,
+    "resumedGamesExcluded": true
+  },
+  "methodology": "Unique-game, prior-calendar-day features; season-by-season expanding-window evaluation. Resumed games excluded. Each season is predicted by a model trained only on earlier seasons. F5 ties are pushes and excluded from win percentage.",
+  "scopeNote": "Backtest percentage covers the historical ML component under the stated exclusions. The live TeamRankings overlay and today-specific pitcher/split rule inputs are not replayed historically because date-stamped snapshots are not available.",
+  "oddsNote": "This W/L backtest scores F5 direction only. Historical true F5 odds are not used; historical additional-market odds from The Odds API require separate historical-odds access.",
+  "overall": {
+    "label": "Overall walk-forward",
+    "picks": 32291,
+    "wins": 15399,
+    "losses": 12034,
+    "pushes": 4858,
+    "winPct": 56.13
+  },
+  "bySeason": [
+    {
+      "label": "2013",
+      "picks": 2429,
+      "wins": 1111,
+      "losses": 942,
+      "pushes": 376,
+      "winPct": 54.12
+    },
+    {
+      "label": "2014",
+      "picks": 2425,
+      "wins": 1134,
+      "losses": 908,
+      "pushes": 383,
+      "winPct": 55.53
+    },
+    {
+      "label": "2015",
+      "picks": 2425,
+      "wins": 1145,
+      "losses": 883,
+      "pushes": 397,
+      "winPct": 56.46
+    },
+    {
+      "label": "2016",
+      "picks": 2426,
+      "wins": 1161,
+      "losses": 935,
+      "pushes": 330,
+      "winPct": 55.39
+    },
+    {
+      "label": "2017",
+      "picks": 2430,
+      "wins": 1178,
+      "losses": 949,
+      "pushes": 303,
+      "winPct": 55.38
+    },
+    {
+      "label": "2018",
+      "picks": 2429,
+      "wins": 1155,
+      "losses": 888,
+      "pushes": 386,
+      "winPct": 56.53
+    },
+    {
+      "label": "2019",
+      "picks": 2424,
+      "wins": 1249,
+      "losses": 837,
+      "pushes": 338,
+      "winPct": 59.88
+    },
+    {
+      "label": "2020",
+      "picks": 896,
+      "wins": 426,
+      "losses": 340,
+      "pushes": 130,
+      "winPct": 55.61
+    },
+    {
+      "label": "2021",
+      "picks": 2421,
+      "wins": 1199,
+      "losses": 870,
+      "pushes": 352,
+      "winPct": 57.95
+    },
+    {
+      "label": "2022",
+      "picks": 2429,
+      "wins": 1184,
+      "losses": 818,
+      "pushes": 427,
+      "winPct": 59.14
+    },
+    {
+      "label": "2023",
+      "picks": 2423,
+      "wins": 1134,
+      "losses": 926,
+      "pushes": 363,
+      "winPct": 55.05
+    },
+    {
+      "label": "2024",
+      "picks": 2424,
+      "wins": 1151,
+      "losses": 937,
+      "pushes": 336,
+      "winPct": 55.12
+    },
+    {
+      "label": "2025",
+      "picks": 2426,
+      "wins": 1123,
+      "losses": 917,
+      "pushes": 386,
+      "winPct": 55.05
+    },
+    {
+      "label": "2026",
+      "picks": 2284,
+      "wins": 1049,
+      "losses": 884,
+      "pushes": 351,
+      "winPct": 54.27
+    }
+  ],
+  "byConfidence": [
+    {
+      "label": "50–54.9%",
+      "picks": 15827,
+      "wins": 6973,
+      "losses": 6426,
+      "pushes": 2428,
+      "winPct": 52.04
+    },
+    {
+      "label": "55–59.9%",
+      "picks": 10572,
+      "wins": 5207,
+      "losses": 3778,
+      "pushes": 1587,
+      "winPct": 57.95
+    },
+    {
+      "label": "60–64.9%",
+      "picks": 4414,
+      "wins": 2356,
+      "losses": 1425,
+      "pushes": 633,
+      "winPct": 62.31
+    },
+    {
+      "label": "65–69.9%",
+      "picks": 1191,
+      "wins": 688,
+      "losses": 321,
+      "pushes": 182,
+      "winPct": 68.19
+    },
+    {
+      "label": "70%+",
+      "picks": 287,
+      "wins": 175,
+      "losses": 84,
+      "pushes": 28,
+      "winPct": 67.57
+    }
+  ],
+  "model": {
+    "version": "trained-history-v3-pitcher-quality-2010-2026",
+    "trainingGames": 33625,
+    "trainingLogLoss": 0.6816
+  },
+  "picksFile": "data/backtest-picks.json"
+}
