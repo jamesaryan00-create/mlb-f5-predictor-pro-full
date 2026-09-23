@@ -78,10 +78,10 @@ function GameCard({ game, onSave, saved }) {
               <span className="tileConfidence">{pct(game.recordedPick.confidence)}</span>
             </div>
             <div className="tileMetaRow">
-              <span className="badge badge--locked">Locked in pregame</span>
+              <span className="badge badge--locked">{game.recordedPick.trackedModel === 'full-game' ? 'Locked in pregame' : 'Locked in pregame · F5 pick (legacy)'}</span>
               {game.recordedResult && (
                 <span className={`badge ${game.recordedResult.tie ? 'badge--tie' : game.recordedResult.win ? 'badge--win' : 'badge--loss'}`}>
-                  {game.recordedResult.tie ? 'Tie' : game.recordedResult.win ? 'Win' : 'Loss'}
+                  {game.recordedResult.tie ? 'F5 tie' : game.recordedResult.win ? 'Win' : 'Loss'}
                 </span>
               )}
               <span className="chevron">{expanded ? '▲' : '▼'}</span>
@@ -136,13 +136,17 @@ function GameCard({ game, onSave, saved }) {
 
           <div className="prediction">
             <div>
-              <p className="eyebrow">Primary pick (full-game model)</p>
+              <p className="eyebrow">{game.recordedPick && game.prediction.pick == null && game.recordedPick.trackedModel !== 'full-game' ? 'Primary pick (F5 model, legacy record predating the full-game tracker fix)' : 'Primary pick (full-game model)'}</p>
               <h3>{game.prediction.pick || (game.recordedPick ? game.recordedPick.pick : 'Unavailable')}</h3>
               {game.prediction.pick ? (
                 <p className="muted">Model probability {pct(game.prediction.confidence)} · Historical walk-forward accuracy {pct(primary.historicalAccuracy)}</p>
               ) : game.recordedPick ? (
-                <p className="muted">Locked in pregame at {pct(game.recordedPick.confidence)} confidence{game.recordedPick.capturedAt ? ` · captured ${fmtTime(game.recordedPick.capturedAt)}` : ''}. Live forecast unavailable: {game.prediction.note}
-                  {game.recordedResult ? ` · Result: ${game.recordedResult.tie ? 'Tie' : game.recordedResult.win ? 'Win' : 'Loss'}` : ' · Not yet graded.'}
+                <p className="muted">
+                  {game.recordedPick.trackedModel === 'full-game'
+                    ? 'Locked in pregame (full-game model)'
+                    : 'Locked in pregame (F5 model -- this date predates the forward tracker’s full-game migration; see FEATURE-WISHLIST.md #31, not the site’s actual full-game pick)'}
+                  {' at '}{pct(game.recordedPick.confidence)} confidence{game.recordedPick.capturedAt ? ` · captured ${fmtTime(game.recordedPick.capturedAt)}` : ''}. Live forecast unavailable: {game.prediction.note}
+                  {game.recordedResult ? ` · Result: ${game.recordedResult.tie ? 'F5 tie (first 5 innings only -- the full game always has a winner)' : game.recordedResult.win ? 'Win' : 'Loss'}` : ' · Not yet graded.'}
                 </p>
               ) : (
                 <p className="muted">{game.prediction.note}</p>

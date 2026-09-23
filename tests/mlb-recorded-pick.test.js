@@ -61,7 +61,20 @@ test('attaches the graded result once grading has run for the date', () => {
     ] }));
     const r = getRecordedPickAndResult(777, '2026-09-22');
     assert.ok(r.recordedPick);
-    assert.deepEqual(r.recordedResult, { result: 'HOME', win: true, tie: false });
+    assert.deepEqual(r.recordedResult, { result: 'HOME', win: true, tie: false, trackedModel: 'f5-legacy' });
+  });
+});
+
+test('labels a recorded pick as f5-legacy when the picks file predates trackedModel, and as full-game when it is present', () => {
+  withTempCwd((dir) => {
+    fs.writeFileSync(path.join(dir, 'data', 'model-forward', 'picks-2026-09-22.json'), JSON.stringify({ picks: [
+      { gamePk: 111, available: true, pickTeam: 'Atlanta Braves', pickSide: 'HOME', confidence: 0.59 }
+    ] })); // no trackedModel field: a pre-#31 legacy F5 record.
+    fs.writeFileSync(path.join(dir, 'data', 'model-forward', 'picks-2026-09-23.json'), JSON.stringify({ trackedModel: 'full-game', picks: [
+      { gamePk: 222, available: true, pickTeam: 'Atlanta Braves', pickSide: 'HOME', confidence: 0.59 }
+    ] }));
+    assert.equal(getRecordedPickAndResult(111, '2026-09-22').recordedPick.trackedModel, 'f5-legacy');
+    assert.equal(getRecordedPickAndResult(222, '2026-09-23').recordedPick.trackedModel, 'full-game');
   });
 });
 
@@ -112,7 +125,7 @@ test('calculateGamePrediction attaches recordedPick/recordedResult only when the
     const finished = calculateGamePrediction({ ...baseGame, status: 'Final', gameDate: '2026-09-22T20:00:00Z' }, inputs, null, { available: false, game: null });
     assert.ok(finished.recordedPick, 'expected recordedPick to be attached for a finished game');
     assert.equal(finished.recordedPick.pick, 'Chicago Cubs');
-    assert.deepEqual(finished.recordedResult, { result: 'AWAY', win: true, tie: false });
+    assert.deepEqual(finished.recordedResult, { result: 'AWAY', win: true, tie: false, trackedModel: 'f5-legacy' });
 
     // Upcoming/eligible game: unchanged -- no recordedPick/recordedResult regardless of any file on disk.
     const future = new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString();
