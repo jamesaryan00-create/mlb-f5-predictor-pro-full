@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-22",
-  "gradedAt": "2026-09-23T04:00:13.375Z",
+  "gradedAt": "2026-09-22T23:30:13.202Z",
   "results": [
     {
       "gamePk": 823543,
@@ -232,13 +232,7 @@
       "confidence": 0.5170587749347568,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824785,
@@ -469,13 +463,7 @@
       "confidence": 0.5442187928966313,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 823328,
@@ -590,13 +578,7 @@
       "confidence": 0.5344667447823765,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 0,
-      "result": "TIE",
-      "win": false,
-      "threeWayWin": null,
-      "tie": true
+      "status": "pending"
     },
     {
       "gamePk": 823412,
@@ -711,13 +693,7 @@
       "confidence": 0.5044614608163467,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 3,
-      "f5Away": 1,
-      "result": "HOME",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824709,
@@ -832,13 +808,7 @@
       "confidence": 0.5386311613769291,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 1,
-      "f5Away": 2,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824867,
@@ -953,13 +923,7 @@
       "confidence": 0.590124767179424,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824061,
@@ -1074,13 +1038,7 @@
       "confidence": 0.5083357384460192,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 4,
-      "f5Away": 9,
-      "result": "AWAY",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824624,
@@ -1195,13 +1153,7 @@
       "confidence": 0.5559020870999923,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 822840,
@@ -1316,13 +1268,7 @@
       "confidence": 0.5604278036805455,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 3,
-      "f5Away": 2,
-      "result": "HOME",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824302,
@@ -1437,13 +1383,7 @@
       "confidence": 0.5466878370305441,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 2,
-      "f5Away": 6,
-      "result": "AWAY",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824953,

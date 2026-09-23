@@ -59,15 +59,46 @@ function GameCard({ game, onSave, saved }) {
           <TeamLogo teamId={game.home.id} abbreviation={game.home.abbreviation} />
           <span className="tileTeam">{game.home.abbreviation}</span>
         </div>
-        <div className="tilePickRow">
-          <span className="tilePick">{game.prediction.pick || 'Unavailable'}</span>
-          <span className="tileConfidence">{pct(game.prediction.confidence)}</span>
-        </div>
-        <div className="tileMetaRow">
-          <ResultBadge label={game.prediction.label} />
-          {game.flaggedF5Alternative && <span className="badge f5-flag">F5 flag: {game.flaggedF5Alternative.pick}</span>}
-          <span className="chevron">{expanded ? '▲' : '▼'}</span>
-        </div>
+        {game.prediction.pick ? (
+          <>
+            <div className="tilePickRow">
+              <span className="tilePick">{game.prediction.pick}</span>
+              <span className="tileConfidence">{pct(game.prediction.confidence)}</span>
+            </div>
+            <div className="tileMetaRow">
+              <ResultBadge label={game.prediction.label} />
+              {game.flaggedF5Alternative && <span className="badge f5-flag">F5 flag: {game.flaggedF5Alternative.pick}</span>}
+              <span className="chevron">{expanded ? '▲' : '▼'}</span>
+            </div>
+          </>
+        ) : game.recordedPick ? (
+          <>
+            <div className="tilePickRow">
+              <span className="tilePick">{game.recordedPick.pick}</span>
+              <span className="tileConfidence">{pct(game.recordedPick.confidence)}</span>
+            </div>
+            <div className="tileMetaRow">
+              <span className="badge badge--locked">Locked in pregame</span>
+              {game.recordedResult && (
+                <span className={`badge ${game.recordedResult.tie ? 'badge--tie' : game.recordedResult.win ? 'badge--win' : 'badge--loss'}`}>
+                  {game.recordedResult.tie ? 'Tie' : game.recordedResult.win ? 'Win' : 'Loss'}
+                </span>
+              )}
+              <span className="chevron">{expanded ? '▲' : '▼'}</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="tilePickRow">
+              <span className="tilePick">Unavailable</span>
+              <span className="tileConfidence">{pct(game.prediction.confidence)}</span>
+            </div>
+            <div className="tileMetaRow">
+              <ResultBadge label={game.prediction.label} />
+              <span className="chevron">{expanded ? '▲' : '▼'}</span>
+            </div>
+          </>
+        )}
       </button>
 
       {expanded && (
@@ -106,8 +137,16 @@ function GameCard({ game, onSave, saved }) {
           <div className="prediction">
             <div>
               <p className="eyebrow">Primary pick (full-game model)</p>
-              <h3>{game.prediction.pick || 'Unavailable'}</h3>
-              <p className="muted">Model probability {pct(game.prediction.confidence)} · Historical walk-forward accuracy {pct(primary.historicalAccuracy)}</p>
+              <h3>{game.prediction.pick || (game.recordedPick ? game.recordedPick.pick : 'Unavailable')}</h3>
+              {game.prediction.pick ? (
+                <p className="muted">Model probability {pct(game.prediction.confidence)} · Historical walk-forward accuracy {pct(primary.historicalAccuracy)}</p>
+              ) : game.recordedPick ? (
+                <p className="muted">Locked in pregame at {pct(game.recordedPick.confidence)} confidence{game.recordedPick.capturedAt ? ` · captured ${fmtTime(game.recordedPick.capturedAt)}` : ''}. Live forecast unavailable: {game.prediction.note}
+                  {game.recordedResult ? ` · Result: ${game.recordedResult.tie ? 'Tie' : game.recordedResult.win ? 'Win' : 'Loss'}` : ' · Not yet graded.'}
+                </p>
+              ) : (
+                <p className="muted">{game.prediction.note}</p>
+              )}
               {game.flaggedF5Alternative && <p className="muted">F5 flagged: {game.flaggedF5Alternative.pick} {pct(game.flaggedF5Alternative.confidence)} (edge +{game.flaggedF5Alternative.edge}pp vs full-game +{game.flaggedF5Alternative.fullGameEdge}pp)</p>}
             </div>
             <div className="evBox">
@@ -147,11 +186,17 @@ function RecordTile({ label, cohort }) {
 
 function RecordTiles({ record }) {
   if (!record) return null;
+  const mf = record.modelForward || {};
+  const hasLegacy = mf.legacyF5Primary && mf.legacyF5Primary.picks > 0;
+  const hasF5Secondary = mf.f5Secondary && mf.f5Secondary.picks > 0;
   return (
     <section className="statTiles">
-      <RecordTile label="Model-forward record (live)" cohort={record.modelForward} />
+      <RecordTile label="Full-game record (live, primary pick)" cohort={mf.fullGame} />
       <RecordTile label="F5 marketTrust record (live)" cohort={record.f5MarketTrust} />
       <RecordTile label="Full-game marketTrust record (live)" cohort={record.fullGameMarketTrust} />
+      {hasLegacy && <RecordTile label="F5 record (legacy dates, pre-9/23 fix)" cohort={mf.legacyF5Primary} />}
+      {hasF5Secondary && <RecordTile label="F5 pick record (secondary, informational)" cohort={mf.f5Secondary} />}
+      {mf.note && <p className="tileSub" style={{ gridColumn: '1/-1' }}>{mf.note}</p>}
     </section>
   );
 }

@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-22",
-  "gradedAt": "2026-09-23T04:00:13.375Z",
+  "gradedAt": "2026-09-22T21:00:16.749Z",
   "results": [
     {
       "gamePk": 823543,
@@ -232,13 +232,7 @@
       "confidence": 0.5170587749347568,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824785,
@@ -469,13 +463,7 @@
       "confidence": 0.5442187928966313,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 823328,
@@ -590,13 +578,7 @@
       "confidence": 0.5344667447823765,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 0,
-      "result": "TIE",
-      "win": false,
-      "threeWayWin": null,
-      "tie": true
+      "status": "pending"
     },
     {
       "gamePk": 823412,
@@ -711,13 +693,7 @@
       "confidence": 0.5044614608163467,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 3,
-      "f5Away": 1,
-      "result": "HOME",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824709,
@@ -832,13 +808,7 @@
       "confidence": 0.5386311613769291,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 1,
-      "f5Away": 2,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824867,
@@ -953,13 +923,7 @@
       "confidence": 0.590124767179424,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824061,
@@ -1074,13 +1038,7 @@
       "confidence": 0.5083357384460192,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 4,
-      "f5Away": 9,
-      "result": "AWAY",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824624,
@@ -1195,13 +1153,7 @@
       "confidence": 0.5559020870999923,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 0,
-      "f5Away": 1,
-      "result": "AWAY",
-      "win": false,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 822840,
@@ -1316,13 +1268,7 @@
       "confidence": 0.5604278036805455,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 3,
-      "f5Away": 2,
-      "result": "HOME",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824302,
@@ -1437,13 +1383,7 @@
       "confidence": 0.5466878370305441,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "graded",
-      "f5Home": 2,
-      "f5Away": 6,
-      "result": "AWAY",
-      "win": true,
-      "threeWayWin": null,
-      "tie": false
+      "status": "pending"
     },
     {
       "gamePk": 824953,
@@ -1888,35 +1828,25 @@
         "homePitchingRunDiff": 0.44720496894409933,
         "homeParkFactor": -0.020000000000000018,
         "homeRestDiff": 0,
-        "homePitcherWhipDiff": -0.5124058484714225,
-        "homePitcherFipDiff": -1.85861763402747
+        "homePitcherWhipDiff": null,
+        "homePitcherFipDiff": null
       },
       "featuresThroughDate": "2026-09-21",
-      "imputedFeatures": [],
+      "imputedFeatures": [
+        "homePitcherWhipDiff",
+        "homePitcherFipDiff"
+      ],
       "pitcherIds": {
-        "home": 592779,
+        "home": null,
         "away": 650633
       },
-      "available": true,
+      "available": false,
       "pickSide": "HOME",
       "pickTeam": "Los Angeles Dodgers",
-      "confidence": 0.5187716481122803,
-      "threeWay": {
-        "probabilities": {
-          "AWAY": 0.40388990371557154,
-          "TIE": 0.1615977462976523,
-          "HOME": 0.434512349986776
-        },
-        "pickSide": "HOME",
-        "pickProbability": 0.434512349986776,
-        "tieProbability": 0.1615977462976523,
-        "modelVersion": "three-way-v33-2010-2026",
-        "modelSha256": "1011c6bb161a616c513e5be853e7c16737d6f6b756ab48e65898044e892dd91b"
-      },
-      "capturedAt": "2026-09-22T23:30:06.640Z",
-      "filledAt": "2026-09-22T23:30:06.641Z",
-      "provenance": "verified",
-      "status": "pending"
+      "confidence": 0.5673040842380648,
+      "reason": "Model unavailable at pick time",
+      "provenance": "legacy-unverified",
+      "status": "excluded"
     }
   ]
 }

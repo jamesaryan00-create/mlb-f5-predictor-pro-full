@@ -1,5 +1,5 @@
 const fs = require('fs'), path = require('path');
-const { generatePicks, gradeDate, summarize, summarizeThreeWay, dir } = require('../lib/model-forward');
+const { generatePicks, gradeDate, summarize, summarizeForwardRecord, summarizeThreeWay, dir } = require('../lib/model-forward');
 const { todayPacific } = require('../lib/mlb');
 
 const planFile = path.join(dir(), 'plan.json');
@@ -30,7 +30,12 @@ async function main() {
       const report = await gradeDate(date);
       if (report) reports.push(report);
     }
-    console.log(JSON.stringify({ at: new Date().toISOString(), gradedDates: dates, overall: summarize(reports), threeWayTop8:summarizeThreeWay(reports,'top8'), threeWayTop9:summarizeThreeWay(reports,'top9'), byModel: Object.fromEntries([...new Set(reports.flatMap(r=>r.results||[]).filter(r=>r.provenance==='verified').map(r=>r.modelSha256))].map(hash=>[hash,summarize(reports.map(r=>({...r,results:r.results.filter(p=>p.modelSha256===hash)})))])), legacyUnverified: summarize(reports,{cohort:'legacy-unverified'}), retrospective: summarize(reports,{cohort:'retrospective'}), byLean: summarize(reports, { minConfidence: 0.55 }), strongerLean: summarize(reports, { minConfidence: 0.6 }) }));
+    // See FEATURE-WISHLIST.md #31: `record` is the clear, non-blended split -- fullGame is the
+    // site's actual primary pick (graded against the real final score, no ties possible),
+    // legacyF5Primary is every pre-fix date still graded under the original F5-primary convention,
+    // f5Secondary is the F5 pick now recorded alongside new full-game picks. `overall` is kept for
+    // backward compatibility only and blends both conventions -- prefer `record` for reporting.
+    console.log(JSON.stringify({ at: new Date().toISOString(), gradedDates: dates, record: summarizeForwardRecord(reports), overall: summarize(reports), threeWayTop8:summarizeThreeWay(reports,'top8'), threeWayTop9:summarizeThreeWay(reports,'top9'), byModel: Object.fromEntries([...new Set(reports.flatMap(r=>r.results||[]).filter(r=>r.provenance==='verified').map(r=>r.modelSha256))].map(hash=>[hash,summarize(reports.map(r=>({...r,results:r.results.filter(p=>p.modelSha256===hash)})))])), legacyUnverified: summarize(reports,{cohort:'legacy-unverified'}), retrospective: summarize(reports,{cohort:'retrospective'}), byLean: summarizeForwardRecord(reports, { minConfidence: 0.55 }), strongerLean: summarizeForwardRecord(reports, { minConfidence: 0.6 }) }));
   } else {
     throw new Error('Use: node scripts/model-forward.js pick [date] | grade');
   }

@@ -1798,23 +1798,34 @@
         "homePitchingRunDiff": 0.44720496894409933,
         "homeParkFactor": -0.020000000000000018,
         "homeRestDiff": 0,
-        "homePitcherWhipDiff": null,
-        "homePitcherFipDiff": null
+        "homePitcherWhipDiff": -0.5124058484714225,
+        "homePitcherFipDiff": -1.85861763402747
       },
       "featuresThroughDate": "2026-09-21",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
+      "imputedFeatures": [],
       "pitcherIds": {
-        "home": null,
+        "home": 592779,
         "away": 650633
       },
-      "available": false,
+      "available": true,
       "pickSide": "HOME",
       "pickTeam": "Los Angeles Dodgers",
-      "confidence": 0.5673040842380648,
-      "reason": "Late, changed starter/schedule, or invalid model provenance"
+      "confidence": 0.5187716481122803,
+      "threeWay": {
+        "probabilities": {
+          "AWAY": 0.40388990371557154,
+          "TIE": 0.1615977462976523,
+          "HOME": 0.434512349986776
+        },
+        "pickSide": "HOME",
+        "pickProbability": 0.434512349986776,
+        "tieProbability": 0.1615977462976523,
+        "modelVersion": "three-way-v33-2010-2026",
+        "modelSha256": "1011c6bb161a616c513e5be853e7c16737d6f6b756ab48e65898044e892dd91b"
+      },
+      "capturedAt": "2026-09-22T23:30:06.640Z",
+      "filledAt": "2026-09-22T23:30:06.641Z"
     }
-  ]
+  ],
+  "updatedAt": "2026-09-22T23:30:06.641Z"
 }
