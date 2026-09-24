@@ -39,6 +39,31 @@ function FactorGrid({ game }) {
   );
 }
 
+function shiftDate(d, n) { const x = new Date(`${d}T12:00:00Z`); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); }
+function fmtTally(t) { return t ? `${t.wins}W-${t.losses}L${t.ties ? `-${t.ties}T` : ''}${t.pending ? ` (${t.pending} ungraded)` : ''}` : ''; }
+
+function RecordedBody({ game }) {
+  const rp = game.recordedPick, rr = game.recordedResult;
+  const legacy = rp && rp.trackedModel !== 'full-game';
+  return (
+    <div className="tileBody">
+      <div className="cardTop"><div>
+        <p className="eyebrow">{fmtTime(game.gameDate)} · {game.status}</p>
+        <h2>{game.away.name} @ {game.home.name}</h2>
+      </div></div>
+      {!rp ? <p className="note">{game.exclusionNote}</p> : (
+        <div className="prediction"><div>
+          <p className="eyebrow">{legacy ? 'Recorded pick (F5 model, legacy record)' : 'Recorded pick (full-game model)'}</p>
+          <h3>{rp.pick}</h3>
+          <p className="muted">Confidence {pct(rp.confidence)}{rp.capturedAt ? ` · captured ${fmtTime(rp.capturedAt)}` : ''}</p>
+          <p className="muted">{rr ? `Final score: ${game.away.abbreviation} ${stat(rr.finalAway, '?')} - ${game.home.abbreviation} ${stat(rr.finalHome, '?')} · ${rr.tie ? 'F5 tie' : rr.win ? 'Win' : 'Loss'}` : 'Not yet graded.'}</p>
+          {rp.f5Pick && <p className="muted">F5 secondary pick: {rp.f5Pick.pick} {pct(rp.f5Pick.confidence)}{rr && rr.f5Result !== undefined ? ` · F5 result: ${rr.f5Tie ? 'tie' : rr.f5Win ? 'Win' : 'Loss'} (${stat(rr.f5Away, '?')}-${stat(rr.f5Home, '?')})` : ''}</p>}
+        </div></div>
+      )}
+    </div>
+  );
+}
+
 function GameCard({ game, onSave, saved }) {
   const [expanded, setExpanded] = useState(false);
   const primary = game.fullGamePrediction || {};
@@ -87,6 +112,11 @@ function GameCard({ game, onSave, saved }) {
               <span className="chevron">{expanded ? '▲' : '▼'}</span>
             </div>
           </>
+        ) : game.recordedExcluded ? (
+          <>
+            <div className="tilePickRow"><span className="tilePick">No pick recorded</span></div>
+            <div className="tileMetaRow"><span className="badge">Excluded pregame</span><span className="chevron">{expanded ? '▲' : '▼'}</span></div>
+          </>
         ) : (
           <>
             <div className="tilePickRow">
@@ -101,7 +131,8 @@ function GameCard({ game, onSave, saved }) {
         )}
       </button>
 
-      {expanded && (
+      {expanded && (game.recordedExcluded !== undefined) && <RecordedBody game={game} />}
+      {expanded && game.recordedExcluded === undefined && (
         <div className="tileBody">
           <div className="cardTop">
             <div>
@@ -270,7 +301,9 @@ export default function Home() {
         </div>
         <div className="controls">
           <label>Date<input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></label>
+          <button onClick={() => { const d = shiftDate(date, -1); setDate(d); load(d); }} disabled={loading}>Previous day</button>
           <button onClick={() => load(date)} disabled={loading}>{loading ? 'Loading...' : 'Refresh'}</button>
+          <button onClick={() => { const d = shiftDate(date, 1); setDate(d); load(d); }} disabled={loading}>Next day</button>
         </div>
       </section>
 
@@ -279,7 +312,18 @@ export default function Home() {
       {error && <div className="alert">{error}</div>}
       {loading && <div className="loading"><div className="spinner" /><p>Loading live MLB data, odds, weather, splits, and bullpen usage...</p></div>}
 
-      {!loading && data && <>
+      {!loading && data && data.historicalRecord && <>
+        <div className="info">Recorded picks for {data.date} -- pregame picks and results, not live predictions</div>
+        {data.message && <div className="empty">{data.message}</div>}
+        {data.summary && <section className="summary">
+          <div><span>{data.summary.trackedModel === 'full-game' ? 'Full-game pick record' : 'F5 pick record (legacy)'}</span><strong>{fmtTally(data.summary.primary)}</strong></div>
+          {data.summary.f5Secondary && <div><span>F5 secondary (separate)</span><strong>{fmtTally(data.summary.f5Secondary)}</strong></div>}
+          <div><span>Games / no pick</span><strong>{data.summary.total} / {data.summary.excluded}</strong></div>
+        </section>}
+        {games.length > 0 && <section className="cards">{games.map((game) => <GameCard key={game.gamePk} game={game} onSave={savePick} saved={false} />)}</section>}
+      </>}
+
+      {!loading && data && !data.historicalRecord && <>
         <section className="summary">
           <div><span>Games</span><strong>{games.length}</strong></div>
           <div><span>Odds feed</span><strong>{data.odds.available ? 'Connected' : 'Not connected'}</strong></div>
