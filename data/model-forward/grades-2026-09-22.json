@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-22",
-  "gradedAt": "2026-09-23T04:00:13.375Z",
+  "gradedAt": "2026-09-24T11:00:14.568Z",
   "results": [
     {
       "gamePk": 823543,
@@ -116,6 +116,7 @@
       "confidence": 0.5313835957577198,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "excluded",
       "reason": "Ambiguous schedule"
     },
@@ -232,6 +233,7 @@
       "confidence": 0.5170587749347568,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 0,
       "f5Away": 1,
@@ -353,6 +355,7 @@
       "confidence": 0.5204155100651119,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "excluded",
       "reason": "Ambiguous schedule"
     },
@@ -469,6 +472,7 @@
       "confidence": 0.5442187928966313,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 0,
       "f5Away": 1,
@@ -590,6 +594,7 @@
       "confidence": 0.5344667447823765,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 0,
       "f5Away": 0,
@@ -711,6 +716,7 @@
       "confidence": 0.5044614608163467,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 3,
       "f5Away": 1,
@@ -832,6 +838,7 @@
       "confidence": 0.5386311613769291,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 1,
       "f5Away": 2,
@@ -953,6 +960,7 @@
       "confidence": 0.590124767179424,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 0,
       "f5Away": 1,
@@ -1074,6 +1082,7 @@
       "confidence": 0.5083357384460192,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 4,
       "f5Away": 9,
@@ -1195,6 +1204,7 @@
       "confidence": 0.5559020870999923,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 0,
       "f5Away": 1,
@@ -1316,6 +1326,7 @@
       "confidence": 0.5604278036805455,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 3,
       "f5Away": 2,
@@ -1437,6 +1448,7 @@
       "confidence": 0.5466878370305441,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 2,
       "f5Away": 6,
@@ -1558,7 +1570,14 @@
       "confidence": 0.5042491301314469,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "pending"
+      "trackedModel": "f5-legacy",
+      "status": "graded",
+      "f5Home": 0,
+      "f5Away": 5,
+      "result": "AWAY",
+      "win": false,
+      "threeWayWin": null,
+      "tie": false
     },
     {
       "gamePk": 823089,
@@ -1673,7 +1692,14 @@
       "confidence": 0.5524191787810834,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "pending"
+      "trackedModel": "f5-legacy",
+      "status": "graded",
+      "f5Home": 0,
+      "f5Away": 4,
+      "result": "AWAY",
+      "win": false,
+      "threeWayWin": null,
+      "tie": false
     },
     {
       "gamePk": 823166,
@@ -1788,7 +1814,14 @@
       "confidence": 0.5374075490237251,
       "capturedAt": "2026-09-22T15:30:18.715Z",
       "provenance": "verified",
-      "status": "pending"
+      "trackedModel": "f5-legacy",
+      "status": "graded",
+      "f5Home": 1,
+      "f5Away": 0,
+      "result": "HOME",
+      "win": false,
+      "threeWayWin": null,
+      "tie": false
     },
     {
       "gamePk": 823897,
@@ -1913,10 +1946,17 @@
         "modelVersion": "three-way-v33-2010-2026",
         "modelSha256": "1011c6bb161a616c513e5be853e7c16737d6f6b756ab48e65898044e892dd91b"
       },
-      "capturedAt": "2026-09-22T23:30:06.640Z",
-      "filledAt": "2026-09-22T23:30:06.641Z",
+      "capturedAt": "2026-09-22T22:30:07.104Z",
+      "filledAt": "2026-09-22T22:30:07.107Z",
       "provenance": "verified",
-      "status": "pending"
+      "trackedModel": "f5-legacy",
+      "status": "graded",
+      "f5Home": 5,
+      "f5Away": 0,
+      "result": "HOME",
+      "win": true,
+      "threeWayWin": true,
+      "tie": false
     }
   ]
 }

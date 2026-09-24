@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-17",
-  "gradedAt": "2026-09-23T04:00:06.809Z",
+  "gradedAt": "2026-09-24T11:00:07.369Z",
   "results": [
     {
       "gamePk": 824141,
@@ -16,6 +16,7 @@
       "pickTeam": "Houston Astros",
       "confidence": 0.6039626450353894,
       "provenance": "legacy-unverified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 4,
       "f5Away": 1,
@@ -37,6 +38,7 @@
       "pickTeam": "New York Mets",
       "confidence": 0.5100704921801084,
       "provenance": "legacy-unverified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 0,
       "f5Away": 1,
@@ -58,6 +60,7 @@
       "pickTeam": "Chicago White Sox",
       "confidence": 0.5009542641318049,
       "provenance": "legacy-unverified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 3,
       "f5Away": 1,
@@ -79,6 +82,7 @@
       "pickTeam": "Texas Rangers",
       "confidence": 0.5693289036995056,
       "provenance": "legacy-unverified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 3,
       "f5Away": 0,
@@ -100,6 +104,7 @@
       "pickTeam": "Los Angeles Angels",
       "confidence": 0.5334316176703162,
       "provenance": "legacy-unverified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 3,
       "f5Away": 0,

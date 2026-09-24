@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-21",
-  "gradedAt": "2026-09-23T04:00:11.778Z",
+  "gradedAt": "2026-09-24T11:00:12.766Z",
   "results": [
     {
       "gamePk": 824787,
@@ -116,6 +116,7 @@
       "confidence": 0.5445591746340492,
       "capturedAt": "2026-09-21T08:00:08.295Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 1,
       "f5Away": 3,
@@ -237,6 +238,7 @@
       "confidence": 0.5399138212847039,
       "capturedAt": "2026-09-21T08:00:08.295Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 9,
       "f5Away": 0,
@@ -358,6 +360,7 @@
       "confidence": 0.5213941353999293,
       "capturedAt": "2026-09-21T08:00:08.295Z",
       "provenance": "verified",
+      "trackedModel": "f5-legacy",
       "status": "graded",
       "f5Home": 5,
       "f5Away": 1,
