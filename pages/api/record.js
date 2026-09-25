@@ -1,5 +1,5 @@
 const fs = require('fs'), path = require('path');
-const { summarizeForwardRecord, dir } = require('../../lib/model-forward');
+const { summarizeForwardRecord, summarizeExcluded, dir } = require('../../lib/model-forward');
 const { readResults: readF5Results } = require('../../lib/kalshi-results');
 const { readResults: readFullGameResults } = require('../../lib/kalshi-results-fullgame');
 
@@ -24,6 +24,7 @@ export default function handler(req, res) {
     const fullGame = readFullGameResults();
     return res.status(200).json({
       modelForward,
+      excluded: summarizeExcluded(reports),
       f5MarketTrust: f5.available ? f5.marketTrust : null,
       fullGameMarketTrust: fullGame.available ? fullGame.marketTrust : null,
     });

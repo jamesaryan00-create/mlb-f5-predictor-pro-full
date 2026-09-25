@@ -1,4 +1,5 @@
 import MatchupLogic from '../components/MatchupLogic';
+import BacktestTiers from '../components/BacktestTiers';
 import { useEffect, useMemo, useState } from 'react';
 
 function todayPacific() {
@@ -51,12 +52,13 @@ function RecordedBody({ game }) {
         <p className="eyebrow">{fmtTime(game.gameDate)} · {game.status}</p>
         <h2>{game.away.name} @ {game.home.name}</h2>
       </div></div>
-      {!rp ? <p className="note">{game.exclusionNote}</p> : (
+      {!rp ? <p className="note">{game.exclusionReason ? `Excluded: ${game.exclusionReason}` : game.exclusionNote}</p> : (
         <div className="prediction"><div>
           <p className="eyebrow">{legacy ? 'Recorded pick (F5 model, legacy record)' : 'Recorded pick (full-game model)'}</p>
           <h3>{rp.pick}</h3>
           <p className="muted">Confidence {pct(rp.confidence)}{rp.capturedAt ? ` · captured ${fmtTime(rp.capturedAt)}` : ''}</p>
-          <p className="muted">{rr ? `Final score: ${game.away.abbreviation} ${stat(rr.finalAway, '?')} - ${game.home.abbreviation} ${stat(rr.finalHome, '?')} · ${rr.tie ? 'F5 tie' : rr.win ? 'Win' : 'Loss'}` : 'Not yet graded.'}</p>
+          {game.gradeExcluded && <p className="note">Excluded from the record: {game.exclusionReason || 'reason not recorded'}</p>}
+          <p className="muted">{rr ? `Final score: ${game.away.abbreviation} ${stat(rr.finalAway, '?')} - ${game.home.abbreviation} ${stat(rr.finalHome, '?')} · ${rr.tie ? 'F5 tie' : rr.win ? 'Win' : 'Loss'}` : (game.gradeExcluded ? 'Not graded (excluded).' : 'Not yet graded.')}</p>
           {rp.f5Pick && <p className="muted">F5 secondary pick: {rp.f5Pick.pick} {pct(rp.f5Pick.confidence)}{rr && rr.f5Result !== undefined ? ` · F5 result: ${rr.f5Tie ? 'tie' : rr.f5Win ? 'Win' : 'Loss'} (${stat(rr.f5Away, '?')}-${stat(rr.f5Home, '?')})` : ''}</p>}
         </div></div>
       )}
@@ -104,6 +106,7 @@ function GameCard({ game, onSave, saved }) {
             </div>
             <div className="tileMetaRow">
               <span className="badge badge--locked">{game.recordedPick.trackedModel === 'full-game' ? 'Locked in pregame' : 'Locked in pregame · F5 pick (legacy)'}</span>
+              {game.gradeExcluded && <span className="badge" title={game.exclusionReason || ''}>Excluded: {game.exclusionReason || 'see details'}</span>}
               {game.recordedResult && (
                 <span className={`badge ${game.recordedResult.tie ? 'badge--tie' : game.recordedResult.win ? 'badge--win' : 'badge--loss'}`}>
                   {game.recordedResult.tie ? 'F5 tie' : game.recordedResult.win ? 'Win' : 'Loss'}
@@ -115,7 +118,7 @@ function GameCard({ game, onSave, saved }) {
         ) : game.recordedExcluded ? (
           <>
             <div className="tilePickRow"><span className="tilePick">No pick recorded</span></div>
-            <div className="tileMetaRow"><span className="badge">Excluded pregame</span><span className="chevron">{expanded ? '▲' : '▼'}</span></div>
+            <div className="tileMetaRow"><span className="badge" title={game.exclusionReason || ''}>Excluded{game.exclusionReason ? `: ${game.exclusionReason}` : ' pregame'}</span><span className="chevron">{expanded ? '▲' : '▼'}</span></div>
           </>
         ) : (
           <>
@@ -231,6 +234,13 @@ function RecordTiles({ record }) {
       <RecordTile label="Full-game marketTrust record (live)" cohort={record.fullGameMarketTrust} />
       {hasLegacy && <RecordTile label="F5 record (legacy dates, pre-9/23 fix)" cohort={mf.legacyF5Primary} />}
       {hasF5Secondary && <RecordTile label="F5 pick record (secondary, informational)" cohort={mf.f5Secondary} />}
+      {record.excluded && record.excluded.total > 0 && (
+        <div className="statTile" title={Object.entries(record.excluded.byReason).map(([k, v]) => `${v} x ${k}`).join('; ')}>
+          <span>Excluded picks (not in any record)</span>
+          <strong>excluded: {record.excluded.total}</strong>
+          <p className="tileSub">{Object.entries(record.excluded.byReason).map(([k, v]) => `${v} x ${k}`).join(' · ')}</p>
+        </div>
+      )}
       {mf.note && <p className="tileSub" style={{ gridColumn: '1/-1' }}>{mf.note}</p>}
     </section>
   );
@@ -337,7 +347,8 @@ export default function Home() {
         </section>
         {!data.odds.available && <div className="info">Add <code>SGO_API_KEY</code> to enable sportsbook moneyline, total and spread snapshots. Historical odds usually require a paid odds-data plan.</div>}
         <section className="tools">
-          <div className="panel"><h2>Backtest</h2><div className="inline"><input type="number" value={season} onChange={(e) => setSeason(e.target.value)} /><button onClick={loadBacktest}>Run</button></div>{backtest?.loading ? <p>Loading...</p> : backtest ? <pre>{JSON.stringify(backtest, null, 2)}</pre> : <p className="muted">Run a quick historical F5 result check by season.</p>}</div>
+          <BacktestTiers />
+
           <div className="panel"><h2>Saved picks</h2>{saved.length ? <ul>{saved.map((p) => <li key={p.id}>{p.date}: {p.pick} vs {p.opponent} · {p.schemaVersion === 3 ? `${p.confidence}% full game · F5 ${p.f5Identifier} ${p.f5Confidence}%` : 'Legacy forecast'} · ML {moneyline(p.line)}</li>)}</ul> : <p className="muted">No saved picks yet.</p>}</div>
         </section>
         {games.length === 0 ? <div className="empty">No MLB games found for {date}.</div> : <section className="cards">{games.map((game) => <GameCard key={game.gamePk} game={game} onSave={savePick} saved={saved.some((x) => x.id === `${game.gamePk}-full-${game.fullGamePrediction?.pick}`)} />)}</section>}
