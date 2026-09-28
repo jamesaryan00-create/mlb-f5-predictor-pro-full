@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-09-22T19:46:28.847Z",
+  "rule": {
+    "agree": "model side === Kalshi side",
+    "kalshiConfidenceMin": 0.62,
+    "modelConfidenceMin": 0.55
+  },
+  "caveat": "RETROSPECTIVE only. These datasets were fetched/kept for earlier, different comparisons (#18, #29), not drawn fresh for this test, so this is a descriptive backtest, not a clean forward evaluation. The live forward-tracking window in data/kalshi-forward*/model-agreement-plan.json is the unbiased test and starts at 0 picks.",
+  "f5": {
+    "available": true,
+    "market": "F5 (KXMLBF5)",
+    "note": "Decided games only -- the joined model-predictions file (v3c fusion) carries no F5 tie outcomes, so this differs from the live forward tracker where a tie counts as a loss.",
+    "totalGames": 669,
+    "overallKalshi": {
+      "n": 669,
+      "wins": 382,
+      "losses": 287,
+      "winPct": 57.10014947683109
+    },
+    "overallModel": {
+      "n": 669,
+      "wins": 373,
+      "losses": 296,
+      "winPct": 55.75485799701046
+    },
+    "marketTrust": {
+      "selectionRate": 0.13303437967115098,
+      "n": 89,
+      "wins": 63,
+      "losses": 26,
+      "winPct": 70.78651685393258
+    }
+  },
+  "fullGame": {
+    "available": true,
+    "market": "Full game (KXMLBGAME)",
+    "note": "No tie contract in full-game markets (extra innings force a winner), so no ties-excluded/ties-as-loss distinction is needed here.",
+    "sourceFile": "fullgame-vs-kalshi-market-1790105977434.json",
+    "totalGames": 682,
+    "overallKalshi": {
+      "n": 682,
+      "wins": 404,
+      "losses": 278,
+      "winPct": 59.23753665689149
+    },
+    "overallModel": {
+      "n": 682,
+      "wins": 402,
+      "losses": 280,
+      "winPct": 58.94428152492669
+    },
+    "marketTrust": {
+      "selectionRate": 0.17888563049853373,
+      "n": 122,
+      "wins": 88,
+      "losses": 34,
+      "winPct": 72.1311475409836
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "plan": {
+    "version": 1,
+    "start": "2026-09-14T07:33:45.638Z",
+    "end": "2026-10-14T07:33:45.638Z",
+    "baseline": 0.58,
+    "candidate": 0.62,
+    "metric": "Wins / (wins + losses + ties)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch; same snapshot for both rules. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded candidate picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-23T01:20:13.194Z",
+  "records": [
+    {
+      "gamePk": 823166,
+      "officialDate": "2026-09-22",
+      "homeId": 137,
+      "awayId": 142,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-23T01:20:00.000Z",
+          "bid": 0.45,
+          "ask": 0.46,
+          "mid": 0.455,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.05043333333333333
+        },
+        "home": {
+          "time": "2026-09-23T01:20:00.000Z",
+          "bid": 0.37,
+          "ask": 0.38,
+          "mid": 0.375,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.05043333333333333
+        },
+        "tie": {
+          "time": "2026-09-23T01:20:00.000Z",
+          "bid": 0.16,
+          "ask": 0.17,
+          "mid": 0.165,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.05043333333333333
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBF5-26SEP222145MINSF-MIN",
+        "home": "KXMLBF5-26SEP222145MINSF-SF",
+        "tie": "KXMLBF5-26SEP222145MINSF-TIE"
+      },
+      "eventTicker": "KXMLBF5-26SEP222145MINSF",
+      "awayTeam": "Minnesota Twins",
+      "homeTeam": "San Francisco Giants",
+      "firstPitchUtc": "2026-09-23T01:45:00Z",
+      "minutesToPitch": 24.949566666666666,
+      "kalshiAwayRaw": 0.455,
+      "kalshiHomeRaw": 0.375,
+      "kalshiTieRaw": 0.165,
+      "kalshiRawSum": 0.9950000000000001,
+      "kalshiAway3Way": 0.457286432160804,
+      "kalshiHome3Way": 0.37688442211055273,
+      "kalshiTieProb": 0.1658291457286432,
+      "kalshiAwayProbNoTie": 0.5481927710843373,
+      "kalshiHomeProbNoTie": 0.4518072289156626,
+      "kalshiPickSide": "AWAY",
+      "kalshiPickTeam": "Minnesota Twins",
+      "kalshiConfidence": 0.5481927710843374,
+      "modelAvailable": true,
+      "modelPickSide": "AWAY",
+      "modelConfidence": 0.5374075490237251,
+      "modelAgreesWithKalshi": true,
+      "tier": "PASS",
+      "quoteTime": "2026-09-23T01:20:00.000Z",
+      "quoteAgeMinutes": 0.19318333333333335,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "tieSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-23T01:20:00.000Z",
+        "home": "2026-09-23T01:20:00.000Z",
+        "tie": "2026-09-23T01:20:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-23T01:20:13.194Z",
+      "baseline": false,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi F5 V5",
+    "generatedAt": "2026-09-23T01:20:03.026Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "V5 selects all 58%+ Kalshi favorites, with 62%+ labeled STRONG. Model agreement is diagnostic only and never removes a V5 selection. Improvement must be measured on the same games",
+    "marketsLoaded": 2760,
+    "candidateEvents": 2,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBF5-26SEP222210SDLAD",
+        "reason": "Outcome quote timestamps are not synchronized"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 823166,
+        "officialDate": "2026-09-22",
+        "homeId": 137,
+        "awayId": 142,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-23T01:20:00.000Z",
+            "bid": 0.45,
+            "ask": 0.46,
+            "mid": 0.455,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.05043333333333333
+          },
+          "home": {
+            "time": "2026-09-23T01:20:00.000Z",
+            "bid": 0.37,
+            "ask": 0.38,
+            "mid": 0.375,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.05043333333333333
+          },
+          "tie": {
+            "time": "2026-09-23T01:20:00.000Z",
+            "bid": 0.16,
+            "ask": 0.17,
+            "mid": 0.165,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.05043333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBF5-26SEP222145MINSF-MIN",
+          "home": "KXMLBF5-26SEP222145MINSF-SF",
+          "tie": "KXMLBF5-26SEP222145MINSF-TIE"
+        },
+        "eventTicker": "KXMLBF5-26SEP222145MINSF",
+        "awayTeam": "Minnesota Twins",
+        "homeTeam": "San Francisco Giants",
+        "firstPitchUtc": "2026-09-23T01:45:00Z",
+        "minutesToPitch": 24.949566666666666,
+        "kalshiAwayRaw": 0.455,
+        "kalshiHomeRaw": 0.375,
+        "kalshiTieRaw": 0.165,
+        "kalshiRawSum": 0.9950000000000001,
+        "kalshiAway3Way": 0.457286432160804,
+        "kalshiHome3Way": 0.37688442211055273,
+        "kalshiTieProb": 0.1658291457286432,
+        "kalshiAwayProbNoTie": 0.5481927710843373,
+        "kalshiHomeProbNoTie": 0.4518072289156626,
+        "kalshiPickSide": "AWAY",
+        "kalshiPickTeam": "Minnesota Twins",
+        "kalshiConfidence": 0.5481927710843373,
+        "modelAvailable": true,
+        "modelPickSide": "AWAY",
+        "modelConfidence": 0.5374075490237251,
+        "modelAgreesWithKalshi": true,
+        "tier": "PASS",
+        "quoteTime": "2026-09-23T01:20:00.000Z",
+        "quoteAgeMinutes": 0.19318333333333335,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "tieSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-23T01:20:00.000Z",
+          "home": "2026-09-23T01:20:00.000Z",
+          "tie": "2026-09-23T01:20:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

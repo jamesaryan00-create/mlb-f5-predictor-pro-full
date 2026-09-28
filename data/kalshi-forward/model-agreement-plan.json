@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "start": "2026-09-16T04:48:51.804Z",
+  "end": "2026-10-16T04:48:51.804Z",
+  "rule": "marketTrust",
+  "definition": "Trained historical model (lib/mlb.js) side agrees with Kalshi side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+  "metric": "Wins / (wins + losses + ties)",
+  "retrospectiveBasis": "2026 season, N=83, 62.65% wins/all-picks -- see codex-research/outputs and web-app/lib/kalshi-board.js comments.",
+  "policy": "Same capture snapshot and cadence as plan.json. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+}

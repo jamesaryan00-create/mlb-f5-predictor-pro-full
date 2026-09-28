@@ -1,0 +1,32 @@
+{
+  "plan": {
+    "version": 1,
+    "start": "2026-09-14T07:33:45.638Z",
+    "end": "2026-10-14T07:33:45.638Z",
+    "baseline": 0.58,
+    "candidate": 0.62,
+    "metric": "Wins / (wins + losses + ties)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch; same snapshot for both rules. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded candidate picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-25T03:00:08.743Z",
+  "records": [],
+  "board": {
+    "ok": true,
+    "version": "Kalshi F5 V5",
+    "generatedAt": "2026-09-25T03:00:01.667Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "V5 selects all 58%+ Kalshi favorites, with 62%+ labeled STRONG. Model agreement is diagnostic only and never removes a V5 selection. Improvement must be measured on the same games",
+    "marketsLoaded": 2781,
+    "candidateEvents": 0,
+    "rejected": [],
+    "board": []
+  }
+}

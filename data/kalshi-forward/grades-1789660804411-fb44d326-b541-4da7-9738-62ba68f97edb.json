@@ -1,0 +1,501 @@
+{
+  "plan": {
+    "version": 1,
+    "start": "2026-09-14T07:33:45.638Z",
+    "end": "2026-10-14T07:33:45.638Z",
+    "baseline": 0.58,
+    "candidate": 0.62,
+    "metric": "Wins / (wins + losses + ties)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch; same snapshot for both rules. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded candidate picks. No automatic rule changes."
+  },
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-16T04:48:51.804Z",
+    "end": "2026-10-16T04:48:51.804Z",
+    "rule": "marketTrust",
+    "definition": "Trained historical model (lib/mlb.js) side agrees with Kalshi side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses + ties)",
+    "retrospectiveBasis": "2026 season, N=83, 62.65% wins/all-picks -- see codex-research/outputs and web-app/lib/kalshi-board.js comments.",
+    "policy": "Same capture snapshot and cadence as plan.json. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "generatedAt": "2026-09-17T16:00:04.409Z",
+  "baseline": {
+    "selected": 0,
+    "graded": 0,
+    "wins": 0,
+    "losses": 0,
+    "ties": 0,
+    "pending": 0,
+    "excluded": 0,
+    "winPct": null
+  },
+  "candidate": {
+    "selected": 0,
+    "graded": 0,
+    "wins": 0,
+    "losses": 0,
+    "ties": 0,
+    "pending": 0,
+    "excluded": 0,
+    "winPct": null
+  },
+  "marketTrust": {
+    "selected": 0,
+    "graded": 0,
+    "wins": 0,
+    "losses": 0,
+    "ties": 0,
+    "pending": 0,
+    "excluded": 0,
+    "winPct": null
+  },
+  "results": [
+    {
+      "gamePk": 822763,
+      "officialDate": "2026-09-16",
+      "homeId": 141,
+      "awayId": 116,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-16T18:40:00.000Z",
+          "bid": 0.4,
+          "ask": 0.41,
+          "mid": 0.405,
+          "spread": 0.009999999999999953,
+          "ageMinutes": 0.020666666666666667
+        },
+        "home": {
+          "time": "2026-09-16T18:40:00.000Z",
+          "bid": 0.43,
+          "ask": 0.44,
+          "mid": 0.435,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.020666666666666667
+        },
+        "tie": {
+          "time": "2026-09-16T18:40:00.000Z",
+          "bid": 0.15,
+          "ask": 0.16,
+          "mid": 0.155,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.020666666666666667
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBF5-26SEP161507DETTOR-DET",
+        "home": "KXMLBF5-26SEP161507DETTOR-TOR",
+        "tie": "KXMLBF5-26SEP161507DETTOR-TIE"
+      },
+      "eventTicker": "KXMLBF5-26SEP161507DETTOR",
+      "awayTeam": "Detroit Tigers",
+      "homeTeam": "Toronto Blue Jays",
+      "firstPitchUtc": "2026-09-16T19:07:00Z",
+      "minutesToPitch": 26.979333333333333,
+      "kalshiAwayRaw": 0.405,
+      "kalshiHomeRaw": 0.435,
+      "kalshiTieRaw": 0.155,
+      "kalshiRawSum": 0.9950000000000001,
+      "kalshiAway3Way": 0.40703517587939697,
+      "kalshiHome3Way": 0.43718592964824116,
+      "kalshiTieProb": 0.1557788944723618,
+      "kalshiAwayProbNoTie": 0.48214285714285715,
+      "kalshiHomeProbNoTie": 0.5178571428571428,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Toronto Blue Jays",
+      "kalshiConfidence": 0.5178571428571428,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5120271366674654,
+      "modelAgreesWithKalshi": true,
+      "tier": "PASS",
+      "quoteTime": "2026-09-16T18:40:00.000Z",
+      "quoteAgeMinutes": 0.35341666666666666,
+      "awaySpread": 0.009999999999999953,
+      "homeSpread": 0.010000000000000009,
+      "tieSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-16T18:40:00.000Z",
+        "home": "2026-09-16T18:40:00.000Z",
+        "tie": "2026-09-16T18:40:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-16T18:40:21.210Z",
+      "baseline": false,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false,
+      "status": "graded",
+      "home": 3,
+      "away": 1,
+      "result": "HOME",
+      "win": true,
+      "tie": false,
+      "source": {
+        "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+        "totalItems": 1,
+        "totalEvents": 0,
+        "totalGames": 1,
+        "totalGamesInProgress": 0,
+        "dates": [
+          {
+            "date": "2026-09-16",
+            "totalItems": 1,
+            "totalEvents": 0,
+            "totalGames": 1,
+            "totalGamesInProgress": 0,
+            "games": [
+              {
+                "gamePk": 822763,
+                "gameGuid": "c9994d34-c2dc-4fcb-81fd-af295489585d",
+                "link": "/api/v1.1/game/822763/feed/live",
+                "gameType": "R",
+                "season": "2026",
+                "gameDate": "2026-09-16T19:07:00Z",
+                "officialDate": "2026-09-16",
+                "status": {
+                  "abstractGameState": "Final",
+                  "codedGameState": "F",
+                  "detailedState": "Final",
+                  "statusCode": "F",
+                  "startTimeTBD": false,
+                  "abstractGameCode": "F"
+                },
+                "teams": {
+                  "away": {
+                    "team": {
+                      "id": 116,
+                      "name": "Detroit Tigers",
+                      "link": "/api/v1/teams/116"
+                    },
+                    "leagueRecord": {
+                      "wins": 72,
+                      "losses": 80,
+                      "ties": 0,
+                      "pct": ".474"
+                    },
+                    "score": 1,
+                    "isWinner": false,
+                    "splitSquad": false,
+                    "seriesNumber": 49
+                  },
+                  "home": {
+                    "team": {
+                      "id": 141,
+                      "name": "Toronto Blue Jays",
+                      "link": "/api/v1/teams/141"
+                    },
+                    "leagueRecord": {
+                      "wins": 76,
+                      "losses": 77,
+                      "ties": 0,
+                      "pct": ".497"
+                    },
+                    "score": 5,
+                    "isWinner": true,
+                    "splitSquad": false,
+                    "seriesNumber": 50
+                  }
+                },
+                "linescore": {
+                  "currentInning": 9,
+                  "currentInningOrdinal": "9th",
+                  "inningState": "Top",
+                  "inningHalf": "Top",
+                  "isTopInning": true,
+                  "scheduledInnings": 9,
+                  "innings": [
+                    {
+                      "num": 1,
+                      "ordinalNum": "1st",
+                      "home": {
+                        "runs": 0,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 1,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 2,
+                      "ordinalNum": "2nd",
+                      "home": {
+                        "runs": 0,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 3,
+                      "ordinalNum": "3rd",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 4,
+                      "ordinalNum": "4th",
+                      "home": {
+                        "runs": 2,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 5,
+                      "ordinalNum": "5th",
+                      "home": {
+                        "runs": 1,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 6,
+                      "ordinalNum": "6th",
+                      "home": {
+                        "runs": 2,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 3,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 7,
+                      "ordinalNum": "7th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 8,
+                      "ordinalNum": "8th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      }
+                    },
+                    {
+                      "num": 9,
+                      "ordinalNum": "9th",
+                      "home": {
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      }
+                    }
+                  ],
+                  "teams": {
+                    "home": {
+                      "runs": 5,
+                      "hits": 9,
+                      "errors": 0,
+                      "leftOnBase": 7
+                    },
+                    "away": {
+                      "runs": 1,
+                      "hits": 7,
+                      "errors": 3,
+                      "leftOnBase": 9
+                    }
+                  },
+                  "defense": {
+                    "pitcher": {
+                      "id": 686973,
+                      "fullName": "Louis Varland",
+                      "link": "/api/v1/people/686973"
+                    },
+                    "catcher": {
+                      "id": 678218,
+                      "fullName": "Brandon Valenzuela",
+                      "link": "/api/v1/people/678218"
+                    },
+                    "first": {
+                      "id": 665489,
+                      "fullName": "Vladimir Guerrero Jr.",
+                      "link": "/api/v1/people/665489"
+                    },
+                    "second": {
+                      "id": 669701,
+                      "fullName": "Josh Smith",
+                      "link": "/api/v1/people/669701"
+                    },
+                    "third": {
+                      "id": 672960,
+                      "fullName": "Kazuma Okamoto",
+                      "link": "/api/v1/people/672960"
+                    },
+                    "shortstop": {
+                      "id": 676391,
+                      "fullName": "Ernie Clement",
+                      "link": "/api/v1/people/676391"
+                    },
+                    "left": {
+                      "id": 664702,
+                      "fullName": "Myles Straw",
+                      "link": "/api/v1/people/664702"
+                    },
+                    "center": {
+                      "id": 703520,
+                      "fullName": "Brett Bateman",
+                      "link": "/api/v1/people/703520"
+                    },
+                    "right": {
+                      "id": 664770,
+                      "fullName": "Nathan Lukes",
+                      "link": "/api/v1/people/664770"
+                    },
+                    "batter": {
+                      "id": 703520,
+                      "fullName": "Brett Bateman",
+                      "link": "/api/v1/people/703520"
+                    },
+                    "onDeck": {
+                      "id": 664770,
+                      "fullName": "Nathan Lukes",
+                      "link": "/api/v1/people/664770"
+                    },
+                    "inHole": {
+                      "id": 665489,
+                      "fullName": "Vladimir Guerrero Jr.",
+                      "link": "/api/v1/people/665489"
+                    },
+                    "battingOrder": 10,
+                    "team": {
+                      "id": 141,
+                      "name": "Toronto Blue Jays",
+                      "link": "/api/v1/teams/141"
+                    }
+                  },
+                  "offense": {
+                    "batter": {
+                      "id": 805808,
+                      "fullName": "Kevin McGonigle",
+                      "link": "/api/v1/people/805808"
+                    },
+                    "onDeck": {
+                      "id": 701678,
+                      "fullName": "Hao-Yu Lee",
+                      "link": "/api/v1/people/701678"
+                    },
+                    "inHole": {
+                      "id": 650402,
+                      "fullName": "Gleyber Torres",
+                      "link": "/api/v1/people/650402"
+                    },
+                    "pitcher": {
+                      "id": 641755,
+                      "fullName": "Tyler Kinley",
+                      "link": "/api/v1/people/641755"
+                    },
+                    "battingOrder": 1,
+                    "team": {
+                      "id": 116,
+                      "name": "Detroit Tigers",
+                      "link": "/api/v1/teams/116"
+                    }
+                  },
+                  "balls": 3,
+                  "strikes": 3,
+                  "outs": 3
+                },
+                "venue": {
+                  "id": 14,
+                  "name": "Rogers Centre",
+                  "link": "/api/v1/venues/14"
+                },
+                "content": {
+                  "link": "/api/v1/game/822763/content"
+                },
+                "isTie": false,
+                "gameNumber": 1,
+                "publicFacing": true,
+                "doubleHeader": "N",
+                "gamedayType": "P",
+                "tiebreaker": "N",
+                "calendarEventID": "14-822763-2026-09-16",
+                "seasonDisplay": "2026",
+                "dayNight": "day",
+                "scheduledInnings": 9,
+                "reverseHomeAwayStatus": false,
+                "inningBreakLength": 120,
+                "gamesInSeries": 3,
+                "seriesGameNumber": 3,
+                "seriesDescription": "Regular Season",
+                "recordSource": "S",
+                "ifNecessary": "N",
+                "ifNecessaryDescription": "Normal Game"
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    }
+  ]
+}

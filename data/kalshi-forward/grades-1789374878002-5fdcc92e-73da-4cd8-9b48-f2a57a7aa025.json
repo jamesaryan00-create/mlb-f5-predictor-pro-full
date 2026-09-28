@@ -1,0 +1,33 @@
+{
+  "plan": {
+    "version": 1,
+    "start": "2026-09-14T07:33:45.638Z",
+    "end": "2026-10-14T07:33:45.638Z",
+    "baseline": 0.58,
+    "candidate": 0.62,
+    "metric": "Wins / (wins + losses + ties)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch; same snapshot for both rules. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded candidate picks. No automatic rule changes."
+  },
+  "generatedAt": "2026-09-14T08:34:38.001Z",
+  "baseline": {
+    "selected": 0,
+    "graded": 0,
+    "wins": 0,
+    "losses": 0,
+    "ties": 0,
+    "pending": 0,
+    "excluded": 0,
+    "winPct": null
+  },
+  "candidate": {
+    "selected": 0,
+    "graded": 0,
+    "wins": 0,
+    "losses": 0,
+    "ties": 0,
+    "pending": 0,
+    "excluded": 0,
+    "winPct": null
+  },
+  "results": []
+}
