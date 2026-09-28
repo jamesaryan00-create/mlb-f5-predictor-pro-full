@@ -1,0 +1,96 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-24T16:00:09.929Z",
+  "records": [],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-24T16:00:01.846Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1890,
+    "candidateEvents": 1,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26SEP251910CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 823326,
+        "officialDate": "2026-09-24",
+        "homeId": 134,
+        "awayId": 138,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-24T16:00:00.000Z",
+            "bid": 0.4,
+            "ask": 0.41,
+            "mid": 0.405,
+            "spread": 0.009999999999999953,
+            "ageMinutes": 0.030766666666666668
+          },
+          "home": {
+            "time": "2026-09-24T16:00:00.000Z",
+            "bid": 0.59,
+            "ask": 0.6,
+            "mid": 0.595,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.030766666666666668
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP241235STLPIT-STL",
+          "home": "KXMLBGAME-26SEP241235STLPIT-PIT"
+        },
+        "eventTicker": "KXMLBGAME-26SEP241235STLPIT",
+        "awayTeam": "St. Louis Cardinals",
+        "homeTeam": "Pittsburgh Pirates",
+        "firstPitchUtc": "2026-09-24T16:35:00Z",
+        "minutesToPitch": 34.969233333333335,
+        "kalshiAwayRaw": 0.405,
+        "kalshiHomeRaw": 0.595,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.405,
+        "kalshiHomeProb": 0.595,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Pittsburgh Pirates",
+        "kalshiConfidence": 0.595,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5250895146559752,
+        "modelAgreesWithKalshi": true,
+        "tier": "PLAY",
+        "quoteTime": "2026-09-24T16:00:00.000Z",
+        "quoteAgeMinutes": 0.1639,
+        "awaySpread": 0.009999999999999953,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-24T16:00:00.000Z",
+          "home": "2026-09-24T16:00:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

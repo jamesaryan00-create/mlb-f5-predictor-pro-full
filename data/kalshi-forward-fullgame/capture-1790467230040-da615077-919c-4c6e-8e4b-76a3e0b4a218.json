@@ -1,0 +1,100 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-27T00:00:29.437Z",
+  "records": [],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-27T00:00:04.487Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1926,
+    "candidateEvents": 1,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915BALNYY",
+        "reason": "Missing or ambiguous MLB schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 823245,
+        "officialDate": "2026-09-26",
+        "homeId": 135,
+        "awayId": 109,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-27T00:00:00.000Z",
+            "bid": 0.45,
+            "ask": 0.46,
+            "mid": 0.455,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.07478333333333333
+          },
+          "home": {
+            "time": "2026-09-27T00:00:00.000Z",
+            "bid": 0.53,
+            "ask": 0.55,
+            "mid": 0.54,
+            "spread": 0.020000000000000018,
+            "ageMinutes": 0.07478333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP262040AZSD-AZ",
+          "home": "KXMLBGAME-26SEP262040AZSD-SD"
+        },
+        "eventTicker": "KXMLBGAME-26SEP262040AZSD",
+        "awayTeam": "Arizona Diamondbacks",
+        "homeTeam": "San Diego Padres",
+        "firstPitchUtc": "2026-09-27T00:40:00Z",
+        "minutesToPitch": 39.925216666666664,
+        "kalshiAwayRaw": 0.455,
+        "kalshiHomeRaw": 0.54,
+        "kalshiRawSum": 0.9950000000000001,
+        "kalshiAwayProb": 0.457286432160804,
+        "kalshiHomeProb": 0.542713567839196,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "San Diego Padres",
+        "kalshiConfidence": 0.542713567839196,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5434173964373938,
+        "modelAgreesWithKalshi": true,
+        "tier": "PASS",
+        "quoteTime": "2026-09-27T00:00:00.000Z",
+        "quoteAgeMinutes": 0.4767,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.020000000000000018,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-27T00:00:00.000Z",
+          "home": "2026-09-27T00:00:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

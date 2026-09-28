@@ -1,0 +1,535 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-25T22:40:10.112Z",
+  "records": [
+    {
+      "gamePk": 824544,
+      "officialDate": "2026-09-25",
+      "homeId": 145,
+      "awayId": 115,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-25T22:40:00.000Z",
+          "bid": 0.31,
+          "ask": 0.32,
+          "mid": 0.315,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.022433333333333333
+        },
+        "home": {
+          "time": "2026-09-25T22:40:00.000Z",
+          "bid": 0.68,
+          "ask": 0.69,
+          "mid": 0.685,
+          "spread": 0.009999999999999898,
+          "ageMinutes": 0.022433333333333333
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP251940COLCWS-COL",
+        "home": "KXMLBGAME-26SEP251940COLCWS-CWS"
+      },
+      "eventTicker": "KXMLBGAME-26SEP251940COLCWS",
+      "awayTeam": "Colorado Rockies",
+      "homeTeam": "Chicago White Sox",
+      "firstPitchUtc": "2026-09-25T23:40:00Z",
+      "minutesToPitch": 59.97756666666667,
+      "kalshiAwayRaw": 0.315,
+      "kalshiHomeRaw": 0.685,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.315,
+      "kalshiHomeProb": 0.685,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Chicago White Sox",
+      "kalshiConfidence": 0.685,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.6287457264354389,
+      "modelAgreesWithKalshi": true,
+      "tier": "STRONG",
+      "quoteTime": "2026-09-25T22:40:00.000Z",
+      "quoteAgeMinutes": 0.149,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.009999999999999898,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-25T22:40:00.000Z",
+        "home": "2026-09-25T22:40:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-25T22:40:10.112Z",
+      "baseline": true,
+      "candidate": true,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": true
+    },
+    {
+      "gamePk": 823735,
+      "officialDate": "2026-09-25",
+      "homeId": 158,
+      "awayId": 138,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-25T22:39:00.000Z",
+          "bid": 0.36,
+          "ask": 0.37,
+          "mid": 0.365,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 1.0224333333333333
+        },
+        "home": {
+          "time": "2026-09-25T22:40:00.000Z",
+          "bid": 0.63,
+          "ask": 0.64,
+          "mid": 0.635,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.022433333333333333
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP251940STLMIL-STL",
+        "home": "KXMLBGAME-26SEP251940STLMIL-MIL"
+      },
+      "eventTicker": "KXMLBGAME-26SEP251940STLMIL",
+      "awayTeam": "St. Louis Cardinals",
+      "homeTeam": "Milwaukee Brewers",
+      "firstPitchUtc": "2026-09-25T23:40:00Z",
+      "minutesToPitch": 59.97756666666667,
+      "kalshiAwayRaw": 0.365,
+      "kalshiHomeRaw": 0.635,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.365,
+      "kalshiHomeProb": 0.635,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Milwaukee Brewers",
+      "kalshiConfidence": 0.635,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.6175239679993424,
+      "modelAgreesWithKalshi": true,
+      "tier": "STRONG",
+      "quoteTime": "2026-09-25T22:39:00.000Z",
+      "quoteAgeMinutes": 1.1542166666666667,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 1,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-25T22:39:00.000Z",
+        "home": "2026-09-25T22:40:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-25T22:40:10.112Z",
+      "baseline": true,
+      "candidate": true,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": true
+    },
+    {
+      "gamePk": 824058,
+      "officialDate": "2026-09-25",
+      "homeId": 118,
+      "awayId": 114,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-25T22:40:00.000Z",
+          "bid": 0.56,
+          "ask": 0.57,
+          "mid": 0.565,
+          "spread": 0.009999999999999898,
+          "ageMinutes": 0.022433333333333333
+        },
+        "home": {
+          "time": "2026-09-25T22:39:00.000Z",
+          "bid": 0.43,
+          "ask": 0.44,
+          "mid": 0.435,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 1.0224333333333333
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP251940CLEKC-CLE",
+        "home": "KXMLBGAME-26SEP251940CLEKC-KC"
+      },
+      "eventTicker": "KXMLBGAME-26SEP251940CLEKC",
+      "awayTeam": "Cleveland Guardians",
+      "homeTeam": "Kansas City Royals",
+      "firstPitchUtc": "2026-09-25T23:40:00Z",
+      "minutesToPitch": 59.97756666666667,
+      "kalshiAwayRaw": 0.565,
+      "kalshiHomeRaw": 0.435,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.565,
+      "kalshiHomeProb": 0.435,
+      "kalshiPickSide": "AWAY",
+      "kalshiPickTeam": "Cleveland Guardians",
+      "kalshiConfidence": 0.565,
+      "modelAvailable": true,
+      "modelPickSide": "AWAY",
+      "modelConfidence": 0.5064702202663478,
+      "modelAgreesWithKalshi": true,
+      "tier": "PASS",
+      "quoteTime": "2026-09-25T22:39:00.000Z",
+      "quoteAgeMinutes": 1.14355,
+      "awaySpread": 0.009999999999999898,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 1,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-25T22:40:00.000Z",
+        "home": "2026-09-25T22:39:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-25T22:40:10.112Z",
+      "baseline": false,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-25T22:40:01.346Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1926,
+    "candidateEvents": 5,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26SEP251605BALNYYG1",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251905BALNYYG2",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251305CHCBOSG1",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915BALNYY",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251910CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251905BALNYY",
+        "reason": "Missing or ambiguous MLB schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 824544,
+        "officialDate": "2026-09-25",
+        "homeId": 145,
+        "awayId": 115,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.31,
+            "ask": 0.32,
+            "mid": 0.315,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.022433333333333333
+          },
+          "home": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.68,
+            "ask": 0.69,
+            "mid": 0.685,
+            "spread": 0.009999999999999898,
+            "ageMinutes": 0.022433333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP251940COLCWS-COL",
+          "home": "KXMLBGAME-26SEP251940COLCWS-CWS"
+        },
+        "eventTicker": "KXMLBGAME-26SEP251940COLCWS",
+        "awayTeam": "Colorado Rockies",
+        "homeTeam": "Chicago White Sox",
+        "firstPitchUtc": "2026-09-25T23:40:00Z",
+        "minutesToPitch": 59.97756666666667,
+        "kalshiAwayRaw": 0.315,
+        "kalshiHomeRaw": 0.685,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.315,
+        "kalshiHomeProb": 0.685,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Chicago White Sox",
+        "kalshiConfidence": 0.685,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.6287457264354389,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-25T22:40:00.000Z",
+        "quoteAgeMinutes": 0.149,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.009999999999999898,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-25T22:40:00.000Z",
+          "home": "2026-09-25T22:40:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      },
+      {
+        "gamePk": 823735,
+        "officialDate": "2026-09-25",
+        "homeId": 158,
+        "awayId": 138,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-25T22:39:00.000Z",
+            "bid": 0.36,
+            "ask": 0.37,
+            "mid": 0.365,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 1.0224333333333333
+          },
+          "home": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.63,
+            "ask": 0.64,
+            "mid": 0.635,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.022433333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP251940STLMIL-STL",
+          "home": "KXMLBGAME-26SEP251940STLMIL-MIL"
+        },
+        "eventTicker": "KXMLBGAME-26SEP251940STLMIL",
+        "awayTeam": "St. Louis Cardinals",
+        "homeTeam": "Milwaukee Brewers",
+        "firstPitchUtc": "2026-09-25T23:40:00Z",
+        "minutesToPitch": 59.97756666666667,
+        "kalshiAwayRaw": 0.365,
+        "kalshiHomeRaw": 0.635,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.365,
+        "kalshiHomeProb": 0.635,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Milwaukee Brewers",
+        "kalshiConfidence": 0.635,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.6175239679993424,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-25T22:39:00.000Z",
+        "quoteAgeMinutes": 1.1542166666666667,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 1,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-25T22:39:00.000Z",
+          "home": "2026-09-25T22:40:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      },
+      {
+        "gamePk": 822760,
+        "officialDate": "2026-09-25",
+        "homeId": 141,
+        "awayId": 113,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.4,
+            "ask": 0.41,
+            "mid": 0.405,
+            "spread": 0.009999999999999953,
+            "ageMinutes": 0.022433333333333333
+          },
+          "home": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.59,
+            "ask": 0.6,
+            "mid": 0.595,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.022433333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP251907CINTOR-CIN",
+          "home": "KXMLBGAME-26SEP251907CINTOR-TOR"
+        },
+        "eventTicker": "KXMLBGAME-26SEP251907CINTOR",
+        "awayTeam": "Cincinnati Reds",
+        "homeTeam": "Toronto Blue Jays",
+        "firstPitchUtc": "2026-09-25T23:07:00Z",
+        "minutesToPitch": 26.977566666666668,
+        "kalshiAwayRaw": 0.405,
+        "kalshiHomeRaw": 0.595,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.405,
+        "kalshiHomeProb": 0.595,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Toronto Blue Jays",
+        "kalshiConfidence": 0.595,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.6085897749729734,
+        "modelAgreesWithKalshi": true,
+        "tier": "PLAY",
+        "quoteTime": "2026-09-25T22:40:00.000Z",
+        "quoteAgeMinutes": 0.1683,
+        "awaySpread": 0.009999999999999953,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-25T22:40:00.000Z",
+          "home": "2026-09-25T22:40:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      },
+      {
+        "gamePk": 824058,
+        "officialDate": "2026-09-25",
+        "homeId": 118,
+        "awayId": 114,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.56,
+            "ask": 0.57,
+            "mid": 0.565,
+            "spread": 0.009999999999999898,
+            "ageMinutes": 0.022433333333333333
+          },
+          "home": {
+            "time": "2026-09-25T22:39:00.000Z",
+            "bid": 0.43,
+            "ask": 0.44,
+            "mid": 0.435,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 1.0224333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP251940CLEKC-CLE",
+          "home": "KXMLBGAME-26SEP251940CLEKC-KC"
+        },
+        "eventTicker": "KXMLBGAME-26SEP251940CLEKC",
+        "awayTeam": "Cleveland Guardians",
+        "homeTeam": "Kansas City Royals",
+        "firstPitchUtc": "2026-09-25T23:40:00Z",
+        "minutesToPitch": 59.97756666666667,
+        "kalshiAwayRaw": 0.565,
+        "kalshiHomeRaw": 0.435,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.565,
+        "kalshiHomeProb": 0.435,
+        "kalshiPickSide": "AWAY",
+        "kalshiPickTeam": "Cleveland Guardians",
+        "kalshiConfidence": 0.565,
+        "modelAvailable": true,
+        "modelPickSide": "AWAY",
+        "modelConfidence": 0.5064702202663478,
+        "modelAgreesWithKalshi": true,
+        "tier": "PASS",
+        "quoteTime": "2026-09-25T22:39:00.000Z",
+        "quoteAgeMinutes": 1.14355,
+        "awaySpread": 0.009999999999999898,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 1,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-25T22:40:00.000Z",
+          "home": "2026-09-25T22:39:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      },
+      {
+        "gamePk": 823816,
+        "officialDate": "2026-09-25",
+        "homeId": 146,
+        "awayId": 144,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.51,
+            "ask": 0.52,
+            "mid": 0.515,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.022433333333333333
+          },
+          "home": {
+            "time": "2026-09-25T22:40:00.000Z",
+            "bid": 0.48,
+            "ask": 0.49,
+            "mid": 0.485,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.022433333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP251910ATLMIA-ATL",
+          "home": "KXMLBGAME-26SEP251910ATLMIA-MIA"
+        },
+        "eventTicker": "KXMLBGAME-26SEP251910ATLMIA",
+        "awayTeam": "Atlanta Braves",
+        "homeTeam": "Miami Marlins",
+        "firstPitchUtc": "2026-09-25T23:10:00Z",
+        "minutesToPitch": 29.977566666666668,
+        "kalshiAwayRaw": 0.515,
+        "kalshiHomeRaw": 0.485,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.515,
+        "kalshiHomeProb": 0.485,
+        "kalshiPickSide": "AWAY",
+        "kalshiPickTeam": "Atlanta Braves",
+        "kalshiConfidence": 0.515,
+        "modelAvailable": true,
+        "modelPickSide": "AWAY",
+        "modelConfidence": 0.5246713038806163,
+        "modelAgreesWithKalshi": true,
+        "tier": "PASS",
+        "quoteTime": "2026-09-25T22:40:00.000Z",
+        "quoteAgeMinutes": 0.16046666666666667,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-25T22:40:00.000Z",
+          "home": "2026-09-25T22:40:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

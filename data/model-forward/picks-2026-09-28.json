@@ -1,0 +1,11 @@
+{
+  "version": "model-forward-v2",
+  "trackedModel": "full-game",
+  "date": "2026-09-28",
+  "generatedAt": "2026-09-28T07:00:10.192Z",
+  "totalGames": 0,
+  "eligibleGames": 0,
+  "note": "Primary pick/grade is the full-game model (matches the live site's headline pick, PICK_PIPELINE_VERSION in lib/mlb.js). F5 model pick is kept in f5PickSide/f5PickTeam/f5Confidence as a secondary field. Records without a trackedModel field predate this convention and remain F5-primary -- see FEATURE-WISHLIST.md #31.",
+  "threeWaySelectionPolicy": "Rank direct team-lead probability at the fixed capture; select exactly 8/9 only when that many predictions are available",
+  "picks": []
+}

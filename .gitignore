@@ -8,6 +8,5 @@ node_modules
 # Local prospective observations and grades
 data/prospective/
 
-data/kalshi-forward/
 
 data/kalshi-reconstructed/

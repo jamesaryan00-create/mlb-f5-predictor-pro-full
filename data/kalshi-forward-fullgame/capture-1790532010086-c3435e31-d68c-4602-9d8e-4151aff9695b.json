@@ -1,0 +1,91 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-27T18:00:09.885Z",
+  "records": [],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-27T18:00:02.827Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1886,
+    "candidateEvents": 1,
+    "rejected": [],
+    "board": [
+      {
+        "gamePk": 823408,
+        "officialDate": "2026-09-27",
+        "homeId": 143,
+        "awayId": 139,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-27T18:00:00.000Z",
+            "bid": 0.35,
+            "ask": 0.36,
+            "mid": 0.355,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04711666666666667
+          },
+          "home": {
+            "time": "2026-09-27T18:00:00.000Z",
+            "bid": 0.64,
+            "ask": 0.65,
+            "mid": 0.645,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04711666666666667
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP271505TBPHI-TB",
+          "home": "KXMLBGAME-26SEP271505TBPHI-PHI"
+        },
+        "eventTicker": "KXMLBGAME-26SEP271505TBPHI",
+        "awayTeam": "Tampa Bay Rays",
+        "homeTeam": "Philadelphia Phillies",
+        "firstPitchUtc": "2026-09-27T18:30:00Z",
+        "minutesToPitch": 29.952883333333332,
+        "kalshiAwayRaw": 0.355,
+        "kalshiHomeRaw": 0.645,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.355,
+        "kalshiHomeProb": 0.645,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Philadelphia Phillies",
+        "kalshiConfidence": 0.645,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.508608568993868,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-27T18:00:00.000Z",
+        "quoteAgeMinutes": 0.16395,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-27T18:00:00.000Z",
+          "home": "2026-09-27T18:00:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

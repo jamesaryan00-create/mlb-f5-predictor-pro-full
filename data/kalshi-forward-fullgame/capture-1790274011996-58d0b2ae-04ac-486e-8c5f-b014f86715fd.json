@@ -1,0 +1,159 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-24T18:20:11.926Z",
+  "records": [
+    {
+      "gamePk": 824298,
+      "officialDate": "2026-09-24",
+      "homeId": 115,
+      "awayId": 109,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-24T18:20:00.000Z",
+          "bid": 0.64,
+          "ask": 0.65,
+          "mid": 0.645,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.037066666666666664
+        },
+        "home": {
+          "time": "2026-09-24T18:20:00.000Z",
+          "bid": 0.35,
+          "ask": 0.36,
+          "mid": 0.355,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.037066666666666664
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP241510AZCOL-AZ",
+        "home": "KXMLBGAME-26SEP241510AZCOL-COL"
+      },
+      "eventTicker": "KXMLBGAME-26SEP241510AZCOL",
+      "awayTeam": "Arizona Diamondbacks",
+      "homeTeam": "Colorado Rockies",
+      "firstPitchUtc": "2026-09-24T19:10:00Z",
+      "minutesToPitch": 49.96293333333333,
+      "kalshiAwayRaw": 0.645,
+      "kalshiHomeRaw": 0.355,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.645,
+      "kalshiHomeProb": 0.355,
+      "kalshiPickSide": "AWAY",
+      "kalshiPickTeam": "Arizona Diamondbacks",
+      "kalshiConfidence": 0.645,
+      "modelAvailable": true,
+      "modelPickSide": "AWAY",
+      "modelConfidence": 0.5669722486397263,
+      "modelAgreesWithKalshi": true,
+      "tier": "STRONG",
+      "quoteTime": "2026-09-24T18:20:00.000Z",
+      "quoteAgeMinutes": 0.1977,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-24T18:20:00.000Z",
+        "home": "2026-09-24T18:20:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-24T18:20:11.926Z",
+      "baseline": true,
+      "candidate": true,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": true
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-24T18:20:02.224Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1890,
+    "candidateEvents": 1,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26SEP251910CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 824298,
+        "officialDate": "2026-09-24",
+        "homeId": 115,
+        "awayId": 109,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-24T18:20:00.000Z",
+            "bid": 0.64,
+            "ask": 0.65,
+            "mid": 0.645,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.037066666666666664
+          },
+          "home": {
+            "time": "2026-09-24T18:20:00.000Z",
+            "bid": 0.35,
+            "ask": 0.36,
+            "mid": 0.355,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.037066666666666664
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP241510AZCOL-AZ",
+          "home": "KXMLBGAME-26SEP241510AZCOL-COL"
+        },
+        "eventTicker": "KXMLBGAME-26SEP241510AZCOL",
+        "awayTeam": "Arizona Diamondbacks",
+        "homeTeam": "Colorado Rockies",
+        "firstPitchUtc": "2026-09-24T19:10:00Z",
+        "minutesToPitch": 49.96293333333333,
+        "kalshiAwayRaw": 0.645,
+        "kalshiHomeRaw": 0.355,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.645,
+        "kalshiHomeProb": 0.355,
+        "kalshiPickSide": "AWAY",
+        "kalshiPickTeam": "Arizona Diamondbacks",
+        "kalshiConfidence": 0.645,
+        "modelAvailable": true,
+        "modelPickSide": "AWAY",
+        "modelConfidence": 0.5669722486397263,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-24T18:20:00.000Z",
+        "quoteAgeMinutes": 0.1977,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-24T18:20:00.000Z",
+          "home": "2026-09-24T18:20:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

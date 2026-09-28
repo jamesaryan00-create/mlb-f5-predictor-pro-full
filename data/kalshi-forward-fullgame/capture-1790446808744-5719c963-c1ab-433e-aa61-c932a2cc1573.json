@@ -1,0 +1,163 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-26T18:20:08.619Z",
+  "records": [
+    {
+      "gamePk": 822759,
+      "officialDate": "2026-09-26",
+      "homeId": 141,
+      "awayId": 113,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-26T18:20:00.000Z",
+          "bid": 0.4,
+          "ask": 0.41,
+          "mid": 0.405,
+          "spread": 0.009999999999999953,
+          "ageMinutes": 0.021816666666666668
+        },
+        "home": {
+          "time": "2026-09-26T18:19:00.000Z",
+          "bid": 0.59,
+          "ask": 0.6,
+          "mid": 0.595,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 1.0218166666666666
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP261507CINTOR-CIN",
+        "home": "KXMLBGAME-26SEP261507CINTOR-TOR"
+      },
+      "eventTicker": "KXMLBGAME-26SEP261507CINTOR",
+      "awayTeam": "Cincinnati Reds",
+      "homeTeam": "Toronto Blue Jays",
+      "firstPitchUtc": "2026-09-26T19:07:00Z",
+      "minutesToPitch": 46.978183333333334,
+      "kalshiAwayRaw": 0.405,
+      "kalshiHomeRaw": 0.595,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.405,
+      "kalshiHomeProb": 0.595,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Toronto Blue Jays",
+      "kalshiConfidence": 0.595,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5950611750287903,
+      "modelAgreesWithKalshi": true,
+      "tier": "PLAY",
+      "quoteTime": "2026-09-26T18:19:00.000Z",
+      "quoteAgeMinutes": 1.1431166666666666,
+      "awaySpread": 0.009999999999999953,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 1,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-26T18:20:00.000Z",
+        "home": "2026-09-26T18:19:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-26T18:20:08.619Z",
+      "baseline": true,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-26T18:20:01.309Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1926,
+    "candidateEvents": 1,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915BALNYY",
+        "reason": "Missing or ambiguous MLB schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 822759,
+        "officialDate": "2026-09-26",
+        "homeId": 141,
+        "awayId": 113,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-26T18:20:00.000Z",
+            "bid": 0.4,
+            "ask": 0.41,
+            "mid": 0.405,
+            "spread": 0.009999999999999953,
+            "ageMinutes": 0.021816666666666668
+          },
+          "home": {
+            "time": "2026-09-26T18:19:00.000Z",
+            "bid": 0.59,
+            "ask": 0.6,
+            "mid": 0.595,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 1.0218166666666666
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP261507CINTOR-CIN",
+          "home": "KXMLBGAME-26SEP261507CINTOR-TOR"
+        },
+        "eventTicker": "KXMLBGAME-26SEP261507CINTOR",
+        "awayTeam": "Cincinnati Reds",
+        "homeTeam": "Toronto Blue Jays",
+        "firstPitchUtc": "2026-09-26T19:07:00Z",
+        "minutesToPitch": 46.978183333333334,
+        "kalshiAwayRaw": 0.405,
+        "kalshiHomeRaw": 0.595,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.405,
+        "kalshiHomeProb": 0.595,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Toronto Blue Jays",
+        "kalshiConfidence": 0.595,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5950611750287903,
+        "modelAgreesWithKalshi": true,
+        "tier": "PLAY",
+        "quoteTime": "2026-09-26T18:19:00.000Z",
+        "quoteAgeMinutes": 1.1431166666666666,
+        "awaySpread": 0.009999999999999953,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 1,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-26T18:20:00.000Z",
+          "home": "2026-09-26T18:19:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

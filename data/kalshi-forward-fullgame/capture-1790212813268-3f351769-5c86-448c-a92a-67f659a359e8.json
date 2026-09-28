@@ -1,0 +1,335 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-24T01:20:13.196Z",
+  "records": [
+    {
+      "gamePk": 823894,
+      "officialDate": "2026-09-23",
+      "homeId": 119,
+      "awayId": 135,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-24T01:20:00.000Z",
+          "bid": 0.32,
+          "ask": 0.33,
+          "mid": 0.325,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.04256666666666667
+        },
+        "home": {
+          "time": "2026-09-24T01:20:00.000Z",
+          "bid": 0.66,
+          "ask": 0.67,
+          "mid": 0.665,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.04256666666666667
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP232210SDLAD-SD",
+        "home": "KXMLBGAME-26SEP232210SDLAD-LAD"
+      },
+      "eventTicker": "KXMLBGAME-26SEP232210SDLAD",
+      "awayTeam": "San Diego Padres",
+      "homeTeam": "Los Angeles Dodgers",
+      "firstPitchUtc": "2026-09-24T02:10:00Z",
+      "minutesToPitch": 49.957433333333334,
+      "kalshiAwayRaw": 0.325,
+      "kalshiHomeRaw": 0.665,
+      "kalshiRawSum": 0.99,
+      "kalshiAwayProb": 0.3282828282828283,
+      "kalshiHomeProb": 0.6717171717171717,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Los Angeles Dodgers",
+      "kalshiConfidence": 0.6717171717171717,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.6114027893900182,
+      "modelAgreesWithKalshi": true,
+      "tier": "STRONG",
+      "quoteTime": "2026-09-24T01:20:00.000Z",
+      "quoteAgeMinutes": 0.1894,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-24T01:20:00.000Z",
+        "home": "2026-09-24T01:20:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-24T01:20:13.196Z",
+      "baseline": true,
+      "candidate": true,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": true
+    },
+    {
+      "gamePk": 823086,
+      "officialDate": "2026-09-23",
+      "homeId": 136,
+      "awayId": 117,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-24T01:20:00.000Z",
+          "bid": 0.46,
+          "ask": 0.47,
+          "mid": 0.46499999999999997,
+          "spread": 0.009999999999999953,
+          "ageMinutes": 0.04256666666666667
+        },
+        "home": {
+          "time": "2026-09-24T01:20:00.000Z",
+          "bid": 0.53,
+          "ask": 0.54,
+          "mid": 0.535,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.04256666666666667
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP232210HOUSEA-HOU",
+        "home": "KXMLBGAME-26SEP232210HOUSEA-SEA"
+      },
+      "eventTicker": "KXMLBGAME-26SEP232210HOUSEA",
+      "awayTeam": "Houston Astros",
+      "homeTeam": "Seattle Mariners",
+      "firstPitchUtc": "2026-09-24T02:10:00Z",
+      "minutesToPitch": 49.957433333333334,
+      "kalshiAwayRaw": 0.46499999999999997,
+      "kalshiHomeRaw": 0.535,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.46499999999999997,
+      "kalshiHomeProb": 0.535,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Seattle Mariners",
+      "kalshiConfidence": 0.535,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5457666434471117,
+      "modelAgreesWithKalshi": true,
+      "tier": "PASS",
+      "quoteTime": "2026-09-24T01:20:00.000Z",
+      "quoteAgeMinutes": 0.19473333333333334,
+      "awaySpread": 0.009999999999999953,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-24T01:20:00.000Z",
+        "home": "2026-09-24T01:20:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-24T01:20:13.196Z",
+      "baseline": false,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-24T01:20:02.554Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1932,
+    "candidateEvents": 3,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26SEP231835TORBAL",
+        "reason": "Missing or ambiguous MLB schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 823894,
+        "officialDate": "2026-09-23",
+        "homeId": 119,
+        "awayId": 135,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-24T01:20:00.000Z",
+            "bid": 0.32,
+            "ask": 0.33,
+            "mid": 0.325,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04256666666666667
+          },
+          "home": {
+            "time": "2026-09-24T01:20:00.000Z",
+            "bid": 0.66,
+            "ask": 0.67,
+            "mid": 0.665,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04256666666666667
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP232210SDLAD-SD",
+          "home": "KXMLBGAME-26SEP232210SDLAD-LAD"
+        },
+        "eventTicker": "KXMLBGAME-26SEP232210SDLAD",
+        "awayTeam": "San Diego Padres",
+        "homeTeam": "Los Angeles Dodgers",
+        "firstPitchUtc": "2026-09-24T02:10:00Z",
+        "minutesToPitch": 49.957433333333334,
+        "kalshiAwayRaw": 0.325,
+        "kalshiHomeRaw": 0.665,
+        "kalshiRawSum": 0.99,
+        "kalshiAwayProb": 0.3282828282828283,
+        "kalshiHomeProb": 0.6717171717171717,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Los Angeles Dodgers",
+        "kalshiConfidence": 0.6717171717171717,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.6114027893900182,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-24T01:20:00.000Z",
+        "quoteAgeMinutes": 0.1894,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-24T01:20:00.000Z",
+          "home": "2026-09-24T01:20:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      },
+      {
+        "gamePk": 824951,
+        "officialDate": "2026-09-23",
+        "homeId": 133,
+        "awayId": 108,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-24T01:20:00.000Z",
+            "bid": 0.55,
+            "ask": 0.56,
+            "mid": 0.555,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04256666666666667
+          },
+          "home": {
+            "time": "2026-09-24T01:20:00.000Z",
+            "bid": 0.44,
+            "ask": 0.45,
+            "mid": 0.445,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04256666666666667
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP232140LAAATH-LAA",
+          "home": "KXMLBGAME-26SEP232140LAAATH-ATH"
+        },
+        "eventTicker": "KXMLBGAME-26SEP232140LAAATH",
+        "awayTeam": "Los Angeles Angels",
+        "homeTeam": "Athletics",
+        "firstPitchUtc": "2026-09-24T01:40:00Z",
+        "minutesToPitch": 19.957433333333334,
+        "kalshiAwayRaw": 0.555,
+        "kalshiHomeRaw": 0.445,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.555,
+        "kalshiHomeProb": 0.445,
+        "kalshiPickSide": "AWAY",
+        "kalshiPickTeam": "Los Angeles Angels",
+        "kalshiConfidence": 0.555,
+        "modelAvailable": true,
+        "modelPickSide": "AWAY",
+        "modelConfidence": 0.5572089946320374,
+        "modelAgreesWithKalshi": true,
+        "tier": "PASS",
+        "quoteTime": "2026-09-24T01:20:00.000Z",
+        "quoteAgeMinutes": 0.20061666666666667,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-24T01:20:00.000Z",
+          "home": "2026-09-24T01:20:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      },
+      {
+        "gamePk": 823086,
+        "officialDate": "2026-09-23",
+        "homeId": 136,
+        "awayId": 117,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-24T01:20:00.000Z",
+            "bid": 0.46,
+            "ask": 0.47,
+            "mid": 0.46499999999999997,
+            "spread": 0.009999999999999953,
+            "ageMinutes": 0.04256666666666667
+          },
+          "home": {
+            "time": "2026-09-24T01:20:00.000Z",
+            "bid": 0.53,
+            "ask": 0.54,
+            "mid": 0.535,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04256666666666667
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP232210HOUSEA-HOU",
+          "home": "KXMLBGAME-26SEP232210HOUSEA-SEA"
+        },
+        "eventTicker": "KXMLBGAME-26SEP232210HOUSEA",
+        "awayTeam": "Houston Astros",
+        "homeTeam": "Seattle Mariners",
+        "firstPitchUtc": "2026-09-24T02:10:00Z",
+        "minutesToPitch": 49.957433333333334,
+        "kalshiAwayRaw": 0.46499999999999997,
+        "kalshiHomeRaw": 0.535,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.46499999999999997,
+        "kalshiHomeProb": 0.535,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Seattle Mariners",
+        "kalshiConfidence": 0.535,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5457666434471117,
+        "modelAgreesWithKalshi": true,
+        "tier": "PASS",
+        "quoteTime": "2026-09-24T01:20:00.000Z",
+        "quoteAgeMinutes": 0.19473333333333334,
+        "awaySpread": 0.009999999999999953,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-24T01:20:00.000Z",
+          "home": "2026-09-24T01:20:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}

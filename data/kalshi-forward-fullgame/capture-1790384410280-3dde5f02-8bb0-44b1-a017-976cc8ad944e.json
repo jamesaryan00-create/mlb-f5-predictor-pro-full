@@ -1,0 +1,177 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-26T01:00:10.173Z",
+  "records": [],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-26T01:00:01.779Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1926,
+    "candidateEvents": 2,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26SEP251605BALNYYG1",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251905BALNYYG2",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251305CHCBOSG1",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915BALNYY",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251910CHCBOS",
+        "reason": "Missing or ambiguous MLB schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251905BALNYY",
+        "reason": "Missing or ambiguous MLB schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 824947,
+        "officialDate": "2026-09-25",
+        "homeId": 133,
+        "awayId": 117,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-26T01:00:00.000Z",
+            "bid": 0.63,
+            "ask": 0.64,
+            "mid": 0.635,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.02965
+          },
+          "home": {
+            "time": "2026-09-26T00:59:00.000Z",
+            "bid": 0.36,
+            "ask": 0.37,
+            "mid": 0.365,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 1.02965
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP252140HOUATH-HOU",
+          "home": "KXMLBGAME-26SEP252140HOUATH-ATH"
+        },
+        "eventTicker": "KXMLBGAME-26SEP252140HOUATH",
+        "awayTeam": "Houston Astros",
+        "homeTeam": "Athletics",
+        "firstPitchUtc": "2026-09-26T01:40:00Z",
+        "minutesToPitch": 39.97035,
+        "kalshiAwayRaw": 0.635,
+        "kalshiHomeRaw": 0.365,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.635,
+        "kalshiHomeProb": 0.365,
+        "kalshiPickSide": "AWAY",
+        "kalshiPickTeam": "Houston Astros",
+        "kalshiConfidence": 0.635,
+        "modelAvailable": true,
+        "modelPickSide": "AWAY",
+        "modelConfidence": 0.5379998079127957,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-26T00:59:00.000Z",
+        "quoteAgeMinutes": 1.1630166666666666,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 1,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-26T01:00:00.000Z",
+          "home": "2026-09-26T00:59:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      },
+      {
+        "gamePk": 823248,
+        "officialDate": "2026-09-25",
+        "homeId": 135,
+        "awayId": 109,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-26T01:00:00.000Z",
+            "bid": 0.46,
+            "ask": 0.47,
+            "mid": 0.46499999999999997,
+            "spread": 0.009999999999999953,
+            "ageMinutes": 0.02965
+          },
+          "home": {
+            "time": "2026-09-26T01:00:00.000Z",
+            "bid": 0.53,
+            "ask": 0.54,
+            "mid": 0.535,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.02965
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP252140AZSD-AZ",
+          "home": "KXMLBGAME-26SEP252140AZSD-SD"
+        },
+        "eventTicker": "KXMLBGAME-26SEP252140AZSD",
+        "awayTeam": "Arizona Diamondbacks",
+        "homeTeam": "San Diego Padres",
+        "firstPitchUtc": "2026-09-26T01:40:00Z",
+        "minutesToPitch": 39.97035,
+        "kalshiAwayRaw": 0.46499999999999997,
+        "kalshiHomeRaw": 0.535,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.46499999999999997,
+        "kalshiHomeProb": 0.535,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "San Diego Padres",
+        "kalshiConfidence": 0.535,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5066803512822058,
+        "modelAgreesWithKalshi": true,
+        "tier": "PASS",
+        "quoteTime": "2026-09-26T01:00:00.000Z",
+        "quoteAgeMinutes": 0.16875,
+        "awaySpread": 0.009999999999999953,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-26T01:00:00.000Z",
+          "home": "2026-09-26T01:00:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}
