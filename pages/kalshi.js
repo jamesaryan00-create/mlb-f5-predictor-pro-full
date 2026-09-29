@@ -1,4 +1,3 @@
-import MatchupLogic from '../components/MatchupLogic';
 import { useEffect, useRef, useState } from 'react';
 
 function pct(x) {
@@ -297,7 +296,7 @@ export default function KalshiF5Page() {
               {' · '}
               Tie {num(g.tieSpread, 3)}
             </div>
-          <MatchupLogic key={`${g.gamePk}-${g.officialDate}`} gamePk={g.gamePk} date={g.officialDate}/></article>
+          </article>
         ))}
       </div>
 

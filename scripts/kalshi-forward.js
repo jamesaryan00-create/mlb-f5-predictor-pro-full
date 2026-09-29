@@ -1,6 +1,10 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
 const {getKalshiBoard}=require('../lib/kalshi-board');
 const {capture,grade,summarize}=require('../lib/kalshi-forward');
+const {whaleActivityForRecord}=require('../lib/whale-trades');
+const {mapWithConcurrency}=require('../lib/kalshi-http');
+const {todayPacific}=require('../lib/mlb');
+const {hasGamesOnDate,logSkip}=require('../lib/season-guard');
 const dir=path.join(process.cwd(),'data','kalshi-forward');fs.mkdirSync(dir,{recursive:true});
 const planFile=path.join(dir,'plan.json');
 if(!fs.existsSync(planFile)) {
@@ -23,12 +27,28 @@ function records(){const byGame=new Map();for(const file of fs.readdirSync(dir).
 async function main(){
  if(process.argv[2]==='capture') {
   if(Date.now()>=Date.parse(plan.end))throw Error('Fixed collection window ended; run grading.');
-  const board=await getKalshiBoard({maxMinutesToPitch:60}),at=new Date().toISOString(),known=new Set(records().map(r=>r.gamePk));
-  const eligible=board.board.filter(r=>!known.has(r.gamePk)&&Date.parse(r.firstPitchUtc)-Date.parse(at)<=3600000).map(r=>capture(r,at)).filter(Boolean);
+  const today=todayPacific();
+  if(!(await hasGamesOnDate(today))){logSkip(`No MLB games scheduled for ${today}`);return;}
+  // NOTE (#7/#8 line-movement/CLV fix): this used to skip any game already present in a prior
+  // capture file (`known`), so every game only ever got exactly one snapshot for its entire life --
+  // enough for a marketTrust "entry price" but not enough for line-movement.js to build a
+  // multi-point quote chain. grade()/records() below already dedupe to the *earliest* capture per
+  // game for marketTrust grading, so it's safe to keep capturing the same game across repeated
+  // ~20-minute cron runs within its pregame window; line-movement.js reads every capture file
+  // undeduped to chain them.
+  const board=await getKalshiBoard({maxMinutesToPitch:60}),at=new Date().toISOString();
+  const eligible=board.board.filter(r=>Date.parse(r.firstPitchUtc)-Date.parse(at)<=3600000).map(r=>capture(r,at)).filter(Boolean);
+  // Whale/large-trade detection (new, exploratory -- see FEATURE-WISHLIST.md): pulled in the same
+  // capture cycle so it lands in the same capture-*.json record as the existing quote data,
+  // additive fields only (see lib/kalshi-results.js's readResults, which only reads specific named
+  // fields off each record and is unaffected by new ones).
+  await mapWithConcurrency(eligible,2,async(r)=>{r.whaleActivity=await whaleActivityForRecord(r).catch(e=>({error:e.message}));});
   const file=save('capture',{plan,capturedAt:at,records:eligible,board});console.log(JSON.stringify({at:new Date().toISOString(),file,recorded:eligible.length,boardRows:board.board.length,rejected:board.rejected}));
  }else if(process.argv[2]==='grade') {
+  const pending=records();
+  if(!pending.length){logSkip('No ungraded capture data pending for prior dates');return;}
   const results=[];
-  for(const r of records()){
+  for(const r of pending){
    try {const res=await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${r.gamePk}&hydrate=linescore`,{signal:AbortSignal.timeout(15000)});if(!res.ok)throw Error(`MLB ${res.status}`);const source=await res.json(),games=(source.dates||[]).flatMap(d=>d.games||[]);results.push({...r,...(games.length===1?grade(r,games[0]):{status:'excluded',reason:'Ambiguous schedule'}),source});}
    catch(e){results.push({...r,status:'pending',reason:e.message});}
   }

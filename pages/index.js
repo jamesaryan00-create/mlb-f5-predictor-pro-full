@@ -1,5 +1,6 @@
-import MatchupLogic from '../components/MatchupLogic';
 import BacktestTiers from '../components/BacktestTiers';
+import LineMovementAndCLV from '../components/LineMovementAndCLV';
+import WhaleActivity from '../components/WhaleActivity';
 import { useEffect, useMemo, useState } from 'react';
 
 function todayPacific() {
@@ -10,6 +11,40 @@ function moneyline(value) { if (value === null || value === undefined) return 'N
 function stat(value, fallback = 'N/A') { if (value === undefined || value === null || value === '') return fallback; return value; }
 function pct(value) { return value === null || value === undefined ? 'N/A' : `${value}%`; }
 function ResultBadge({ label }) { return <span className={`badge ${String(label || 'Pass').replace(/\s+/g, '-').toLowerCase()}`}>{label}</span>; }
+
+// Compact, glanceable win/loss/tie indicator: a single bold letter in a colored circle, per the
+// user's request that this be more prominent than the prior text badge. `result` is the
+// recordedResult shape ({ win, tie }) already used across pages/index.js/lib/mlb.js/lib/recorded-day.js.
+function ResultPill({ result }) {
+  if (!result) return null;
+  const letter = result.tie ? 'T' : result.win ? 'W' : 'L';
+  const cls = result.tie ? 'pill--tie' : result.win ? 'pill--win' : 'pill--loss';
+  const title = result.tie ? 'F5 tie' : result.win ? 'Win' : 'Loss';
+  return <span className={`resultPill ${cls}`} title={title} aria-label={title}>{letter}</span>;
+}
+
+// Pared-down "why" explanation: the top 3-4 features that actually drove this game's model
+// probability, computed once at pick time (lib/full-game-model.js's topFeatureContributions()) and
+// stored/persisted rather than recomputed. Replaces the old raw team/pitcher/bullpen/split stat dump.
+function TopFactors({ factors }) {
+  if (!Array.isArray(factors) || !factors.length) return null;
+  return (
+    <div className="topFactors">
+      <p className="eyebrow">Why this pick</p>
+      <ul>
+        {factors.map((f) => (
+          <li key={f.feature || f.label} className={f.direction === 'for' ? 'factor--for' : 'factor--against'}>
+            <span>{f.label}</span>
+            <span className="factorValue">
+              <strong>{f.contribution >= 0 ? '+' : ''}{Number(f.contribution).toFixed(2)}</strong>
+              <span className="factorDir">{f.direction === 'for' ? 'Favors pick' : 'Against pick'}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 function TeamLogo({ teamId, abbreviation }) {
   const [failed, setFailed] = useState(false);
@@ -55,11 +90,12 @@ function RecordedBody({ game }) {
       {!rp ? <p className="note">{game.exclusionReason ? `Excluded: ${game.exclusionReason}` : game.exclusionNote}</p> : (
         <div className="prediction"><div>
           <p className="eyebrow">{legacy ? 'Recorded pick (F5 model, legacy record)' : 'Recorded pick (full-game model)'}</p>
-          <h3>{rp.pick}</h3>
+          <h3>{rp.pick} {rr && <ResultPill result={rr} />}</h3>
           <p className="muted">Confidence {pct(rp.confidence)}{rp.capturedAt ? ` · captured ${fmtTime(rp.capturedAt)}` : ''}</p>
           {game.gradeExcluded && <p className="note">Excluded from the record: {game.exclusionReason || 'reason not recorded'}</p>}
           <p className="muted">{rr ? `Final score: ${game.away.abbreviation} ${stat(rr.finalAway, '?')} - ${game.home.abbreviation} ${stat(rr.finalHome, '?')} · ${rr.tie ? 'F5 tie' : rr.win ? 'Win' : 'Loss'}` : (game.gradeExcluded ? 'Not graded (excluded).' : 'Not yet graded.')}</p>
           {rp.f5Pick && <p className="muted">F5 secondary pick: {rp.f5Pick.pick} {pct(rp.f5Pick.confidence)}{rr && rr.f5Result !== undefined ? ` · F5 result: ${rr.f5Tie ? 'tie' : rr.f5Win ? 'Win' : 'Loss'} (${stat(rr.f5Away, '?')}-${stat(rr.f5Home, '?')})` : ''}</p>}
+          <TopFactors factors={rp.topFactors} />
         </div></div>
       )}
     </div>
@@ -107,11 +143,7 @@ function GameCard({ game, onSave, saved }) {
             <div className="tileMetaRow">
               <span className="badge badge--locked">{game.recordedPick.trackedModel === 'full-game' ? 'Locked in pregame' : 'Locked in pregame · F5 pick (legacy)'}</span>
               {game.gradeExcluded && <span className="badge" title={game.exclusionReason || ''}>Excluded: {game.exclusionReason || 'see details'}</span>}
-              {game.recordedResult && (
-                <span className={`badge ${game.recordedResult.tie ? 'badge--tie' : game.recordedResult.win ? 'badge--win' : 'badge--loss'}`}>
-                  {game.recordedResult.tie ? 'F5 tie' : game.recordedResult.win ? 'Win' : 'Loss'}
-                </span>
-              )}
+              {game.recordedResult && <ResultPill result={game.recordedResult} />}
               <span className="chevron">{expanded ? '▲' : '▼'}</span>
             </div>
           </>
@@ -152,21 +184,16 @@ function GameCard({ game, onSave, saved }) {
             <div className={`teamBox ${primary.pick && !pickHome ? 'picked' : ''}`}>
               <div className="teamHeader"><strong>{game.away.abbreviation}</strong><span>{pct(primary.awayProbability)}</span></div>
               <p>{game.away.name}</p>
-              <small>SP: {game.away.probablePitcher?.fullName || 'TBD'} {game.away.pitcherBio?.throws ? `(${game.away.pitcherBio.throws})` : ''}</small>
-              <small>ERA {stat(game.away.pitcherStats?.era)} · WHIP {stat(game.away.pitcherStats?.whip)} · K/9 {stat(game.away.pitcherStats?.strikeoutsPer9Inn)}</small>
-              <small>ML: {moneyline(game.away.moneyline)} {game.away.bestBook ? `at ${game.away.bestBook}` : ''}</small>
-              <small>BP last 3 days: {stat(game.away.bullpen?.relieverInnings3d)} IP</small>
+              <small>SP: {game.away.probablePitcher?.fullName || 'TBD'} {game.away.pitcherBio?.throws ? `(${game.away.pitcherBio.throws})` : ''} · WHIP {stat(game.away.pitcherQuality?.whipLast10 != null ? game.away.pitcherQuality.whipLast10.toFixed(2) : game.away.pitcherStats?.whip)} · FIP {stat(game.away.pitcherQuality?.fipLast10 != null ? game.away.pitcherQuality.fipLast10.toFixed(2) : undefined)}</small>
             </div>
 
             <div className={`teamBox ${pickHome ? 'picked' : ''}`}>
               <div className="teamHeader"><strong>{game.home.abbreviation}</strong><span>{pct(primary.homeProbability)}</span></div>
               <p>{game.home.name}</p>
-              <small>SP: {game.home.probablePitcher?.fullName || 'TBD'} {game.home.pitcherBio?.throws ? `(${game.home.pitcherBio.throws})` : ''}</small>
-              <small>ERA {stat(game.home.pitcherStats?.era)} · WHIP {stat(game.home.pitcherStats?.whip)} · K/9 {stat(game.home.pitcherStats?.strikeoutsPer9Inn)}</small>
-              <small>ML: {moneyline(game.home.moneyline)} {game.home.bestBook ? `at ${game.home.bestBook}` : ''}</small>
-              <small>BP last 3 days: {stat(game.home.bullpen?.relieverInnings3d)} IP</small>
+              <small>SP: {game.home.probablePitcher?.fullName || 'TBD'} {game.home.pitcherBio?.throws ? `(${game.home.pitcherBio.throws})` : ''} · WHIP {stat(game.home.pitcherQuality?.whipLast10 != null ? game.home.pitcherQuality.whipLast10.toFixed(2) : game.home.pitcherStats?.whip)} · FIP {stat(game.home.pitcherQuality?.fipLast10 != null ? game.home.pitcherQuality.fipLast10.toFixed(2) : undefined)}</small>
             </div>
           </div>
+          <TopFactors factors={primary.topFactors} />
 
           <div className="prediction">
             <div>
@@ -188,23 +215,15 @@ function GameCard({ game, onSave, saved }) {
               {game.flaggedF5Alternative && <p className="muted">F5 flagged: {game.flaggedF5Alternative.pick} {pct(game.flaggedF5Alternative.confidence)} (edge +{game.flaggedF5Alternative.edge}pp vs full-game +{game.flaggedF5Alternative.fullGameEdge}pp)</p>}
             </div>
             <div className="evBox">
-              <span>Monte Carlo agrees</span><strong>{primary.pick && game.fullGameMonteCarlo?.pick ? (primary.pick === game.fullGameMonteCarlo.pick ? 'Yes' : 'No') : 'N/A'}</strong>
               <span>F5 agrees</span><strong>{primary.pick && game.f5Prediction?.pick ? (primary.pick === game.f5Prediction.pick ? 'Yes' : 'No') : 'N/A'}</strong>
             </div>
-          </div>
-          <div className="prediction">
-            <div><p className="eyebrow">Full-game Monte Carlo diagnostic</p><h3>{game.fullGameMonteCarlo?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.fullGameMonteCarlo?.confidence)} · projected score {game.fullGameMonteCarlo?.projectedAwayRuns?.toFixed(1) ?? '—'}–{game.fullGameMonteCarlo?.projectedHomeRuns?.toFixed(1) ?? '—'} · 10,000 simulations</p></div>
-            <div className="evBox"><span>2026 holdout</span><strong>53.65%</strong><span>Primary model</span><strong>54.85%</strong></div>
-          </div>
-          <div className="prediction">
-            <div><p className="eyebrow">Bullpen Monte Carlo V2 diagnostic</p><h3>{game.fullGameMonteCarloV2?.pick || 'Unavailable'}</h3><p className="muted">{game.fullGameMonteCarloV2?.available ? `${pct(game.fullGameMonteCarloV2.confidence)} · bullpen through ${game.fullGameMonteCarloV2.bullpenThroughDate} · likely arms from prior appearances; roster unverified` : game.fullGameMonteCarloV2?.reason || 'Current bullpen data unavailable'}</p></div>
           </div>
           <div className="prediction">
             <div><p className="eyebrow">F5 identifier</p><h3>{game.f5Prediction?.pick || 'Unavailable'}</h3><p className="muted">{pct(game.f5Prediction?.modelProbability)} conditional on a decided F5 result · identifies the early-game lean</p></div>
             <div className="evBox"><span>F5 total</span><strong>{game.market.f5Total?.point ?? 'N/A'}</strong><span>F5 ML</span><strong>{moneyline(game.f5Prediction?.bestMoneyline)}</strong></div>
           </div>
           <FactorGrid game={game} />
-          <p className="note">{game.prediction.note}</p><MatchupLogic key={`${game.gamePk}-${game.officialDate}`} gamePk={game.gamePk} date={game.officialDate}/>
+          <p className="note">{game.prediction.note}</p>
         </div>
       )}
     </article>
@@ -348,6 +367,8 @@ export default function Home() {
         {!data.odds.available && <div className="info">Add <code>SGO_API_KEY</code> to enable sportsbook moneyline, total and spread snapshots. Historical odds usually require a paid odds-data plan.</div>}
         <section className="tools">
           <BacktestTiers />
+          <LineMovementAndCLV />
+          <WhaleActivity />
 
           <div className="panel"><h2>Saved picks</h2>{saved.length ? <ul>{saved.map((p) => <li key={p.id}>{p.date}: {p.pick} vs {p.opponent} · {p.schemaVersion === 3 ? `${p.confidence}% full game · F5 ${p.f5Identifier} ${p.f5Confidence}%` : 'Legacy forecast'} · ML {moneyline(p.line)}</li>)}</ul> : <p className="muted">No saved picks yet.</p>}</div>
         </section>

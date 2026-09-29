@@ -1,6 +1,7 @@
 const fs = require('fs'), path = require('path');
-const { generatePicks, gradeDate, summarize, summarizeForwardRecord, summarizeThreeWay, dir } = require('../lib/model-forward');
+const { generatePicks, gradeDate, summarize, summarizeForwardRecord, dir } = require('../lib/model-forward');
 const { todayPacific } = require('../lib/mlb');
+const { hasGamesOnDate, logSkip } = require('../lib/season-guard');
 
 const planFile = path.join(dir(), 'plan.json');
 function ensurePlan() {
@@ -22,8 +23,14 @@ async function main() {
 
   if (cmd === 'pick') {
     const date = process.argv[3] || todayPacific();
+    if (!(await hasGamesOnDate(date))) { logSkip(`No MLB games scheduled for ${date}`); return; }
     console.log(JSON.stringify({ at: new Date().toISOString(), ...(await generatePicks(date)) }));
   } else if (cmd === 'grade') {
+    // gradeDate() already returns null (no file written/read) for any date with no
+    // picks-<date>.json -- which is exactly what a gameless day produces upstream from the
+    // `pick` guard above, so grading a large backlog of gameless dates is already a cheap
+    // no-op per date (a single fs.existsSync check) rather than a loop that spams logs or
+    // touches data/. Nothing else to add here beyond that existing behavior.
     const dates = fs.readdirSync(dir()).filter((f) => /^picks-\d{4}-\d{2}-\d{2}\.json$/.test(f)).map((f) => f.slice(6, 16)).sort();
     const reports = [];
     for (const date of dates) {
@@ -35,7 +42,7 @@ async function main() {
     // legacyF5Primary is every pre-fix date still graded under the original F5-primary convention,
     // f5Secondary is the F5 pick now recorded alongside new full-game picks. `overall` is kept for
     // backward compatibility only and blends both conventions -- prefer `record` for reporting.
-    console.log(JSON.stringify({ at: new Date().toISOString(), gradedDates: dates, record: summarizeForwardRecord(reports), overall: summarize(reports), threeWayTop8:summarizeThreeWay(reports,'top8'), threeWayTop9:summarizeThreeWay(reports,'top9'), byModel: Object.fromEntries([...new Set(reports.flatMap(r=>r.results||[]).filter(r=>r.provenance==='verified').map(r=>r.modelSha256))].map(hash=>[hash,summarize(reports.map(r=>({...r,results:r.results.filter(p=>p.modelSha256===hash)})))])), legacyUnverified: summarize(reports,{cohort:'legacy-unverified'}), retrospective: summarize(reports,{cohort:'retrospective'}), byLean: summarizeForwardRecord(reports, { minConfidence: 0.55 }), strongerLean: summarizeForwardRecord(reports, { minConfidence: 0.6 }) }));
+    console.log(JSON.stringify({ at: new Date().toISOString(), gradedDates: dates, record: summarizeForwardRecord(reports), overall: summarize(reports), byModel: Object.fromEntries([...new Set(reports.flatMap(r=>r.results||[]).filter(r=>r.provenance==='verified').map(r=>r.modelSha256))].map(hash=>[hash,summarize(reports.map(r=>({...r,results:r.results.filter(p=>p.modelSha256===hash)})))])), legacyUnverified: summarize(reports,{cohort:'legacy-unverified'}), retrospective: summarize(reports,{cohort:'retrospective'}), byLean: summarizeForwardRecord(reports, { minConfidence: 0.55 }), strongerLean: summarizeForwardRecord(reports, { minConfidence: 0.6 }) }));
   } else {
     throw new Error('Use: node scripts/model-forward.js pick [date] | grade');
   }
