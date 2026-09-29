@@ -30,7 +30,7 @@ function TopFactors({ factors }) {
   if (!Array.isArray(factors) || !factors.length) return null;
   return (
     <div className="topFactors">
-      <p className="eyebrow">Why this pick</p>
+      <p className="eyebrow">Why our model agrees/disagrees</p>
       <ul>
         {factors.map((f) => (
           <li key={f.feature || f.label} className={f.direction === 'for' ? 'factor--for' : 'factor--against'}>
@@ -125,11 +125,16 @@ function GameCard({ game, onSave, saved }) {
         {game.prediction.pick ? (
           <>
             <div className="tilePickRow">
-              <span className="tilePick">{game.prediction.pick}</span>
+              <span className="tilePick">Kalshi favors {game.prediction.pick}</span>
               <span className="tileConfidence">{pct(game.prediction.confidence)}</span>
             </div>
             <div className="tileMetaRow">
               <ResultBadge label={game.prediction.label} />
+              {game.kalshiPrimaryFullGame?.modelAgrees !== null && game.kalshiPrimaryFullGame?.modelAgrees !== undefined && (
+                <span className={`badge ${game.kalshiPrimaryFullGame.modelAgrees ? 'model-agree' : 'model-disagree'}`}>
+                  Our model {game.kalshiPrimaryFullGame.modelAgrees ? 'agrees' : 'disagrees'}
+                </span>
+              )}
               {game.flaggedF5Alternative && <span className="badge f5-flag">F5 flag: {game.flaggedF5Alternative.pick}</span>}
               <span className="chevron">{expanded ? '▲' : '▼'}</span>
             </div>
@@ -197,15 +202,17 @@ function GameCard({ game, onSave, saved }) {
 
           <div className="prediction">
             <div>
-              <p className="eyebrow">{game.recordedPick && game.prediction.pick == null && game.recordedPick.trackedModel !== 'full-game' ? 'Primary pick (F5 model, legacy record predating the full-game tracker fix)' : 'Primary pick (full-game model)'}</p>
-              <h3>{game.prediction.pick || (game.recordedPick ? game.recordedPick.pick : 'Unavailable')}</h3>
+              <p className="eyebrow">{game.recordedPick && game.prediction.pick == null && game.recordedPick.trackedModel === 'kalshi-primary' ? 'Primary pick (live Kalshi price)' : game.recordedPick && game.prediction.pick == null && game.recordedPick.trackedModel !== 'full-game' ? 'Primary pick (F5 model, legacy record predating the full-game tracker fix)' : game.recordedPick && game.prediction.pick == null ? 'Primary pick (full-game model, prior convention)' : 'Primary pick (live Kalshi price)'}</p>
+              <h3>{game.prediction.pick ? `Kalshi favors ${game.prediction.pick}` : (game.recordedPick ? game.recordedPick.pick : 'Unavailable')}</h3>
               {game.prediction.pick ? (
-                <p className="muted">Model probability {pct(game.prediction.confidence)} · Historical walk-forward accuracy {pct(primary.historicalAccuracy)}</p>
+                <p className="muted">Live Kalshi price {pct(game.prediction.confidence)}{game.kalshiPrimaryFullGame?.tier ? ` · tier ${game.kalshiPrimaryFullGame.tier}` : ''}</p>
               ) : game.recordedPick ? (
                 <p className="muted">
-                  {game.recordedPick.trackedModel === 'full-game'
-                    ? 'Locked in pregame (full-game model)'
-                    : 'Locked in pregame (F5 model -- this date predates the forward tracker’s full-game migration; see FEATURE-WISHLIST.md #31, not the site’s actual full-game pick)'}
+                  {game.recordedPick.trackedModel === 'kalshi-primary'
+                    ? 'Locked in pregame (live Kalshi price)'
+                    : game.recordedPick.trackedModel === 'full-game'
+                    ? 'Locked in pregame (full-game model -- prior convention, before this pick source switched to the live Kalshi price; see FEATURE-WISHLIST.md #41)'
+                    : 'Locked in pregame (F5 model -- this date predates the forward tracker’s full-game migration; see FEATURE-WISHLIST.md #31, not the site’s actual primary pick)'}
                   {' at '}{pct(game.recordedPick.confidence)} confidence{game.recordedPick.capturedAt ? ` · captured ${fmtTime(game.recordedPick.capturedAt)}` : ''}. Live forecast unavailable: {game.prediction.note}
                   {game.recordedResult ? ` · Result: ${game.recordedResult.tie ? 'F5 tie (first 5 innings only -- the full game always has a winner)' : game.recordedResult.win ? 'Win' : 'Loss'}` : ' · Not yet graded.'}
                 </p>
@@ -215,7 +222,9 @@ function GameCard({ game, onSave, saved }) {
               {game.flaggedF5Alternative && <p className="muted">F5 flagged: {game.flaggedF5Alternative.pick} {pct(game.flaggedF5Alternative.confidence)} (edge +{game.flaggedF5Alternative.edge}pp vs full-game +{game.flaggedF5Alternative.fullGameEdge}pp)</p>}
             </div>
             <div className="evBox">
-              <span>F5 agrees</span><strong>{primary.pick && game.f5Prediction?.pick ? (primary.pick === game.f5Prediction.pick ? 'Yes' : 'No') : 'N/A'}</strong>
+              <span>Our model</span>
+              <strong>{game.kalshiPrimaryFullGame?.available ? `${game.kalshiPrimaryFullGame.modelPick || 'Unavailable'} ${pct(game.kalshiPrimaryFullGame.modelConfidence)}` : (primary.pick ? `${primary.pick} ${pct(primary.confidence)}` : 'Unavailable')}</strong>
+              <span>{game.kalshiPrimaryFullGame?.available ? (game.kalshiPrimaryFullGame.modelAgrees ? 'Agrees' : 'Disagrees') : 'N/A'}</span>
             </div>
           </div>
           <div className="prediction">
@@ -279,10 +288,11 @@ export default function Home() {
   useEffect(() => { setSaved(JSON.parse(localStorage.getItem('saved-picks') || '[]')); }, []);
   function persist(items) { setSaved(items); localStorage.setItem('saved-picks', JSON.stringify(items)); }
   function savePick(game) {
-    const primary = game.fullGamePrediction || {};
-    const id = `${game.gamePk}-full-${primary.pick}`;
+    const kalshi = game.prediction || {};
+    const modelFlag = game.kalshiPrimaryFullGame || {};
+    const id = `${game.gamePk}-kalshi-${kalshi.pick}`;
     const exists = saved.some((x) => x.id === id);
-    persist(exists ? saved.filter((x) => x.id !== id) : [{ id, date, schemaVersion: 3, capturedAt: new Date().toISOString(), modelVersion: primary.modelVersion, probabilityBasis: primary.probabilityBasis, pick: primary.pick, opponent: primary.opponent, confidence: primary.confidence, f5Identifier: game.f5Prediction?.pick, f5Confidence: game.f5Prediction?.confidence, flaggedF5Alternative: game.flaggedF5Alternative, ev: null, line: game[primary.side]?.moneyline ?? null }, ...saved]);
+    persist(exists ? saved.filter((x) => x.id !== id) : [{ id, date, schemaVersion: 4, capturedAt: new Date().toISOString(), pipelineVersion: kalshi.pipelineVersion, pick: kalshi.pick, opponent: kalshi.opponent, confidence: kalshi.confidence, modelPick: modelFlag.modelPick, modelConfidence: modelFlag.modelConfidence, modelAgrees: modelFlag.modelAgrees, f5Identifier: game.f5Prediction?.pick, f5Confidence: game.f5Prediction?.confidence, flaggedF5Alternative: game.flaggedF5Alternative, ev: null, line: kalshi.bestMoneyline ?? null }, ...saved]);
   }
 
   async function load(selectedDate = date) {
@@ -356,7 +366,7 @@ export default function Home() {
         <section className="summary">
           <div><span>Games</span><strong>{games.length}</strong></div>
           <div><span>Odds feed</span><strong>{data.odds.available ? 'Connected' : 'Not connected'}</strong></div>
-          <div><span>Top full-game pick</span><strong>{strongest?.fullGamePrediction?.pick || 'None'}</strong></div>
+          <div><span>Top Kalshi pick</span><strong>{strongest?.prediction?.pick || 'None'}</strong></div>
           <div><span>Full-game model</span><strong>{data.fullGameModel?.version || 'Missing'}</strong></div>
         </section>
         <section className="panel">
@@ -372,7 +382,7 @@ export default function Home() {
 
           <div className="panel"><h2>Saved picks</h2>{saved.length ? <ul>{saved.map((p) => <li key={p.id}>{p.date}: {p.pick} vs {p.opponent} · {p.schemaVersion === 3 ? `${p.confidence}% full game · F5 ${p.f5Identifier} ${p.f5Confidence}%` : 'Legacy forecast'} · ML {moneyline(p.line)}</li>)}</ul> : <p className="muted">No saved picks yet.</p>}</div>
         </section>
-        {games.length === 0 ? <div className="empty">No MLB games found for {date}.</div> : <section className="cards">{games.map((game) => <GameCard key={game.gamePk} game={game} onSave={savePick} saved={saved.some((x) => x.id === `${game.gamePk}-full-${game.fullGamePrediction?.pick}`)} />)}</section>}
+        {games.length === 0 ? <div className="empty">No MLB games found for {date}.</div> : <section className="cards">{games.map((game) => <GameCard key={game.gamePk} game={game} onSave={savePick} saved={saved.some((x) => x.id === `${game.gamePk}-kalshi-${game.prediction?.pick}`)} />)}</section>}
       </>}
     </main>
   );
