@@ -1,0 +1,192 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-29T17:40:10.729Z",
+  "records": [
+    {
+      "gamePk": 849845,
+      "officialDate": "2026-09-29",
+      "homeId": 144,
+      "awayId": 143,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-29T17:40:00.000Z",
+          "bid": 0.37,
+          "ask": 0.38,
+          "mid": 0.375,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.039466666666666664
+        },
+        "home": {
+          "time": "2026-09-29T17:40:00.000Z",
+          "bid": 0.62,
+          "ask": 0.63,
+          "mid": 0.625,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.039466666666666664
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26SEP291400PHIATL-PHI",
+        "home": "KXMLBGAME-26SEP291400PHIATL-ATL"
+      },
+      "eventTicker": "KXMLBGAME-26SEP291400PHIATL",
+      "awayTeam": "Philadelphia Phillies",
+      "homeTeam": "Atlanta Braves",
+      "firstPitchUtc": "2026-09-29T18:00:00Z",
+      "minutesToPitch": 19.960533333333334,
+      "kalshiAwayRaw": 0.375,
+      "kalshiHomeRaw": 0.625,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.375,
+      "kalshiHomeProb": 0.625,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Atlanta Braves",
+      "kalshiConfidence": 0.625,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5804749860338144,
+      "modelAgreesWithKalshi": true,
+      "tier": "STRONG",
+      "quoteTime": "2026-09-29T17:40:00.000Z",
+      "quoteAgeMinutes": 0.17806666666666668,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-29T17:40:00.000Z",
+        "home": "2026-09-29T17:40:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-29T17:40:10.729Z",
+      "baseline": true,
+      "candidate": true,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": true,
+      "whaleActivity": {
+        "bySide": {
+          "away": {
+            "available": true,
+            "n": 200,
+            "largestDollars": 1566.0142,
+            "totalDollars": 13153.389900000004,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 2,
+            "largeTradeDollars": 2582.7498,
+            "dollarThreshold": 1000,
+            "yesDollars": 2582.7498,
+            "noDollars": 0,
+            "netImbalanceDollars": 2582.7498,
+            "direction": "yes"
+          },
+          "home": {
+            "available": true,
+            "n": 200,
+            "largestDollars": 1973.4434999999999,
+            "totalDollars": 22819.249000000003,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 5,
+            "largeTradeDollars": 7565.0589,
+            "dollarThreshold": 1000,
+            "yesDollars": 7565.0589,
+            "noDollars": 0,
+            "netImbalanceDollars": 7565.0589,
+            "direction": "yes"
+          }
+        },
+        "pickSide": "home",
+        "dollarsForPick": 7565.0589,
+        "dollarsAgainstPick": 2582.7498,
+        "largeTradeDirectionVsPick": "agrees_with_pick"
+      }
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-09-29T17:40:02.368Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1804,
+    "candidateEvents": 1,
+    "rejected": [],
+    "board": [
+      {
+        "gamePk": 849845,
+        "officialDate": "2026-09-29",
+        "homeId": 144,
+        "awayId": 143,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-29T17:40:00.000Z",
+            "bid": 0.37,
+            "ask": 0.38,
+            "mid": 0.375,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.039466666666666664
+          },
+          "home": {
+            "time": "2026-09-29T17:40:00.000Z",
+            "bid": 0.62,
+            "ask": 0.63,
+            "mid": 0.625,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.039466666666666664
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26SEP291400PHIATL-PHI",
+          "home": "KXMLBGAME-26SEP291400PHIATL-ATL"
+        },
+        "eventTicker": "KXMLBGAME-26SEP291400PHIATL",
+        "awayTeam": "Philadelphia Phillies",
+        "homeTeam": "Atlanta Braves",
+        "firstPitchUtc": "2026-09-29T18:00:00Z",
+        "minutesToPitch": 19.960533333333334,
+        "kalshiAwayRaw": 0.375,
+        "kalshiHomeRaw": 0.625,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.375,
+        "kalshiHomeProb": 0.625,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Atlanta Braves",
+        "kalshiConfidence": 0.625,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5804749860338144,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-29T17:40:00.000Z",
+        "quoteAgeMinutes": 0.17806666666666668,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-29T17:40:00.000Z",
+          "home": "2026-09-29T17:40:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}
