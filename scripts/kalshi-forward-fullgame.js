@@ -29,12 +29,25 @@ async function main(){
   // game for marketTrust grading, so it's safe to keep capturing the same game across repeated
   // ~20-minute cron runs within its pregame window; line-movement.js reads every capture file
   // undeduped to chain them.
-  const board=await getKalshiFullGameBoard({maxMinutesToPitch:60}),at=new Date().toISOString();
+  // Fetch the board UNRESTRICTED (no maxMinutesToPitch) so a single capture cycle can serve two
+  // different consumers with two different, intentionally different windows:
+  //   records     -- marketTrust's own definition (FEATURE-WISHLIST.md, modelPlan.policy above):
+  //                  "first fresh snapshot in the final 60 minutes before scheduled first pitch."
+  //                  Unchanged: still derived with the exact same <=60-minute filter as before.
+  //   allRecords  -- every pregame game with a usable quote regardless of how far off first pitch
+  //                  is (bounded only by capture()'s own pregame-status/quote-quality checks). Added
+  //                  for #42: lib/kalshi-capture-store.js reads this to serve the live site's
+  //                  Kalshi-primary pick, which needs a price available all day, not just the final
+  //                  hour before first pitch -- reading from the marketTrust-restricted `records`
+  //                  meant the live pick was "unavailable" for every game more than 60 minutes out,
+  //                  which was most of the day.
+  const board=await getKalshiFullGameBoard(),at=new Date().toISOString();
   const eligible=board.board.filter(r=>Date.parse(r.firstPitchUtc)-Date.parse(at)<=3600000).map(r=>capture(r,at)).filter(Boolean);
+  const allRecords=board.board.map(r=>capture(r,at)).filter(Boolean);
   // Whale/large-trade detection (new, exploratory -- see FEATURE-WISHLIST.md): same capture cycle,
-  // additive field only.
+  // additive field only. Only computed for the marketTrust-eligible set (unchanged scope/cost).
   await mapWithConcurrency(eligible,2,async(r)=>{r.whaleActivity=await whaleActivityForRecord(r).catch(e=>({error:e.message}));});
-  const file=save('capture',{modelPlan,capturedAt:at,records:eligible,board});console.log(JSON.stringify({at:new Date().toISOString(),file,recorded:eligible.length,boardRows:board.board.length,rejected:board.rejected}));
+  const file=save('capture',{modelPlan,capturedAt:at,records:eligible,allRecords,board});console.log(JSON.stringify({at:new Date().toISOString(),file,recorded:eligible.length,allRecorded:allRecords.length,boardRows:board.board.length,rejected:board.rejected}));
  }else if(process.argv[2]==='grade') {
   const pending=records();
   if(!pending.length){logSkip('No ungraded capture data pending for prior dates');return;}

@@ -36,14 +36,22 @@ async function main(){
   // game for marketTrust grading, so it's safe to keep capturing the same game across repeated
   // ~20-minute cron runs within its pregame window; line-movement.js reads every capture file
   // undeduped to chain them.
-  const board=await getKalshiBoard({maxMinutesToPitch:60}),at=new Date().toISOString();
+  // Fetch unrestricted (no maxMinutesToPitch) so this one capture cycle serves both: `records`,
+  // marketTrust's own <=60-minute-before-first-pitch definition (unchanged), and `allRecords`,
+  // every pregame game with a usable quote regardless of time to first pitch -- added for #42 so
+  // lib/kalshi-capture-store.js can serve the live site's Kalshi-primary pick all day, not just in
+  // the final hour before first pitch (see scripts/kalshi-forward-fullgame.js's matching fix for
+  // the full-game side, same reasoning).
+  const board=await getKalshiBoard(),at=new Date().toISOString();
   const eligible=board.board.filter(r=>Date.parse(r.firstPitchUtc)-Date.parse(at)<=3600000).map(r=>capture(r,at)).filter(Boolean);
+  const allRecords=board.board.map(r=>capture(r,at)).filter(Boolean);
   // Whale/large-trade detection (new, exploratory -- see FEATURE-WISHLIST.md): pulled in the same
   // capture cycle so it lands in the same capture-*.json record as the existing quote data,
   // additive fields only (see lib/kalshi-results.js's readResults, which only reads specific named
-  // fields off each record and is unaffected by new ones).
+  // fields off each record and is unaffected by new ones). Only computed for the marketTrust-eligible
+  // set (unchanged scope/cost).
   await mapWithConcurrency(eligible,2,async(r)=>{r.whaleActivity=await whaleActivityForRecord(r).catch(e=>({error:e.message}));});
-  const file=save('capture',{plan,capturedAt:at,records:eligible,board});console.log(JSON.stringify({at:new Date().toISOString(),file,recorded:eligible.length,boardRows:board.board.length,rejected:board.rejected}));
+  const file=save('capture',{plan,capturedAt:at,records:eligible,allRecords,board});console.log(JSON.stringify({at:new Date().toISOString(),file,recorded:eligible.length,allRecorded:allRecords.length,boardRows:board.board.length,rejected:board.rejected}));
  }else if(process.argv[2]==='grade') {
   const pending=records();
   if(!pending.length){logSkip('No ungraded capture data pending for prior dates');return;}
