@@ -81,6 +81,27 @@ button:disabled { opacity: .55; cursor: not-allowed; box-shadow: none; }
 .badge.badge--loss { color: #fca5a5; border-color: rgba(239,68,68,.5); background: rgba(69,10,10,.5); }
 .badge.badge--tie { color: #fde68a; border-color: rgba(234,179,8,.5); background: rgba(66,32,6,.5); }
 
+/* --- compact W/L/T result pill: single bold letter in a colored circle, readable at a glance --- */
+.resultPill { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-size: 13px; font-weight: 900; line-height: 1; flex: none; }
+.resultPill.pill--win { color: #052e16; background: #4ade80; box-shadow: 0 0 0 2px rgba(74,222,128,.35); }
+.resultPill.pill--loss { color: #450a0a; background: #f87171; box-shadow: 0 0 0 2px rgba(248,113,113,.35); }
+.resultPill.pill--tie { color: #422006; background: #fbbf24; box-shadow: 0 0 0 2px rgba(251,191,36,.35); }
+
+/* --- pared-down "why" explanation: top model factors by |contribution|, not a raw stat dump --- */
+.topFactors { margin: 16px 0; }
+.topFactors ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.topFactors li { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-radius: 12px; padding: 10px 12px; background: rgba(17,24,39,.5); border: 1px solid rgba(148,163,184,.14); }
+.topFactors li span:first-child { color: #e2e8f0; font-size: 13px; font-weight: 600; }
+.topFactors .factorValue { display: flex; align-items: center; gap: 8px; }
+.topFactors strong { font-variant-numeric: tabular-nums; font-size: 14px; }
+.topFactors li.factor--for strong { color: #86efac; }
+.topFactors li.factor--against strong { color: #fca5a5; }
+.topFactors .factorDir { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; font-weight: 800; padding: 3px 7px; border-radius: 999px; }
+.topFactors li.factor--for .factorDir { color: #86efac; background: rgba(5,46,22,.6); }
+.topFactors li.factor--against .factorDir { color: #fca5a5; background: rgba(69,10,10,.6); }
+.starterLines { display: grid; gap: 4px; margin: 12px 0; }
+.starterLines p { margin: 0; color: #94a3b8; font-size: 13px; }
+
 .tileBody { padding: 0 18px 20px; border-top: 1px solid rgba(148,163,184,.12); padding-top: 16px; }
 
 .cardTop { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }

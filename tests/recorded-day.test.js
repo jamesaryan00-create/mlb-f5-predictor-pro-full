@@ -37,3 +37,16 @@ test('legacy file labeled f5-legacy, no F5 secondary summary', () => withTempCwd
   const r = getRecordedDay('2026-09-21');
   assert.equal(r.games[0].recordedPick.trackedModel, 'f5-legacy'); assert.equal(r.summary.f5Secondary, null); assert.equal(r.summary.primary.ties, 1);
 }));
+
+test('surfaces topFactors when present on the recorded pick', () => withTempCwd((dir) => {
+  const topFactors = [{ feature: 'homeFullRunDiff', label: 'Season run differential edge', contribution: 0.09, direction: 'for' }];
+  fs.writeFileSync(path.join(dir, 'picks-2026-09-22.json'), JSON.stringify({ trackedModel: 'full-game', picks: [pick({ topFactors })] }));
+  const r = getRecordedDay('2026-09-22');
+  assert.deepEqual(r.games[0].recordedPick.topFactors, topFactors);
+}));
+
+test('omits topFactors gracefully for a legacy picks file that predates the field, without crashing', () => withTempCwd((dir) => {
+  fs.writeFileSync(path.join(dir, 'picks-2026-09-22.json'), JSON.stringify({ trackedModel: 'full-game', picks: [pick({})] }));
+  const r = getRecordedDay('2026-09-22');
+  assert.equal(r.games[0].recordedPick.topFactors, null);
+}));

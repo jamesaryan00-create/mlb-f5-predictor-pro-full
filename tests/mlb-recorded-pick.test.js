@@ -134,3 +134,24 @@ test('calculateGamePrediction attaches recordedPick/recordedResult only when the
     assert.equal(upcoming.recordedResult, null);
   });
 });
+
+test('getRecordedPickAndResult surfaces topFactors when the pick record has them', () => {
+  withTempCwd((dir) => {
+    const topFactors = [{ feature: 'homePitcherFipDiff', label: 'Starting pitcher FIP edge', contribution: 0.06, direction: 'for' }];
+    fs.writeFileSync(path.join(dir, 'data', 'model-forward', 'picks-2026-09-22.json'), JSON.stringify({ trackedModel: 'full-game', picks: [
+      { gamePk: 777, available: true, pickTeam: 'New York Yankees', pickSide: 'HOME', confidence: 0.634, topFactors }
+    ] }));
+    const r = getRecordedPickAndResult(777, '2026-09-22');
+    assert.deepEqual(r.recordedPick.topFactors, topFactors);
+  });
+});
+
+test('getRecordedPickAndResult omits topFactors gracefully for a legacy picks file that predates the field', () => {
+  withTempCwd((dir) => {
+    fs.writeFileSync(path.join(dir, 'data', 'model-forward', 'picks-2026-09-22.json'), JSON.stringify({ picks: [
+      { gamePk: 777, available: true, pickTeam: 'New York Yankees', pickSide: 'HOME', confidence: 0.634 }
+    ] }));
+    const r = getRecordedPickAndResult(777, '2026-09-22');
+    assert.equal(r.recordedPick.topFactors, null);
+  });
+});
