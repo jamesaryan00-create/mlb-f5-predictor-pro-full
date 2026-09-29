@@ -71,13 +71,18 @@ test('live neutral pitcher-difference policy matches training without fabricatin
 // new picks record the full-game model as primary (F5 kept as a secondary field), new grading
 // compares the primary pick to the real final score (never a tie), and pre-fix picks files (no
 // `trackedModel` field) keep grading under the original F5-primary convention untouched.
-const { gradeDate, summarizeForwardRecord, summarizeF5Secondary, f5Provenance, TRACKED_MODEL, dir: mfDir } = require('../lib/model-forward');
+const { gradeDate, summarizeForwardRecord, summarizeF5Secondary, summarizeKalshiPrimaryF5, f5Provenance, f5KalshiProvenance, TRACKED_MODEL, PRIOR_TRACKED_MODEL, dir: mfDir } = require('../lib/model-forward');
 
-test('TRACKED_MODEL marks the current primary convention as full-game', () => {
-  assert.equal(TRACKED_MODEL, 'full-game');
+// FEATURE-WISHLIST.md #41 bumps the tracked convention again, exactly the same one-way-bump
+// pattern #31 established: TRACKED_MODEL is always the CURRENT convention (now Kalshi-primary);
+// PRIOR_TRACKED_MODEL names the immediately-previous one so old 'full-game' records can still be
+// referenced explicitly without a bare string literal.
+test('TRACKED_MODEL marks the current primary convention as kalshi-primary, PRIOR_TRACKED_MODEL as full-game', () => {
+  assert.equal(TRACKED_MODEL, 'kalshi-primary');
+  assert.equal(PRIOR_TRACKED_MODEL, 'full-game');
 });
 
-test('provenance verifies a full-game-primary pick against the full-game model, not the F5 model', () => {
+test('provenance verifies a full-game-primary (#31, PRIOR_TRACKED_MODEL) pick against the full-game model, not the F5 model', () => {
   const fgModel = require('../data/full-game-model.json');
   const { probability: fullGameProbability } = require('../lib/full-game-model');
   const features = { ...fgModel.featureMeans };
@@ -86,10 +91,28 @@ test('provenance verifies a full-game-primary pick against the full-game model, 
   const pick = { gameDate: '2099-01-01T20:00:00Z', officialDate: '2099-01-01', capturedAt: at,
     featuresThroughDate: '2098-12-31', model: fgModel, features, modelSha256: crypto.createHash('sha256').update(JSON.stringify(fgModel)).digest('hex'),
     pickSide: p >= .5 ? 'HOME' : 'AWAY', confidence: Math.max(p, 1 - p) };
-  assert.equal(provenance(pick, { trackedModel: TRACKED_MODEL }), 'verified');
+  assert.equal(provenance(pick, { trackedModel: PRIOR_TRACKED_MODEL }), 'verified');
   // The same pick object is NOT verifiable under the legacy (F5) convention, since the model
   // shape and pipelineVersion differ -- mlProbability rejects it (wrong pipelineVersion guard).
   assert.notEqual(provenance(pick, {}), 'verified');
+});
+
+test('provenance verifies a kalshi-primary (#41, current TRACKED_MODEL) pick against its own Kalshi quote snapshot, not a model formula', () => {
+  const pick = { gameDate: '2099-01-01T20:00:00Z', officialDate: '2099-01-01', capturedAt: '2099-01-01T10:00:00Z',
+    available: true, pickSide: 'HOME', confidence: 0.61, kalshiQuoteTime: '2099-01-01T09:55:00Z' };
+  assert.equal(provenance(pick, { trackedModel: TRACKED_MODEL }), 'verified');
+  assert.equal(provenance({ ...pick, available: false }, { trackedModel: TRACKED_MODEL }), 'legacy-unverified');
+  assert.equal(provenance({ ...pick, kalshiQuoteTime: '2099-01-01T20:05:00Z' }, { trackedModel: TRACKED_MODEL }), 'invalid-cutoff');
+  assert.equal(provenance({ ...pick, capturedAt: '2099-01-01T20:05:00Z' }, { trackedModel: TRACKED_MODEL }), 'retrospective');
+});
+
+test('f5KalshiProvenance verifies the F5 leg of a kalshi-primary record against its own Kalshi quote snapshot', () => {
+  const pick = { gameDate: '2099-01-01T20:00:00Z', officialDate: '2099-01-01', capturedAt: '2099-01-01T10:00:00Z',
+    f5Available: true, f5PickSide: 'AWAY', f5Confidence: 0.59, f5KalshiQuoteTime: '2099-01-01T09:55:00Z' };
+  assert.equal(f5KalshiProvenance(pick, { trackedModel: TRACKED_MODEL }), 'verified');
+  assert.equal(f5KalshiProvenance({ ...pick, f5Available: false }, { trackedModel: TRACKED_MODEL }), 'legacy-unverified');
+  // Not applicable to a non-kalshi-primary record at all.
+  assert.equal(f5KalshiProvenance(pick, { trackedModel: PRIOR_TRACKED_MODEL }), 'legacy-unverified');
 });
 
 test('f5Provenance verifies the secondary F5 pick kept on a full-game-primary record', () => {
@@ -216,4 +239,148 @@ test('old F5-only pick records (pre-dating model/features/capturedAt fields) sti
    // These fixtures predate modelSha256/capturedAt capture, so they cannot claim 'verified'.
    if(!p.modelSha256 || !p.capturedAt) assert.notEqual(prov,'verified');
  }
+});
+
+// FEATURE-WISHLIST.md #41: gradeDate() for a 'kalshi-primary' record grades the full-game leg
+// (Kalshi full-game price) against the real final score, and the F5 leg (Kalshi F5 price)
+// against firstFiveRuns, completely independently -- neither leg's availability gates the other.
+test('gradeDate grades a kalshi-primary record: full-game leg against the real final score (no tie), F5 leg against firstFiveRuns (tie possible), independently', async () => {
+  await withTempCwd(async () => {
+    const tmpDate = '2099-02-01';
+    const file = pickFileFor(tmpDate);
+    fs.mkdirSync(mfDir(), { recursive: true });
+    const record = {
+      version: 'model-forward-v3', trackedModel: 'kalshi-primary', date: tmpDate, generatedAt: '2099-02-01T00:00:00Z',
+      picks: [{ gamePk: 999003, away: 'Away Team', home: 'Home Team', awayId: 1, homeId: 2, officialDate: tmpDate, gameDate: '2099-02-01T20:00:00Z',
+        available: true, pickSide: 'HOME', pickTeam: 'Home Team', confidence: 0.61, kalshiQuoteTime: '2099-02-01T19:55:00Z',
+        f5Available: true, f5PickSide: 'AWAY', f5PickTeam: 'Away Team', f5Confidence: 0.59, f5KalshiQuoteTime: '2099-02-01T19:55:00Z' }]
+    };
+    fs.writeFileSync(file, JSON.stringify(record, null, 2), { flag: 'wx' });
+
+    const origFetch = global.fetch;
+    global.fetch = async () => ({ ok: true, json: async () => ({ dates: [{ games: [{
+      gamePk: 999003, officialDate: tmpDate, gameDate: '2099-02-01T20:00:00Z',
+      teams: { home: { team: { id: 2 } }, away: { team: { id: 1 } } },
+      status: { detailedState: 'Final' },
+      linescore: { teams: { home: { runs: 5 }, away: { runs: 3 } },
+        innings: [1,2,3,4,5].map((n) => ({ num: n, home: { runs: n <= 3 ? 0 : 1 }, away: { runs: n <= 2 ? 1 : (n === 4 ? 1 : 0) } })) }
+    }] }] }) });
+    let report;
+    try { report = await gradeDate(tmpDate); } finally { global.fetch = origFetch; }
+
+    const row = report.results[0];
+    assert.equal(row.trackedModel, 'kalshi-primary');
+    // Full-game leg: HOME won 5-3, pick was HOME -> win.
+    assert.equal(row.fgStatus, 'graded');
+    assert.equal(row.result, 'HOME');
+    assert.equal(row.win, true);
+    assert.equal(row.tie, false);
+    // F5 leg: away led 3-2 through 5, pick was AWAY -> win, no tie.
+    assert.equal(row.f5Status, 'graded');
+    assert.equal(row.f5Result, 'AWAY');
+    assert.equal(row.f5Win, true);
+    assert.equal(row.f5Tie, false);
+  });
+});
+
+test('gradeDate grades the F5 leg of a kalshi-primary record as excluded when no F5 Kalshi price existed, while the full-game leg still grades normally', async () => {
+  await withTempCwd(async () => {
+    const tmpDate = '2099-02-02';
+    const file = pickFileFor(tmpDate);
+    fs.mkdirSync(mfDir(), { recursive: true });
+    const record = {
+      version: 'model-forward-v3', trackedModel: 'kalshi-primary', date: tmpDate, generatedAt: '2099-02-02T00:00:00Z',
+      picks: [{ gamePk: 999004, away: 'Away Team', home: 'Home Team', awayId: 1, homeId: 2, officialDate: tmpDate, gameDate: '2099-02-02T20:00:00Z',
+        available: true, pickSide: 'AWAY', pickTeam: 'Away Team', confidence: 0.6, kalshiQuoteTime: '2099-02-02T19:55:00Z',
+        f5Available: false, f5PickSide: null, f5Reason: 'No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)' }]
+    };
+    fs.writeFileSync(file, JSON.stringify(record, null, 2), { flag: 'wx' });
+
+    const origFetch = global.fetch;
+    global.fetch = async () => ({ ok: true, json: async () => ({ dates: [{ games: [{
+      gamePk: 999004, officialDate: tmpDate, gameDate: '2099-02-02T20:00:00Z',
+      teams: { home: { team: { id: 2 } }, away: { team: { id: 1 } } },
+      status: { detailedState: 'Final' },
+      linescore: { teams: { home: { runs: 1 }, away: { runs: 6 } } }
+    }] }] }) });
+    let report;
+    try { report = await gradeDate(tmpDate); } finally { global.fetch = origFetch; }
+
+    const row = report.results[0];
+    assert.equal(row.fgStatus, 'graded');
+    assert.equal(row.result, 'AWAY');
+    assert.equal(row.win, true);
+    assert.equal(row.f5Status, 'excluded');
+    assert.match(row.f5Reason, /No usable live Kalshi price for the F5 market|No live Kalshi price for the F5 market/);
+  });
+});
+
+test('summarize({trackedModel:"kalshi-primary"}) and summarizeKalshiPrimaryF5() report the two kalshi-primary markets separately, never blended with each other or with fullGame/legacyF5Primary', () => {
+  const reports = [{ results: [
+    { status: 'graded', fgStatus: 'graded', f5Status: 'excluded', provenance: 'verified', trackedModel: 'kalshi-primary', win: true, tie: false, confidence: 0.61, f5Confidence: null },
+    { status: 'excluded', fgStatus: 'excluded', f5Status: 'graded', provenance: 'verified', f5Provenance: 'verified', trackedModel: 'kalshi-primary', win: null, tie: false, confidence: null, f5Win: false, f5Tie: false, f5Confidence: 0.58 },
+    { status: 'graded', provenance: 'verified', trackedModel: 'full-game', win: true, tie: false, confidence: 0.6 },
+    { status: 'graded', provenance: 'verified', trackedModel: 'f5-legacy', win: false, tie: true, confidence: 0.55 }
+  ] }];
+  const record = summarizeForwardRecord(reports);
+  assert.equal(record.kalshiPrimaryFullGame.picks, 1);
+  assert.equal(record.kalshiPrimaryFullGame.wins, 1);
+  assert.equal(record.kalshiPrimaryF5.picks, 1);
+  assert.equal(record.kalshiPrimaryF5.wins, 0);
+  assert.equal(record.kalshiPrimaryF5.losses, 1);
+  // Never blended with the prior conventions' cohorts.
+  assert.equal(record.fullGame.picks, 1);
+  assert.equal(record.legacyF5Primary.picks, 1);
+});
+
+// Regression test for the exact class of bug FEATURE-WISHLIST.md #31 documents: introducing a new
+// tracked convention must NEVER change how an already-written picks file grades or summarizes.
+test('REGRESSION (#31-class bug): existing full-game and legacy picks files grade and summarize identically after the #41 kalshi-primary convention was added', async () => {
+  await withTempCwd(async () => {
+    const tmpDate = '2099-03-01';
+    const file = pickFileFor(tmpDate);
+    fs.mkdirSync(mfDir(), { recursive: true });
+    const record = {
+      version: 'model-forward-v2', trackedModel: 'full-game', date: tmpDate, generatedAt: '2099-03-01T00:00:00Z',
+      picks: [{ gamePk: 999005, away: 'Away Team', home: 'Home Team', awayId: 1, homeId: 2, officialDate: tmpDate, gameDate: '2099-03-01T20:00:00Z',
+        available: true, pickSide: 'HOME', pickTeam: 'Home Team', confidence: 0.6,
+        f5PickSide: 'AWAY', f5PickTeam: 'Away Team', f5Confidence: 0.55 }]
+    };
+    fs.writeFileSync(file, JSON.stringify(record, null, 2), { flag: 'wx' });
+
+    const origFetch = global.fetch;
+    global.fetch = async () => ({ ok: true, json: async () => ({ dates: [{ games: [{
+      gamePk: 999005, officialDate: tmpDate, gameDate: '2099-03-01T20:00:00Z',
+      teams: { home: { team: { id: 2 } }, away: { team: { id: 1 } } },
+      status: { detailedState: 'Final' },
+      linescore: { teams: { home: { runs: 5 }, away: { runs: 3 } },
+        innings: [1,2,3,4,5].map(() => ({ home: { runs: 1 }, away: { runs: 0.6 } })) }
+    }] }] }) });
+    let report;
+    try { report = await gradeDate(tmpDate); } finally { global.fetch = origFetch; }
+
+    // Byte-for-byte the same assertions as the pre-#41 test at the top of this file
+    // ('gradeDate grades a full-game-primary record...') -- proves #41 did not alter this path.
+    const row = report.results[0];
+    assert.equal(row.trackedModel, 'full-game');
+    assert.equal(row.status, 'graded');
+    assert.equal(row.result, 'HOME');
+    assert.equal(row.win, true);
+    assert.equal(row.tie, false);
+    assert.equal(row.finalHome, 5);
+    assert.equal(row.finalAway, 3);
+    assert.equal(row.fgStatus, undefined, 'a full-game-convention record must not gain kalshi-primary-only fields');
+    assert.equal(row.f5Status, undefined, 'a full-game-convention record must not gain kalshi-primary-only fields');
+
+    // This fixture pick has no model/features/modelSha256/capturedAt (unlike the real historical
+    // fixtures), so its own provenance is 'legacy-unverified', not 'verified' -- pass that cohort
+    // explicitly rather than asserting on the default 'verified' cohort, which is orthogonal to
+    // what this regression test is actually proving (that the #41 kalshi-primary convention did
+    // not change how a 'full-game'-convention record grades or summarizes).
+    const summary = summarizeForwardRecord([report], { cohort: 'legacy-unverified' });
+    assert.equal(summary.fullGame.picks, 1);
+    assert.equal(summary.fullGame.wins, 1);
+    assert.equal(summary.kalshiPrimaryFullGame.picks, 0, 'a full-game-convention record must never appear in the kalshi-primary cohort');
+    assert.equal(summary.kalshiPrimaryF5.picks, 0);
+  });
 });

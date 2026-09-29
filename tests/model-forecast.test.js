@@ -19,7 +19,7 @@ test('F5 pick/confidence are still computed but exposed under f5Prediction, not 
   assert.equal(base.prediction.playable,false);assert.equal(base.prediction.estimatedEV,null);
   assert.equal(calculateGamePrediction({...game,status:'Final'},inputs,null,null).f5Prediction.pick,null);
 });
-test('flaggedF5Alternative appears only when F5 edge clears full-game edge by the documented margin', () => {
+test('flaggedF5Alternative appears only when F5 edge clears full-game edge by the documented margin (F5 secondary flag, independent of Kalshi availability)', () => {
   const game = {gamePk:1, status:'Scheduled',gameDate:new Date(Date.now()+3600000).toISOString(), home:{id:1,name:'Home'},away:{id:2,name:'Away'}};
   const fullGameModel = require('../data/full-game-model.json');
   const fgFeatures = Object.fromEntries(fullGameModel.featureNames.map(n => [n, fullGameModel.featureMeans[n]]));
@@ -29,22 +29,47 @@ test('flaggedF5Alternative appears only when F5 edge clears full-game edge by th
   assert.ok(withFlag.flaggedF5Alternative);
   assert.equal(withFlag.flaggedF5Alternative.pick, withFlag.f5Prediction.pick);
   assert.ok(withFlag.flaggedF5Alternative.edge >= withFlag.flaggedF5Alternative.fullGameEdge + 4);
-  // full-game pick itself is unchanged/not overwritten by the flag
-  assert.equal(withFlag.prediction.pick, withFlag.fullGamePrediction.pick);
+  // The flag is purely informational and never appears as prediction.pick itself.
+  assert.equal(withFlag.prediction.flaggedF5Alternative.pick, withFlag.flaggedF5Alternative.pick);
 
   const noFlag = calculateGamePrediction(game,{historicalFeatures:features, historicalFullGameFeatures: fgFeatures},null,null);
   assert.equal(noFlag.flaggedF5Alternative, null);
   assert.equal(noFlag.prediction.flaggedF5Alternative, null);
 });
-test('the primary actionable prediction.pick is the full-game model, not F5', () => {
+test('FEATURE-WISHLIST.md #41: prediction.pick is driven by the live Kalshi full-game price, not either model', () => {
   const game = {gamePk:1, status:'Scheduled',gameDate:new Date(Date.now()+3600000).toISOString(), home:{id:1,name:'Home'},away:{id:2,name:'Away'}};
   const fullGameModel = require('../data/full-game-model.json');
   const fgFeatures = Object.fromEntries(fullGameModel.featureNames.map(n => [n, fullGameModel.featureMeans[n]]));
   const inputs = { historicalFeatures:features, historicalFullGameFeatures: fgFeatures };
-  const base = calculateGamePrediction(game,inputs,null,null);
-  assert.equal(base.prediction.pick, base.fullGamePrediction.pick);
-  assert.equal(base.prediction.confidence, base.fullGamePrediction.confidence);
-  assert.equal(base.prediction.pipelineVersion, 'full-game-primary-v1');
+
+  // No usable Kalshi price for this game: the pick is plainly unavailable, not silently filled in
+  // from either model, and nothing crashes.
+  const noKalshi = calculateGamePrediction(game,inputs,null,null);
+  assert.equal(noKalshi.kalshiPrimaryFullGame.available, false);
+  assert.equal(noKalshi.prediction.pick, null);
+  assert.equal(noKalshi.prediction.action, 'UNAVAILABLE');
+  assert.match(noKalshi.kalshiPrimaryFullGame.reason, /no live kalshi price/i);
+  // Our full-game model's own pick is still computed and exposed, just not the driver.
+  assert.ok(noKalshi.fullGamePrediction.available);
+  assert.equal(noKalshi.kalshiPrimaryFullGame.modelPick, noKalshi.fullGamePrediction.pick);
+
+  // A usable Kalshi price picks the away side at 61%; our full-game model (by construction, mean
+  // features) is agnostic/near 50-50 and may land on either side -- this test only asserts the
+  // PRIMARY pick follows Kalshi's side, with our model surfaced as an agree/disagree flag.
+  const kalshiRows = { fullGame: { kalshiPickSide: 'AWAY', kalshiPickTeam: 'Away', kalshiConfidence: 0.61, tier: 'PLAY', quoteTime: '2026-09-30T12:00:00Z' }, f5: null };
+  const withKalshi = calculateGamePrediction(game, inputs, null, null, kalshiRows);
+  assert.equal(withKalshi.prediction.pick, 'Away');
+  assert.equal(withKalshi.prediction.confidence, 61);
+  assert.equal(withKalshi.prediction.action, 'KALSHI');
+  assert.equal(withKalshi.kalshiPrimaryFullGame.available, true);
+  assert.equal(withKalshi.kalshiPrimaryFullGame.side, 'away');
+  assert.equal(typeof withKalshi.kalshiPrimaryFullGame.modelAgrees, 'boolean');
+  assert.equal(withKalshi.kalshiPrimaryFullGame.modelAgrees, withKalshi.fullGamePrediction.side === 'away');
+  assert.equal(withKalshi.prediction.pipelineVersion, 'kalshi-primary-v1');
+
+  // F5 Kalshi price is separately unavailable here (thin liquidity is the expected common case) --
+  // must not crash and must not borrow the full-game Kalshi price.
+  assert.equal(withKalshi.kalshiPrimaryF5.available, false);
 });
 test('forecast uses absolute UTC instants, crosses midnight and rejects missing data', () => {
   const hourly = { time:[Date.parse('2026-09-15T00:00:00Z')/1000],temperature_2m:[70],wind_speed_10m:[0],precipitation_probability:[0] };

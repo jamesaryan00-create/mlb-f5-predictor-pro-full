@@ -35,15 +35,28 @@ test('generatePicks() computes and stores topFactors on each recorded pick, from
     const mlb = require('../lib/mlb');
     const historicalF5 = require('../lib/historical-f5');
     const pitcherHistory = require('../lib/pitcher-history');
+    const kalshiBoard = require('../lib/kalshi-board');
+    const kalshiBoardFullGame = require('../lib/kalshi-board-fullgame');
     const origGetSchedule = mlb.getSchedule, origContext = historicalF5.getLiveHistoricalContext,
       origFullVec = historicalF5.liveFullGameFeatureVector, origF5Vec = historicalF5.liveFeatureVector,
-      origQuality = pitcherHistory.liveRollingPitcherQuality, origFetch = global.fetch;
+      origQuality = pitcherHistory.liveRollingPitcherQuality, origFetch = global.fetch,
+      origFgMarkets = kalshiBoardFullGame.getLiveMarkets, origFgQuotes = kalshiBoardFullGame.getKalshiFullGameQuoteRows,
+      origF5Markets = kalshiBoard.getLiveMarkets, origF5Quotes = kalshiBoard.getKalshiQuoteRows;
 
     mlb.getSchedule = async () => [scheduleGame];
     historicalF5.getLiveHistoricalContext = async () => ({ throughDate: '2026-09-29' });
     historicalF5.liveFullGameFeatureVector = () => features;
     historicalF5.liveFeatureVector = () => null; // F5 secondary unavailable; only the full-game path matters here
     pitcherHistory.liveRollingPitcherQuality = async () => null;
+    // FEATURE-WISHLIST.md #41: generatePicks() now requires a live Kalshi full-game price to
+    // record a pick at all. This test is about topFactors (the model-agree explanation), not the
+    // Kalshi fetch itself, so stub a usable full-game quote and leave F5 unavailable (matching
+    // real-world thin F5 liquidity -- irrelevant to what this test asserts).
+    kalshiBoardFullGame.getLiveMarkets = async () => [{}];
+    const quoteTime = new Date(Date.parse(gameDate) - 5 * 60000).toISOString();
+    kalshiBoardFullGame.getKalshiFullGameQuoteRows = async () => ({ board: [{ gamePk: 555, kalshiPickSide: 'HOME', kalshiPickTeam: 'Home Team', kalshiConfidence: 0.61, tier: 'PLAY', quoteTime }] });
+    kalshiBoard.getLiveMarkets = async () => [];
+    kalshiBoard.getKalshiQuoteRows = async () => ({ board: [] });
     global.fetch = async (url) => {
       if (String(url).includes('schedule')) {
         return {
@@ -63,15 +76,21 @@ test('generatePicks() computes and stores topFactors on each recorded pick, from
       const written = JSON.parse(fs.readFileSync(path.join(dir, 'data', 'model-forward', 'picks-2026-09-30.json'), 'utf8'));
       const p = written.picks.find((x) => x.gamePk === 555);
       assert.ok(p.available, 'expected the pick to be recorded as available');
+      assert.equal(written.trackedModel, 'kalshi-primary');
       assert.ok(Array.isArray(p.topFactors) && p.topFactors.length > 0, 'expected topFactors to be stored on the recorded pick');
       assert.equal(p.topFactors[0].feature, 'homePitcherFipDiff');
       assert.equal(p.topFactors[0].label, 'Starting pitcher FIP edge');
+      assert.equal(p.f5Available, false, 'F5 Kalshi price was stubbed unavailable, matching thin real-world F5 liquidity');
     } finally {
       mlb.getSchedule = origGetSchedule;
       historicalF5.getLiveHistoricalContext = origContext;
       historicalF5.liveFullGameFeatureVector = origFullVec;
       historicalF5.liveFeatureVector = origF5Vec;
       pitcherHistory.liveRollingPitcherQuality = origQuality;
+      kalshiBoardFullGame.getLiveMarkets = origFgMarkets;
+      kalshiBoardFullGame.getKalshiFullGameQuoteRows = origFgQuotes;
+      kalshiBoard.getLiveMarkets = origF5Markets;
+      kalshiBoard.getKalshiQuoteRows = origF5Quotes;
       global.fetch = origFetch;
     }
   });
