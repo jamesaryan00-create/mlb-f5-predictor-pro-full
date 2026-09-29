@@ -1,0 +1,236 @@
+{
+  "plan": {
+    "version": 1,
+    "start": "2026-09-14T07:33:45.638Z",
+    "end": "2026-10-14T07:33:45.638Z",
+    "baseline": 0.58,
+    "candidate": 0.62,
+    "metric": "Wins / (wins + losses + ties)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch; same snapshot for both rules. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded candidate picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-09-29T17:20:10.210Z",
+  "records": [
+    {
+      "gamePk": 849845,
+      "officialDate": "2026-09-29",
+      "homeId": 144,
+      "awayId": 143,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-09-29T17:20:00.000Z",
+          "bid": 0.29,
+          "ask": 0.3,
+          "mid": 0.295,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.04463333333333333
+        },
+        "home": {
+          "time": "2026-09-29T17:19:00.000Z",
+          "bid": 0.52,
+          "ask": 0.53,
+          "mid": 0.525,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 1.0446333333333333
+        },
+        "tie": {
+          "time": "2026-09-29T17:20:00.000Z",
+          "bid": 0.19,
+          "ask": 0.2,
+          "mid": 0.195,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.04463333333333333
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBF5-26SEP291400PHIATL-PHI",
+        "home": "KXMLBF5-26SEP291400PHIATL-ATL",
+        "tie": "KXMLBF5-26SEP291400PHIATL-TIE"
+      },
+      "eventTicker": "KXMLBF5-26SEP291400PHIATL",
+      "awayTeam": "Philadelphia Phillies",
+      "homeTeam": "Atlanta Braves",
+      "firstPitchUtc": "2026-09-29T18:00:00Z",
+      "minutesToPitch": 39.95536666666667,
+      "kalshiAwayRaw": 0.295,
+      "kalshiHomeRaw": 0.525,
+      "kalshiTieRaw": 0.195,
+      "kalshiRawSum": 1.0150000000000001,
+      "kalshiAway3Way": 0.2906403940886699,
+      "kalshiHome3Way": 0.5172413793103448,
+      "kalshiTieProb": 0.1921182266009852,
+      "kalshiAwayProbNoTie": 0.35975609756097554,
+      "kalshiHomeProbNoTie": 0.6402439024390244,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Atlanta Braves",
+      "kalshiConfidence": 0.6402439024390244,
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5693040545371695,
+      "modelAgreesWithKalshi": true,
+      "tier": "STRONG",
+      "quoteTime": "2026-09-29T17:19:00.000Z",
+      "quoteAgeMinutes": 1.1670833333333333,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "tieSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 1,
+      "outcomeQuoteTimes": {
+        "away": "2026-09-29T17:20:00.000Z",
+        "home": "2026-09-29T17:19:00.000Z",
+        "tie": "2026-09-29T17:20:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "capturedAt": "2026-09-29T17:20:10.210Z",
+      "baseline": true,
+      "candidate": true,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": true,
+      "whaleActivity": {
+        "bySide": {
+          "away": {
+            "available": true,
+            "n": 118,
+            "largestDollars": 468.59999999999997,
+            "totalDollars": 5728.253500000002,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 0,
+            "largeTradeDollars": 0,
+            "dollarThreshold": 1000,
+            "yesDollars": 0,
+            "noDollars": 0,
+            "netImbalanceDollars": 0,
+            "direction": null
+          },
+          "home": {
+            "available": true,
+            "n": 200,
+            "largestDollars": 16452.657,
+            "totalDollars": 46519.37750000001,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 10,
+            "largeTradeDollars": 30764.540999999997,
+            "dollarThreshold": 1000,
+            "yesDollars": 11699.482500000002,
+            "noDollars": 19065.0585,
+            "netImbalanceDollars": -7365.575999999997,
+            "direction": "no"
+          },
+          "tie": {
+            "available": true,
+            "n": 104,
+            "largestDollars": 863.55,
+            "totalDollars": 3763.9828999999986,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 0,
+            "largeTradeDollars": 0,
+            "dollarThreshold": 1000,
+            "yesDollars": 0,
+            "noDollars": 0,
+            "netImbalanceDollars": 0,
+            "direction": null
+          }
+        },
+        "pickSide": "home",
+        "dollarsForPick": 11699.482500000002,
+        "dollarsAgainstPick": 19065.0585,
+        "largeTradeDirectionVsPick": "against_pick"
+      }
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi F5 V5",
+    "generatedAt": "2026-09-29T17:20:02.678Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "V5 selects all 58%+ Kalshi favorites, with 62%+ labeled STRONG. Model agreement is diagnostic only and never removes a V5 selection. Improvement must be measured on the same games",
+    "marketsLoaded": 2685,
+    "candidateEvents": 1,
+    "rejected": [],
+    "board": [
+      {
+        "gamePk": 849845,
+        "officialDate": "2026-09-29",
+        "homeId": 144,
+        "awayId": 143,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-09-29T17:20:00.000Z",
+            "bid": 0.29,
+            "ask": 0.3,
+            "mid": 0.295,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04463333333333333
+          },
+          "home": {
+            "time": "2026-09-29T17:19:00.000Z",
+            "bid": 0.52,
+            "ask": 0.53,
+            "mid": 0.525,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 1.0446333333333333
+          },
+          "tie": {
+            "time": "2026-09-29T17:20:00.000Z",
+            "bid": 0.19,
+            "ask": 0.2,
+            "mid": 0.195,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.04463333333333333
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBF5-26SEP291400PHIATL-PHI",
+          "home": "KXMLBF5-26SEP291400PHIATL-ATL",
+          "tie": "KXMLBF5-26SEP291400PHIATL-TIE"
+        },
+        "eventTicker": "KXMLBF5-26SEP291400PHIATL",
+        "awayTeam": "Philadelphia Phillies",
+        "homeTeam": "Atlanta Braves",
+        "firstPitchUtc": "2026-09-29T18:00:00Z",
+        "minutesToPitch": 39.95536666666667,
+        "kalshiAwayRaw": 0.295,
+        "kalshiHomeRaw": 0.525,
+        "kalshiTieRaw": 0.195,
+        "kalshiRawSum": 1.0150000000000001,
+        "kalshiAway3Way": 0.2906403940886699,
+        "kalshiHome3Way": 0.5172413793103448,
+        "kalshiTieProb": 0.1921182266009852,
+        "kalshiAwayProbNoTie": 0.35975609756097554,
+        "kalshiHomeProbNoTie": 0.6402439024390244,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "Atlanta Braves",
+        "kalshiConfidence": 0.6402439024390244,
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5693040545371695,
+        "modelAgreesWithKalshi": true,
+        "tier": "STRONG",
+        "quoteTime": "2026-09-29T17:19:00.000Z",
+        "quoteAgeMinutes": 1.1670833333333333,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "tieSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 1,
+        "outcomeQuoteTimes": {
+          "away": "2026-09-29T17:20:00.000Z",
+          "home": "2026-09-29T17:19:00.000Z",
+          "tie": "2026-09-29T17:20:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Pre-Game"
+      }
+    ]
+  }
+}
