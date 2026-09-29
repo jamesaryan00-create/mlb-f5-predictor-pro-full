@@ -1,7 +1,7 @@
 {
   "pipelineVersion": "f5-history-v3-pitcher-quality",
   "version": "trained-history-v3-pitcher-quality-2010-2026",
-  "trainedAt": "2026-09-17T19:54:12.599Z",
+  "trainedAt": "2026-09-29T06:06:29.979Z",
   "trainingSeasons": [
     2010,
     2011,
@@ -21,7 +21,7 @@
     2025,
     2026
   ],
-  "throughDate": "2026-09-16",
+  "throughDate": "2026-09-27",
   "type": "logistic-regression-standardized",
   "target": "F5 moneyline winner; ties are pushes and excluded from binary training",
   "featureNames": [
@@ -35,47 +35,45 @@
     "homePitcherFipDiff"
   ],
   "featureMeans": {
-    "homeWinPctDiff": -0.0001205502513010671,
-    "homeF5RunDiff": -0.003440900440050012,
-    "homeRecentRunDiff": -0.05669360948840527,
-    "homePitchingRunDiff": -0.0044037186576022635,
-    "homeParkFactor": -8.62453531598486e-05,
-    "homeRestDiff": 0.001754646840148699,
-    "homePitcherWhipDiff": -0.003927181727666957,
-    "homePitcherFipDiff": -0.015086158807402161
+    "homeWinPctDiff": -0.0001541789752853369,
+    "homeF5RunDiff": -0.003639244545085216,
+    "homeRecentRunDiff": -0.057194328613057524,
+    "homePitchingRunDiff": -0.004579241377414376,
+    "homeParkFactor": -0.00007438138983552847,
+    "homeRestDiff": 0.0017187731515780115,
+    "homePitcherWhipDiff": -0.004070297247358158,
+    "homePitcherFipDiff": -0.015603801721597187
   },
   "featureScales": {
-    "homeWinPctDiff": 0.12261021816160668,
-    "homeF5RunDiff": 0.8424629054581116,
-    "homeRecentRunDiff": 1.8959293343981938,
-    "homePitchingRunDiff": 0.5554338981092878,
-    "homeParkFactor": 0.03413515663676572,
-    "homeRestDiff": 0.30562977705007066,
-    "homePitcherWhipDiff": 0.425542617119545,
-    "homePitcherFipDiff": 1.6655601396596917
+    "homeWinPctDiff": 0.12250610363809766,
+    "homeF5RunDiff": 0.8416448952556941,
+    "homeRecentRunDiff": 1.8984314621169887,
+    "homePitchingRunDiff": 0.5552385161430661,
+    "homeParkFactor": 0.03414919082122797,
+    "homeRestDiff": 0.30571677160544275,
+    "homePitcherWhipDiff": 0.42575554589020226,
+    "homePitcherFipDiff": 1.6673370964347687
   },
   "weights": {
-    "bias": 0.14469703046211138,
-    "homeWinPctDiff": 0.1049724254530965,
-    "homeF5RunDiff": 0.07524814135394751,
-    "homeRecentRunDiff": 0.0041456975051421515,
-    "homePitchingRunDiff": 0.025170360834623443,
-    "homeParkFactor": 0.01675207977273836,
-    "homeRestDiff": 0.022057934000480926,
-    "homePitcherWhipDiff": 0.05750884234494838,
-    "homePitcherFipDiff": 0.11335183322811312
+    "bias": 0.14419843642693556,
+    "homeWinPctDiff": 0.10623666196397914,
+    "homeF5RunDiff": 0.07513140756687933,
+    "homeRecentRunDiff": 0.005605168752723264,
+    "homePitchingRunDiff": 0.023918214392428444,
+    "homeParkFactor": 0.014611497169183904,
+    "homeRestDiff": 0.02245383431372121,
+    "homePitcherWhipDiff": 0.058167424298401896,
+    "homePitcherFipDiff": 0.11316461417763768
   },
   "overlayHomeF5RunWeight": 0.671054,
   "metrics": {
-    "walkForwardLogLoss": 0.6815374806918156,
-    "walkForwardBrier": 0.24417075125181825,
-    "games": 33625,
-    "trainingLogLoss": 0.6816,
-    "walkForwardWins": 15399,
-    "walkForwardLosses": 12034,
-    "walkForwardPushes": 4858,
-    "walkForwardWinPct": 47.69,
-    "walkForwardWinPctDecided": 56.13
-  },
-  "missingPitcherPolicy": "Neutral difference zero; historical training and live inference"
+    "walkForwardLogLoss": 0.6814777519637707,
+    "walkForwardBrier": 0.24414208357144676,
+    "games": 33745,
+    "trainingLogLoss": 0.6815,
+    "walkForwardWins": 15472,
+    "walkForwardLosses": 12081,
+    "walkForwardPushes": 4882,
+    "walkForwardWinPct": 47.7
+  }
 }

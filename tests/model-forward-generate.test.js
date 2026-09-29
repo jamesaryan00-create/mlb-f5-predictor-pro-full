@@ -27,7 +27,7 @@ test('generatePicks() computes and stores topFactors on each recorded pick, from
 
     const gameDate = new Date(Date.now() + 1000 * 60 * 60 * 4).toISOString();
     const scheduleGame = {
-      gamePk: 555, officialDate: '2026-09-25', gameDate, status: 'Scheduled',
+      gamePk: 555, officialDate: '2026-09-30', gameDate, status: 'Scheduled',
       home: { id: 1, name: 'Home Team', probablePitcher: { id: 11 } },
       away: { id: 2, name: 'Away Team', probablePitcher: { id: 22 } }
     };
@@ -40,7 +40,7 @@ test('generatePicks() computes and stores topFactors on each recorded pick, from
       origQuality = pitcherHistory.liveRollingPitcherQuality, origFetch = global.fetch;
 
     mlb.getSchedule = async () => [scheduleGame];
-    historicalF5.getLiveHistoricalContext = async () => ({ throughDate: '2026-09-24' });
+    historicalF5.getLiveHistoricalContext = async () => ({ throughDate: '2026-09-29' });
     historicalF5.liveFullGameFeatureVector = () => features;
     historicalF5.liveFeatureVector = () => null; // F5 secondary unavailable; only the full-game path matters here
     pitcherHistory.liveRollingPitcherQuality = async () => null;
@@ -58,9 +58,9 @@ test('generatePicks() computes and stores topFactors on each recorded pick, from
 
     try {
       const { generatePicks } = require('../lib/model-forward');
-      const res = await generatePicks('2026-09-25');
+      const res = await generatePicks('2026-09-30');
       assert.equal(res.skipped, false);
-      const written = JSON.parse(fs.readFileSync(path.join(dir, 'data', 'model-forward', 'picks-2026-09-25.json'), 'utf8'));
+      const written = JSON.parse(fs.readFileSync(path.join(dir, 'data', 'model-forward', 'picks-2026-09-30.json'), 'utf8'));
       const p = written.picks.find((x) => x.gamePk === 555);
       assert.ok(p.available, 'expected the pick to be recorded as available');
       assert.ok(Array.isArray(p.topFactors) && p.topFactors.length > 0, 'expected topFactors to be stored on the recorded pick');
