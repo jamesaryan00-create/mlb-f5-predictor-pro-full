@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-15",
-  "gradedAt": "2026-09-29T06:23:34.097Z",
+  "gradedAt": "2026-09-29T05:30:03.956Z",
   "results": [
     {
       "gamePk": 824466,
@@ -22,6 +22,7 @@
       "f5Away": 3,
       "result": "AWAY",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -43,6 +44,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -64,6 +66,7 @@
       "f5Away": 2,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -85,6 +88,7 @@
       "f5Away": 1,
       "result": "AWAY",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -106,6 +110,7 @@
       "f5Away": 3,
       "result": "TIE",
       "win": false,
+      "threeWayWin": null,
       "tie": true
     },
     {
@@ -127,6 +132,7 @@
       "f5Away": 5,
       "result": "AWAY",
       "win": false,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -148,6 +154,7 @@
       "f5Away": 2,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -169,6 +176,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -190,6 +198,7 @@
       "f5Away": 3,
       "result": "AWAY",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -211,6 +220,7 @@
       "f5Away": 8,
       "result": "AWAY",
       "win": false,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -232,6 +242,7 @@
       "f5Away": 2,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -253,6 +264,7 @@
       "f5Away": 1,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -274,6 +286,7 @@
       "f5Away": 3,
       "result": "AWAY",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -295,6 +308,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -316,6 +330,7 @@
       "f5Away": 1,
       "result": "TIE",
       "win": false,
+      "threeWayWin": null,
       "tie": true
     }
   ]

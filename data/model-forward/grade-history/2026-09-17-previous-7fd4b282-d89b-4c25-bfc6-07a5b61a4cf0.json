@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-17",
-  "gradedAt": "2026-09-29T06:23:36.684Z",
+  "gradedAt": "2026-09-29T05:30:06.975Z",
   "results": [
     {
       "gamePk": 824141,
@@ -22,6 +22,7 @@
       "f5Away": 1,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -43,6 +44,7 @@
       "f5Away": 1,
       "result": "AWAY",
       "win": false,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -64,6 +66,7 @@
       "f5Away": 1,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -85,6 +88,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -106,6 +110,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     }
   ]

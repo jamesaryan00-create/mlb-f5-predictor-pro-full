@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v2",
   "date": "2026-09-20",
-  "gradedAt": "2026-09-29T06:23:41.636Z",
+  "gradedAt": "2026-09-29T05:30:12.429Z",
   "results": [
     {
       "gamePk": 823570,
@@ -122,6 +122,7 @@
       "f5Away": 4,
       "result": "AWAY",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -243,6 +244,7 @@
       "f5Away": 1,
       "result": "TIE",
       "win": false,
+      "threeWayWin": null,
       "tie": true
     },
     {
@@ -483,6 +485,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -604,6 +607,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -725,6 +729,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -846,6 +851,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": false,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -967,6 +973,7 @@
       "f5Away": 1,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -1088,6 +1095,7 @@
       "f5Away": 3,
       "result": "AWAY",
       "win": false,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -1209,6 +1217,7 @@
       "f5Away": 1,
       "result": "AWAY",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -1330,6 +1339,7 @@
       "f5Away": 3,
       "result": "AWAY",
       "win": false,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -1570,6 +1580,7 @@
       "f5Away": 0,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -1691,6 +1702,7 @@
       "f5Away": 4,
       "result": "HOME",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     },
     {
@@ -1812,6 +1824,7 @@
       "f5Away": 2,
       "result": "AWAY",
       "win": true,
+      "threeWayWin": null,
       "tie": false
     }
   ]
