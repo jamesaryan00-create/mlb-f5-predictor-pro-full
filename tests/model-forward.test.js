@@ -45,11 +45,11 @@ test('backfills and legacy picks cannot enter the verified primary record',()=>{
 });
 test('model provenance verifies hash, exact output and training cutoff',()=>{
  const model=require('../data/model.json'),features={...model.featureMeans};
- const p=mlProbability(features,model),at='2026-09-19T10:00:00Z';
- const pick={gameDate:'2026-09-19T20:00:00Z',officialDate:'2026-09-19',capturedAt:at,featuresThroughDate:'2026-09-18',model,features,modelSha256:crypto.createHash('sha256').update(JSON.stringify(model)).digest('hex'),pickSide:p>=.5?'HOME':'AWAY',confidence:Math.max(p,1-p)};
+ const p=mlProbability(features,model),at='2026-09-30T10:00:00Z';
+ const pick={gameDate:'2026-09-30T20:00:00Z',officialDate:'2026-09-30',capturedAt:at,featuresThroughDate:'2026-09-29',model,features,modelSha256:crypto.createHash('sha256').update(JSON.stringify(model)).digest('hex'),pickSide:p>=.5?'HOME':'AWAY',confidence:Math.max(p,1-p)};
  assert.equal(provenance(pick,{}),'verified');
  assert.equal(provenance({...pick,modelSha256:'bad'},{}),'invalid-model');
- assert.equal(provenance({...pick,featuresThroughDate:'2026-09-19'},{}),'invalid-cutoff');
+ assert.equal(provenance({...pick,featuresThroughDate:'2026-09-30'},{}),'invalid-cutoff');
  assert.equal(provenance({...pick,confidence:.99},{}),'invalid-prediction');
 });
 test('live neutral pitcher-difference policy matches training without fabricating source stats',()=>{
@@ -96,9 +96,9 @@ test('f5Provenance verifies the secondary F5 pick kept on a full-game-primary re
   const f5Model = require('../data/model.json');
   const f5Features = { ...f5Model.featureMeans };
   const p = mlProbability(f5Features, f5Model);
-  const at = '2026-09-19T10:00:00Z';
-  const pick = { gameDate: '2026-09-19T20:00:00Z', officialDate: '2026-09-19', capturedAt: at,
-    featuresThroughDate: '2026-09-18', f5Model, f5Features, f5ModelSha256: crypto.createHash('sha256').update(JSON.stringify(f5Model)).digest('hex'),
+  const at = '2026-09-30T10:00:00Z';
+  const pick = { gameDate: '2026-09-30T20:00:00Z', officialDate: '2026-09-30', capturedAt: at,
+    featuresThroughDate: '2026-09-29', f5Model, f5Features, f5ModelSha256: crypto.createHash('sha256').update(JSON.stringify(f5Model)).digest('hex'),
     f5PickSide: p >= .5 ? 'HOME' : 'AWAY', f5Confidence: Math.max(p, 1 - p) };
   assert.equal(f5Provenance(pick, {}), 'verified');
   assert.equal(f5Provenance({ ...pick, f5ModelSha256: 'bad' }, {}), 'invalid-model');
