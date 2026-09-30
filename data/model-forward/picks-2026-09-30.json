@@ -1,0 +1,265 @@
+{
+  "version": "model-forward-v3",
+  "trackedModel": "kalshi-primary",
+  "date": "2026-09-30",
+  "generatedAt": "2026-09-30T07:00:15.578Z",
+  "totalGames": 4,
+  "eligibleGames": 4,
+  "note": "Primary pick/grade for each market is the live Kalshi price -- full-game (KXMLBGAME) and F5 (KXMLBF5), tracked completely separately, never blended. Our full-game/F5 models' own picks are kept as agree/disagree flags (fgModelPickSide/fgModelAgreesWithKalshi, f5ModelPickSide/f5ModelAgreesWithKalshi), not the driver of either pick. Records with trackedModel === 'full-game' predate this convention and remain full-game-model-primary; records with no trackedModel field at all predate that and remain F5-model-primary -- see FEATURE-WISHLIST.md #31/#41.",
+  "picks": [
+    {
+      "gamePk": 849841,
+      "away": "Philadelphia Phillies",
+      "home": "Atlanta Braves",
+      "awayId": 143,
+      "homeId": 144,
+      "officialDate": "2026-09-30",
+      "gameDate": "2026-09-30T18:00:00Z",
+      "pitcherIds": {
+        "home": 641816,
+        "away": 650911
+      },
+      "available": false,
+      "pickSide": null,
+      "pickTeam": null,
+      "confidence": null,
+      "kalshiQuoteTime": null,
+      "kalshiTier": null,
+      "reason": "No usable live Kalshi price for the full-game market at capture time",
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Atlanta Braves",
+      "fgModelConfidence": 0.5715028728743697,
+      "fgModelAgreesWithKalshi": null,
+      "topFactors": [
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0586,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.0334,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.0276,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitchingFullRunDiff",
+          "label": "Season pitching run-prevention edge",
+          "contribution": 0.019,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-09-29",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Atlanta Braves",
+      "f5ModelConfidence": 0.55231061841908,
+      "f5ModelAgreesWithKalshi": null
+    },
+    {
+      "gamePk": 849846,
+      "away": "Chicago White Sox",
+      "home": "Houston Astros",
+      "awayId": 145,
+      "homeId": 117,
+      "officialDate": "2026-09-30",
+      "gameDate": "2026-09-30T21:00:00Z",
+      "pitcherIds": {
+        "home": 686613,
+        "away": 680732
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Houston Astros",
+      "confidence": 0.585,
+      "kalshiQuoteTime": "2026-09-30T06:58:00.000Z",
+      "kalshiTier": "PLAY",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Houston Astros",
+      "fgModelConfidence": 0.5271685001627017,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0456,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.0274,
+          "direction": "against"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": -0.0253,
+          "direction": "against"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.0183,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-09-29",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Houston Astros",
+      "f5ModelConfidence": 0.53939401839333,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-09-30T07:00:15.578Z"
+    },
+    {
+      "gamePk": 849848,
+      "away": "Boston Red Sox",
+      "home": "New York Yankees",
+      "awayId": 111,
+      "homeId": 147,
+      "officialDate": "2026-09-30",
+      "gameDate": "2026-10-01T00:00:00Z",
+      "pitcherIds": {
+        "home": 608331,
+        "away": 543243
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "New York Yankees",
+      "confidence": 0.555,
+      "kalshiQuoteTime": "2026-09-30T06:59:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "New York Yankees",
+      "fgModelConfidence": 0.576942873869334,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homeRestDiff",
+          "label": "Rest-days edge",
+          "contribution": 0.0489,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.023,
+          "direction": "for"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": 0.0195,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.019,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-09-29",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "New York Yankees",
+      "f5ModelConfidence": 0.6099261428892627,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-09-30T07:00:15.578Z"
+    },
+    {
+      "gamePk": 849842,
+      "away": "Chicago Cubs",
+      "home": "San Diego Padres",
+      "awayId": 112,
+      "homeId": 135,
+      "officialDate": "2026-09-30",
+      "gameDate": "2026-10-01T02:00:00Z",
+      "pitcherIds": {
+        "home": 601713,
+        "away": 592332
+      },
+      "available": false,
+      "pickSide": null,
+      "pickTeam": null,
+      "confidence": null,
+      "kalshiQuoteTime": null,
+      "kalshiTier": null,
+      "reason": "No usable live Kalshi price for the full-game market at capture time",
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "San Diego Padres",
+      "fgModelConfidence": 0.5284647936420698,
+      "fgModelAgreesWithKalshi": null,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0408,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.033,
+          "direction": "against"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": -0.0231,
+          "direction": "against"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": -0.0196,
+          "direction": "against"
+        }
+      ],
+      "featuresThroughDate": "2026-09-29",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "San Diego Padres",
+      "f5ModelConfidence": 0.5466559497210111,
+      "f5ModelAgreesWithKalshi": null
+    }
+  ]
+}
