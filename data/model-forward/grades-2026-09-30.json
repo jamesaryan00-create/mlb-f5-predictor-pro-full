@@ -1,12 +1,8 @@
 {
   "version": "model-forward-v3",
-  "trackedModel": "kalshi-primary",
   "date": "2026-09-30",
-  "generatedAt": "2026-09-30T07:00:15.578Z",
-  "totalGames": 4,
-  "eligibleGames": 4,
-  "note": "Primary pick/grade for each market is the live Kalshi price -- full-game (KXMLBGAME) and F5 (KXMLBF5), tracked completely separately, never blended. Our full-game/F5 models' own picks are kept as agree/disagree flags (fgModelPickSide/fgModelAgreesWithKalshi, f5ModelPickSide/f5ModelAgreesWithKalshi), not the driver of either pick. Records with trackedModel === 'full-game' predate this convention and remain full-game-model-primary; records with no trackedModel field at all predate that and remain F5-model-primary -- see FEATURE-WISHLIST.md #31/#41.",
-  "picks": [
+  "gradedAt": "2026-09-30T07:30:25.448Z",
+  "results": [
     {
       "gamePk": 849841,
       "away": "Philadelphia Phillies",
@@ -70,7 +66,11 @@
       "f5ModelConfidence": 0.55231061841908,
       "f5ModelAgreesWithKalshi": null,
       "capturedAt": "2026-09-30T07:30:07.547Z",
-      "filledAt": "2026-09-30T07:30:07.547Z"
+      "filledAt": "2026-09-30T07:30:07.547Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending"
     },
     {
       "gamePk": 849846,
@@ -134,7 +134,11 @@
       "f5ModelPickTeam": "Houston Astros",
       "f5ModelConfidence": 0.53939401839333,
       "f5ModelAgreesWithKalshi": null,
-      "capturedAt": "2026-09-30T07:00:15.578Z"
+      "capturedAt": "2026-09-30T07:00:15.578Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending"
     },
     {
       "gamePk": 849848,
@@ -198,7 +202,11 @@
       "f5ModelPickTeam": "New York Yankees",
       "f5ModelConfidence": 0.6099261428892627,
       "f5ModelAgreesWithKalshi": null,
-      "capturedAt": "2026-09-30T07:00:15.578Z"
+      "capturedAt": "2026-09-30T07:00:15.578Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending"
     },
     {
       "gamePk": 849842,
@@ -263,8 +271,11 @@
       "f5ModelConfidence": 0.5466559497210111,
       "f5ModelAgreesWithKalshi": null,
       "capturedAt": "2026-09-30T07:30:07.547Z",
-      "filledAt": "2026-09-30T07:30:07.547Z"
+      "filledAt": "2026-09-30T07:30:07.547Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending"
     }
-  ],
-  "updatedAt": "2026-09-30T07:30:07.547Z"
+  ]
 }
