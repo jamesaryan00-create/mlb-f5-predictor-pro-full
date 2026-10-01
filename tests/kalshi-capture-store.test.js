@@ -101,10 +101,15 @@ test('lib/mlb.js getLiveKalshiQuotesForGames() reads the two capture directories
   global.fetch = () => { throw new Error('network call attempted -- this path must be disk-only'); };
   try {
     await withTempCwd((dir) => {
-      writeCapture(path.join(dir, 'data', 'kalshi-forward-fullgame'), 'capture-1.json', '2026-09-29T18:00:00Z',
-        [{ gamePk: 555, capturedAt: '2026-09-29T18:00:00Z', kalshiPickSide: 'HOME', kalshiPickTeam: 'Home Team', kalshiConfidence: 0.6, tier: 'PASS' }]);
-      writeCapture(path.join(dir, 'data', 'kalshi-forward'), 'capture-1.json', '2026-09-29T18:00:00Z',
-        [{ gamePk: 555, capturedAt: '2026-09-29T18:00:00Z', kalshiPickSide: 'AWAY', kalshiPickTeam: 'Away Team', kalshiConfidence: 0.58, tier: 'PASS' }]);
+      // Relative to the real clock (a few minutes ago), not a hardcoded date -- a fixed past
+      // timestamp becomes a time bomb once real time moves more than MAX_CAPTURE_AGE_MINUTES
+      // past it (this test started failing on its own days after it was written for exactly
+      // that reason).
+      const recentAt = new Date(Date.now() - 5 * 60000).toISOString();
+      writeCapture(path.join(dir, 'data', 'kalshi-forward-fullgame'), 'capture-1.json', recentAt,
+        [{ gamePk: 555, capturedAt: recentAt, kalshiPickSide: 'HOME', kalshiPickTeam: 'Home Team', kalshiConfidence: 0.6, tier: 'PASS' }]);
+      writeCapture(path.join(dir, 'data', 'kalshi-forward'), 'capture-1.json', recentAt,
+        [{ gamePk: 555, capturedAt: recentAt, kalshiPickSide: 'AWAY', kalshiPickTeam: 'Away Team', kalshiConfidence: 0.58, tier: 'PASS' }]);
       delete require.cache[require.resolve('../lib/mlb')];
       const { getLiveKalshiQuotesForGames } = require('../lib/mlb');
       return getLiveKalshiQuotesForGames([{ gamePk: 555 }]).then((res) => {
