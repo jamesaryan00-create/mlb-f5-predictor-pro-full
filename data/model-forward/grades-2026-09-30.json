@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-09-30",
-  "gradedAt": "2026-10-01T05:00:24.714Z",
+  "gradedAt": "2026-10-01T05:30:23.540Z",
   "results": [
     {
       "gamePk": 849841,
@@ -304,7 +304,7 @@
       "f5Confidence": null,
       "f5KalshiQuoteTime": null,
       "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "San Diego Padres",
       "f5ModelConfidence": 0.5466559497210111,
@@ -314,7 +314,20 @@
       "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "legacy-unverified",
-      "status": "pending"
+      "status": "graded",
+      "finalHome": 4,
+      "finalAway": 1,
+      "result": "HOME",
+      "win": true,
+      "tie": false,
+      "fgStatus": "graded",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": 4,
+      "f5Away": 1,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     }
   ]
 }
