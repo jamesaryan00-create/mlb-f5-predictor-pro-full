@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-01",
-  "gradedAt": "2026-10-01T15:30:25.807Z",
+  "gradedAt": "2026-10-01T16:00:28.706Z",
   "results": [
     {
       "gamePk": 849844,
@@ -12,21 +12,33 @@
       "officialDate": "2026-10-01",
       "gameDate": "2026-10-02T00:00:00Z",
       "pitcherIds": {
-        "home": null,
-        "away": null
+        "home": 678061,
+        "away": 605400
       },
-      "available": false,
+      "available": true,
       "pickSide": "HOME",
       "pickTeam": "Atlanta Braves",
       "confidence": 0.505,
-      "kalshiQuoteTime": "2026-10-01T07:00:00.000Z",
+      "kalshiQuoteTime": "2026-10-01T16:00:00.000Z",
       "kalshiTier": "PASS",
-      "reason": "No live Kalshi price for either market at pick time",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Atlanta Braves",
-      "fgModelConfidence": 0.566444141993393,
+      "fgModelConfidence": 0.5662693097876276,
       "fgModelAgreesWithKalshi": true,
       "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0677,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": -0.0672,
+          "direction": "against"
+        },
         {
           "feature": "homeLateRunDiff",
           "label": "Late-inning (6-9) run differential edge",
@@ -38,40 +50,27 @@
           "label": "Season run differential edge",
           "contribution": 0.0334,
           "direction": "for"
-        },
-        {
-          "feature": "homePitchingFullRunDiff",
-          "label": "Season pitching run-prevention edge",
-          "contribution": 0.019,
-          "direction": "for"
-        },
-        {
-          "feature": "homeWinPctDiff",
-          "label": "Season win% edge",
-          "contribution": 0.0119,
-          "direction": "for"
         }
       ],
       "featuresThroughDate": "2026-09-30",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
-      "f5Available": false,
-      "f5PickSide": null,
-      "f5PickTeam": null,
-      "f5Confidence": null,
-      "f5KalshiQuoteTime": null,
-      "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "imputedFeatures": [],
+      "f5Available": true,
+      "f5PickSide": "AWAY",
+      "f5PickTeam": "Philadelphia Phillies",
+      "f5Confidence": 0.5481927710843373,
+      "f5KalshiQuoteTime": "2026-10-01T15:59:00.000Z",
+      "f5KalshiTier": "PASS",
+      "f5Reason": null,
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Atlanta Braves",
-      "f5ModelConfidence": 0.5474687022996392,
-      "f5ModelAgreesWithKalshi": null,
-      "provenance": "legacy-unverified",
+      "f5ModelConfidence": 0.5555976394427029,
+      "f5ModelAgreesWithKalshi": false,
+      "capturedAt": "2026-10-01T16:00:13.069Z",
+      "filledAt": "2026-10-01T16:00:13.070Z",
+      "provenance": "verified",
       "trackedModel": "kalshi-primary",
-      "f5Provenance": "legacy-unverified",
-      "status": "excluded"
+      "f5Provenance": "verified",
+      "status": "pending"
     }
   ]
 }
