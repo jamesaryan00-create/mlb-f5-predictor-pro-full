@@ -103,3 +103,27 @@ test('deduplicates repeated captures at the same capturedAt timestamp', () => {
     assert.match(result.games[0].reason, /Only 1 capture/);
   });
 });
+
+// #42-era capture files save `allRecords` (every pregame game all day) alongside the narrower,
+// marketTrust-only `records` (<=60 minutes before first pitch). Reading only `records` -- the
+// bug this test guards against -- meant a game's price chain was invisible to line movement/CLV
+// until it happened to enter that 60-minute window, so a game still hours from first pitch (most
+// of a typical day) never showed up at all, even with several real captures on disk.
+test('reads captures from the `allRecords` field, not just the marketTrust-restricted `records` field', () => {
+  withTempCwd((dir) => {
+    const capDir = path.join(dir, 'capdir');
+    fs.mkdirSync(capDir, { recursive: true });
+    const r1 = baseRecord({ gamePk: 5005, capturedAt: '2026-09-20T15:00:00Z', outcomeQuotes: { away: { mid: 0.40 }, home: { mid: 0.60 } } });
+    const r2 = baseRecord({ gamePk: 5005, capturedAt: '2026-09-20T15:30:00Z', outcomeQuotes: { away: { mid: 0.35 }, home: { mid: 0.65 } } });
+    // No `records` field at all -- only a captured-everything-day `allRecords`, as a real file
+    // written hours before any game's marketTrust window opens would look.
+    fs.writeFileSync(path.join(capDir, 'capture-1.json'), JSON.stringify({ capturedAt: '2026-09-20T15:00:00Z', allRecords: [r1] }));
+    fs.writeFileSync(path.join(capDir, 'capture-2.json'), JSON.stringify({ capturedAt: '2026-09-20T15:30:00Z', allRecords: [r2] }));
+    const result = summarizeLineMovement(capDir);
+    const game = result.games.find((g) => g.gamePk === 5005);
+    assert.ok(game, 'expected the game to be found via allRecords');
+    assert.equal(game.included, true);
+    assert.equal(game.openingPrice, 0.60);
+    assert.equal(game.closingPrice, 0.65);
+  });
+});
