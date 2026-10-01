@@ -1,0 +1,77 @@
+{
+  "version": "model-forward-v3",
+  "trackedModel": "kalshi-primary",
+  "date": "2026-10-01",
+  "generatedAt": "2026-10-01T07:00:11.412Z",
+  "totalGames": 1,
+  "eligibleGames": 1,
+  "note": "Primary pick/grade for each market is the live Kalshi price -- full-game (KXMLBGAME) and F5 (KXMLBF5), tracked completely separately, never blended. Our full-game/F5 models' own picks are kept as agree/disagree flags (fgModelPickSide/fgModelAgreesWithKalshi, f5ModelPickSide/f5ModelAgreesWithKalshi), not the driver of either pick. Records with trackedModel === 'full-game' predate this convention and remain full-game-model-primary; records with no trackedModel field at all predate that and remain F5-model-primary -- see FEATURE-WISHLIST.md #31/#41.",
+  "picks": [
+    {
+      "gamePk": 849844,
+      "away": "Philadelphia Phillies",
+      "home": "Atlanta Braves",
+      "awayId": 143,
+      "homeId": 144,
+      "officialDate": "2026-10-01",
+      "gameDate": "2026-10-02T00:00:00Z",
+      "pitcherIds": {
+        "home": null,
+        "away": null
+      },
+      "available": false,
+      "pickSide": "HOME",
+      "pickTeam": "Atlanta Braves",
+      "confidence": 0.505,
+      "kalshiQuoteTime": "2026-10-01T07:00:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": "Late, changed starter/schedule, or invalid Kalshi quote provenance",
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Atlanta Braves",
+      "fgModelConfidence": 0.566444141993393,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0586,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.0334,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitchingFullRunDiff",
+          "label": "Season pitching run-prevention edge",
+          "contribution": 0.019,
+          "direction": "for"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": 0.0119,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-09-30",
+      "imputedFeatures": [
+        "homePitcherWhipDiff",
+        "homePitcherFipDiff"
+      ],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Atlanta Braves",
+      "f5ModelConfidence": 0.5474687022996392,
+      "f5ModelAgreesWithKalshi": null
+    }
+  ]
+}
