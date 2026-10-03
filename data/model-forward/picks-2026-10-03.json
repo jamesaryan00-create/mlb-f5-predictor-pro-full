@@ -150,17 +150,17 @@
         "home": 656876,
         "away": 543037
       },
-      "available": false,
-      "pickSide": null,
-      "pickTeam": null,
-      "confidence": null,
-      "kalshiQuoteTime": null,
-      "kalshiTier": null,
-      "reason": "No usable live Kalshi price for the full-game market at capture time",
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Tampa Bay Rays",
+      "confidence": 0.5495049504950495,
+      "kalshiQuoteTime": "2026-10-03T08:29:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Tampa Bay Rays",
       "fgModelConfidence": 0.534882566526997,
-      "fgModelAgreesWithKalshi": null,
+      "fgModelAgreesWithKalshi": true,
       "topFactors": [
         {
           "feature": "homePitcherFipDiff",
@@ -199,7 +199,9 @@
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Tampa Bay Rays",
       "f5ModelConfidence": 0.5479239798887383,
-      "f5ModelAgreesWithKalshi": null
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-03T08:30:08.747Z",
+      "filledAt": "2026-10-03T08:30:08.749Z"
     },
     {
       "gamePk": 849830,
@@ -266,5 +268,5 @@
       "capturedAt": "2026-10-03T07:00:16.437Z"
     }
   ],
-  "updatedAt": "2026-10-03T07:30:10.608Z"
+  "updatedAt": "2026-10-03T08:30:08.749Z"
 }
