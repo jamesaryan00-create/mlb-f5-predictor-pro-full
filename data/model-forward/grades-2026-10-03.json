@@ -1,12 +1,8 @@
 {
   "version": "model-forward-v3",
-  "trackedModel": "kalshi-primary",
   "date": "2026-10-03",
-  "generatedAt": "2026-10-03T07:00:16.438Z",
-  "totalGames": 4,
-  "eligibleGames": 4,
-  "note": "Primary pick/grade for each market is the live Kalshi price -- full-game (KXMLBGAME) and F5 (KXMLBF5), tracked completely separately, never blended. Our full-game/F5 models' own picks are kept as agree/disagree flags (fgModelPickSide/fgModelAgreesWithKalshi, f5ModelPickSide/f5ModelAgreesWithKalshi), not the driver of either pick. Records with trackedModel === 'full-game' predate this convention and remain full-game-model-primary; records with no trackedModel field at all predate that and remain F5-model-primary -- see FEATURE-WISHLIST.md #31/#41.",
-  "picks": [
+  "gradedAt": "2026-10-03T07:30:28.150Z",
+  "results": [
     {
       "gamePk": 849829,
       "away": "Chicago White Sox",
@@ -70,7 +66,11 @@
       "f5ModelConfidence": 0.5134172441075253,
       "f5ModelAgreesWithKalshi": null,
       "capturedAt": "2026-10-03T07:30:10.606Z",
-      "filledAt": "2026-10-03T07:30:10.608Z"
+      "filledAt": "2026-10-03T07:30:10.608Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending"
     },
     {
       "gamePk": 849828,
@@ -90,7 +90,7 @@
       "confidence": 0.6683168316831684,
       "kalshiQuoteTime": "2026-10-03T07:00:00.000Z",
       "kalshiTier": "STRONG",
-      "reason": "Late, changed starter/schedule, or invalid Kalshi quote provenance",
+      "reason": "No live Kalshi price for either market at pick time",
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Los Angeles Dodgers",
       "fgModelConfidence": 0.5509017661638129,
@@ -136,7 +136,11 @@
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Los Angeles Dodgers",
       "f5ModelConfidence": 0.5596562359038129,
-      "f5ModelAgreesWithKalshi": null
+      "f5ModelAgreesWithKalshi": null,
+      "provenance": "legacy-unverified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "excluded"
     },
     {
       "gamePk": 849835,
@@ -156,7 +160,7 @@
       "confidence": null,
       "kalshiQuoteTime": null,
       "kalshiTier": null,
-      "reason": "No usable live Kalshi price for the full-game market at capture time",
+      "reason": "No live Kalshi price for either market at pick time",
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Tampa Bay Rays",
       "fgModelConfidence": 0.534882566526997,
@@ -199,7 +203,11 @@
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Tampa Bay Rays",
       "f5ModelConfidence": 0.5479239798887383,
-      "f5ModelAgreesWithKalshi": null
+      "f5ModelAgreesWithKalshi": null,
+      "provenance": "legacy-unverified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "excluded"
     },
     {
       "gamePk": 849830,
@@ -263,8 +271,11 @@
       "f5ModelPickTeam": "Milwaukee Brewers",
       "f5ModelConfidence": 0.6350359808096737,
       "f5ModelAgreesWithKalshi": null,
-      "capturedAt": "2026-10-03T07:00:16.437Z"
+      "capturedAt": "2026-10-03T07:00:16.437Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending"
     }
-  ],
-  "updatedAt": "2026-10-03T07:30:10.608Z"
+  ]
 }
