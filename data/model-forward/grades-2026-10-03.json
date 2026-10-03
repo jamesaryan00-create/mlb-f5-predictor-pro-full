@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-03",
-  "gradedAt": "2026-10-03T17:00:26.121Z",
+  "gradedAt": "2026-10-03T17:30:29.437Z",
   "results": [
     {
       "gamePk": 849829,
@@ -82,20 +82,32 @@
       "gameDate": "2026-10-03T20:00:00Z",
       "pitcherIds": {
         "home": 669373,
-        "away": null
+        "away": 689266
       },
-      "available": false,
+      "available": true,
       "pickSide": "HOME",
       "pickTeam": "Los Angeles Dodgers",
-      "confidence": 0.6683168316831684,
-      "kalshiQuoteTime": "2026-10-03T07:00:00.000Z",
+      "confidence": 0.675,
+      "kalshiQuoteTime": "2026-10-03T17:30:00.000Z",
       "kalshiTier": "STRONG",
-      "reason": "No live Kalshi price for either market at pick time",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Los Angeles Dodgers",
-      "fgModelConfidence": 0.5509017661638129,
+      "fgModelConfidence": 0.6212180752633863,
       "fgModelAgreesWithKalshi": true,
       "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.1868,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.1048,
+          "direction": "for"
+        },
         {
           "feature": "homeF5RunDiff",
           "label": "First-5-innings run differential edge",
@@ -107,25 +119,10 @@
           "label": "Season run differential edge",
           "contribution": 0.0248,
           "direction": "for"
-        },
-        {
-          "feature": "homeLateRunDiff",
-          "label": "Late-inning (6-9) run differential edge",
-          "contribution": -0.0176,
-          "direction": "against"
-        },
-        {
-          "feature": "homeWinPctDiff",
-          "label": "Season win% edge",
-          "contribution": 0.0098,
-          "direction": "for"
         }
       ],
       "featuresThroughDate": "2026-10-02",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
+      "imputedFeatures": [],
       "f5Available": false,
       "f5PickSide": null,
       "f5PickTeam": null,
@@ -135,12 +132,14 @@
       "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Los Angeles Dodgers",
-      "f5ModelConfidence": 0.5596562359038129,
+      "f5ModelConfidence": 0.658051989727014,
       "f5ModelAgreesWithKalshi": null,
-      "provenance": "legacy-unverified",
+      "capturedAt": "2026-10-03T17:30:10.815Z",
+      "filledAt": "2026-10-03T17:30:10.816Z",
+      "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "legacy-unverified",
-      "status": "excluded"
+      "status": "pending"
     },
     {
       "gamePk": 849835,
