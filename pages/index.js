@@ -146,7 +146,7 @@ function GameCard({ game, onSave, saved }) {
               <span className="tileConfidence">{pct(game.recordedPick.confidence)}</span>
             </div>
             <div className="tileMetaRow">
-              <span className="badge badge--locked">{game.recordedPick.trackedModel === 'full-game' ? 'Locked in pregame' : 'Locked in pregame · F5 pick (legacy)'}</span>
+              <span className="badge badge--locked">{game.recordedPick.trackedModel === 'full-game' || game.recordedPick.trackedModel === 'kalshi-primary' ? 'Locked in pregame' : 'Locked in pregame · F5 pick (legacy)'}</span>
               {game.gradeExcluded && <span className="badge" title={game.exclusionReason || ''}>Excluded: {game.exclusionReason || 'see details'}</span>}
               {game.recordedResult && <ResultPill result={game.recordedResult} />}
               <span className="chevron">{expanded ? '▲' : '▼'}</span>
@@ -160,11 +160,11 @@ function GameCard({ game, onSave, saved }) {
         ) : (
           <>
             <div className="tilePickRow">
-              <span className="tilePick">Unavailable</span>
+              <span className="tilePick">{game.noPickNote ? 'No pick recorded' : 'Unavailable'}</span>
               <span className="tileConfidence">{pct(game.prediction.confidence)}</span>
             </div>
             <div className="tileMetaRow">
-              <ResultBadge label={game.prediction.label} />
+              {game.noPickNote ? <span className="badge" title={game.noPickNote}>Not captured pregame</span> : <ResultBadge label={game.prediction.label} />}
               <span className="chevron">{expanded ? '▲' : '▼'}</span>
             </div>
           </>

@@ -30,7 +30,10 @@ test('returns nulls when the pick for that gamePk exists but was excluded (avail
     const picksFile = path.join(dir, 'data', 'model-forward', 'picks-2026-09-22.json');
     fs.writeFileSync(picksFile, JSON.stringify({ picks: [{ gamePk: 555, available: false }] }));
     const r = getRecordedPickAndResult(555, '2026-09-22');
-    assert.deepEqual(r, { recordedPick: null, recordedResult: null });
+    assert.equal(r.recordedPick, null);
+    assert.equal(r.recordedResult, null);
+    // The day was tracked but this game has no pick: the dashboard now says why (not silent).
+    assert.match(r.noPickNote, /not picked and is not counted/);
   });
 });
 
