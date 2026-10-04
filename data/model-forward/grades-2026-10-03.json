@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-03",
-  "gradedAt": "2026-10-04T01:00:24.545Z",
+  "gradedAt": "2026-10-04T01:30:25.604Z",
   "results": [
     {
       "gamePk": 849829,
@@ -224,7 +224,7 @@
       "f5Confidence": null,
       "f5KalshiQuoteTime": null,
       "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Tampa Bay Rays",
       "f5ModelConfidence": 0.5479239798887383,
@@ -234,7 +234,20 @@
       "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "legacy-unverified",
-      "status": "pending"
+      "status": "graded",
+      "finalHome": 1,
+      "finalAway": 0,
+      "result": "HOME",
+      "win": true,
+      "tie": false,
+      "fgStatus": "graded",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": 1,
+      "f5Away": 0,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     },
     {
       "gamePk": 849830,
