@@ -1,0 +1,49 @@
+{
+ "date": "2026-10-03",
+ "graded": [
+  {
+   "game_pk": 849830,
+   "player_id": 592662,
+   "player_name": "Robbie Ray",
+   "away_team": "San Diego Padres",
+   "home_team": "Milwaukee Brewers",
+   "threshold": 4,
+   "side": "OVER",
+   "model_p": 0.702602,
+   "kalshi_mid": 0.515,
+   "kalshi_bid": 0.51,
+   "kalshi_ask": 0.52,
+   "agree_with_market": true,
+   "confidence": 0.202602,
+   "quote_time": "2026-10-03T23:25:02Z",
+   "first_pitch_utc": "2026-10-04T00:30:00Z",
+   "pick_made_at": "2026-10-03T23:25:10Z",
+   "market_ticker": "KXMLBKS-26OCT032030SDMIL-SDRRAY38-4",
+   "result": "L",
+   "strikeouts": 1,
+   "game_state": "Final"
+  },
+  {
+   "game_pk": 849830,
+   "player_id": 694819,
+   "player_name": "Jacob Misiorowski",
+   "away_team": "San Diego Padres",
+   "home_team": "Milwaukee Brewers",
+   "threshold": 8,
+   "side": "UNDER",
+   "model_p": 0.283973,
+   "kalshi_mid": 0.57,
+   "kalshi_bid": 0.56,
+   "kalshi_ask": 0.58,
+   "agree_with_market": false,
+   "confidence": 0.216027,
+   "quote_time": "2026-10-03T23:25:02Z",
+   "first_pitch_utc": "2026-10-04T00:30:00Z",
+   "pick_made_at": "2026-10-03T23:25:10Z",
+   "market_ticker": "KXMLBKS-26OCT032030SDMIL-MILJMISIOROWSKI32-8",
+   "result": "W",
+   "strikeouts": 6,
+   "game_state": "Final"
+  }
+ ]
+}
