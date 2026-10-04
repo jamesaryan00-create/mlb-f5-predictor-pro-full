@@ -21,7 +21,7 @@ h2 { margin: 30px 0 12px; font-size: 15px; text-transform: uppercase; letter-spa
 input[type=date] { height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--text); color-scheme: dark; }
 input[type=date]:focus, .nav button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .tile { display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
 .tileLabel { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .07em; font-weight: 700; }
 .tileValue { font-size: 34px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
@@ -46,7 +46,8 @@ input[type=date]:focus, .nav button:focus-visible { outline: 2px solid var(--acc
 .alert { margin-top: 18px; padding: 12px 16px; border-radius: 12px; background: rgba(251,113,133,.1); border: 1px solid rgba(251,113,133,.4); color: #fecdd3; }
 .foot { margin-top: 36px; color: var(--muted); font-size: 12px; text-align: center; }
 @media (max-width: 640px) {
-  .tiles { grid-template-columns: 1fr; }
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .tileValue { font-size: 26px; }
   .row, .row--prop { grid-template-columns: 1fr; gap: 8px; }
   .tileValue { font-size: 30px; }
 }

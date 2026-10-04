@@ -74,25 +74,10 @@ function GameRow({ game }) {
   );
 }
 
-function PropRow({ p }) {
-  const outcome = p.result === 'W' ? 'win' : p.result === 'L' ? 'loss' : null;
-  return (
-    <li className="row row--prop">
-      <div className="matchup"><span className="pitcher">{p.pitcher}</span><span className="when">{p.away} @ {p.home}</span></div>
-      <div className="cell">
-        <span className="cellLabel">Strikeouts</span>
-        <span className="pickText">{p.side} {p.line - 0.5} <em>chance of over: model {whole(p.modelPct)} · Kalshi {whole(p.kalshiPct)}</em></span>
-        {p.result === 'void' ? <span className="pill pill--pending" title="Pitcher did not start">void</span> : <Pill outcome={outcome} />}
-      </div>
-    </li>
-  );
-}
-
 export default function Home() {
   const [date, setDate] = useState(todayPacific());
   const [data, setData] = useState(null);
   const [record, setRecord] = useState(null);
-  const [props, setProps] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -105,7 +90,6 @@ export default function Home() {
       setData(json);
     } catch (err) { setError(err.message); setData(null); }
     finally { setLoading(false); }
-    try { const r = await fetch(`/api/k-picks?date=${encodeURIComponent(d)}`, { cache: 'no-store' }); if (r.ok) setProps(await r.json()); else setProps(null); } catch { setProps(null); }
   }
   useEffect(() => { load(date); /* eslint-disable-next-line */ }, []);
   useEffect(() => {
@@ -117,8 +101,6 @@ export default function Home() {
 
   const games = useMemo(() => data?.games || [], [data]);
   const mf = (record && record.modelForward) || {};
-  const propRecord = props && props.record;
-  const propCohort = propRecord ? { wins: propRecord.wins, losses: propRecord.losses, ties: 0, winPct: propRecord.winPct } : null;
 
   return (
     <main className="shell">
@@ -134,7 +116,6 @@ export default function Home() {
       <section className="tiles">
         <RecordTile label="Full game" cohort={mf.kalshiPrimaryFullGame} />
         <RecordTile label="First 5 innings" cohort={mf.kalshiPrimaryF5} note="ties are pushes" />
-        <RecordTile label="Pitching props" cohort={propCohort} />
       </section>
 
       {error && <div className="alert">{error}</div>}
@@ -147,14 +128,6 @@ export default function Home() {
         </>
       )}
 
-      {!loading && (
-        <>
-          <h2>Pitching props <span className="tag">strikeouts · paper</span></h2>
-          {props && props.picks.length > 0
-            ? <ul className="list">{props.picks.map((p) => <PropRow key={`${p.pitcher}-${p.line}`} p={p} />)}</ul>
-            : <p className="muted">No strikeout picks for {date}.</p>}
-        </>
-      )}
       <footer className="foot">Paper tracking only. Win % excludes ties and voided picks.</footer>
     </main>
   );
