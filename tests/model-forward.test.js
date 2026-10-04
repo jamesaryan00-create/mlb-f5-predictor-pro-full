@@ -384,3 +384,15 @@ test('REGRESSION (#31-class bug): existing full-game and legacy picks files grad
     assert.equal(summary.kalshiPrimaryF5.picks, 0);
   });
 });
+
+test('F5 settles only after fifth completes, independently of the final game', async () => withTempCwd(async () => {
+  const date='2099-01-01', start=date+'T20:00:00Z';
+  fs.writeFileSync(pickFileFor(date),JSON.stringify({trackedModel:'kalshi-primary',picks:[{gamePk:1,officialDate:date,gameDate:start,homeId:2,awayId:1,available:true,pickSide:'HOME',f5Available:true,f5PickSide:'HOME'}]}));
+  const old=global.fetch;
+  let inning=5;
+  global.fetch=async()=>({ok:true,json:async()=>({dates:[{games:[{gamePk:1,officialDate:date,gameDate:start,teams:{home:{team:{id:2}},away:{team:{id:1}}},status:{detailedState:'In Progress'},linescore:{currentInning:inning,inningState:'Bottom',teams:{home:{runs:5},away:{runs:0}},innings:[1,2,3,4,5].map(num=>({num,home:{runs:1},away:{runs:0}}))}}]}]})});
+  try {
+    let r=await gradeDate(date);assert.equal(r.results[0].f5Status,'pending');
+    inning=6;r=await gradeDate(date);assert.equal(r.results[0].f5Status,'graded');assert.equal(r.results[0].f5Win,true);assert.equal(r.results[0].fgStatus,'pending');assert.equal(r.results[0].finalHome,null);
+  } finally {global.fetch=old;}
+}));

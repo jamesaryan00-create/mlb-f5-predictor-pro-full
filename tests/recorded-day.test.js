@@ -81,3 +81,13 @@ test('kalshi-primary day: labels itself distinctly, shows modelAgree flag, and r
   assert.equal(r.summary.f5Secondary.wins, 1);
   assert.equal(r.summary.primary.wins, 2);
 }));
+
+test('F5-only captured pick and completed F5 remain visible before full-game grade', () => withTempCwd((dir) => {
+  fs.writeFileSync(path.join(dir, 'picks-2026-09-22.json'), JSON.stringify({trackedModel:'kalshi-primary',picks:[pick({available:false,pickTeam:null,f5Available:true,f5PickTeam:'Boston Red Sox',f5Confidence:.6})]}));
+  fs.writeFileSync(path.join(dir, 'grades-2026-09-22.json'), JSON.stringify({results:[{gamePk:1,fgStatus:'excluded',f5Status:'graded',f5Result:'TIE',f5Win:false,f5Tie:true}]}));
+  const g=getRecordedDay('2026-09-22').games[0];
+  assert.equal(g.recordedPick.pick,null);
+  assert.equal(g.recordedPick.f5Primary.pick,'Boston Red Sox');
+  assert.equal(g.recordedResult.f5Tie,true);
+  assert.equal(g.recordedResult.win,null);
+}));

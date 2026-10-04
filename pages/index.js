@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 function todayPacific() {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
@@ -23,7 +23,7 @@ const outcomeOf = (win, tie) => (tie ? 'tie' : win === true ? 'win' : win === fa
 
 function RecordTile({ label, cohort, note }) {
   const has = cohort && (cohort.wins + cohort.losses + (cohort.ties || 0)) > 0;
-  const pctVal = has ? (cohort.ties ? cohort.winPctDecided : cohort.winPct) : null;
+  const pctVal = has ? cohort.winPct : null;
   return (
     <div className="tile">
       <span className="tileLabel">{label}</span>
@@ -37,15 +37,17 @@ function RecordTile({ label, cohort, note }) {
 function rowFor(game) {
   const rp = game.recordedPick, rr = game.recordedResult;
   const live = !rp && game.prediction && game.prediction.pick;
-  const fg = rp ? { pick: rp.pick, conf: rp.confidence } : live ? { pick: game.prediction.pick, conf: game.prediction.confidence } : null;
-  const f5src = rp ? rp.f5Primary : (game.kalshiPrimaryF5 && game.kalshiPrimaryF5.available ? { pick: game.kalshiPrimaryF5.pick, confidence: game.kalshiPrimaryF5.confidence } : null);
+  const legacy = rp?.trackedModel === 'f5-legacy';
+  const fg = legacy ? null : rp?.pick ? { pick: rp.pick, conf: rp.confidence } : live ? { pick: game.prediction.pick, conf: game.prediction.confidence } : null;
+  const f5src = legacy ? rp : rp ? (rp.f5Primary || rp.f5Pick) : (game.kalshiPrimaryF5 && game.kalshiPrimaryF5.available ? { pick: game.kalshiPrimaryF5.pick, confidence: game.kalshiPrimaryF5.confidence } : null);
   const f5 = f5src && f5src.pick ? { pick: f5src.pick, conf: f5src.confidence } : null;
   return {
     fg, f5,
-    fgOutcome: rr ? outcomeOf(rr.win, false) : null,
-    f5Outcome: rr && rr.f5Result !== undefined ? outcomeOf(rr.f5Win, rr.f5Tie) : null,
+    fgOutcome: !legacy && rr ? outcomeOf(rr.win, false) : null,
+    f5Outcome: legacy && rr ? outcomeOf(rr.win, rr.tie) : rr && rr.f5Result != null ? outcomeOf(rr.f5Win, rr.f5Tie) : null,
     score: rr && rr.finalAway != null ? `${rr.finalAway}–${rr.finalHome}` : null,
-    noPick: !fg && game.noPickNote,
+    noPick: !fg && (game.noPickNote || game.exclusionNote),
+    source: legacy ? "Recorded F5 model" : rp?.trackedModel === "full-game" ? "Recorded model" : "Kalshi market",
   };
 }
 
@@ -58,12 +60,13 @@ function GameRow({ game }) {
         <span>{game.away.abbreviation}</span><span className="at">@</span>
         <TeamLogo teamId={game.home.id} abbreviation={game.home.abbreviation} />
         <span>{game.home.abbreviation}</span>
-        <span className="when">{r.score || fmtTime(game.gameDate)}</span>
+        <span className="when">{r.score || fmtTime(game.gameDate)}</span><small>{r.source}</small>
       </div>
       <div className="cell">
         <span className="cellLabel">Full game</span>
         {r.fg ? <span className="pickText">{r.fg.pick} <em>{whole(r.fg.conf)}</em></span> : <span className="muted">{r.noPick ? 'Not captured' : 'No pick'}</span>}
         {r.fg && <Pill outcome={r.fgOutcome} />}
+        {!r.fg && game.fullGamePrediction?.available && <small>Model only: {game.fullGamePrediction.pick} {whole(game.fullGamePrediction.confidence)} (not a captured Kalshi pick)</small>}
       </div>
       <div className="cell">
         <span className="cellLabel">F5</span>
@@ -76,28 +79,31 @@ function GameRow({ game }) {
 
 export default function Home() {
   const [date, setDate] = useState(todayPacific());
+  const requestId = useRef(0);
   const [data, setData] = useState(null);
   const [record, setRecord] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   async function load(d) {
+    const id = ++requestId.current;
     setLoading(true); setError('');
     try {
       const res = await fetch(`/api/predictions?date=${encodeURIComponent(d)}`);
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || 'Failed to load games');
-      setData(json);
-    } catch (err) { setError(err.message); setData(null); }
-    finally { setLoading(false); }
+      if (id === requestId.current) setData(json);
+    } catch (err) { if (id === requestId.current) { setError(err.message); setData(null); } }
+    finally { if (id === requestId.current) setLoading(false); }
   }
-  useEffect(() => { load(date); /* eslint-disable-next-line */ }, []);
+  useEffect(() => { load(date); const timer = setInterval(() => load(date), 60000); return () => clearInterval(timer); }, [date]);
   useEffect(() => {
     let active = true;
-    fetch('/api/record', { cache: 'no-store' }).then((r) => r.json()).then((j) => { if (active) setRecord(j); }).catch(() => {});
-    return () => { active = false; };
+    const refresh = () => fetch('/api/record', { cache: 'no-store' }).then((r) => { if (!r.ok) throw Error('Record unavailable'); return r.json(); }).then((j) => { if (active) setRecord(j); }).catch(() => { if (active) setRecord(null); });
+    refresh(); const timer = setInterval(refresh, 60000);
+    return () => { active = false; clearInterval(timer); };
   }, []);
-  const go = (n) => { const d = shiftDate(date, n); setDate(d); load(d); };
+  const go = (n) => { const d = shiftDate(date, n); setDate(d); };
 
   const games = useMemo(() => data?.games || [], [data]);
   const mf = (record && record.modelForward) || {};
@@ -108,14 +114,16 @@ export default function Home() {
         <h1>MLB Picks</h1>
         <div className="nav">
           <button onClick={() => go(-1)} disabled={loading} aria-label="Previous day">‹</button>
-          <input type="date" value={date} onChange={(e) => { setDate(e.target.value); load(e.target.value); }} />
+          <input type="date" value={date} onChange={(e) => { if (e.target.value) setDate(e.target.value); }} />
           <button onClick={() => go(1)} disabled={loading} aria-label="Next day">›</button>
         </div>
       </header>
 
+      <p className="muted">Primary picks follow Kalshi prices. Our trained models are separate comparisons.</p>
+      {!record && <p role="status">Performance record unavailable or loading.</p>}
       <section className="tiles">
-        <RecordTile label="Full game" cohort={mf.kalshiPrimaryFullGame} />
-        <RecordTile label="First 5 innings" cohort={mf.kalshiPrimaryF5} note="ties are pushes" />
+        <RecordTile label="Kalshi full game" cohort={mf.kalshiPrimaryFullGame} />
+        <RecordTile label="Kalshi first 5 innings" cohort={mf.kalshiPrimaryF5} note="ties count as losses" />
       </section>
 
       {error && <div className="alert">{error}</div>}
@@ -128,7 +136,7 @@ export default function Home() {
         </>
       )}
 
-      <footer className="foot">Paper tracking only. Win % excludes ties and voided picks.</footer>
+      <footer className="foot">Paper tracking only. Win % = wins / (wins + losses + ties). Pending and excluded picks are not graded. F5 percentages beside picks are conditional on no tie.</footer>
     </main>
   );
 }
