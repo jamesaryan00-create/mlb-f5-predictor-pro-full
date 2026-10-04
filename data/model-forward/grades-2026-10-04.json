@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-04",
-  "gradedAt": "2026-10-04T21:00:25.955Z",
+  "gradedAt": "2026-10-04T21:35:40.129Z",
   "results": [
     {
       "gamePk": 849825,
@@ -60,7 +60,7 @@
       "f5Confidence": null,
       "f5KalshiQuoteTime": null,
       "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Milwaukee Brewers",
       "f5ModelConfidence": 0.5969255814659495,
@@ -69,7 +69,20 @@
       "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "legacy-unverified",
-      "status": "pending"
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": 1,
+      "f5Away": 2,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     },
     {
       "gamePk": 849823,
@@ -128,7 +141,7 @@
       "f5Confidence": 0.622093023255814,
       "f5KalshiQuoteTime": "2026-10-04T18:30:00.000Z",
       "f5KalshiTier": "STRONG",
-      "f5Reason": null,
+      "f5Reason": "Incomplete F5 innings",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Los Angeles Dodgers",
       "f5ModelConfidence": 0.5942974230829092,
@@ -138,7 +151,20 @@
       "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "verified",
-      "status": "pending"
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "pending",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     }
   ]
 }
