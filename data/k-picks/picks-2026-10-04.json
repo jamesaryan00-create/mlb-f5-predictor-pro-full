@@ -1,0 +1,25 @@
+{
+ "date": "2026-10-04",
+ "paper_only": true,
+ "picks": [
+  {
+   "game_pk": 849823,
+   "player_id": 605483,
+   "player_name": "Blake Snell",
+   "away_team": "Atlanta Braves",
+   "home_team": "Los Angeles Dodgers",
+   "threshold": 7,
+   "side": "UNDER",
+   "model_p": 0.384497,
+   "kalshi_mid": 0.515,
+   "kalshi_bid": 0.51,
+   "kalshi_ask": 0.52,
+   "agree_with_market": false,
+   "confidence": 0.115503,
+   "quote_time": "2026-10-04T21:06:11Z",
+   "first_pitch_utc": "2026-10-05T00:00:00Z",
+   "pick_made_at": "2026-10-04T21:06:13Z",
+   "market_ticker": "KXMLBKS-26OCT042000ATLLAD-LADBSNELL7-7"
+  }
+ ]
+}
