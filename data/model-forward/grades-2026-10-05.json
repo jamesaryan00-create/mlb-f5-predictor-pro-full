@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-05",
-  "gradedAt": "2026-10-06T00:00:39.328Z",
+  "gradedAt": "2026-10-06T00:30:28.847Z",
   "results": [
     {
       "gamePk": 849834,
@@ -69,13 +69,13 @@
       "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "legacy-unverified",
-      "status": "pending",
-      "finalHome": null,
-      "finalAway": null,
-      "result": null,
-      "win": null,
+      "status": "graded",
+      "finalHome": 3,
+      "finalAway": 4,
+      "result": "AWAY",
+      "win": false,
       "tie": false,
-      "fgStatus": "pending",
+      "fgStatus": "graded",
       "fgReason": null,
       "f5Status": "excluded",
       "f5Home": 2,
