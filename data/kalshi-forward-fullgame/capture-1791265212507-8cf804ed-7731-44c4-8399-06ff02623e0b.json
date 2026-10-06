@@ -1,0 +1,3603 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "start": "2026-09-22T20:00:00.441Z",
+    "end": "2026-10-22T20:00:00.441Z",
+    "rule": "marketTrust",
+    "definition": "Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.",
+    "metric": "Wins / (wins + losses)",
+    "market": "KXMLBGAME (full game, 2-way, no tie contract)",
+    "policy": "First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes."
+  },
+  "capturedAt": "2026-10-06T05:40:12.507Z",
+  "records": [],
+  "allRecords": [
+    {
+      "gamePk": 849826,
+      "officialDate": "2026-10-06",
+      "homeId": 135,
+      "awayId": 158,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-10-06T05:40:00.000Z",
+          "bid": 0.45,
+          "ask": 0.46,
+          "mid": 0.455,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.18518333333333334
+        },
+        "home": {
+          "time": "2026-10-06T05:40:00.000Z",
+          "bid": 0.55,
+          "ask": 0.56,
+          "mid": 0.555,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.18518333333333334
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26OCT062130MILSD-MIL",
+        "home": "KXMLBGAME-26OCT062130MILSD-SD"
+      },
+      "eventTicker": "KXMLBGAME-26OCT062130MILSD",
+      "awayTeam": "Milwaukee Brewers",
+      "homeTeam": "San Diego Padres",
+      "firstPitchUtc": "2026-10-07T01:30:00Z",
+      "minutesToPitch": 1189.8148166666667,
+      "kalshiAwayRaw": 0.455,
+      "kalshiHomeRaw": 0.555,
+      "kalshiRawSum": 1.01,
+      "kalshiAwayProb": 0.4504950495049505,
+      "kalshiHomeProb": 0.5495049504950495,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "San Diego Padres",
+      "kalshiConfidence": 0.5495049504950495,
+      "tier": "PASS",
+      "quoteTime": "2026-10-06T05:40:00.000Z",
+      "quoteAgeMinutes": 0.19435,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-10-06T05:40:00.000Z",
+        "home": "2026-10-06T05:40:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Scheduled",
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5161099937274886,
+      "modelAgreesWithKalshi": true,
+      "capturedAt": "2026-10-06T05:40:12.507Z",
+      "baseline": false,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false
+    },
+    {
+      "gamePk": 849819,
+      "officialDate": "2026-10-06",
+      "homeId": 144,
+      "awayId": 119,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-10-06T05:40:00.000Z",
+          "bid": 0.5,
+          "ask": 0.51,
+          "mid": 0.505,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.18518333333333334
+        },
+        "home": {
+          "time": "2026-10-06T05:40:00.000Z",
+          "bid": 0.49,
+          "ask": 0.5,
+          "mid": 0.495,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.18518333333333334
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26OCT061800LADATL-LAD",
+        "home": "KXMLBGAME-26OCT061800LADATL-ATL"
+      },
+      "eventTicker": "KXMLBGAME-26OCT061800LADATL",
+      "awayTeam": "Los Angeles Dodgers",
+      "homeTeam": "Atlanta Braves",
+      "firstPitchUtc": "2026-10-06T22:00:00Z",
+      "minutesToPitch": 979.8148166666666,
+      "kalshiAwayRaw": 0.505,
+      "kalshiHomeRaw": 0.495,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.505,
+      "kalshiHomeProb": 0.495,
+      "kalshiPickSide": "AWAY",
+      "kalshiPickTeam": "Los Angeles Dodgers",
+      "kalshiConfidence": 0.505,
+      "tier": "PASS",
+      "quoteTime": "2026-10-06T05:40:00.000Z",
+      "quoteAgeMinutes": 0.19896666666666665,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-10-06T05:40:00.000Z",
+        "home": "2026-10-06T05:40:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Scheduled",
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5392684470248432,
+      "modelAgreesWithKalshi": false,
+      "capturedAt": "2026-10-06T05:40:12.507Z",
+      "baseline": false,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false
+    }
+  ],
+  "board": {
+    "ok": true,
+    "version": "Kalshi Full-Game V1",
+    "generatedAt": "2026-10-06T05:40:03.589Z",
+    "thresholds": {
+      "play": 0.58,
+      "strong": 0.62,
+      "maxSpread": 0.15,
+      "maxQuoteAgeMinutes": 5,
+      "maxQuoteSkewMinutes": 1,
+      "modelMinConfidence": 0.55,
+      "agreementMaxSpread": 0.05
+    },
+    "methodologyNote": "Full-game analogue of the F5 V5 board: selects all 58%+ Kalshi favorites on KXMLBGAME, with 62%+ labeled STRONG. No TIE contract (2-way market). Model agreement is diagnostic only and never removes a selection.",
+    "marketsLoaded": 1672,
+    "candidateEvents": 2,
+    "rejected": [
+      {
+        "eventTicker": "KXMLBGAME-26OCT071800LADATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT072000TBNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT042000ATLLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT031600ATLLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT071600CLECWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT041600SDMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT032030SDMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT031830NYYTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT031300CWSCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26OCT011400PHIATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP302200CHCSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP292200CHCSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP302000BOSNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP292000BOSNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP301700CWSHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP291700CWSHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP301400PHIATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP291400PHIATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251605BALNYYG1",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251905BALNYYG2",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915CHCBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251305CHCBOSG1",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271520BALNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271505LADSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271505HOUATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510PITDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271505NYMWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271505TBPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510CLEKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271507CINTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510AZSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510LAASEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510ATLMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510COLCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510STLMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP271510TEXMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP262140HOUATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP262140LAASEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP262040AZSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915TBPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261910CLEKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261910COLCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261910STLMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261915BALNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261605LADSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261610ATLMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261605NYMWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261610TEXMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261507CINTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP261310PITDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP252210LAASEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP252215LADSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP252140HOUATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP252140AZSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251940CLEKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251940COLCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251940STLMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP252010TEXMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251910CHCBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251905BALNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251910ATLMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251907CINTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251840TBPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251840PITDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP251845NYMWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP242210SDLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP242140LAASEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP242140HOUATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241905TBNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241915CINATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241845CLEBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241805MILPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241510AZCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241435NYMTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241420MIACHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241410CWSKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP241235STLPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP232210SDLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP232210HOUSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP232140LAAATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP232040AZCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP232005NYMTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231940CWSKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231940MIACHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231915CINATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231905TBNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231910CLEBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231835TORBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231840MILPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231840STLPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231545MINSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP231310WSHDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP222210SDLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP222140HOUSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP222140LAAATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP222145MINSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP222040AZCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP222005NYMTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221940CWSKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221940MIACHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221905TBNYYG2",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221915CINATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221840WSHDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221840MILPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221845CLEBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221840STLPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221835TORBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP221305TBNYYG1",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP212145MINSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP211840WSHDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP211835TORBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201920MILBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201607MINLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201610MIASD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201610NYYAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201610SFLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201510SEACOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201435TORTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201415WSHSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201410ATLHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201410DETCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201340BOSTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201340ATHCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201340CHCCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201335KCPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP201310PHINYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP192138MINLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP192110SFLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP192040MIASD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP192010SEACOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP192010NYYAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191915WSHSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191905TORTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191910ATLHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191910DETCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191840KCPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191840CHCCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191810ATHCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191610PHINYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191610BOSTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP191605MILBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182215SFLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182138MINLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182140MIASD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182140NYYAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182015WSHSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182010SEACOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182010ATLHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP182005TORTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP181940DETCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP181915PHINYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP181910BOSTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP181910ATHCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP181905MILBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP181840KCPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP181840CHCCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP172138MINLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP172005BOSTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP171940DETCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP171915KCHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP171915PHINYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP171510SDCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP171310ATHTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP171240LADCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP171235MILPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP162138SEALAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP162140MIAAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP162040SDCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP162010KCHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP162005BOSTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161940ATLCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161910BALNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161845PHIWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161840ATHTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161840LADCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161840MILPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161507DETTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161340NYYMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161310CWSCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP161315SFSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP152140MIAAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP152138SEALAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP152040SDCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP152010KCHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP152005BOSTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151945SFSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151940ATLCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151940NYYMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151907DETTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151910BALNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151840LADCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151845PHIWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151840CWSCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151840ATHTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP151840MILPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP142140MIAAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP142138SEALAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP142040SDCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP141940NYYMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP141940ATLCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP141945SFSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP141910BALNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP141907DETTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP141840CWSCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP141840LADCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131920SDSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131610TEXAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131605SEAATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131420PITCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131415CWSSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131410CLEMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131410CINMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131335KCBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131335PHIATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131340HOUTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131340LADMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131337BALTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131335NYMNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131335LAAWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP131210COLDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP122140SEAATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP122010TEXAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121915CWSSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121910CINMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121915PHIATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121810HOUTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121610LADMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121610CLEMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121605SDSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121605LAAWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121610KCBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121507BALTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121420PITCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121335NYMNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP121310COLDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP112215SDSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP112140TEXAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP112140SEAATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP112010CLEMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP112015CWSSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111945CINMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111910HOUTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111905NYMNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111910LADMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111910KCBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111915PHIATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111907BALTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111845LAAWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111840COLDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP111420PITCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP101940PITCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP101905COLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP101610TEXSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP101305HOUPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP101215TBATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP092210CINLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091940PITCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091940AZKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091940CHCMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091915TBATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091905COLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091845LAABOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091840NYMMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091835CLEBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091840HOUPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091610WSHSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091610TEXSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091545STLSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091505TORATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP091310MINDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP082210CINLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP082145STLSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP082140TEXSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP082140WSHSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP082140TORATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081940PITCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081940AZKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081940CHCMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081905COLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081915TBATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081840MINDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081840HOUPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081840NYMMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081845LAABOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP081835CLEBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP072205TORATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP072110CINLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP072010STLSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071710WSHSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071510MINDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071410AZKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071410CHCMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071335LAABOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071335CLEBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071305ATLPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP071310NYMMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP062210WSHLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061820MINCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061610NYYSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061610ATHSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061510STLCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061435TBTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061410TORKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061410AZHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061340DETCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061340CHCMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061335BOSBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061340SFNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061335LAAPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061310ATLPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP061210MILCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP052140ATHSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP052110WSHLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP052010STLCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051905BOSBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051915NYYSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051905TBTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051910TORKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051910MINCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051915AZHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051840MILCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051840LAAPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051805ATLPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051810DETCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051610SFNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP051610CHCMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP042210WSHLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP042210ATHSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP042140NYYSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP042040STLCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP042005TBTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP042010AZHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP042010TORKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041940MINCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041915DETCLEG2",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041910CHCMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041905BOSBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041910SFNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041845LAAPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041840ATLPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041810MILCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP041410DETCLEG1",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP032210STLLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP032140ATHSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP032005TBTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP031940MIAKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP031915MILCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP031915BOSBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP031410CWSHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP031310TORCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP031235SFPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP022210STLLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP022138NYYLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP022010CWSHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021940DETMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021940MILCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021940MIAKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021840TORCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021840SFPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021840NYMTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021610SEABOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021540PHIAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021510BALCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021435ATHTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021305ATLWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP021240SDCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP012210STLLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP012138NYYLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP012140PHIAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP012040BALCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP012010CWSHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP012005ATHTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011940MIAKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011940DETMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011940MILCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011840SDCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011840SFPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011840TORCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011845ATLWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011840NYMTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26SEP011845SEABOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG312138NYYLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG312140PHIAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG312040BALCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG312010CWSHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG312005ATHTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG311940MILCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG311940DETMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG311840NYMTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG311840SDCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG311845MIAWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG311845SEABOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG311805SFATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301920CINCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301605BALATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301607PHILAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301510HOUNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301410TEXMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301410CWSMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301415PITSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301337SEATOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301340LADDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301340SDTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301340KCCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301335COLATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301335BOSNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG301215MIAWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG292205AZSFG2",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG292205BALATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG292207PHILAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291915TEXMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291915BOSNYYG2",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291610COLATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291605AZSFG1",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291610KCCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291610SDTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291610HOUNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291605MIAWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291507SEATOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291420CINCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291410CWSMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291415PITSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291310LADDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG291305BOSNYYG1",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG282215AZSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG282140BALATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG282138PHILAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG282010CWSMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG282015PITSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281940TEXMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281910HOUNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281910KCCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281915COLATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281910SDTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281915SEATOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281915BOSNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281840LADDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281845MIAWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG281420CINCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG272145AZSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG271910MILNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG271907KCTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG271905HOUNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG271915LADATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG271415BALSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG271305COLWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG262105MINATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261945BALSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261940TEXCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261907KCTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261910MILNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261905HOUNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261915LADATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261840BOSMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261845COLWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261610PHISEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261610PITSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261607CLELAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261545CINSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261540CHCAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG261310TBDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG252140CHCAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG252145CINSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG252138CLELAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG252140PITSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG252140MINATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG252140PHISEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251945BALSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251940TEXCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251905HOUNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251915LADATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251907KCTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251910MILNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251845COLWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251840BOSMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG251840TBDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG242145CINSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG242140PITSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG242140CHCAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG242140PHISEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG242138CLELAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG242140MINATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG241940TEXCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG241845COLWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG241840BOSMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG241840TBDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231910ATLMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231615CINAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231610PITLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231610CHCSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231610MINSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231510CLECOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231515SFBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231435LAATEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231410ATHHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231410NYMCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231410DETKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231335TORNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231335STLPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231340WSHMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG231335TBBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG222040MINSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG222010CINAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG222010CLECOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221910NYMCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221915PITLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221905LAATEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221905TBBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221915DETKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221910ATHHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221915CHCSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221915SFBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221805STLPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221610WSHMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221410ATLMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG221335TORNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212210PITLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212210CHCSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212140CINAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212140MINSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212040CLECOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212015LAATEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212010ATHHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG212010DETKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG211940NYMCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG211910WSHMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG211910SFBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG211915TBBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG211905TORNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG211840STLPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG211610ATLMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG202005WSHTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG202010LAAHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG201835NYYBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG201410ATHKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG201410SEAMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG201410ATLCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG201310TORTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG201310SFCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG201240STLCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG192040LADCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG192010LAAHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG192005WSHTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191940ATHKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191940SEAMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191840TORTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191840SFCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191840STLCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191835NYYBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191805MIAPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191610AZBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191420CWSCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191340ATLMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191310SDNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG191235DETPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG182040LADCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG182005WSHTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG182005CWSCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG182010LAAHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181940ATHKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181940ATLMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181940SEAMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181910AZBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181910SDNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181840SFCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181840DETPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181840TORTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181835NYYBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181840STLCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG181840MIAPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG172040LADCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG172005CWSCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171940ATHKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171940ATLMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171910AZBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171910SDNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171905DETPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171840STLCING2",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171840MIAPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171805BALTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG171340STLCING1",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161920SEAHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161605COLSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161610MILLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161605TEXATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161607KCLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161515STLCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161410PHIMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161335BOSPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161340MIACIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161340SDCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161337NYYTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161340WSHNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161335AZATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161340CWSDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG161215BALTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG152138KCLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG152140TEXATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151915BOSPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151910SDCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151910PHIMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151910SEAHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151915AZATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151915MILLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151840MIACIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151810BALTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151610WSHNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151605COLSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151507NYYTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151420STLCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG151310CWSDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG142210MILLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG142215COLSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG142138KCLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG142140TEXATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG142010SEAHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141910SDCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141910WSHNYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141915NYYTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141910BALTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141915AZATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141840BOSPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141840CWSDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141810MIACIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG141420STLCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG132210MILLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG132207TEXLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG131930PHIMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG131605CHCWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG131507BOSTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG131410CINCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG131335SEANYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG131310CLEDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG131310PITMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG122210TEXLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG122210KCLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121940CINCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121905SEANYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121915NYMATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121907BOSTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121845CHCWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121840CLEDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121840PITMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121610MILSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121540COLAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121545HOUSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121505TBATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121415PHISTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG121340BALMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG112210KCLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG112140MILSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG112140COLAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG112145HOUSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG112140TBATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG112138TEXLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111940BALMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111940CINCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111945PHISTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111905SEANYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111907BOSTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111915NYMATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111840PITMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111840CLEDET",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG111845CHCWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG102210KCLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG102145HOUSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG102138TEXLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG102140MILSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG102140TBATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG102140COLAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG101945PHISTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG101940BALMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG101915NYMATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG101907BOSTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG092020HOUSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091605DETSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091610TBSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091610LADAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091435BALTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091410CHCKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091410MINMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091410CLECWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091415COLSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091335ATLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091335ATHBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091340LAAMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091335TORPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091335NYMPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG091215CINWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG082150TBSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG082010LADAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081915CLECWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081915HOUSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081915DETSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081910MINMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081915COLSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081910CHCKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081915BALTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081840NYMPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081845CINWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081805TORPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081610LAAMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081610ATHBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG081505ATLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG072215DETSF",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG072140LADAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG072140HOUSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG072145TBSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG072015BALTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG072015COLSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG072010CHCKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071940MINMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071940CLECWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071910ATHBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071905ATLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071910LAAMIA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071845CINWSH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071840TORPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG071840NYMPIT",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG062140SDAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061940MINKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061910CWSBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061915MIAATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061805WSHPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061610DETSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061420TORCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061410PITMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061310NYMCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061235LAABAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG061240ATHCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG052140DETSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG052140SDAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051940MINKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051940PITMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051910CWSBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051905STLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051915MIAATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051840NYMCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051840ATHCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051835LAABAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051840WSHPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051510TBCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051435SFTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051420LADCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG051410TORHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG042140DETSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG042140SDAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG042040TBCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG042005SFTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG042010TORHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG042005LADCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041940PITMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041940MINKC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041910CWSBOS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041905STLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041915MIAATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041840WSHPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041840ATHCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041840NYMCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG041835LAABAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG032140SDAZ",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG032040TBCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG032005SFTEX",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG032005LADCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG032010TORHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG031940PITMIL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG031905STLNYY",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG031840WSHPHI",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021920BOSLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021605DETATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021610MINSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021610SFSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021515MILLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021510KCCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021420NYYCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021410TEXHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021337STLTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021335WSHATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021340MIANYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021335PHIBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021340PITCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021340CWSTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG021340AZCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG012140DETATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG012138MILLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG012110BOSLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG012040SFSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG012010KCCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011915AZCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011915NYYCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011915WSHATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011905PHIBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011910TEXHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011840PITCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011610CWSTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011610MIANYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011610MINSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26AUG011507STLTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL312210BOSLAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL312210MINSEA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL312138MILLAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL312145SFSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL312140DETATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL312040KCCOL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL312015TEXHOU",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311907STLTOR",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311910CWSTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311905PHIBAL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311910AZCLE",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311910MIANYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311915WSHATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311810PITCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL311420NYYCHC",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL302210SEALAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL302140BOSATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL302140SFSD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL301910MIANYM",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL301915WSHATL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL301910PITCIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL301415CHCSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL301410NYYCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL301340KCMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL301210TEXTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL292210SEALAD",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL292138HOULAA",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL292140BOSATH",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL291940KCMIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL291940NYYCWS",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL291945CHCSTL",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL291910CLECIN",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL291840TEXTB",
+        "reason": "No schedule match"
+      },
+      {
+        "eventTicker": "KXMLBGAME-26JUL281910ATLNYM",
+        "reason": "No schedule match"
+      }
+    ],
+    "board": [
+      {
+        "gamePk": 849826,
+        "officialDate": "2026-10-06",
+        "homeId": 135,
+        "awayId": 158,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-10-06T05:40:00.000Z",
+            "bid": 0.45,
+            "ask": 0.46,
+            "mid": 0.455,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.18518333333333334
+          },
+          "home": {
+            "time": "2026-10-06T05:40:00.000Z",
+            "bid": 0.55,
+            "ask": 0.56,
+            "mid": 0.555,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.18518333333333334
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26OCT062130MILSD-MIL",
+          "home": "KXMLBGAME-26OCT062130MILSD-SD"
+        },
+        "eventTicker": "KXMLBGAME-26OCT062130MILSD",
+        "awayTeam": "Milwaukee Brewers",
+        "homeTeam": "San Diego Padres",
+        "firstPitchUtc": "2026-10-07T01:30:00Z",
+        "minutesToPitch": 1189.8148166666667,
+        "kalshiAwayRaw": 0.455,
+        "kalshiHomeRaw": 0.555,
+        "kalshiRawSum": 1.01,
+        "kalshiAwayProb": 0.4504950495049505,
+        "kalshiHomeProb": 0.5495049504950495,
+        "kalshiPickSide": "HOME",
+        "kalshiPickTeam": "San Diego Padres",
+        "kalshiConfidence": 0.5495049504950495,
+        "tier": "PASS",
+        "quoteTime": "2026-10-06T05:40:00.000Z",
+        "quoteAgeMinutes": 0.19435,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-10-06T05:40:00.000Z",
+          "home": "2026-10-06T05:40:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Scheduled",
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5161099937274886,
+        "modelAgreesWithKalshi": true
+      },
+      {
+        "gamePk": 849819,
+        "officialDate": "2026-10-06",
+        "homeId": 144,
+        "awayId": 119,
+        "outcomeQuotes": {
+          "away": {
+            "time": "2026-10-06T05:40:00.000Z",
+            "bid": 0.5,
+            "ask": 0.51,
+            "mid": 0.505,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.18518333333333334
+          },
+          "home": {
+            "time": "2026-10-06T05:40:00.000Z",
+            "bid": 0.49,
+            "ask": 0.5,
+            "mid": 0.495,
+            "spread": 0.010000000000000009,
+            "ageMinutes": 0.18518333333333334
+          }
+        },
+        "marketTickers": {
+          "away": "KXMLBGAME-26OCT061800LADATL-LAD",
+          "home": "KXMLBGAME-26OCT061800LADATL-ATL"
+        },
+        "eventTicker": "KXMLBGAME-26OCT061800LADATL",
+        "awayTeam": "Los Angeles Dodgers",
+        "homeTeam": "Atlanta Braves",
+        "firstPitchUtc": "2026-10-06T22:00:00Z",
+        "minutesToPitch": 979.8148166666666,
+        "kalshiAwayRaw": 0.505,
+        "kalshiHomeRaw": 0.495,
+        "kalshiRawSum": 1,
+        "kalshiAwayProb": 0.505,
+        "kalshiHomeProb": 0.495,
+        "kalshiPickSide": "AWAY",
+        "kalshiPickTeam": "Los Angeles Dodgers",
+        "kalshiConfidence": 0.505,
+        "tier": "PASS",
+        "quoteTime": "2026-10-06T05:40:00.000Z",
+        "quoteAgeMinutes": 0.19896666666666665,
+        "awaySpread": 0.010000000000000009,
+        "homeSpread": 0.010000000000000009,
+        "quoteSkewMinutes": 0,
+        "outcomeQuoteTimes": {
+          "away": "2026-10-06T05:40:00.000Z",
+          "home": "2026-10-06T05:40:00.000Z"
+        },
+        "marketStatus": "active",
+        "gameStatus": "Scheduled",
+        "modelAvailable": true,
+        "modelPickSide": "HOME",
+        "modelConfidence": 0.5392684470248432,
+        "modelAgreesWithKalshi": false
+      }
+    ]
+  }
+}
