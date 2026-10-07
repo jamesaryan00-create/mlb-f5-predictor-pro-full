@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-07",
-  "gradedAt": "2026-10-07T21:00:26.677Z",
+  "gradedAt": "2026-10-07T21:30:27.524Z",
   "results": [
     {
       "gamePk": 849833,
@@ -255,25 +255,31 @@
       "officialDate": "2026-10-07",
       "gameDate": "2026-10-08T02:00:00Z",
       "pitcherIds": {
-        "home": null,
-        "away": null
+        "home": 621111,
+        "away": 688107
       },
-      "available": false,
+      "available": true,
       "pickSide": "HOME",
       "pickTeam": "San Diego Padres",
-      "confidence": 0.5125628140703518,
-      "kalshiQuoteTime": "2026-10-07T07:00:00.000Z",
+      "confidence": 0.505,
+      "kalshiQuoteTime": "2026-10-07T21:30:00.000Z",
       "kalshiTier": "PASS",
-      "reason": "No live Kalshi price for either market at pick time",
+      "reason": null,
       "fgModelPickSide": "AWAY",
       "fgModelPickTeam": "Milwaukee Brewers",
-      "fgModelConfidence": 0.5126791421375299,
+      "fgModelConfidence": 0.5231524045243242,
       "fgModelAgreesWithKalshi": false,
       "topFactors": [
         {
           "feature": "homeFullRunDiff",
           "label": "Season run differential edge",
           "contribution": -0.054,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0418,
           "direction": "for"
         },
         {
@@ -287,34 +293,40 @@
           "label": "Late-inning (6-9) run differential edge",
           "contribution": -0.0266,
           "direction": "for"
-        },
-        {
-          "feature": "homeWinPctDiff",
-          "label": "Season win% edge",
-          "contribution": -0.0215,
-          "direction": "for"
         }
       ],
       "featuresThroughDate": "2026-10-06",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
-      "f5Available": false,
-      "f5PickSide": null,
-      "f5PickTeam": null,
-      "f5Confidence": null,
-      "f5KalshiQuoteTime": null,
-      "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "imputedFeatures": [],
+      "f5Available": true,
+      "f5PickSide": "AWAY",
+      "f5PickTeam": "Milwaukee Brewers",
+      "f5Confidence": 0.5178571428571428,
+      "f5KalshiQuoteTime": "2026-10-07T21:29:00.000Z",
+      "f5KalshiTier": "PASS",
+      "f5Reason": "Incomplete F5 innings",
       "f5ModelPickSide": "AWAY",
       "f5ModelPickTeam": "Milwaukee Brewers",
-      "f5ModelConfidence": 0.5039366284439224,
-      "f5ModelAgreesWithKalshi": null,
-      "provenance": "legacy-unverified",
+      "f5ModelConfidence": 0.5208596326767481,
+      "f5ModelAgreesWithKalshi": true,
+      "capturedAt": "2026-10-07T21:30:09.137Z",
+      "filledAt": "2026-10-07T21:30:09.138Z",
+      "provenance": "verified",
       "trackedModel": "kalshi-primary",
-      "f5Provenance": "legacy-unverified",
-      "status": "excluded"
+      "f5Provenance": "verified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "pending",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     }
   ]
 }
