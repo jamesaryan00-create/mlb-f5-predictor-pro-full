@@ -1,0 +1,320 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-07",
+  "gradedAt": "2026-10-07T07:30:29.416Z",
+  "results": [
+    {
+      "gamePk": 849833,
+      "away": "Cleveland Guardians",
+      "home": "Chicago White Sox",
+      "awayId": 114,
+      "homeId": 145,
+      "officialDate": "2026-10-07",
+      "gameDate": "2026-10-07T20:00:00Z",
+      "pitcherIds": {
+        "home": 656794,
+        "away": 682982
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Chicago White Sox",
+      "confidence": 0.515,
+      "kalshiQuoteTime": "2026-10-07T07:00:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Chicago White Sox",
+      "fgModelConfidence": 0.56899416448453,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.152,
+          "direction": "for"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.022,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": -0.0197,
+          "direction": "against"
+        },
+        {
+          "feature": "homePitchingRunDiff",
+          "label": "First-5 pitching run-prevention edge",
+          "contribution": -0.0151,
+          "direction": "against"
+        }
+      ],
+      "featuresThroughDate": "2026-10-06",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Chicago White Sox",
+      "f5ModelConfidence": 0.5874800623661431,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-07T07:00:21.510Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    },
+    {
+      "gamePk": 849822,
+      "away": "Los Angeles Dodgers",
+      "home": "Atlanta Braves",
+      "awayId": 119,
+      "homeId": 144,
+      "officialDate": "2026-10-07",
+      "gameDate": "2026-10-07T22:00:00Z",
+      "pitcherIds": {
+        "home": 641816,
+        "away": 607192
+      },
+      "available": true,
+      "pickSide": "AWAY",
+      "pickTeam": "Los Angeles Dodgers",
+      "confidence": 0.5721393034825871,
+      "kalshiQuoteTime": "2026-10-07T07:00:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Atlanta Braves",
+      "fgModelConfidence": 0.5097832264229433,
+      "fgModelAgreesWithKalshi": false,
+      "topFactors": [
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": -0.032,
+          "direction": "against"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0264,
+          "direction": "against"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.0247,
+          "direction": "against"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.017,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-06",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Atlanta Braves",
+      "f5ModelConfidence": 0.5001122835354999,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-07T07:00:21.510Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    },
+    {
+      "gamePk": 849838,
+      "away": "Tampa Bay Rays",
+      "home": "New York Yankees",
+      "awayId": 139,
+      "homeId": 147,
+      "officialDate": "2026-10-07",
+      "gameDate": "2026-10-08T00:00:00Z",
+      "pitcherIds": {
+        "home": 608331,
+        "away": 607259
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "New York Yankees",
+      "confidence": 0.605,
+      "kalshiQuoteTime": "2026-10-07T07:00:00.000Z",
+      "kalshiTier": "PLAY",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "New York Yankees",
+      "fgModelConfidence": 0.5653260092251743,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0446,
+          "direction": "for"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0439,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.0165,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.0124,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-06",
+      "imputedFeatures": [],
+      "f5Available": true,
+      "f5PickSide": "HOME",
+      "f5PickTeam": "New York Yankees",
+      "f5Confidence": 0.6204819277108433,
+      "f5KalshiQuoteTime": "2026-10-07T06:56:00.000Z",
+      "f5KalshiTier": "STRONG",
+      "f5Reason": "Incomplete F5 innings",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "New York Yankees",
+      "f5ModelConfidence": 0.5524508239888187,
+      "f5ModelAgreesWithKalshi": true,
+      "capturedAt": "2026-10-07T07:00:21.510Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "verified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "pending",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    },
+    {
+      "gamePk": 849827,
+      "away": "Milwaukee Brewers",
+      "home": "San Diego Padres",
+      "awayId": 158,
+      "homeId": 135,
+      "officialDate": "2026-10-07",
+      "gameDate": "2026-10-08T02:00:00Z",
+      "pitcherIds": {
+        "home": null,
+        "away": null
+      },
+      "available": false,
+      "pickSide": "HOME",
+      "pickTeam": "San Diego Padres",
+      "confidence": 0.5125628140703518,
+      "kalshiQuoteTime": "2026-10-07T07:00:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": "No live Kalshi price for either market at pick time",
+      "fgModelPickSide": "AWAY",
+      "fgModelPickTeam": "Milwaukee Brewers",
+      "fgModelConfidence": 0.5126791421375299,
+      "fgModelAgreesWithKalshi": false,
+      "topFactors": [
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.054,
+          "direction": "for"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": -0.0377,
+          "direction": "for"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": -0.0266,
+          "direction": "for"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": -0.0215,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-06",
+      "imputedFeatures": [
+        "homePitcherWhipDiff",
+        "homePitcherFipDiff"
+      ],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "AWAY",
+      "f5ModelPickTeam": "Milwaukee Brewers",
+      "f5ModelConfidence": 0.5039366284439224,
+      "f5ModelAgreesWithKalshi": null,
+      "provenance": "legacy-unverified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "excluded"
+    }
+  ]
+}
