@@ -42,7 +42,10 @@ async function main(){
       // A rescheduled start requires review instead of silently using another game slot.
       if(Date.parse(g.gameData?.datetime?.dateTime)!==Date.parse(row.firstPitch))continue;
       const win=(h>a)===(row.decision.side==='home'),trade=row.decision.selected.trade;
-      write(`grade-${row.gamePk}.json`,{status:'graded',gradedAt:stamp(),homeRuns:h,awayRuns:a,win,net:(win?trade.payout:0)-trade.cost,settlementBasis:'MLB final result; hypothetical contract held to settlement, void rules unverified'});
+      const market=row.decision.sides.find(s=>s.marketRole==='FAVORITE') || row.decision.sides.find(s=>s.side==='home');
+      const marketWin=(h>a)===(market.side==='home');
+      const benchmark={side:market.side,win:marketWin,net:(marketWin?market.trade.payout:0)-market.trade.cost};
+      write(`grade-${row.gamePk}.json`,{status:'graded',gradedAt:stamp(),homeRuns:h,awayRuns:a,win,benchmark,net:(win?trade.payout:0)-trade.cost,settlementBasis:'MLB final result; hypothetical contract held to settlement, void rules unverified'});
     }
     const summary=readRecord(dir);console.log(JSON.stringify({at:stamp(),picks:summary.picks,passes:summary.passes,wins:summary.wins,losses:summary.losses,pending:summary.pending,net:summary.net}));
   }finally{fs.closeSync(fd);fs.unlinkSync(lock);}
