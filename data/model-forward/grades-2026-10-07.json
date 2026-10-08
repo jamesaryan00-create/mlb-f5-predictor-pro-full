@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-07",
-  "gradedAt": "2026-10-07T23:30:26.669Z",
+  "gradedAt": "2026-10-08T00:00:38.081Z",
   "results": [
     {
       "gamePk": 849833,
@@ -159,8 +159,8 @@
       "fgStatus": "pending",
       "fgReason": null,
       "f5Status": "excluded",
-      "f5Home": null,
-      "f5Away": null,
+      "f5Home": 1,
+      "f5Away": 1,
       "f5Result": null,
       "f5Win": null,
       "f5Tie": null
