@@ -101,6 +101,7 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [record, setRecord] = useState(null);
   const [priceRecord, setPriceRecord] = useState(null);
+  const [priceCohort, setPriceCohort] = useState('original');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [budget, setBudget] = useState('1000');
@@ -127,7 +128,7 @@ export default function Home() {
     refresh(); const timer = setInterval(refresh, 60000);
     return () => { active = false; clearInterval(timer); };
   }, []);
-  useEffect(() => { let active=true; const load=()=>fetch('/api/price-record').then(r=>{if(!r.ok)throw Error('Unavailable');return r.json();}).then(d=>{if(active)setPriceRecord(d);}).catch(()=>{if(active)setPriceRecord(null);}); load(); const timer=setInterval(load,60000); return ()=>{active=false;clearInterval(timer);}; }, []);
+  useEffect(() => { let active=true; const load=()=>fetch(`/api/price-record?cohort=${priceCohort}`).then(r=>{if(!r.ok)throw Error('Unavailable');return r.json();}).then(d=>{if(active)setPriceRecord(d);}).catch(()=>{if(active)setPriceRecord(null);}); load(); const timer=setInterval(load,60000); return ()=>{active=false;clearInterval(timer);}; }, [priceCohort]);
   const go = (n) => { const d = shiftDate(date, n); setDate(d); };
 
   const games = useMemo(() => data?.games || [], [data]);
@@ -152,6 +153,8 @@ export default function Home() {
       {!record && <p role="status">Performance record unavailable or loading.</p>}
       <section className="tile" aria-label="Price-aware results">
         <h2>Price-aware paper record</h2>
+        <label>Evaluation <select value={priceCohort} onChange={e=>{setPriceRecord(null);setPriceCohort(e.target.value);}}><option value="original">Original evaluation</option><option value="world-series-2026">World Series 2026 extension</option></select></label>
+        <p className="muted">These evaluations have separate records and are never combined.</p>
         {priceRecord ? <><strong>{priceRecord.wins}W – {priceRecord.losses}L · net {dollars(priceRecord.net)}</strong><small>{priceRecord.pending} pending · {priceRecord.passes} passes · {priceRecord.picks} selected · ROI {priceRecord.roi == null ? '—' : `${priceRecord.roi.toFixed(2)}%`}</small><small>Market favorites on the same graded games: {dollars(priceRecord.benchmarkNet)}.</small><small>Only new, locked pregame paper selections. Hypothetical fills and fees; no actual trades. Old Kalshi results are not included.</small><ul>{priceRecord.rows?.filter(r => r.decision.selected).sort((a,b) => b.lockedAt.localeCompare(a.lockedAt)).slice(0,10).map(r => <li key={r.gamePk}>{r.date} · {r.decision.side === 'home' ? r.home : r.away} · {r.decision.action} · {(r.decision.selected.ask*100).toFixed(1)}¢ · {r.grade?.status === 'graded' ? `${r.grade.win ? 'Win' : 'Loss'} · ${dollars(r.grade.net)}` : 'Pending'} · {depthLabel(r)}</li>)}</ul></> : <p>Price-aware record unavailable or loading.</p>}
       </section>
       <section className="tiles">

@@ -8,17 +8,23 @@ const {whaleActivityForRecord}=require('../lib/whale-trades');
 const {mapWithConcurrency}=require('../lib/kalshi-http');
 const {todayPacific}=require('../lib/mlb');
 const {hasGamesOnDate,logSkip}=require('../lib/season-guard');
-const dir=path.join(process.cwd(),'data','kalshi-forward-fullgame');fs.mkdirSync(dir,{recursive:true});
+const extension=process.argv.includes('--world-series');
+const ws=require('../lib/world-series-window');
+const dir=path.join(process.cwd(),'data',extension?ws.PLAN.captureDirectory:'kalshi-forward-fullgame');fs.mkdirSync(dir,{recursive:true});
 const modelPlanFile=path.join(dir,'model-agreement-plan.json');
 if(!fs.existsSync(modelPlanFile)) {
+ if(extension)fs.writeFileSync(modelPlanFile,JSON.stringify(ws.PLAN,null,2),{flag:'wx'});
+ else {
  const start=new Date(),end=new Date(start.getTime()+30*86400000);
  fs.writeFileSync(modelPlanFile,JSON.stringify({version:1,start:start.toISOString(),end:end.toISOString(),rule:'marketTrust',definition:'Full-game model (lib/full-game-model.js) side agrees with Kalshi KXMLBGAME side; Kalshi confidence >= 0.62; model confidence >= 0.55.',metric:'Wins / (wins + losses)',market:'KXMLBGAME (full game, 2-way, no tie contract)',policy:'First fresh snapshot per game in the final 60 minutes before scheduled first pitch. Fixed 30-day collection, then wait for outcomes. No early promotion. Inconclusive if fewer than 100 graded marketTrust picks. No automatic rule changes.'},null,2),{flag:'wx'});
+}
 }
 const modelPlan=JSON.parse(fs.readFileSync(modelPlanFile));
 function save(kind,data){const file=path.join(dir,`${kind}-${Date.now()}-${crypto.randomUUID()}.json`);fs.writeFileSync(file,JSON.stringify(data,null,2),{flag:'wx',mode:0o600});return file;}
 function records(){const byGame=new Map();for(const file of fs.readdirSync(dir).filter(f=>f.startsWith('capture-')))for(const r of JSON.parse(fs.readFileSync(path.join(dir,file))).records){const old=byGame.get(r.gamePk);if(!old||r.capturedAt<old.capturedAt)byGame.set(r.gamePk,r);}return [...byGame.values()];}
 async function main(){
  if(process.argv[2]==='capture') {
+  if(extension&&!ws.isOpen()){logSkip('Outside separate World Series collection window');return;}
   if(Date.now()>=Date.parse(modelPlan.end))throw Error('Fixed collection window ended; run grading.');
   const today=todayPacific();
   if(!(await hasGamesOnDate(today))){logSkip(`No MLB games scheduled for ${today}`);return;}
@@ -42,6 +48,7 @@ async function main(){
   //                  meant the live pick was "unavailable" for every game more than 60 minutes out,
   //                  which was most of the day.
   const board=await getKalshiFullGameBoard(),at=new Date().toISOString();
+  if(extension){board.board=board.board.filter(ws.accepts);board.cohort=ws.PLAN.cohort;}
   const eligible=board.board.filter(r=>Date.parse(r.firstPitchUtc)-Date.parse(at)<=3600000).map(r=>capture(r,at)).filter(Boolean);
   const allRecords=board.board.map(r=>capture(r,at)).filter(Boolean);
   // Whale/large-trade detection (new, exploratory -- see FEATURE-WISHLIST.md): same capture cycle,

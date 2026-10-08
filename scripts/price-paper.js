@@ -3,8 +3,9 @@ const fs=require('fs'),path=require('path'),crypto=require('crypto');
 const {decide,POLICY}=require('../lib/price-decision');
 const {readRecord}=require('../lib/price-paper-record');
 const {captureDepth}=require('../lib/price-depth');
-async function main({root=process.cwd(),nowFn=Date.now,fetchFn=fetch,log=console.log}={}){
-  const dir=path.join(root,'data/price-paper');
+async function main({root=process.cwd(),nowFn=Date.now,fetchFn=fetch,log=console.log,extension=false}={}){
+  const ws=require('../lib/world-series-window');
+  const dir=path.join(root,'data',extension?ws.PLAN.paperDirectory:'price-paper');
   const stamp=()=>new Date(nowFn()).toISOString();
   function write(file,value){
     const temporary=path.join(dir,`.pending-${crypto.randomUUID()}`);
@@ -17,13 +18,14 @@ async function main({root=process.cwd(),nowFn=Date.now,fetchFn=fetch,log=console
   try{
     const current=readRecord(dir),counts={};
     for(const r of current.rows)if(r.decision.selected)counts[r.date]=(counts[r.date]||0)+1;
-    const source=path.join(root,'data/kalshi-forward-fullgame');
-    const files=fs.readdirSync(source).filter(f=>/^capture-\d+.*\.json$/.test(f)).sort().slice(-12);
+    const source=path.join(root,'data',extension?ws.PLAN.captureDirectory:'kalshi-forward-fullgame');
+    const files=(fs.existsSync(source)?fs.readdirSync(source):[]).filter(f=>/^capture-\d+.*\.json$/.test(f)).sort().slice(-12);
     const latest=new Map();
     for(const file of files){const raw=fs.readFileSync(path.join(source,file),'utf8'),d=JSON.parse(raw);
       for(const r of d.allRecords||d.records||[])if(!latest.has(r.gamePk)||Date.parse(r.capturedAt)>Date.parse(latest.get(r.gamePk).r.capturedAt))latest.set(r.gamePk,{r,file,hash:crypto.createHash('sha256').update(raw).digest('hex')});
     }
     for(const {r,file,hash} of [...latest.values()].sort((a,b)=>Date.parse(a.r.firstPitchUtc)-Date.parse(b.r.firstPitchUtc)||a.r.gamePk-b.r.gamePk)){
+      if(extension&&(!ws.isOpen(nowFn())||!ws.accepts(r)))continue;
       if(fs.existsSync(path.join(dir,`decision-${r.gamePk}.json`)))continue;
       const now=nowFn(),mins=(Date.parse(r.firstPitchUtc)-now)/60000,age=now-Date.parse(r.capturedAt);
       if(!(mins>0&&mins<=60)||!Number.isFinite(age)||age<0||age>300000||!r.modelAvailable||!['HOME','AWAY'].includes(r.modelPickSide)||!Number.isFinite(r.modelConfidence))continue;
@@ -32,7 +34,7 @@ async function main({root=process.cwd(),nowFn=Date.now,fetchFn=fetch,log=console
       if(!decision.sides.length)continue;
       if(decision.selected&&(counts[r.officialDate]||0)>=POLICY.dailyCap){delete decision.selected;decision.side=null;decision.action='PASS';decision.reason='Daily paper cap of eight reached';}
       if(decision.selected)counts[r.officialDate]=(counts[r.officialDate]||0)+1;
-      write(`decision-${r.gamePk}.json`,{gamePk:r.gamePk,date:r.officialDate,home:r.homeTeam,away:r.awayTeam,homeId:r.homeId,awayId:r.awayId,firstPitch:r.firstPitchUtc,lockedAt:stamp(),modelCapturedAt:r.capturedAt,
+      write(`decision-${r.gamePk}.json`,{cohort:extension?ws.PLAN.cohort:'original',gamePk:r.gamePk,date:r.officialDate,home:r.homeTeam,away:r.awayTeam,homeId:r.homeId,awayId:r.awayId,firstPitch:r.firstPitchUtc,lockedAt:stamp(),modelCapturedAt:r.capturedAt,
         sourceCapture:file,sourceSha256:hash,policy:POLICY,quotes:r.outcomeQuotes,decision});
       // Separate immutable diagnostic: never changes the frozen paper decision.
       write(`execution-${r.gamePk}.json`,await captureDepth(r,{fetchFn,nowFn}));
@@ -58,4 +60,4 @@ async function main({root=process.cwd(),nowFn=Date.now,fetchFn=fetch,log=console
   }finally{fs.closeSync(fd);fs.unlinkSync(lock);}
 }
 module.exports={main};
-if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});
+if(require.main===module)main({extension:process.argv.includes('--world-series')}).catch(e=>{console.error(e.message);process.exitCode=1;});
