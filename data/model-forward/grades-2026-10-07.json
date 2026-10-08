@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-07",
-  "gradedAt": "2026-10-08T01:30:27.725Z",
+  "gradedAt": "2026-10-08T02:00:29.838Z",
   "results": [
     {
       "gamePk": 849833,
@@ -222,7 +222,7 @@
       "f5Confidence": 0.6204819277108433,
       "f5KalshiQuoteTime": "2026-10-07T06:56:00.000Z",
       "f5KalshiTier": "STRONG",
-      "f5Reason": "Incomplete F5 innings",
+      "f5Reason": null,
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "New York Yankees",
       "f5ModelConfidence": 0.5524508239888187,
@@ -239,12 +239,12 @@
       "tie": false,
       "fgStatus": "pending",
       "fgReason": null,
-      "f5Status": "pending",
-      "f5Home": null,
-      "f5Away": null,
-      "f5Result": null,
-      "f5Win": null,
-      "f5Tie": null
+      "f5Status": "graded",
+      "f5Home": 2,
+      "f5Away": 2,
+      "f5Result": "TIE",
+      "f5Win": false,
+      "f5Tie": true
     },
     {
       "gamePk": 849827,
