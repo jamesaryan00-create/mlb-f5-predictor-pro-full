@@ -28,6 +28,6 @@ test('never substitutes confidence or later prices for an entry ask', () => {
   assert.ok(liveTrade(g,1000,now));
   assert.equal(liveTrade({...g, recordedPick: {pick:'A'}},1000,now),null);
   assert.equal(liveTrade(g,1000,now+3600000),null);
-  assert.equal(liveTrade(g,1000,now+301000),null);
+  assert.equal(liveTrade(g,1000,now+2701000),null);
   assert.equal(liveTrade({...g,kalshiPrimaryFullGame:{...g.kalshiPrimaryFullGame,entryAsk:null,confidence:60}},1000,now),null);
 });

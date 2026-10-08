@@ -74,7 +74,7 @@ function GameRow({ game, trade, selected, onSelect }) {
       </div>
       <div className="cell">
         <span className="cellLabel">Paper trade · full game</span>
-        {trade ? <><strong>Win profit {dollars(trade.winProfit)}</strong><small>Return {dollars(trade.payout)} including stake · cost {dollars(trade.cost)}</small><small>{trade.contracts} contracts · fees {dollars(trade.fees)} · loss if wrong {dollars(trade.loss)}</small></> : <span className="muted">Requires a fresh pregame ask; unavailable for historical picks.</span>}
+        {trade ? <><strong>Win profit {dollars(trade.winProfit)}</strong><small>Captured ask {(game.kalshiPrimaryFullGame.entryAsk * 100).toFixed(1)}¢ at {fmtTime(game.kalshiPrimaryFullGame.entryQuoteTime)}</small><small>Return {dollars(trade.payout)} including stake · cost {dollars(trade.cost)}</small><small>{trade.contracts} contracts · fees {dollars(trade.fees)} · loss if wrong {dollars(trade.loss)}</small></> : <span className="muted">Requires a pregame ask captured within 45 minutes; unavailable for historical picks.</span>}
       </div>
       <div className="cell">
         <span className="cellLabel">F5</span>
@@ -151,7 +151,7 @@ export default function Home() {
         <p>{selectedTrades.length} selected · total cost {dollars(portfolio.cost)} · profit if all win {dollars(portfolio.allWinProfit)}</p>
         <strong>Projected net P/L: {dollars(portfolio.expected)}</strong>
         <small>{rate ? `Scenario uses the recorded Kalshi full-game win rate: ${(100 * rate.rate).toFixed(2)}% over ${rate.n} graded picks. Applies that same rate to each selected trade; it is not a forecast for this subset.` : 'A graded Kalshi full-game record is required to project P/L.'}</small>
-        <small>Fresh asks only. Hypothetical fills at displayed prices; available size is unverified. Estimated multiplier-1 taker fees rounded up per order. This is not settled P/L. F5 positions are separate and not included.</small>
+        <small>Scenario at captured asks (up to 45 minutes old), not live executable prices. Available size is unverified. Estimated multiplier-1 taker fees rounded up per order. This is not settled P/L. F5 positions are separate and not included.</small>
         <small>{trades.filter(r => !r.trade).length} games unavailable for pricing. Select or deselect eligible picks below.</small>
       </section>
       {error && <div className="alert">{error}</div>}
