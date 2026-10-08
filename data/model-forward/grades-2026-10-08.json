@@ -1,0 +1,88 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-08",
+  "gradedAt": "2026-10-08T07:30:26.772Z",
+  "results": [
+    {
+      "gamePk": 849832,
+      "away": "Cleveland Guardians",
+      "home": "Chicago White Sox",
+      "awayId": 114,
+      "homeId": 145,
+      "officialDate": "2026-10-08",
+      "gameDate": "2026-10-09T00:00:00Z",
+      "pitcherIds": {
+        "home": 696146,
+        "away": 800048
+      },
+      "available": true,
+      "pickSide": "AWAY",
+      "pickTeam": "Cleveland Guardians",
+      "confidence": 0.515,
+      "kalshiQuoteTime": "2026-10-08T07:00:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Chicago White Sox",
+      "fgModelConfidence": 0.5689240900701349,
+      "fgModelAgreesWithKalshi": false,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.122,
+          "direction": "for"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.022,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitchingRunDiff",
+          "label": "First-5 pitching run-prevention edge",
+          "contribution": -0.0151,
+          "direction": "against"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.0141,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-07",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Chicago White Sox",
+      "f5ModelConfidence": 0.5837561670649003,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-08T07:00:15.852Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    }
+  ]
+}
