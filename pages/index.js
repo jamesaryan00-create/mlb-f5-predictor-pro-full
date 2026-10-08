@@ -2,6 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { fromGame, selectedPortfolio } from '../lib/price-decision';
 const dollars = (n) => n == null ? '—' : new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
+function depthLabel(row) {
+  const d=row.execution?.sides?.[row.decision.side];
+  if(d?.status!=='observed'||!d.beforeFirstPitch)return 'Depth unverified';
+  return d.atQuotedAsk?.sufficient ? '$1,000 displayed depth at entry price; fill unverified' : d.atOneCentWorse?.sufficient ? 'Insufficient depth at entry; sufficient at +1¢; fill unverified' : 'Insufficient displayed depth through +1¢';
+}
 
 function todayPacific() {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
@@ -147,7 +152,7 @@ export default function Home() {
       {!record && <p role="status">Performance record unavailable or loading.</p>}
       <section className="tile" aria-label="Price-aware results">
         <h2>Price-aware paper record</h2>
-        {priceRecord ? <><strong>{priceRecord.wins}W – {priceRecord.losses}L · net {dollars(priceRecord.net)}</strong><small>{priceRecord.pending} pending · {priceRecord.passes} passes · {priceRecord.picks} selected · ROI {priceRecord.roi == null ? '—' : `${priceRecord.roi.toFixed(2)}%`}</small><small>Market favorites on the same graded games: {dollars(priceRecord.benchmarkNet)}.</small><small>Only new, locked pregame paper selections. Hypothetical fills and fees; no actual trades. Old Kalshi results are not included.</small><ul>{priceRecord.rows?.filter(r => r.decision.selected).sort((a,b) => b.lockedAt.localeCompare(a.lockedAt)).slice(0,10).map(r => <li key={r.gamePk}>{r.date} · {r.decision.side === 'home' ? r.home : r.away} · {r.decision.action} · {(r.decision.selected.ask*100).toFixed(1)}¢ · {r.grade?.status === 'graded' ? `${r.grade.win ? 'Win' : 'Loss'} · ${dollars(r.grade.net)}` : 'Pending'}</li>)}</ul></> : <p>Price-aware record unavailable or loading.</p>}
+        {priceRecord ? <><strong>{priceRecord.wins}W – {priceRecord.losses}L · net {dollars(priceRecord.net)}</strong><small>{priceRecord.pending} pending · {priceRecord.passes} passes · {priceRecord.picks} selected · ROI {priceRecord.roi == null ? '—' : `${priceRecord.roi.toFixed(2)}%`}</small><small>Market favorites on the same graded games: {dollars(priceRecord.benchmarkNet)}.</small><small>Only new, locked pregame paper selections. Hypothetical fills and fees; no actual trades. Old Kalshi results are not included.</small><ul>{priceRecord.rows?.filter(r => r.decision.selected).sort((a,b) => b.lockedAt.localeCompare(a.lockedAt)).slice(0,10).map(r => <li key={r.gamePk}>{r.date} · {r.decision.side === 'home' ? r.home : r.away} · {r.decision.action} · {(r.decision.selected.ask*100).toFixed(1)}¢ · {r.grade?.status === 'graded' ? `${r.grade.win ? 'Win' : 'Loss'} · ${dollars(r.grade.net)}` : 'Pending'} · {depthLabel(r)}</li>)}</ul></> : <p>Price-aware record unavailable or loading.</p>}
       </section>
       <section className="tiles">
         <RecordTile label="Kalshi full game" cohort={mf.kalshiPrimaryFullGame} />
