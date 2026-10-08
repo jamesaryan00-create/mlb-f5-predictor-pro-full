@@ -68,13 +68,13 @@ function GameRow({ game, decision, selected, onSelect }) {
       </div>
       <div className="cell">
         <span className="cellLabel">Kalshi benchmark · full game</span>
-        {trade && <label><input type="checkbox" checked={selected} onChange={onSelect} aria-label={`Include ${game[decision.side]?.name} in paper portfolio`} /> Include</label>}
         {r.fg ? <span className="pickText">{r.fg.pick} <em>{whole(r.fg.conf)}</em></span> : <span className="muted">{r.noPick ? 'Not captured' : 'No pick'}</span>}
         {r.fg && <Pill outcome={r.fgOutcome} />}
         {!r.fg && game.fullGamePrediction?.available && <small>Model only: {game.fullGamePrediction.pick} {whole(game.fullGamePrediction.confidence)} (not a captured Kalshi pick)</small>}
       </div>
       <div className="cell">
         <span className="cellLabel">Price-aware paper decision</span>
+        {trade && <label><input type="checkbox" checked={selected} onChange={onSelect} aria-label={`Include ${game[decision.side]?.name} in paper portfolio`} /> Include {game[decision.side]?.name}</label>}
         <strong>{decision.action}{decision.side ? ` · ${game[decision.side].name}` : ''}</strong>
         <small>{decision.reason}</small>
         {decision.sides.map(s => <div key={s.side} className="priceSide"><strong>{game[s.side].name}</strong><small>Model {(100*s.probability).toFixed(1)}% · ask {(100*s.ask).toFixed(1)}¢ at {fmtTime(s.quoteTime)} · break-even {s.breakEven == null ? '—' : `${(100*s.breakEven).toFixed(1)}%`}</small><small>Win profit {dollars(s.trade?.winProfit)} · loss {dollars(s.trade?.loss)} · estimated net {dollars(s.expected)} · at 1¢ worse {dollars(s.stressExpected)}</small></div>)}
