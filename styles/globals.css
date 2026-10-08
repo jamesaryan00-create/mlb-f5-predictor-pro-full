@@ -57,3 +57,5 @@ input[type=date]:focus, .nav button:focus-visible { outline: 2px solid var(--acc
 .cell small { display: block; width: 100%; color: var(--muted); }
 input[type="checkbox"] { width: auto; }
 @media (max-width: 800px) { .row { grid-template-columns: 1fr; } }
+
+.priceSide { width:100%; padding:8px 0; border-top:1px solid var(--line); }
