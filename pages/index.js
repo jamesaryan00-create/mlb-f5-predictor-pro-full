@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
+import { liveTrade, cohortRate, portfolioProjection } from '../lib/trade-projection';
+const dollars = (n) => n == null ? '—' : new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
+
 function todayPacific() {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 }
@@ -51,7 +54,7 @@ function rowFor(game) {
   };
 }
 
-function GameRow({ game }) {
+function GameRow({ game, trade, selected, onSelect }) {
   const r = rowFor(game);
   return (
     <li className="row">
@@ -64,9 +67,14 @@ function GameRow({ game }) {
       </div>
       <div className="cell">
         <span className="cellLabel">Full game</span>
+        {trade && <label><input type="checkbox" checked={selected} onChange={onSelect} aria-label={`Include ${r.fg?.pick} in paper portfolio`} /> Include</label>}
         {r.fg ? <span className="pickText">{r.fg.pick} <em>{whole(r.fg.conf)}</em></span> : <span className="muted">{r.noPick ? 'Not captured' : 'No pick'}</span>}
         {r.fg && <Pill outcome={r.fgOutcome} />}
         {!r.fg && game.fullGamePrediction?.available && <small>Model only: {game.fullGamePrediction.pick} {whole(game.fullGamePrediction.confidence)} (not a captured Kalshi pick)</small>}
+      </div>
+      <div className="cell">
+        <span className="cellLabel">Paper trade · full game</span>
+        {trade ? <><strong>Win profit {dollars(trade.winProfit)}</strong><small>Return {dollars(trade.payout)} including stake · cost {dollars(trade.cost)}</small><small>{trade.contracts} contracts · fees {dollars(trade.fees)} · loss if wrong {dollars(trade.loss)}</small></> : <span className="muted">Requires a fresh pregame ask; unavailable for historical picks.</span>}
       </div>
       <div className="cell">
         <span className="cellLabel">F5</span>
@@ -84,6 +92,11 @@ export default function Home() {
   const [record, setRecord] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [budget, setBudget] = useState('1000');
+  const [omitted, setOmitted] = useState({});
+  const [clock, setClock] = useState(Date.now());
+  useEffect(() => { const timer = setInterval(() => setClock(Date.now()), 15000); return () => clearInterval(timer); }, []);
+  useEffect(() => setOmitted({}), [date]);
 
   async function load(d) {
     const id = ++requestId.current;
@@ -107,6 +120,11 @@ export default function Home() {
 
   const games = useMemo(() => data?.games || [], [data]);
   const mf = (record && record.modelForward) || {};
+  const rate = cohortRate(mf.kalshiPrimaryFullGame);
+  const trades = games.map(g => ({ game: g, trade: liveTrade(g, Number(budget), clock) }));
+  const selectedTrades = trades.filter(({ game, trade }) => trade && !omitted[`${date}:${game.gamePk}`]).map(r => r.trade);
+  const portfolio = portfolioProjection(selectedTrades, rate?.rate);
+  const invalidBudget = !Number.isFinite(Number(budget)) || Number(budget) <= 0 || Number(budget) > 1000000;
 
   return (
     <main className="shell">
@@ -126,13 +144,23 @@ export default function Home() {
         <RecordTile label="Kalshi first 5 innings" cohort={mf.kalshiPrimaryF5} note="ties count as losses" />
       </section>
 
+      <section className="tile" aria-label="Paper portfolio">
+        <h2>Paper portfolio · full game</h2>
+        <label>Budget per trade (including fees) <input aria-label="Budget per trade" type="number" min="1" max="1000000" step="100" value={budget} onChange={e => setBudget(e.target.value)} /></label>
+        {invalidBudget && <p role="alert">Enter a budget above $0 and no more than $1,000,000.</p>}
+        <p>{selectedTrades.length} selected · total cost {dollars(portfolio.cost)} · profit if all win {dollars(portfolio.allWinProfit)}</p>
+        <strong>Projected net P/L: {dollars(portfolio.expected)}</strong>
+        <small>{rate ? `Scenario uses the recorded Kalshi full-game win rate: ${(100 * rate.rate).toFixed(2)}% over ${rate.n} graded picks. Applies that same rate to each selected trade; it is not a forecast for this subset.` : 'A graded Kalshi full-game record is required to project P/L.'}</small>
+        <small>Fresh asks only. Hypothetical fills at displayed prices; available size is unverified. Estimated multiplier-1 taker fees rounded up per order. This is not settled P/L. F5 positions are separate and not included.</small>
+        <small>{trades.filter(r => !r.trade).length} games unavailable for pricing. Select or deselect eligible picks below.</small>
+      </section>
       {error && <div className="alert">{error}</div>}
       {loading && <p className="muted center">Loading…</p>}
 
       {!loading && data && (
         <>
           <h2>Games</h2>
-          {games.length === 0 ? <p className="muted">No games found for {date}.</p> : <ul className="list">{games.map((g) => <GameRow key={g.gamePk} game={g} />)}</ul>}
+          {games.length === 0 ? <p className="muted">No games found for {date}.</p> : <ul className="list">{games.map((g) => <GameRow key={g.gamePk} game={g} trade={liveTrade(g, Number(budget), clock)} selected={!omitted[`${date}:${g.gamePk}`]} onSelect={() => setOmitted(prev => ({ ...prev, [`${date}:${g.gamePk}`]: !prev[`${date}:${g.gamePk}`] }))} />)}</ul>}
         </>
       )}
 
