@@ -1,0 +1,84 @@
+{
+  "cohort": "original",
+  "gamePk": 849831,
+  "date": "2026-10-10",
+  "home": "Cleveland Guardians",
+  "away": "Chicago White Sox",
+  "homeId": 114,
+  "awayId": 145,
+  "firstPitch": "2026-10-11T00:00:00Z",
+  "lockedAt": "2026-10-10T23:03:01.367Z",
+  "modelCapturedAt": "2026-10-10T23:00:15.023Z",
+  "sourceCapture": "capture-1791673215200-ab643f0b-3d27-4faf-a5cb-188175d1ed3a.json",
+  "sourceSha256": "6b0bf2f8560fcc4e87fb2ff196066afd7026cc8b872fbc34e620ea41a0b12c6c",
+  "policy": {
+    "version": "price-paper-v1",
+    "budget": 1000,
+    "adverseCents": 1,
+    "maxQuoteAgeMs": 300000,
+    "maxSkewMs": 60000,
+    "dailyCap": 8
+  },
+  "quotes": {
+    "away": {
+      "time": "2026-10-10T23:00:00.000Z",
+      "bid": 0.43,
+      "ask": 0.44,
+      "mid": 0.435,
+      "spread": 0.010000000000000009,
+      "ageMinutes": 0.2289
+    },
+    "home": {
+      "time": "2026-10-10T23:00:00.000Z",
+      "bid": 0.56,
+      "ask": 0.57,
+      "mid": 0.565,
+      "spread": 0.009999999999999898,
+      "ageMinutes": 0.2289
+    }
+  },
+  "decision": {
+    "policy": "price-paper-v1",
+    "action": "PASS",
+    "side": null,
+    "reason": "Neither side has positive model-estimated return after fees and a 1¢ worse entry",
+    "sides": [
+      {
+        "side": "home",
+        "probability": 0.5462364805216545,
+        "ask": 0.57,
+        "quoteTime": "2026-10-10T23:00:00.000Z",
+        "marketRole": "FAVORITE",
+        "trade": {
+          "contracts": 1703,
+          "fees": 29.22,
+          "cost": 999.93,
+          "payout": 1703,
+          "winProfit": 703.07,
+          "loss": 999.93
+        },
+        "expected": -69.68927367162235,
+        "stressExpected": -85.07013160675024,
+        "breakEven": 0.5871579565472695
+      },
+      {
+        "side": "away",
+        "probability": 0.4537635194783455,
+        "ask": 0.44,
+        "quoteTime": "2026-10-10T23:00:00.000Z",
+        "marketRole": "UNDERDOG",
+        "trade": {
+          "contracts": 2186,
+          "fees": 37.71,
+          "cost": 999.5500000000001,
+          "payout": 2186,
+          "winProfit": 1186.4499999999998,
+          "loss": 999.5500000000001
+        },
+        "expected": -7.6229464203368025,
+        "stressExpected": -29.009831835819114,
+        "breakEven": 0.45725068618481246
+      }
+    ]
+  }
+}
