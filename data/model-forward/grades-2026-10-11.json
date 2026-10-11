@@ -1,0 +1,88 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-11",
+  "gradedAt": "2026-10-11T07:30:29.263Z",
+  "results": [
+    {
+      "gamePk": 849809,
+      "away": "Los Angeles Dodgers",
+      "home": "Milwaukee Brewers",
+      "awayId": 119,
+      "homeId": 158,
+      "officialDate": "2026-10-11",
+      "gameDate": "2026-10-12T00:00:00Z",
+      "pitcherIds": {
+        "home": 694819,
+        "away": 669373
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Milwaukee Brewers",
+      "confidence": 0.505,
+      "kalshiQuoteTime": "2026-10-11T06:59:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Milwaukee Brewers",
+      "fgModelConfidence": 0.5411130587453767,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.017,
+          "direction": "for"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0102,
+          "direction": "for"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": 0.0055,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0044,
+          "direction": "against"
+        }
+      ],
+      "featuresThroughDate": "2026-10-10",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Milwaukee Brewers",
+      "f5ModelConfidence": 0.5418459557833407,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-11T07:00:10.286Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    }
+  ]
+}
