@@ -19,17 +19,17 @@
         "home": 701656,
         "away": 808967
       },
-      "available": false,
-      "pickSide": null,
-      "pickTeam": null,
-      "confidence": null,
-      "kalshiQuoteTime": null,
-      "kalshiTier": null,
-      "reason": "No usable live Kalshi price for the full-game market at capture time",
+      "available": true,
+      "pickSide": "AWAY",
+      "pickTeam": "Los Angeles Dodgers",
+      "confidence": 0.555,
+      "kalshiQuoteTime": "2026-10-12T07:30:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Milwaukee Brewers",
       "fgModelConfidence": 0.5383829211842402,
-      "fgModelAgreesWithKalshi": null,
+      "fgModelAgreesWithKalshi": false,
       "topFactors": [
         {
           "feature": "homeLateRunDiff",
@@ -68,7 +68,9 @@
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Milwaukee Brewers",
       "f5ModelConfidence": 0.5383767818696877,
-      "f5ModelAgreesWithKalshi": null
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-12T07:30:09.119Z",
+      "filledAt": "2026-10-12T07:30:09.119Z"
     },
     {
       "gamePk": 849820,
@@ -134,5 +136,6 @@
       "f5ModelAgreesWithKalshi": null,
       "capturedAt": "2026-10-12T07:00:23.805Z"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-12T07:30:09.119Z"
 }

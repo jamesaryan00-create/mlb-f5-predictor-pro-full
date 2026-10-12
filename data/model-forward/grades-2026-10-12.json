@@ -1,0 +1,170 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-12",
+  "gradedAt": "2026-10-12T07:30:30.050Z",
+  "results": [
+    {
+      "gamePk": 849812,
+      "away": "Los Angeles Dodgers",
+      "home": "Milwaukee Brewers",
+      "awayId": 119,
+      "homeId": 158,
+      "officialDate": "2026-10-12",
+      "gameDate": "2026-10-12T21:00:00Z",
+      "pitcherIds": {
+        "home": 701656,
+        "away": 808967
+      },
+      "available": true,
+      "pickSide": "AWAY",
+      "pickTeam": "Los Angeles Dodgers",
+      "confidence": 0.555,
+      "kalshiQuoteTime": "2026-10-12T07:30:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Milwaukee Brewers",
+      "fgModelConfidence": 0.5383829211842402,
+      "fgModelAgreesWithKalshi": false,
+      "topFactors": [
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0102,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.0096,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.008,
+          "direction": "against"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": 0.0055,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-11",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Milwaukee Brewers",
+      "f5ModelConfidence": 0.5383767818696877,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-12T07:30:09.119Z",
+      "filledAt": "2026-10-12T07:30:09.119Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    },
+    {
+      "gamePk": 849820,
+      "away": "Cleveland Guardians",
+      "home": "Tampa Bay Rays",
+      "awayId": 114,
+      "homeId": 139,
+      "officialDate": "2026-10-12",
+      "gameDate": "2026-10-13T00:00:00Z",
+      "pitcherIds": {
+        "home": 656876,
+        "away": 656492
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Tampa Bay Rays",
+      "confidence": 0.595,
+      "kalshiQuoteTime": "2026-10-12T07:00:00.000Z",
+      "kalshiTier": "PLAY",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Tampa Bay Rays",
+      "fgModelConfidence": 0.5982100911823356,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.0981,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0786,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.0235,
+          "direction": "for"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": 0.0234,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-11",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Tampa Bay Rays",
+      "f5ModelConfidence": 0.6166277548384069,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-12T07:00:23.805Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    }
+  ]
+}
