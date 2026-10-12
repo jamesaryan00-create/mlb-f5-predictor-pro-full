@@ -1,0 +1,84 @@
+{
+  "cohort": "original",
+  "gamePk": 849820,
+  "date": "2026-10-12",
+  "home": "Tampa Bay Rays",
+  "away": "Cleveland Guardians",
+  "homeId": 139,
+  "awayId": 114,
+  "firstPitch": "2026-10-13T00:00:00Z",
+  "lockedAt": "2026-10-12T23:03:01.740Z",
+  "modelCapturedAt": "2026-10-12T23:00:12.779Z",
+  "sourceCapture": "capture-1791846012996-127897bd-83d9-4b5c-b7b7-4354835b5bfc.json",
+  "sourceSha256": "bb24ccf15bc0516c552a4e42e0c623cb522e6e613e86321d7399d1ff3bb4d13b",
+  "policy": {
+    "version": "price-paper-v1",
+    "budget": 1000,
+    "adverseCents": 1,
+    "maxQuoteAgeMs": 300000,
+    "maxSkewMs": 60000,
+    "dailyCap": 8
+  },
+  "quotes": {
+    "away": {
+      "time": "2026-10-12T23:00:00.000Z",
+      "bid": 0.39,
+      "ask": 0.4,
+      "mid": 0.395,
+      "spread": 0.010000000000000009,
+      "ageMinutes": 0.191
+    },
+    "home": {
+      "time": "2026-10-12T23:00:00.000Z",
+      "bid": 0.59,
+      "ask": 0.6,
+      "mid": 0.595,
+      "spread": 0.010000000000000009,
+      "ageMinutes": 0.191
+    }
+  },
+  "decision": {
+    "policy": "price-paper-v1",
+    "action": "PASS",
+    "side": null,
+    "reason": "Neither side has positive model-estimated return after fees and a 1¢ worse entry",
+    "sides": [
+      {
+        "side": "home",
+        "probability": 0.5982100911823356,
+        "ask": 0.6,
+        "quoteTime": "2026-10-12T23:00:00.000Z",
+        "marketRole": "FAVORITE",
+        "trade": {
+          "contracts": 1621,
+          "fees": 27.24,
+          "cost": 999.8399999999999,
+          "payout": 1621,
+          "winProfit": 621.1600000000001,
+          "loss": 999.8399999999999
+        },
+        "expected": -30.14144219343393,
+        "stressExpected": -45.3749045641747,
+        "breakEven": 0.6168044417026526
+      },
+      {
+        "side": "away",
+        "probability": 0.4017899088176644,
+        "ask": 0.4,
+        "quoteTime": "2026-10-12T23:00:00.000Z",
+        "marketRole": "UNDERDOG",
+        "trade": {
+          "contracts": 2399,
+          "fees": 40.31,
+          "cost": 999.9100000000001,
+          "payout": 2399,
+          "winProfit": 1399.09,
+          "loss": 999.9100000000001
+        },
+        "expected": -36.016008746423154,
+        "stressExpected": -58.888033549029956,
+        "breakEven": 0.41680283451438105
+      }
+    ]
+  }
+}
