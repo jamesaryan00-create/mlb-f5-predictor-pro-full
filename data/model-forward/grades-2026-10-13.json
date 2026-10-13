@@ -1,0 +1,89 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-13",
+  "gradedAt": "2026-10-13T07:30:26.016Z",
+  "results": [
+    {
+      "gamePk": 849813,
+      "away": "Cleveland Guardians",
+      "home": "Tampa Bay Rays",
+      "awayId": 114,
+      "homeId": 139,
+      "officialDate": "2026-10-13",
+      "gameDate": "2026-10-14T00:00:00Z",
+      "pitcherIds": {
+        "home": 642547,
+        "away": 800048
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Tampa Bay Rays",
+      "confidence": 0.565,
+      "kalshiQuoteTime": "2026-10-13T07:30:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Tampa Bay Rays",
+      "fgModelConfidence": 0.5473878482002469,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0396,
+          "direction": "against"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.0235,
+          "direction": "for"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": 0.0234,
+          "direction": "for"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": 0.0177,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-12",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Tampa Bay Rays",
+      "f5ModelConfidence": 0.5463193594842974,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-13T07:30:05.895Z",
+      "filledAt": "2026-10-13T07:30:05.896Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    }
+  ]
+}
