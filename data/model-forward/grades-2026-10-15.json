@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-15",
-  "gradedAt": "2026-10-15T18:30:44.710Z",
+  "gradedAt": "2026-10-15T19:00:29.559Z",
   "results": [
     {
       "gamePk": 849818,
@@ -60,7 +60,7 @@
       "f5Confidence": 0.5548780487804877,
       "f5KalshiQuoteTime": "2026-10-15T07:00:00.000Z",
       "f5KalshiTier": "PASS",
-      "f5Reason": "Incomplete F5 innings",
+      "f5Reason": null,
       "f5ModelPickSide": "AWAY",
       "f5ModelPickTeam": "Tampa Bay Rays",
       "f5ModelConfidence": 0.5031100698503099,
@@ -77,12 +77,12 @@
       "tie": false,
       "fgStatus": "pending",
       "fgReason": null,
-      "f5Status": "pending",
-      "f5Home": null,
-      "f5Away": null,
-      "f5Result": null,
-      "f5Win": null,
-      "f5Tie": null
+      "f5Status": "graded",
+      "f5Home": 3,
+      "f5Away": 2,
+      "f5Result": "HOME",
+      "f5Win": true,
+      "f5Tie": false
     },
     {
       "gamePk": 849810,
