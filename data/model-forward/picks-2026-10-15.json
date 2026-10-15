@@ -1,0 +1,141 @@
+{
+  "version": "model-forward-v3",
+  "trackedModel": "kalshi-primary",
+  "date": "2026-10-15",
+  "generatedAt": "2026-10-15T07:00:18.397Z",
+  "totalGames": 2,
+  "eligibleGames": 2,
+  "note": "Primary pick/grade for each market is the live Kalshi price -- full-game (KXMLBGAME) and F5 (KXMLBF5), tracked completely separately, never blended. Our full-game/F5 models' own picks are kept as agree/disagree flags (fgModelPickSide/fgModelAgreesWithKalshi, f5ModelPickSide/f5ModelAgreesWithKalshi), not the driver of either pick. Records with trackedModel === 'full-game' predate this convention and remain full-game-model-primary; records with no trackedModel field at all predate that and remain F5-model-primary -- see FEATURE-WISHLIST.md #31/#41.",
+  "picks": [
+    {
+      "gamePk": 849818,
+      "away": "Tampa Bay Rays",
+      "home": "Cleveland Guardians",
+      "awayId": 139,
+      "homeId": 114,
+      "officialDate": "2026-10-15",
+      "gameDate": "2026-10-15T17:00:00Z",
+      "pitcherIds": {
+        "home": 668909,
+        "away": 643377
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Cleveland Guardians",
+      "confidence": 0.545,
+      "kalshiQuoteTime": "2026-10-15T07:00:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Cleveland Guardians",
+      "fgModelConfidence": 0.5025765021442185,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.0234,
+          "direction": "against"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": -0.0232,
+          "direction": "against"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0202,
+          "direction": "against"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": -0.0173,
+          "direction": "against"
+        }
+      ],
+      "featuresThroughDate": "2026-10-14",
+      "imputedFeatures": [],
+      "f5Available": true,
+      "f5PickSide": "HOME",
+      "f5PickTeam": "Cleveland Guardians",
+      "f5Confidence": 0.5548780487804877,
+      "f5KalshiQuoteTime": "2026-10-15T07:00:00.000Z",
+      "f5KalshiTier": "PASS",
+      "f5Reason": null,
+      "f5ModelPickSide": "AWAY",
+      "f5ModelPickTeam": "Tampa Bay Rays",
+      "f5ModelConfidence": 0.5031100698503099,
+      "f5ModelAgreesWithKalshi": false,
+      "capturedAt": "2026-10-15T07:00:18.396Z"
+    },
+    {
+      "gamePk": 849810,
+      "away": "Milwaukee Brewers",
+      "home": "Los Angeles Dodgers",
+      "awayId": 158,
+      "homeId": 119,
+      "officialDate": "2026-10-15",
+      "gameDate": "2026-10-16T00:00:00Z",
+      "pitcherIds": {
+        "home": 607192,
+        "away": null
+      },
+      "available": false,
+      "pickSide": "HOME",
+      "pickTeam": "Los Angeles Dodgers",
+      "confidence": 0.5792079207920792,
+      "kalshiQuoteTime": "2026-10-15T07:00:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": "Late, changed starter/schedule, or invalid Kalshi quote provenance",
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Los Angeles Dodgers",
+      "fgModelConfidence": 0.5303880549999329,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": -0.0108,
+          "direction": "against"
+        },
+        {
+          "feature": "homeParkFactor",
+          "label": "Home park factor",
+          "contribution": -0.0063,
+          "direction": "against"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": -0.0053,
+          "direction": "against"
+        },
+        {
+          "feature": "homePitchingFullRunDiff",
+          "label": "Season pitching run-prevention edge",
+          "contribution": 0.0044,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-14",
+      "imputedFeatures": [
+        "homePitcherWhipDiff",
+        "homePitcherFipDiff"
+      ],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Los Angeles Dodgers",
+      "f5ModelConfidence": 0.5327437633875143,
+      "f5ModelAgreesWithKalshi": null
+    }
+  ]
+}
