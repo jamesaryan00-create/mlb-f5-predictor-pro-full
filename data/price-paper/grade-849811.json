@@ -1,0 +1,14 @@
+{
+  "status": "graded",
+  "gradedAt": "2026-10-15T03:23:02.299Z",
+  "homeRuns": 2,
+  "awayRuns": 6,
+  "win": true,
+  "benchmark": {
+    "side": "home",
+    "win": false,
+    "net": -999.93
+  },
+  "net": 1459.04,
+  "settlementBasis": "MLB final result; hypothetical contract held to settlement, void rules unverified"
+}
