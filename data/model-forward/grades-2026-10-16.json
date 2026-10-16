@@ -1,0 +1,77 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-16",
+  "gradedAt": "2026-10-16T07:30:27.931Z",
+  "results": [
+    {
+      "gamePk": 849817,
+      "away": "Tampa Bay Rays",
+      "home": "Cleveland Guardians",
+      "awayId": 139,
+      "homeId": 114,
+      "officialDate": "2026-10-16",
+      "gameDate": "2026-10-17T00:00:00Z",
+      "pitcherIds": {
+        "home": null,
+        "away": 607259
+      },
+      "available": false,
+      "pickSide": "AWAY",
+      "pickTeam": "Tampa Bay Rays",
+      "confidence": 0.505,
+      "kalshiQuoteTime": "2026-10-16T06:59:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": "No live Kalshi price for either market at pick time",
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Cleveland Guardians",
+      "fgModelConfidence": 0.510739920662497,
+      "fgModelAgreesWithKalshi": false,
+      "topFactors": [
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.0234,
+          "direction": "against"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": -0.0232,
+          "direction": "against"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": -0.0173,
+          "direction": "against"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": -0.0097,
+          "direction": "against"
+        }
+      ],
+      "featuresThroughDate": "2026-10-15",
+      "imputedFeatures": [
+        "homePitcherWhipDiff",
+        "homePitcherFipDiff"
+      ],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Cleveland Guardians",
+      "f5ModelConfidence": 0.5085383555535504,
+      "f5ModelAgreesWithKalshi": null,
+      "provenance": "legacy-unverified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "excluded"
+    }
+  ]
+}
