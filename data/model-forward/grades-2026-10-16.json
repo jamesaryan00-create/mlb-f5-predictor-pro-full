@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-16",
-  "gradedAt": "2026-10-16T14:30:29.097Z",
+  "gradedAt": "2026-10-16T15:00:31.668Z",
   "results": [
     {
       "gamePk": 849817,
@@ -12,21 +12,27 @@
       "officialDate": "2026-10-16",
       "gameDate": "2026-10-17T00:00:00Z",
       "pitcherIds": {
-        "home": null,
+        "home": 542888,
         "away": 607259
       },
-      "available": false,
+      "available": true,
       "pickSide": "AWAY",
       "pickTeam": "Tampa Bay Rays",
       "confidence": 0.505,
-      "kalshiQuoteTime": "2026-10-16T06:59:00.000Z",
+      "kalshiQuoteTime": "2026-10-16T15:00:00.000Z",
       "kalshiTier": "PASS",
-      "reason": "No live Kalshi price for either market at pick time",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Cleveland Guardians",
-      "fgModelConfidence": 0.510739920662497,
+      "fgModelConfidence": 0.5241559279558096,
       "fgModelAgreesWithKalshi": false,
       "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0595,
+          "direction": "for"
+        },
         {
           "feature": "homeFullRunDiff",
           "label": "Season run differential edge",
@@ -44,34 +50,40 @@
           "label": "First-5-innings run differential edge",
           "contribution": -0.0173,
           "direction": "against"
-        },
-        {
-          "feature": "homeLateRunDiff",
-          "label": "Late-inning (6-9) run differential edge",
-          "contribution": -0.0097,
-          "direction": "against"
         }
       ],
       "featuresThroughDate": "2026-10-15",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
-      "f5Available": false,
-      "f5PickSide": null,
-      "f5PickTeam": null,
-      "f5Confidence": null,
-      "f5KalshiQuoteTime": null,
-      "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "imputedFeatures": [],
+      "f5Available": true,
+      "f5PickSide": "AWAY",
+      "f5PickTeam": "Tampa Bay Rays",
+      "f5Confidence": 0.5246913580246914,
+      "f5KalshiQuoteTime": "2026-10-16T14:58:00.000Z",
+      "f5KalshiTier": "PASS",
+      "f5Reason": "Incomplete F5 innings",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Cleveland Guardians",
-      "f5ModelConfidence": 0.5085383555535504,
-      "f5ModelAgreesWithKalshi": null,
-      "provenance": "legacy-unverified",
+      "f5ModelConfidence": 0.5307491357081181,
+      "f5ModelAgreesWithKalshi": false,
+      "capturedAt": "2026-10-16T15:00:16.640Z",
+      "filledAt": "2026-10-16T15:00:16.641Z",
+      "provenance": "verified",
       "trackedModel": "kalshi-primary",
-      "f5Provenance": "legacy-unverified",
-      "status": "excluded"
+      "f5Provenance": "verified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "pending",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     }
   ]
 }
