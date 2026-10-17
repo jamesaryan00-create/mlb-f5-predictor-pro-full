@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-16",
-  "gradedAt": "2026-10-17T01:00:30.780Z",
+  "gradedAt": "2026-10-17T01:30:28.171Z",
   "results": [
     {
       "gamePk": 849817,
@@ -21,7 +21,7 @@
       "confidence": 0.505,
       "kalshiQuoteTime": "2026-10-16T15:00:00.000Z",
       "kalshiTier": "PASS",
-      "reason": null,
+      "reason": "Postponed -- not played in this slot (rescheduled to 2026-10-18T21:00:00Z)",
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Cleveland Guardians",
       "fgModelConfidence": 0.5241559279558096,
@@ -60,7 +60,7 @@
       "f5Confidence": 0.5246913580246914,
       "f5KalshiQuoteTime": "2026-10-16T14:58:00.000Z",
       "f5KalshiTier": "PASS",
-      "f5Reason": "Incomplete F5 innings",
+      "f5Reason": null,
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Cleveland Guardians",
       "f5ModelConfidence": 0.5307491357081181,
@@ -70,20 +70,7 @@
       "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "verified",
-      "status": "pending",
-      "finalHome": null,
-      "finalAway": null,
-      "result": null,
-      "win": null,
-      "tie": false,
-      "fgStatus": "pending",
-      "fgReason": null,
-      "f5Status": "pending",
-      "f5Home": null,
-      "f5Away": null,
-      "f5Result": null,
-      "f5Win": null,
-      "f5Tie": null
+      "status": "excluded"
     }
   ]
 }
