@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-16",
-  "gradedAt": "2026-10-17T12:00:30.513Z",
+  "gradedAt": "2026-10-17T12:30:28.740Z",
   "results": [
     {
       "gamePk": 849817,
@@ -21,7 +21,7 @@
       "confidence": 0.505,
       "kalshiQuoteTime": "2026-10-16T15:00:00.000Z",
       "kalshiTier": "PASS",
-      "reason": "Postponed -- not played in this slot (rescheduled to 2026-10-18T21:00:00Z)",
+      "reason": "Postponed -- not played in this slot (rescheduled to 2026-10-18T21:08:00Z)",
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Cleveland Guardians",
       "fgModelConfidence": 0.5241559279558096,
