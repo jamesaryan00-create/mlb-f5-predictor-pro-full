@@ -1,0 +1,74 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-18",
+  "gradedAt": "2026-10-18T07:30:29.594Z",
+  "results": [
+    {
+      "gamePk": 849817,
+      "away": "Tampa Bay Rays",
+      "home": "Cleveland Guardians",
+      "awayId": 139,
+      "homeId": 114,
+      "officialDate": "2026-10-18",
+      "gameDate": "2026-10-18T21:08:00Z",
+      "pitcherIds": {
+        "home": 800048,
+        "away": 656876
+      },
+      "available": false,
+      "pickSide": null,
+      "pickTeam": null,
+      "confidence": null,
+      "kalshiQuoteTime": null,
+      "kalshiTier": null,
+      "reason": "No live Kalshi price for either market at pick time",
+      "fgModelPickSide": "AWAY",
+      "fgModelPickTeam": "Tampa Bay Rays",
+      "fgModelConfidence": 0.50395068489235,
+      "fgModelAgreesWithKalshi": null,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0331,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": -0.0245,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.0234,
+          "direction": "for"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": -0.0232,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-17",
+      "imputedFeatures": [],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "AWAY",
+      "f5ModelPickTeam": "Tampa Bay Rays",
+      "f5ModelConfidence": 0.5119533795870017,
+      "f5ModelAgreesWithKalshi": null,
+      "provenance": "legacy-unverified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "excluded"
+    }
+  ]
+}
