@@ -17,20 +17,26 @@
       "gameDate": "2026-10-20T00:08:00Z",
       "pitcherIds": {
         "home": 642547,
-        "away": null
+        "away": 542888
       },
-      "available": false,
+      "available": true,
       "pickSide": "HOME",
       "pickTeam": "Tampa Bay Rays",
-      "confidence": 0.575,
-      "kalshiQuoteTime": "2026-10-19T06:58:00.000Z",
-      "kalshiTier": "PASS",
-      "reason": "Late, changed starter/schedule, or invalid Kalshi quote provenance",
+      "confidence": 0.5808080808080808,
+      "kalshiQuoteTime": "2026-10-19T15:30:00.000Z",
+      "kalshiTier": "PLAY",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Tampa Bay Rays",
-      "fgModelConfidence": 0.5553852083172112,
+      "fgModelConfidence": 0.540707502859943,
       "fgModelAgreesWithKalshi": true,
       "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0716,
+          "direction": "against"
+        },
         {
           "feature": "homeFullRunDiff",
           "label": "Season run differential edge",
@@ -48,19 +54,10 @@
           "label": "First-5-innings run differential edge",
           "contribution": 0.0177,
           "direction": "for"
-        },
-        {
-          "feature": "homeLateRunDiff",
-          "label": "Late-inning (6-9) run differential edge",
-          "contribution": 0.0091,
-          "direction": "for"
         }
       ],
       "featuresThroughDate": "2026-10-18",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
+      "imputedFeatures": [],
       "f5Available": false,
       "f5PickSide": null,
       "f5PickTeam": null,
@@ -70,8 +67,11 @@
       "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Tampa Bay Rays",
-      "f5ModelConfidence": 0.5601611481132983,
-      "f5ModelAgreesWithKalshi": null
+      "f5ModelConfidence": 0.5349263585478877,
+      "f5ModelAgreesWithKalshi": null,
+      "capturedAt": "2026-10-19T15:30:10.748Z",
+      "filledAt": "2026-10-19T15:30:10.748Z"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-19T15:30:10.748Z"
 }

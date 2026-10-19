@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-19",
-  "gradedAt": "2026-10-19T15:00:35.876Z",
+  "gradedAt": "2026-10-19T15:30:31.322Z",
   "results": [
     {
       "gamePk": 849815,
@@ -13,20 +13,26 @@
       "gameDate": "2026-10-20T00:08:00Z",
       "pitcherIds": {
         "home": 642547,
-        "away": null
+        "away": 542888
       },
-      "available": false,
+      "available": true,
       "pickSide": "HOME",
       "pickTeam": "Tampa Bay Rays",
-      "confidence": 0.575,
-      "kalshiQuoteTime": "2026-10-19T06:58:00.000Z",
-      "kalshiTier": "PASS",
-      "reason": "No live Kalshi price for either market at pick time",
+      "confidence": 0.5808080808080808,
+      "kalshiQuoteTime": "2026-10-19T15:30:00.000Z",
+      "kalshiTier": "PLAY",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Tampa Bay Rays",
-      "fgModelConfidence": 0.5553852083172112,
+      "fgModelConfidence": 0.540707502859943,
       "fgModelAgreesWithKalshi": true,
       "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0716,
+          "direction": "against"
+        },
         {
           "feature": "homeFullRunDiff",
           "label": "Season run differential edge",
@@ -44,34 +50,40 @@
           "label": "First-5-innings run differential edge",
           "contribution": 0.0177,
           "direction": "for"
-        },
-        {
-          "feature": "homeLateRunDiff",
-          "label": "Late-inning (6-9) run differential edge",
-          "contribution": 0.0091,
-          "direction": "for"
         }
       ],
       "featuresThroughDate": "2026-10-18",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
+      "imputedFeatures": [],
       "f5Available": false,
       "f5PickSide": null,
       "f5PickTeam": null,
       "f5Confidence": null,
       "f5KalshiQuoteTime": null,
       "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Tampa Bay Rays",
-      "f5ModelConfidence": 0.5601611481132983,
+      "f5ModelConfidence": 0.5349263585478877,
       "f5ModelAgreesWithKalshi": null,
-      "provenance": "legacy-unverified",
+      "capturedAt": "2026-10-19T15:30:10.748Z",
+      "filledAt": "2026-10-19T15:30:10.748Z",
+      "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "legacy-unverified",
-      "status": "excluded"
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     }
   ]
 }
