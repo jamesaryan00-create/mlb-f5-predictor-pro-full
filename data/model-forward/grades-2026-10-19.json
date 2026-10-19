@@ -1,0 +1,77 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-19",
+  "gradedAt": "2026-10-19T07:30:26.330Z",
+  "results": [
+    {
+      "gamePk": 849815,
+      "away": "Cleveland Guardians",
+      "home": "Tampa Bay Rays",
+      "awayId": 114,
+      "homeId": 139,
+      "officialDate": "2026-10-19",
+      "gameDate": "2026-10-20T00:08:00Z",
+      "pitcherIds": {
+        "home": 642547,
+        "away": null
+      },
+      "available": false,
+      "pickSide": "HOME",
+      "pickTeam": "Tampa Bay Rays",
+      "confidence": 0.575,
+      "kalshiQuoteTime": "2026-10-19T06:58:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": "No live Kalshi price for either market at pick time",
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Tampa Bay Rays",
+      "fgModelConfidence": 0.5553852083172112,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.0235,
+          "direction": "for"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": 0.0234,
+          "direction": "for"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": 0.0177,
+          "direction": "for"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0091,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-18",
+      "imputedFeatures": [
+        "homePitcherWhipDiff",
+        "homePitcherFipDiff"
+      ],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Tampa Bay Rays",
+      "f5ModelConfidence": 0.5601611481132983,
+      "f5ModelAgreesWithKalshi": null,
+      "provenance": "legacy-unverified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "excluded"
+    }
+  ]
+}
