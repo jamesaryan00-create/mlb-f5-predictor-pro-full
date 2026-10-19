@@ -1,0 +1,102 @@
+{
+  "cohort": "original",
+  "gamePk": 849815,
+  "date": "2026-10-19",
+  "home": "Tampa Bay Rays",
+  "away": "Cleveland Guardians",
+  "homeId": 139,
+  "awayId": 114,
+  "firstPitch": "2026-10-20T00:08:00Z",
+  "lockedAt": "2026-10-19T23:23:02.248Z",
+  "modelCapturedAt": "2026-10-19T23:20:11.656Z",
+  "sourceCapture": "capture-1792452011836-c3e5a4bf-4144-40a2-96e5-9558e8a5cd07.json",
+  "sourceSha256": "c809f3a7aaf26f0f952e74722307aa52e46e7aee7c8096e57211886cf8c679ca",
+  "policy": {
+    "version": "price-paper-v1",
+    "budget": 1000,
+    "adverseCents": 1,
+    "maxQuoteAgeMs": 300000,
+    "maxSkewMs": 60000,
+    "dailyCap": 8
+  },
+  "quotes": {
+    "away": {
+      "time": "2026-10-19T23:20:00.000Z",
+      "bid": 0.41,
+      "ask": 0.42,
+      "mid": 0.415,
+      "spread": 0.010000000000000009,
+      "ageMinutes": 0.18361666666666668
+    },
+    "home": {
+      "time": "2026-10-19T23:20:00.000Z",
+      "bid": 0.58,
+      "ask": 0.59,
+      "mid": 0.585,
+      "spread": 0.010000000000000009,
+      "ageMinutes": 0.18361666666666668
+    }
+  },
+  "decision": {
+    "policy": "price-paper-v1",
+    "action": "UNDERDOG",
+    "side": "away",
+    "reason": "Highest model-estimated return after fees; remains positive at a 1¢ worse entry. Paper candidate only.",
+    "sides": [
+      {
+        "side": "home",
+        "probability": 0.540707502859943,
+        "ask": 0.59,
+        "quoteTime": "2026-10-19T23:20:00.000Z",
+        "marketRole": "FAVORITE",
+        "trade": {
+          "contracts": 1647,
+          "fees": 27.89,
+          "cost": 999.6199999999999,
+          "payout": 1647,
+          "winProfit": 647.3800000000001,
+          "loss": 999.6199999999999
+        },
+        "expected": -109.07474278967379,
+        "stressExpected": -123.35313786403242,
+        "breakEven": 0.6069338190649666
+      },
+      {
+        "side": "away",
+        "probability": 0.45929249714005704,
+        "ask": 0.42,
+        "quoteTime": "2026-10-19T23:20:00.000Z",
+        "marketRole": "UNDERDOG",
+        "trade": {
+          "contracts": 2288,
+          "fees": 39.02,
+          "cost": 999.9799999999999,
+          "payout": 2288,
+          "winProfit": 1288.02,
+          "loss": 999.9799999999999
+        },
+        "expected": 50.88123345645056,
+        "stressExpected": 27.128023605167414,
+        "breakEven": 0.43705419580419574
+      }
+    ],
+    "selected": {
+      "side": "away",
+      "probability": 0.45929249714005704,
+      "ask": 0.42,
+      "quoteTime": "2026-10-19T23:20:00.000Z",
+      "marketRole": "UNDERDOG",
+      "trade": {
+        "contracts": 2288,
+        "fees": 39.02,
+        "cost": 999.9799999999999,
+        "payout": 2288,
+        "winProfit": 1288.02,
+        "loss": 999.9799999999999
+      },
+      "expected": 50.88123345645056,
+      "stressExpected": 27.128023605167414,
+      "breakEven": 0.43705419580419574
+    }
+  }
+}
