@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-09-25",
-  "gradedAt": "2026-10-22T22:30:22.328Z",
+  "gradedAt": "2026-10-22T23:00:38.981Z",
   "results": [
     {
       "gamePk": 824703,
@@ -1850,17 +1850,8 @@
       "filledAt": "2026-09-25T19:30:05.938Z",
       "provenance": "verified",
       "trackedModel": "full-game",
-      "status": "graded",
-      "finalHome": 6,
-      "finalAway": 5,
-      "result": "HOME",
-      "win": true,
-      "tie": false,
-      "f5Home": 2,
-      "f5Away": 5,
-      "f5Result": "AWAY",
-      "f5Win": false,
-      "f5Tie": false
+      "status": "pending",
+      "reason": "The operation was aborted due to timeout"
     },
     {
       "gamePk": 823816,
