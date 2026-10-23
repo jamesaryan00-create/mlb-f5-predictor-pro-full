@@ -1,0 +1,75 @@
+{
+  "version": "model-forward-v3",
+  "trackedModel": "kalshi-primary",
+  "date": "2026-10-23",
+  "generatedAt": "2026-10-23T07:00:12.239Z",
+  "totalGames": 1,
+  "eligibleGames": 1,
+  "note": "Primary pick/grade for each market is the live Kalshi price -- full-game (KXMLBGAME) and F5 (KXMLBF5), tracked completely separately, never blended. Our full-game/F5 models' own picks are kept as agree/disagree flags (fgModelPickSide/fgModelAgreesWithKalshi, f5ModelPickSide/f5ModelAgreesWithKalshi), not the driver of either pick. Records with trackedModel === 'full-game' predate this convention and remain full-game-model-primary; records with no trackedModel field at all predate that and remain F5-model-primary -- see FEATURE-WISHLIST.md #31/#41.",
+  "picks": [
+    {
+      "gamePk": 849805,
+      "away": "Tampa Bay Rays",
+      "home": "Milwaukee Brewers",
+      "awayId": 139,
+      "homeId": 158,
+      "officialDate": "2026-10-23",
+      "gameDate": "2026-10-24T00:00:00Z",
+      "pitcherIds": {
+        "home": 694819,
+        "away": 607259
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Milwaukee Brewers",
+      "confidence": 0.625,
+      "kalshiQuoteTime": "2026-10-23T07:00:00.000Z",
+      "kalshiTier": "STRONG",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Milwaukee Brewers",
+      "fgModelConfidence": 0.5821919894124898,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0489,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0485,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.04,
+          "direction": "for"
+        },
+        {
+          "feature": "homePitcherWhipDiff",
+          "label": "Starting pitcher WHIP edge",
+          "contribution": 0.0205,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-22",
+      "imputedFeatures": [],
+      "f5Available": true,
+      "f5PickSide": "HOME",
+      "f5PickTeam": "Milwaukee Brewers",
+      "f5Confidence": 0.6524390243902439,
+      "f5KalshiQuoteTime": "2026-10-23T06:57:00.000Z",
+      "f5KalshiTier": "STRONG",
+      "f5Reason": null,
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Milwaukee Brewers",
+      "f5ModelConfidence": 0.5746842323974192,
+      "f5ModelAgreesWithKalshi": true,
+      "capturedAt": "2026-10-23T07:00:12.238Z"
+    }
+  ]
+}
