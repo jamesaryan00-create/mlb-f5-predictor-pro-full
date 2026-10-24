@@ -1,0 +1,88 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-24",
+  "gradedAt": "2026-10-24T07:30:30.085Z",
+  "results": [
+    {
+      "gamePk": 849802,
+      "away": "Tampa Bay Rays",
+      "home": "Milwaukee Brewers",
+      "awayId": 139,
+      "homeId": 158,
+      "officialDate": "2026-10-24",
+      "gameDate": "2026-10-25T00:00:00Z",
+      "pitcherIds": {
+        "home": 701656,
+        "away": 656876
+      },
+      "available": true,
+      "pickSide": "HOME",
+      "pickTeam": "Milwaukee Brewers",
+      "confidence": 0.545,
+      "kalshiQuoteTime": "2026-10-24T06:59:00.000Z",
+      "kalshiTier": "PASS",
+      "reason": null,
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Milwaukee Brewers",
+      "fgModelConfidence": 0.5540851414732421,
+      "fgModelAgreesWithKalshi": true,
+      "topFactors": [
+        {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": -0.0573,
+          "direction": "against"
+        },
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": 0.0489,
+          "direction": "for"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": 0.04,
+          "direction": "for"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": 0.0132,
+          "direction": "for"
+        }
+      ],
+      "featuresThroughDate": "2026-10-23",
+      "imputedFeatures": [],
+      "f5Available": true,
+      "f5PickSide": "HOME",
+      "f5PickTeam": "Milwaukee Brewers",
+      "f5Confidence": 0.5123456790123456,
+      "f5KalshiQuoteTime": "2026-10-24T07:00:00.000Z",
+      "f5KalshiTier": "PASS",
+      "f5Reason": "Incomplete F5 innings",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Milwaukee Brewers",
+      "f5ModelConfidence": 0.5302317702816508,
+      "f5ModelAgreesWithKalshi": true,
+      "capturedAt": "2026-10-24T07:00:15.199Z",
+      "provenance": "verified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "verified",
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "pending",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
+    }
+  ]
+}
