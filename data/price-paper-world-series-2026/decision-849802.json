@@ -1,0 +1,84 @@
+{
+  "cohort": "world-series-2026",
+  "gamePk": 849802,
+  "date": "2026-10-24",
+  "home": "Milwaukee Brewers",
+  "away": "Tampa Bay Rays",
+  "homeId": 158,
+  "awayId": 139,
+  "firstPitch": "2026-10-25T00:00:00Z",
+  "lockedAt": "2026-10-24T23:04:01.960Z",
+  "modelCapturedAt": "2026-10-24T23:00:09.819Z",
+  "sourceCapture": "capture-1792882809986-ec38b9d4-b1de-4cff-ae97-81cb2f64b918.json",
+  "sourceSha256": "b3438df894b3356f6ceed7c051cb074f5484847435d4d9d658f996141fa3463c",
+  "policy": {
+    "version": "price-paper-v1",
+    "budget": 1000,
+    "adverseCents": 1,
+    "maxQuoteAgeMs": 300000,
+    "maxSkewMs": 60000,
+    "dailyCap": 8
+  },
+  "quotes": {
+    "away": {
+      "time": "2026-10-24T23:00:00.000Z",
+      "bid": 0.47,
+      "ask": 0.48,
+      "mid": 0.475,
+      "spread": 0.010000000000000009,
+      "ageMinutes": 0.1577
+    },
+    "home": {
+      "time": "2026-10-24T23:00:00.000Z",
+      "bid": 0.53,
+      "ask": 0.54,
+      "mid": 0.535,
+      "spread": 0.010000000000000009,
+      "ageMinutes": 0.1577
+    }
+  },
+  "decision": {
+    "policy": "price-paper-v1",
+    "action": "PASS",
+    "side": null,
+    "reason": "Neither side has positive model-estimated return after fees and a 1¢ worse entry",
+    "sides": [
+      {
+        "side": "home",
+        "probability": 0.5540851414732421,
+        "ask": 0.54,
+        "quoteTime": "2026-10-24T23:00:00.000Z",
+        "marketRole": "FAVORITE",
+        "trade": {
+          "contracts": 1794,
+          "fees": 31.2,
+          "cost": 999.9600000000002,
+          "payout": 1794,
+          "winProfit": 794.0399999999998,
+          "loss": 999.9600000000002
+        },
+        "expected": -5.931256197003904,
+        "stressExpected": -23.331980724147456,
+        "breakEven": 0.5573913043478261
+      },
+      {
+        "side": "away",
+        "probability": 0.44591485852675794,
+        "ask": 0.48,
+        "quoteTime": "2026-10-24T23:00:00.000Z",
+        "marketRole": "UNDERDOG",
+        "trade": {
+          "contracts": 2010,
+          "fees": 35.12,
+          "cost": 999.92,
+          "payout": 2010,
+          "winProfit": 1010.08,
+          "loss": 999.92
+        },
+        "expected": -103.63113436121648,
+        "stressExpected": -121.31772870228679,
+        "breakEven": 0.49747263681592035
+      }
+    ]
+  }
+}
