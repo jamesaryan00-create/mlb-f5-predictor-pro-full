@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-23",
-  "gradedAt": "2026-10-24T01:30:31.174Z",
+  "gradedAt": "2026-10-24T02:00:32.102Z",
   "results": [
     {
       "gamePk": 849805,
@@ -60,7 +60,7 @@
       "f5Confidence": 0.6524390243902439,
       "f5KalshiQuoteTime": "2026-10-23T06:57:00.000Z",
       "f5KalshiTier": "STRONG",
-      "f5Reason": "Incomplete F5 innings",
+      "f5Reason": null,
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Milwaukee Brewers",
       "f5ModelConfidence": 0.5746842323974192,
@@ -77,12 +77,12 @@
       "tie": false,
       "fgStatus": "pending",
       "fgReason": null,
-      "f5Status": "pending",
-      "f5Home": null,
-      "f5Away": null,
-      "f5Result": null,
-      "f5Win": null,
-      "f5Tie": null
+      "f5Status": "graded",
+      "f5Home": 2,
+      "f5Away": 1,
+      "f5Result": "HOME",
+      "f5Win": true,
+      "f5Tie": false
     }
   ]
 }
