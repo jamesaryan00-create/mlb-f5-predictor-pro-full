@@ -1,0 +1,981 @@
+{
+  "modelPlan": {
+    "version": 1,
+    "cohort": "world-series-2026",
+    "label": "World Series 2026 extension",
+    "start": "2026-10-23T07:00:00.000Z",
+    "end": "2026-11-08T08:00:00.000Z",
+    "gameType": "W",
+    "captureDirectory": "kalshi-forward-world-series-2026",
+    "paperDirectory": "price-paper-world-series-2026",
+    "policy": "Separate research cohort; unchanged price-paper-v1. November buffer allows postponements. Grading continues after collection ends. Never merge into the original evaluation."
+  },
+  "generatedAt": "2026-10-25T09:00:03.719Z",
+  "marketTrust": {
+    "selected": 1,
+    "graded": 1,
+    "wins": 1,
+    "losses": 0,
+    "pending": 0,
+    "excluded": 0,
+    "winPct": 100
+  },
+  "results": [
+    {
+      "gamePk": 849805,
+      "gameType": "W",
+      "officialDate": "2026-10-23",
+      "homeId": 158,
+      "awayId": 139,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-10-23T23:00:00.000Z",
+          "bid": 0.37,
+          "ask": 0.38,
+          "mid": 0.375,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.24338333333333334
+        },
+        "home": {
+          "time": "2026-10-23T23:00:00.000Z",
+          "bid": 0.62,
+          "ask": 0.63,
+          "mid": 0.625,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.24338333333333334
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26OCT232000TBMIL-TB",
+        "home": "KXMLBGAME-26OCT232000TBMIL-MIL"
+      },
+      "eventTicker": "KXMLBGAME-26OCT232000TBMIL",
+      "awayTeam": "Tampa Bay Rays",
+      "homeTeam": "Milwaukee Brewers",
+      "firstPitchUtc": "2026-10-24T00:00:00Z",
+      "minutesToPitch": 59.756616666666666,
+      "kalshiAwayRaw": 0.375,
+      "kalshiHomeRaw": 0.625,
+      "kalshiRawSum": 1,
+      "kalshiAwayProb": 0.375,
+      "kalshiHomeProb": 0.625,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Milwaukee Brewers",
+      "kalshiConfidence": 0.625,
+      "tier": "STRONG",
+      "quoteTime": "2026-10-23T23:00:00.000Z",
+      "quoteAgeMinutes": 0.2554166666666667,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-10-23T23:00:00.000Z",
+        "home": "2026-10-23T23:00:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5821919894124898,
+      "modelAgreesWithKalshi": true,
+      "capturedAt": "2026-10-23T23:00:15.390Z",
+      "baseline": true,
+      "candidate": true,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": true,
+      "whaleActivity": {
+        "bySide": {
+          "away": {
+            "available": true,
+            "n": 200,
+            "largestDollars": 1369.2844,
+            "totalDollars": 9475.636699999997,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 1,
+            "largeTradeDollars": 1369.2844,
+            "dollarThreshold": 1000,
+            "yesDollars": 1369.2844,
+            "noDollars": 0,
+            "netImbalanceDollars": 1369.2844,
+            "direction": "yes"
+          },
+          "home": {
+            "available": true,
+            "n": 200,
+            "largestDollars": 9872.1504,
+            "totalDollars": 22568.60360000001,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 3,
+            "largeTradeDollars": 13140.782700000002,
+            "dollarThreshold": 1000,
+            "yesDollars": 11738.468700000001,
+            "noDollars": 1402.314,
+            "netImbalanceDollars": 10336.154700000001,
+            "direction": "yes"
+          }
+        },
+        "pickSide": "home",
+        "dollarsForPick": 11738.468700000001,
+        "dollarsAgainstPick": 2771.5984,
+        "largeTradeDirectionVsPick": "agrees_with_pick"
+      },
+      "status": "graded",
+      "home": 3,
+      "away": 2,
+      "result": "HOME",
+      "win": true,
+      "tie": false,
+      "source": {
+        "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+        "totalItems": 1,
+        "totalEvents": 0,
+        "totalGames": 1,
+        "totalGamesInProgress": 0,
+        "dates": [
+          {
+            "date": "2026-10-23",
+            "totalItems": 1,
+            "totalEvents": 0,
+            "totalGames": 1,
+            "totalGamesInProgress": 0,
+            "games": [
+              {
+                "gamePk": 849805,
+                "gameGuid": "2cdc7b9c-d9c3-4028-85e1-3997012aeed6",
+                "link": "/api/v1.1/game/849805/feed/live",
+                "gameType": "W",
+                "season": "2026",
+                "gameDate": "2026-10-24T00:00:00Z",
+                "officialDate": "2026-10-23",
+                "status": {
+                  "abstractGameState": "Final",
+                  "codedGameState": "F",
+                  "detailedState": "Final",
+                  "statusCode": "F",
+                  "startTimeTBD": false,
+                  "abstractGameCode": "F"
+                },
+                "teams": {
+                  "away": {
+                    "team": {
+                      "id": 139,
+                      "name": "Tampa Bay Rays",
+                      "link": "/api/v1/teams/139"
+                    },
+                    "leagueRecord": {
+                      "wins": 0,
+                      "losses": 1,
+                      "ties": 0,
+                      "pct": ".000"
+                    },
+                    "score": 2,
+                    "isWinner": false,
+                    "splitSquad": false,
+                    "seriesNumber": 1
+                  },
+                  "home": {
+                    "team": {
+                      "id": 158,
+                      "name": "Milwaukee Brewers",
+                      "link": "/api/v1/teams/158"
+                    },
+                    "leagueRecord": {
+                      "wins": 1,
+                      "losses": 0,
+                      "ties": 0,
+                      "pct": "1.000"
+                    },
+                    "score": 3,
+                    "isWinner": true,
+                    "splitSquad": false,
+                    "seriesNumber": 1
+                  }
+                },
+                "linescore": {
+                  "currentInning": 9,
+                  "currentInningOrdinal": "9th",
+                  "inningState": "Top",
+                  "inningHalf": "Top",
+                  "isTopInning": true,
+                  "scheduledInnings": 9,
+                  "innings": [
+                    {
+                      "num": 1,
+                      "ordinalNum": "1st",
+                      "home": {
+                        "runs": 2,
+                        "hits": 3,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 2,
+                      "ordinalNum": "2nd",
+                      "home": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 3,
+                      "ordinalNum": "3rd",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 4,
+                      "ordinalNum": "4th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 1,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 5,
+                      "ordinalNum": "5th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 6,
+                      "ordinalNum": "6th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 7,
+                      "ordinalNum": "7th",
+                      "home": {
+                        "runs": 1,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 8,
+                      "ordinalNum": "8th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 9,
+                      "ordinalNum": "9th",
+                      "home": {
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 1,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      }
+                    }
+                  ],
+                  "teams": {
+                    "home": {
+                      "runs": 3,
+                      "hits": 8,
+                      "errors": 0,
+                      "leftOnBase": 8,
+                      "isWinner": true
+                    },
+                    "away": {
+                      "runs": 2,
+                      "hits": 7,
+                      "errors": 0,
+                      "leftOnBase": 4,
+                      "isWinner": false
+                    }
+                  },
+                  "defense": {
+                    "pitcher": {
+                      "id": 656730,
+                      "fullName": "Trevor Megill",
+                      "link": "/api/v1/people/656730"
+                    },
+                    "catcher": {
+                      "id": 661388,
+                      "fullName": "William Contreras",
+                      "link": "/api/v1/people/661388"
+                    },
+                    "first": {
+                      "id": 641343,
+                      "fullName": "Jake Bauers",
+                      "link": "/api/v1/people/641343"
+                    },
+                    "second": {
+                      "id": 668930,
+                      "fullName": "Brice Turang",
+                      "link": "/api/v1/people/668930"
+                    },
+                    "third": {
+                      "id": 687401,
+                      "fullName": "Joey Ortiz",
+                      "link": "/api/v1/people/687401"
+                    },
+                    "shortstop": {
+                      "id": 806198,
+                      "fullName": "Cooper Pratt",
+                      "link": "/api/v1/people/806198"
+                    },
+                    "left": {
+                      "id": 694192,
+                      "fullName": "Jackson Chourio",
+                      "link": "/api/v1/people/694192"
+                    },
+                    "center": {
+                      "id": 669003,
+                      "fullName": "Garrett Mitchell",
+                      "link": "/api/v1/people/669003"
+                    },
+                    "right": {
+                      "id": 800325,
+                      "fullName": "Luis Lara",
+                      "link": "/api/v1/people/800325"
+                    },
+                    "batter": {
+                      "id": 687401,
+                      "fullName": "Joey Ortiz",
+                      "link": "/api/v1/people/687401"
+                    },
+                    "onDeck": {
+                      "id": 694192,
+                      "fullName": "Jackson Chourio",
+                      "link": "/api/v1/people/694192"
+                    },
+                    "inHole": {
+                      "id": 641343,
+                      "fullName": "Jake Bauers",
+                      "link": "/api/v1/people/641343"
+                    },
+                    "battingOrder": 9,
+                    "team": {
+                      "id": 158,
+                      "name": "Milwaukee Brewers",
+                      "link": "/api/v1/teams/158"
+                    }
+                  },
+                  "offense": {
+                    "batter": {
+                      "id": 676356,
+                      "fullName": "Jonny DeLuca",
+                      "link": "/api/v1/people/676356"
+                    },
+                    "onDeck": {
+                      "id": 683748,
+                      "fullName": "Victor Mesa Jr.",
+                      "link": "/api/v1/people/683748"
+                    },
+                    "inHole": {
+                      "id": 810938,
+                      "fullName": "Ben Williamson",
+                      "link": "/api/v1/people/810938"
+                    },
+                    "second": {
+                      "id": 691406,
+                      "fullName": "Junior Caminero",
+                      "link": "/api/v1/people/691406"
+                    },
+                    "third": {
+                      "id": 802415,
+                      "fullName": "Chandler Simpson",
+                      "link": "/api/v1/people/802415"
+                    },
+                    "pitcher": {
+                      "id": 642121,
+                      "fullName": "Cole Sulser",
+                      "link": "/api/v1/people/642121"
+                    },
+                    "battingOrder": 6,
+                    "team": {
+                      "id": 139,
+                      "name": "Tampa Bay Rays",
+                      "link": "/api/v1/teams/139"
+                    }
+                  },
+                  "balls": 2,
+                  "strikes": 3,
+                  "outs": 3
+                },
+                "venue": {
+                  "id": 32,
+                  "name": "American Family Field",
+                  "link": "/api/v1/venues/32"
+                },
+                "content": {
+                  "link": "/api/v1/game/849805/content"
+                },
+                "isTie": false,
+                "gameNumber": 1,
+                "publicFacing": true,
+                "doubleHeader": "N",
+                "gamedayType": "P",
+                "tiebreaker": "N",
+                "calendarEventID": "14-849805-2026-10-23",
+                "seasonDisplay": "2026",
+                "dayNight": "night",
+                "description": "World Series Game 1",
+                "scheduledInnings": 9,
+                "reverseHomeAwayStatus": false,
+                "inningBreakLength": 175,
+                "gamesInSeries": 7,
+                "seriesGameNumber": 1,
+                "seriesDescription": "World Series",
+                "recordSource": "S",
+                "ifNecessary": "N",
+                "ifNecessaryDescription": "Normal Game"
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    },
+    {
+      "gamePk": 849802,
+      "gameType": "W",
+      "officialDate": "2026-10-24",
+      "homeId": 158,
+      "awayId": 139,
+      "outcomeQuotes": {
+        "away": {
+          "time": "2026-10-24T23:00:00.000Z",
+          "bid": 0.47,
+          "ask": 0.48,
+          "mid": 0.475,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.1577
+        },
+        "home": {
+          "time": "2026-10-24T23:00:00.000Z",
+          "bid": 0.53,
+          "ask": 0.54,
+          "mid": 0.535,
+          "spread": 0.010000000000000009,
+          "ageMinutes": 0.1577
+        }
+      },
+      "marketTickers": {
+        "away": "KXMLBGAME-26OCT242000TBMIL-TB",
+        "home": "KXMLBGAME-26OCT242000TBMIL-MIL"
+      },
+      "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
+      "awayTeam": "Tampa Bay Rays",
+      "homeTeam": "Milwaukee Brewers",
+      "firstPitchUtc": "2026-10-25T00:00:00Z",
+      "minutesToPitch": 59.8423,
+      "kalshiAwayRaw": 0.475,
+      "kalshiHomeRaw": 0.535,
+      "kalshiRawSum": 1.01,
+      "kalshiAwayProb": 0.47029702970297027,
+      "kalshiHomeProb": 0.5297029702970297,
+      "kalshiPickSide": "HOME",
+      "kalshiPickTeam": "Milwaukee Brewers",
+      "kalshiConfidence": 0.5297029702970297,
+      "tier": "PASS",
+      "quoteTime": "2026-10-24T23:00:00.000Z",
+      "quoteAgeMinutes": 0.16226666666666667,
+      "awaySpread": 0.010000000000000009,
+      "homeSpread": 0.010000000000000009,
+      "quoteSkewMinutes": 0,
+      "outcomeQuoteTimes": {
+        "away": "2026-10-24T23:00:00.000Z",
+        "home": "2026-10-24T23:00:00.000Z"
+      },
+      "marketStatus": "active",
+      "gameStatus": "Pre-Game",
+      "modelAvailable": true,
+      "modelPickSide": "HOME",
+      "modelConfidence": 0.5540851414732421,
+      "modelAgreesWithKalshi": true,
+      "capturedAt": "2026-10-24T23:00:09.819Z",
+      "baseline": false,
+      "candidate": false,
+      "maxSpread": 0.010000000000000009,
+      "marketTrust": false,
+      "whaleActivity": {
+        "bySide": {
+          "away": {
+            "available": true,
+            "n": 200,
+            "largestDollars": 1964.2463999999998,
+            "totalDollars": 12672.542300000006,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 1,
+            "largeTradeDollars": 1964.2463999999998,
+            "dollarThreshold": 1000,
+            "yesDollars": 1964.2463999999998,
+            "noDollars": 0,
+            "netImbalanceDollars": 1964.2463999999998,
+            "direction": "yes"
+          },
+          "home": {
+            "available": true,
+            "n": 200,
+            "largestDollars": 439.02000000000004,
+            "totalDollars": 7410.498900000011,
+            "blockTradeCount": 0,
+            "blockTradeDollars": 0,
+            "largeTradeCount": 0,
+            "largeTradeDollars": 0,
+            "dollarThreshold": 1000,
+            "yesDollars": 0,
+            "noDollars": 0,
+            "netImbalanceDollars": 0,
+            "direction": null
+          }
+        },
+        "pickSide": "home",
+        "dollarsForPick": 0,
+        "dollarsAgainstPick": 1964.2463999999998,
+        "largeTradeDirectionVsPick": "against_pick"
+      },
+      "status": "graded",
+      "home": 5,
+      "away": 4,
+      "result": "HOME",
+      "win": true,
+      "tie": false,
+      "source": {
+        "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+        "totalItems": 1,
+        "totalEvents": 0,
+        "totalGames": 1,
+        "totalGamesInProgress": 0,
+        "dates": [
+          {
+            "date": "2026-10-24",
+            "totalItems": 1,
+            "totalEvents": 0,
+            "totalGames": 1,
+            "totalGamesInProgress": 0,
+            "games": [
+              {
+                "gamePk": 849802,
+                "gameGuid": "9fc70466-5ff7-49b2-91e9-6b44da1e000f",
+                "link": "/api/v1.1/game/849802/feed/live",
+                "gameType": "W",
+                "season": "2026",
+                "gameDate": "2026-10-25T00:00:00Z",
+                "officialDate": "2026-10-24",
+                "status": {
+                  "abstractGameState": "Final",
+                  "codedGameState": "F",
+                  "detailedState": "Final",
+                  "statusCode": "F",
+                  "startTimeTBD": false,
+                  "abstractGameCode": "F"
+                },
+                "teams": {
+                  "away": {
+                    "team": {
+                      "id": 139,
+                      "name": "Tampa Bay Rays",
+                      "link": "/api/v1/teams/139"
+                    },
+                    "leagueRecord": {
+                      "wins": 0,
+                      "losses": 2,
+                      "ties": 0,
+                      "pct": ".000"
+                    },
+                    "score": 4,
+                    "isWinner": false,
+                    "splitSquad": false,
+                    "seriesNumber": 1
+                  },
+                  "home": {
+                    "team": {
+                      "id": 158,
+                      "name": "Milwaukee Brewers",
+                      "link": "/api/v1/teams/158"
+                    },
+                    "leagueRecord": {
+                      "wins": 2,
+                      "losses": 0,
+                      "ties": 0,
+                      "pct": "1.000"
+                    },
+                    "score": 5,
+                    "isWinner": true,
+                    "splitSquad": false,
+                    "seriesNumber": 1
+                  }
+                },
+                "linescore": {
+                  "currentInning": 9,
+                  "currentInningOrdinal": "9th",
+                  "inningState": "Top",
+                  "inningHalf": "Top",
+                  "isTopInning": true,
+                  "scheduledInnings": 9,
+                  "innings": [
+                    {
+                      "num": 1,
+                      "ordinalNum": "1st",
+                      "home": {
+                        "runs": 2,
+                        "hits": 4,
+                        "errors": 1,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 4,
+                        "hits": 3,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 2,
+                      "ordinalNum": "2nd",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 3,
+                      "ordinalNum": "3rd",
+                      "home": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 4,
+                      "ordinalNum": "4th",
+                      "home": {
+                        "runs": 1,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 3
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 1,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 5,
+                      "ordinalNum": "5th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 6,
+                      "ordinalNum": "6th",
+                      "home": {
+                        "runs": 1,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 7,
+                      "ordinalNum": "7th",
+                      "home": {
+                        "runs": 1,
+                        "hits": 2,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    },
+                    {
+                      "num": 8,
+                      "ordinalNum": "8th",
+                      "home": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 2
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      }
+                    },
+                    {
+                      "num": 9,
+                      "ordinalNum": "9th",
+                      "home": {
+                        "hits": 0,
+                        "errors": 0,
+                        "leftOnBase": 0
+                      },
+                      "away": {
+                        "runs": 0,
+                        "hits": 1,
+                        "errors": 0,
+                        "leftOnBase": 1
+                      }
+                    }
+                  ],
+                  "teams": {
+                    "home": {
+                      "runs": 5,
+                      "hits": 11,
+                      "errors": 1,
+                      "leftOnBase": 12
+                    },
+                    "away": {
+                      "runs": 4,
+                      "hits": 7,
+                      "errors": 1,
+                      "leftOnBase": 6
+                    }
+                  },
+                  "defense": {
+                    "pitcher": {
+                      "id": 676879,
+                      "fullName": "Aaron Ashby",
+                      "link": "/api/v1/people/676879"
+                    },
+                    "catcher": {
+                      "id": 661388,
+                      "fullName": "William Contreras",
+                      "link": "/api/v1/people/661388"
+                    },
+                    "first": {
+                      "id": 641343,
+                      "fullName": "Jake Bauers",
+                      "link": "/api/v1/people/641343"
+                    },
+                    "second": {
+                      "id": 668930,
+                      "fullName": "Brice Turang",
+                      "link": "/api/v1/people/668930"
+                    },
+                    "third": {
+                      "id": 666152,
+                      "fullName": "David Hamilton",
+                      "link": "/api/v1/people/666152"
+                    },
+                    "shortstop": {
+                      "id": 806198,
+                      "fullName": "Cooper Pratt",
+                      "link": "/api/v1/people/806198"
+                    },
+                    "left": {
+                      "id": 694192,
+                      "fullName": "Jackson Chourio",
+                      "link": "/api/v1/people/694192"
+                    },
+                    "center": {
+                      "id": 669003,
+                      "fullName": "Garrett Mitchell",
+                      "link": "/api/v1/people/669003"
+                    },
+                    "right": {
+                      "id": 686217,
+                      "fullName": "Sal Frelick",
+                      "link": "/api/v1/people/686217"
+                    },
+                    "batter": {
+                      "id": 669003,
+                      "fullName": "Garrett Mitchell",
+                      "link": "/api/v1/people/669003"
+                    },
+                    "onDeck": {
+                      "id": 806198,
+                      "fullName": "Cooper Pratt",
+                      "link": "/api/v1/people/806198"
+                    },
+                    "inHole": {
+                      "id": 686217,
+                      "fullName": "Sal Frelick",
+                      "link": "/api/v1/people/686217"
+                    },
+                    "battingOrder": 6,
+                    "team": {
+                      "id": 158,
+                      "name": "Milwaukee Brewers",
+                      "link": "/api/v1/teams/158"
+                    }
+                  },
+                  "offense": {
+                    "batter": {
+                      "id": 650490,
+                      "fullName": "Yandy Díaz",
+                      "link": "/api/v1/people/650490"
+                    },
+                    "onDeck": {
+                      "id": 666018,
+                      "fullName": "Jonathan Aranda",
+                      "link": "/api/v1/people/666018"
+                    },
+                    "inHole": {
+                      "id": 802415,
+                      "fullName": "Chandler Simpson",
+                      "link": "/api/v1/people/802415"
+                    },
+                    "pitcher": {
+                      "id": 571927,
+                      "fullName": "Steven Matz",
+                      "link": "/api/v1/people/571927"
+                    },
+                    "battingOrder": 1,
+                    "team": {
+                      "id": 139,
+                      "name": "Tampa Bay Rays",
+                      "link": "/api/v1/teams/139"
+                    }
+                  },
+                  "balls": 3,
+                  "strikes": 3,
+                  "outs": 3
+                },
+                "venue": {
+                  "id": 32,
+                  "name": "American Family Field",
+                  "link": "/api/v1/venues/32"
+                },
+                "content": {
+                  "link": "/api/v1/game/849802/content"
+                },
+                "isTie": false,
+                "gameNumber": 1,
+                "publicFacing": true,
+                "doubleHeader": "N",
+                "gamedayType": "P",
+                "tiebreaker": "N",
+                "calendarEventID": "14-849802-2026-10-24",
+                "seasonDisplay": "2026",
+                "dayNight": "night",
+                "description": "World Series Game 2",
+                "scheduledInnings": 9,
+                "reverseHomeAwayStatus": false,
+                "inningBreakLength": 175,
+                "gamesInSeries": 7,
+                "seriesGameNumber": 2,
+                "seriesDescription": "World Series",
+                "recordSource": "S",
+                "ifNecessary": "N",
+                "ifNecessaryDescription": "Normal Game"
+              }
+            ],
+            "events": []
+          }
+        ]
+      }
+    }
+  ]
+}
