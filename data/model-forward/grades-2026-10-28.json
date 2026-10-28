@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-10-28",
-  "gradedAt": "2026-10-28T19:00:32.590Z",
+  "gradedAt": "2026-10-28T19:30:30.462Z",
   "results": [
     {
       "gamePk": 849799,
@@ -12,19 +12,19 @@
       "officialDate": "2026-10-28",
       "gameDate": "2026-10-29T00:00:00Z",
       "pitcherIds": {
-        "home": null,
+        "home": 656876,
         "away": 694819
       },
-      "available": false,
+      "available": true,
       "pickSide": "AWAY",
       "pickTeam": "Milwaukee Brewers",
       "confidence": 0.585,
-      "kalshiQuoteTime": "2026-10-28T07:00:00.000Z",
+      "kalshiQuoteTime": "2026-10-28T19:30:00.000Z",
       "kalshiTier": "PLAY",
-      "reason": "No live Kalshi price for either market at pick time",
+      "reason": null,
       "fgModelPickSide": "HOME",
       "fgModelPickTeam": "Tampa Bay Rays",
-      "fgModelConfidence": 0.5027765030492265,
+      "fgModelConfidence": 0.5072174565254398,
       "fgModelAgreesWithKalshi": false,
       "topFactors": [
         {
@@ -40,38 +40,50 @@
           "direction": "against"
         },
         {
+          "feature": "homePitcherFipDiff",
+          "label": "Starting pitcher FIP edge",
+          "contribution": 0.0134,
+          "direction": "for"
+        },
+        {
           "feature": "homeF5RunDiff",
           "label": "First-5-innings run differential edge",
           "contribution": -0.0128,
           "direction": "against"
-        },
-        {
-          "feature": "homeWinPctDiff",
-          "label": "Season win% edge",
-          "contribution": -0.0089,
-          "direction": "against"
         }
       ],
       "featuresThroughDate": "2026-10-27",
-      "imputedFeatures": [
-        "homePitcherWhipDiff",
-        "homePitcherFipDiff"
-      ],
+      "imputedFeatures": [],
       "f5Available": false,
       "f5PickSide": null,
       "f5PickTeam": null,
       "f5Confidence": null,
       "f5KalshiQuoteTime": null,
       "f5KalshiTier": null,
-      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5Reason": "No live Kalshi price for the F5 market at pick time",
       "f5ModelPickSide": "HOME",
       "f5ModelPickTeam": "Tampa Bay Rays",
-      "f5ModelConfidence": 0.5217057191116211,
+      "f5ModelConfidence": 0.5281995112402265,
       "f5ModelAgreesWithKalshi": null,
-      "provenance": "legacy-unverified",
+      "capturedAt": "2026-10-28T19:30:06.855Z",
+      "filledAt": "2026-10-28T19:30:06.856Z",
+      "provenance": "verified",
       "trackedModel": "kalshi-primary",
       "f5Provenance": "legacy-unverified",
-      "status": "excluded"
+      "status": "pending",
+      "finalHome": null,
+      "finalAway": null,
+      "result": null,
+      "win": null,
+      "tie": false,
+      "fgStatus": "pending",
+      "fgReason": null,
+      "f5Status": "excluded",
+      "f5Home": null,
+      "f5Away": null,
+      "f5Result": null,
+      "f5Win": null,
+      "f5Tie": null
     }
   ]
 }
