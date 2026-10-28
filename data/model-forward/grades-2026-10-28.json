@@ -1,0 +1,77 @@
+{
+  "version": "model-forward-v3",
+  "date": "2026-10-28",
+  "gradedAt": "2026-10-28T07:30:29.271Z",
+  "results": [
+    {
+      "gamePk": 849799,
+      "away": "Milwaukee Brewers",
+      "home": "Tampa Bay Rays",
+      "awayId": 158,
+      "homeId": 139,
+      "officialDate": "2026-10-28",
+      "gameDate": "2026-10-29T00:00:00Z",
+      "pitcherIds": {
+        "home": null,
+        "away": 694819
+      },
+      "available": false,
+      "pickSide": "AWAY",
+      "pickTeam": "Milwaukee Brewers",
+      "confidence": 0.585,
+      "kalshiQuoteTime": "2026-10-28T07:00:00.000Z",
+      "kalshiTier": "PLAY",
+      "reason": "No live Kalshi price for either market at pick time",
+      "fgModelPickSide": "HOME",
+      "fgModelPickTeam": "Tampa Bay Rays",
+      "fgModelConfidence": 0.5027765030492265,
+      "fgModelAgreesWithKalshi": false,
+      "topFactors": [
+        {
+          "feature": "homeLateRunDiff",
+          "label": "Late-inning (6-9) run differential edge",
+          "contribution": -0.0495,
+          "direction": "against"
+        },
+        {
+          "feature": "homeFullRunDiff",
+          "label": "Season run differential edge",
+          "contribution": -0.0399,
+          "direction": "against"
+        },
+        {
+          "feature": "homeF5RunDiff",
+          "label": "First-5-innings run differential edge",
+          "contribution": -0.0128,
+          "direction": "against"
+        },
+        {
+          "feature": "homeWinPctDiff",
+          "label": "Season win% edge",
+          "contribution": -0.0089,
+          "direction": "against"
+        }
+      ],
+      "featuresThroughDate": "2026-10-27",
+      "imputedFeatures": [
+        "homePitcherWhipDiff",
+        "homePitcherFipDiff"
+      ],
+      "f5Available": false,
+      "f5PickSide": null,
+      "f5PickTeam": null,
+      "f5Confidence": null,
+      "f5KalshiQuoteTime": null,
+      "f5KalshiTier": null,
+      "f5Reason": "No usable live Kalshi price for the F5 market at capture time (F5 Kalshi liquidity is thin -- see FEATURE-WISHLIST.md #41)",
+      "f5ModelPickSide": "HOME",
+      "f5ModelPickTeam": "Tampa Bay Rays",
+      "f5ModelConfidence": 0.5217057191116211,
+      "f5ModelAgreesWithKalshi": null,
+      "provenance": "legacy-unverified",
+      "trackedModel": "kalshi-primary",
+      "f5Provenance": "legacy-unverified",
+      "status": "excluded"
+    }
+  ]
+}
