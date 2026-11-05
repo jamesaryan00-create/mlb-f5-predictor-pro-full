@@ -1,7 +1,7 @@
 {
   "version": "model-forward-v3",
   "date": "2026-09-20",
-  "gradedAt": "2026-11-05T11:00:19.832Z",
+  "gradedAt": "2026-11-05T11:30:28.983Z",
   "results": [
     {
       "gamePk": 823570,
@@ -1686,12 +1686,8 @@
       "capturedAt": "2026-09-20T07:00:10.287Z",
       "provenance": "verified",
       "trackedModel": "f5-legacy",
-      "status": "graded",
-      "f5Home": 6,
-      "f5Away": 4,
-      "result": "HOME",
-      "win": true,
-      "tie": false
+      "status": "pending",
+      "reason": "The operation was aborted due to timeout"
     },
     {
       "gamePk": 824789,
